@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+@theme {
+  --color-surface-tint: #ffb692;
+  --color-on-primary-fixed-variant: #793000;
+  --color-on-surface-variant: #dcc1b5;
+  --color-tertiary-fixed: #65f7fe;
+  --color-on-tertiary-fixed-variant: #004f52;
+  --color-tertiary: #44dde4;
+  --color-on-secondary: #303030;
+  --color-tertiary-container: #00c1c8;
+  --color-secondary-container: #494948;
+  --color-on-tertiary-fixed: #002021;
+  --color-inverse-on-surface: #313030;
+  --color-on-primary-fixed: #341100;
+  --color-surface-container-low: #1c1b1b;
+  --color-on-primary: #562000;
+  --color-primary-fixed: #ffdbcb;
+  --color-on-primary-container: #712c00;
+  --color-surface-container: #201f1f;
+  --color-on-tertiary: #003739;
+  --color-on-background: #e5e2e1;
+  --color-on-tertiary-container: #004a4c;
+  --color-outline: #a48c81;
+  --color-on-surface: #e5e2e1;
+  --color-surface-bright: #3a3939;
+  --color-surface-dim: #131313;
+  --color-background: #131313;
+  --color-secondary: #c8c6c4;
+  --color-on-error: #690005;
+  --color-surface-container-highest: #353534;
+  --color-inverse-primary: #9b450f;
+  --color-surface-container-lowest: #0e0e0e;
+  --color-primary: #ffba98;
+  --color-secondary-fixed-dim: #c8c6c4;
+  --color-on-secondary-container: #bab8b6;
+  --color-on-secondary-fixed: #1b1c1b;
+  --color-on-error-container: "#ffdad6";
+  --color-inverse-surface: #e5e2e1;
+  --color-tertiary-fixed-dim: #40dae1;
+  --color-surface-variant: #353534;
+  --color-surface-container-high: #2a2a2a;
+  --color-surface: #131313;
+  --color-secondary-fixed: #e4e2e0;
+  --color-on-secondary-fixed-variant: #474746;
+  --color-primary-container: #ff9157;
+  --color-primary-fixed-dim: #ffb692;
+  --color-outline-variant: #56433a;
+  --color-error-container: #93000a;
+  --color-error: #ffb4ab;
+
+  --font-headline: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-label: "Inter", sans-serif;
+}
+
+@layer base {
+  body {
+    background-color: #0e0e0e;
+    color: #e5e2e1;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    @apply antialiased;
+  }
+}
+
+@layer utilities {
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+  .tonal-shift {
+    background-color: rgba(32, 31, 31, 0.4);
+  }
+  .glass-panel {
+    backdrop-filter: blur(20px);
+    background: rgba(38, 38, 38, 0.6);
+  }
+  .text-tension-lg {
+    font-size: clamp(3rem, 10vw, 8rem);
+    line-height: 0.9;
+  }
+  .ignition-gradient {
+    background: linear-gradient(135deg, #ff9157 0%, #ff7a2c 100%);
+  }
+}

@@ -1,0 +1,485 @@
+<!doctype html>
+<html class="dark" lang="fr">
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+        <script id="tailwind-config">
+            tailwind.config = {
+                darkMode: "class",
+                theme: {
+                    extend: {
+                        colors: {
+                        "surface-tint": "#ffb692",
+                        "on-primary-fixed-variant": "#793000",
+                        "on-surface-variant": "#dcc1b5",
+                        "tertiary-fixed": "#65f7fe",
+                        "on-tertiary-fixed-variant": "#004f52",
+                        tertiary: "#44dde4",
+                        "on-secondary": "#303030",
+                        "tertiary-container": "#00c1c8",
+                        "secondary-container": "#494948",
+                        "on-tertiary-fixed": "#002021",
+                        "inverse-on-surface": "#313030",
+                        "on-primary-fixed": "#341100",
+                        "surface-container-low": "#1c1b1b",
+                        "on-primary": "#562000",
+                        "primary-fixed": "#ffdbcb",
+                        "on-primary-container": "#712c00",
+                        "surface-container": "#201f1f",
+                        "on-tertiary": "#003739",
+                        "on-background": "#e5e2e1",
+                        "on-tertiary-container": "#004a4c",
+                        outline: "#a48c81",
+                        "on-surface": "#e5e2e1",
+                        "surface-bright": "#3a3939",
+                        "surface-dim": "#131313",
+                        background: "#131313",
+                        secondary: "#c8c6c4",
+                        "on-error": "#690005",
+                        "surface-container-highest": "#353534",
+                        "inverse-primary": "#9b450f",
+                        "surface-container-lowest": "#0e0e0e",
+                        primary: "#ffba98",
+                        "secondary-fixed-dim": "#c8c6c4",
+                        "on-secondary-container": "#bab8b6",
+                        "on-secondary-fixed": "#1b1c1b",
+                        "on-error-container": "#ffdad6",
+                        "inverse-surface": "#e5e2e1",
+                        "tertiary-fixed-dim": "#40dae1",
+                        "surface-variant": "#353534",
+                        "surface-container-high": "#2a2a2a",
+                        surface: "#131313",
+                        "secondary-fixed": "#e4e2e0",
+                        "on-secondary-fixed-variant": "#474746",
+                        "primary-container": "#ff9157",
+                        "primary-fixed-dim": "#ffb692",
+                        "outline-variant": "#56433a",
+                        "error-container": "#93000a",
+                        error: "#ffb4ab",
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px",
+                    },
+                    fontFamily: {
+                        headline: ["Space Grotesk"],
+                        body: ["Inter"],
+                        label: ["Inter"],
+                    },
+                },
+            },
+        };
+        </script>
+        <style>
+            body {
+                background-color: #0e0e0e;
+                color: #e5e2e1;
+                font-family: "Inter", sans-serif;
+            }
+            .material-symbols-outlined {
+                font-variation-settings:
+                "FILL" 0,
+                "wght" 400,
+                "GRAD" 0,
+                "opsz" 24;
+            }
+            .tonal-shift {
+                background-color: rgba(32, 31, 31, 0.4);
+            }
+            .glass-panel {
+                backdrop-filter: blur(20px);
+                background: rgba(38, 38, 38, 0.6);
+            }
+            .text-tension-lg {
+                font-size: clamp(3rem, 10vw, 8rem);
+                line-height: 0.9;
+            }
+            .ignition-gradient {
+                background: linear-gradient(135deg, #ff9157 0%, #ff7a2c 100%);
+            }
+        </style>
+    </head>
+
+    <body class="selection:bg-primary-container selection:text-on-primary-container">
+
+        <!-- HEADER -->
+        <header>
+            <nav class="fixed top-0 w-full z-50 bg-stone-950/60 backdrop-blur-xl">
+                <div class="flex justify-between items-center px-8 py-6 w-full max-w-screen-2xl mx-auto" data-pg-name="Navbar">
+                    <div class="text-2xl font-black text-orange-500 tracking-tighter font-['Space_Grotesk']" data-pg-name="Logo">
+                        M-MOTORS
+                    </div>
+                    <!-- Liens de navigation -->
+                    <div class="hidden items-end space-x-12 md:flex" data-pg-name="Liens">
+                        <a class="font-['Space_Grotesk'] pb-1 text-stone-400 text-xs tracking-wider uppercase hover:text-stone-100" href="catalogue.html">Catalogue</a>
+                        <a class="font-['Space_Grotesk'] p-1 text-stone-400 text-xs tracking-wider transition-colors uppercase" href="a-propos.html">À propos</a>
+                    </div>
+                    <!-- Bouton de connexion -->
+                    <div class="flex items-center gap-6" data-pg-name="Connexion">
+                        <button class="font-bold hidden ignition-gradient px-6 py-2 rounded-lg text-on-primary-fixed text-sm tracking-widest transition-transform uppercase active:scale-95 md:block">
+                            CONNEXION
+                        </button>
+                        <span class="material-symbols-outlined text-stone-100 cursor-pointer" data-icon="menu">
+                            menu
+                        </span>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <!-- HERO -->
+            <section class="relative min-h-screen flex items-center pt-24 overflow-hidden bg-surface-container-lowest" data-pg-name="Section : Hero">
+                <div class="absolute inset-0 z-0" data-pg-name="Image de fond">
+                    <div class="absolute inset-0 bg-gradient-to-r from-surface-container-lowest via-surface-container-lowest/80 to-transparent z-10" data-pg-name="Ombre devant l'image"></div>
+                    <img class="w-full h-full object-cover grayscale opacity-50" data-alt="sleek modern supercar side profile in a dark cinematic garage with dramatic rim lighting and shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2L8bbipyhdBjNqpVQ-Jlwvg3b9HzayQRSG5JLFwfNb9pAUNgoz7Ed2ulzWr2ZFOD8Ul-2hZ6tI5QNHYkvNobBRnTbBeQ6uudeGH06kkx9xpo2DINPUAeaM8_Nl0ujAeKk562UOVPSGp3B9eH0F0QDG9fINC6zSnpWOMi0Dbg-7ihmr3FoNhqpQyMz0RrS0zN2IDD7tL9J7YMb_7fIhMG9xHhUNAOYmOTMAc9b3-hk1Wjo5cLo0VgVXH94CrDxlnBPdZzVTpmZFj4i"/>
+                </div>
+                <div class="relative z-20 w-full max-w-screen-2xl mx-auto px-8">
+                    <div class="max-w-4xl">
+                        <span class="label-sm text-primary-container font-medium tracking-[0.3em] uppercase block mb-6">Précision Ingénierie</span>
+                        <h1 class="text-tension-lg font-headline font-bold text-white uppercase tracking-tighter mb-8">
+                            Valoriser la
+                            <span class="text-primary-container">flexibilité</span>
+                        </h1>
+                        <p class="text-xl text-on-surface-variant font-light max-w-2xl mb-12 leading-relaxed">
+                            L'excellence automobile redéfinie par la technologie et
+                            l'accompagnement sur-mesure. Accédez à un catalogue exclusif de
+                            véhicules d'exception.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-6">
+                            <button class="flex font-bold gap-3 ignition-gradient items-center justify-center px-10 py-5 rounded-lg text-on-primary-fixed tracking-widest uppercase">
+                                Parcourir notre catalogue
+                                <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+                            </button>
+                            <button class="bg-surface-container-highest font-bold px-10 py-5 rounded-lg text-white tracking-widest transition-colors uppercase hover:bg-surface-container-high">
+                                En savoir plus
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Scroll Indicator -->
+                <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 opacity-30">
+                    <span class="text-[10px] uppercase tracking-[0.5em] font-label">En savoir plus</span>
+                    <div class="w-px h-12 bg-white"></div>
+                </div>
+            </section>
+
+            <!-- PROCESS-->
+            <section class="py-32 bg-surface-dim" data-pg-name="Section : Process">
+                <div class="max-w-screen-2xl mx-auto px-8">
+                    <div class="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
+                        <div>
+                            <h2 class="text-5xl font-headline font-bold text-white uppercase tracking-tight">
+                                Processus d'aquisition
+                            </h2>
+                            <div class="h-1 w-24 bg-primary-container mt-4"></div>
+                        </div>
+                        <p class="text-on-surface-variant max-w-md font-light">
+                            Quatre étapes rigoureuses pour une acquisition en toute sérénité,
+                            de la sélection à la remise des clés.
+                        </p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-px bg-outline-variant/10">
+                        <!-- Step 1 -->
+                        <div class="bg-surface-container group p-10 rounded-lg transition-colors hover:bg-surface-container-high">
+                            <span class="text-6xl font-headline font-bold text-outline-variant/30 group-hover:text-primary-container/20 transition-colors">
+                                01
+                            </span>
+                            <h3 class="text-xl font-headline font-bold text-white mt-8 mb-4 uppercase">
+                                Choisissez votre véhicule
+                            </h3>
+                            <p class="text-sm text-on-surface-variant leading-relaxed">
+                                Parcourez notre catalogue exclusif de modèles sélectionnés pour
+                                leur excellence technique et leur rareté.
+                            </p>
+                        </div>
+                        <!-- Step 2 -->
+                        <div class="bg-surface-container group p-10 rounded-lg transition-colors hover:bg-surface-container-high">
+                            <span class="text-6xl font-headline font-bold text-outline-variant/30 group-hover:text-primary-container/20 transition-colors">
+                                02
+                            </span>
+                            <h3 class="text-xl font-headline font-bold text-white mt-8 mb-4 uppercase">
+                                Simulez votre financement
+                            </h3>
+                            <p class="text-sm text-on-surface-variant leading-relaxed">
+                                Ajustez vos mensualités en temps réel selon votre apport et la
+                                durée souhaitée via notre interface intuitive.
+                            </p>
+                        </div>
+                        <!-- Step 3 -->
+                        <div class="bg-surface-container group p-10 rounded-lg transition-colors hover:bg-surface-container-high">
+                            <span class="text-6xl font-headline font-bold text-outline-variant/30 group-hover:text-primary-container/20 transition-colors">
+                                03
+                            </span>
+                            <h3 class="text-xl font-headline font-bold text-white mt-8 mb-4 uppercase">
+                                Déposez vos documents
+                            </h3>
+                            <p class="text-sm text-on-surface-variant leading-relaxed">
+                                Une interface 100% digitale sécurisée pour un traitement
+                                ultra-rapide et confidentiel de votre dossier.
+                            </p>
+                        </div>
+                        <!-- Step 4 -->
+                        <div class="bg-surface-container group p-10 rounded-lg transition-colors hover:bg-surface-container-high">
+                            <span class="text-6xl font-headline font-bold text-outline-variant/30 group-hover:text-primary-container/20 transition-colors">
+                                04
+                            </span>
+                            <h3 class="text-xl font-headline font-bold text-white mt-8 mb-4 uppercase">
+                                Récupérez vos clés
+                            </h3>
+                            <p class="text-sm text-on-surface-variant leading-relaxed">
+                                Livraison à domicile ou expérience en showroom. La route vous
+                                attend désormais.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SERVICES -->
+            <section class="py-32 bg-surface-container-lowest" data-pg-name="Section : Services">
+                <div class="max-w-screen-2xl mx-auto p-8">
+                    <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-20 gap-8">
+                        <div>
+                            <span class="font-black font-headline text-orange-500 text-xs tracking-[0.5em] uppercase">Écosystème Premium</span>
+                            <h2 class="text-4xl lg:text-6xl font-headline font-black uppercase tracking-tighter mt-4">Services Intégrés</h2>
+                        </div>
+                        <p class="text-on-surface-variant max-w-md text-sm lg:text-base uppercase tracking-wider font-medium">
+                    Plus qu'un véhicule, une expérience de mobilité totale sans les contraintes traditionnelles. </p>
+                    </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        <!-- Service Card 1: All Inclusive -->
+                        <div class="relative h-[480px] rounded-2xl overflow-hidden group border border-white/5">
+                            <img class="absolute inset-0 w-full h-full object-cover brightness-[0.4] group-hover:scale-110 transition-transform duration-1000" data-alt="Interior view of a modern luxury automotive service center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAuvjwnFc-hdctkWJrc98sXCvj3MwEhG2NDQSga7w6uctrwqRI1t3tGRHbAHs-bgg3hzPxdVQcvaV-gv5q38F8FqwLkqScM1QJxoh4gdXH5I6blSqvreTodsRlcgtAlw5IUEjDdGe5ea0c-zcw7rbqlhdWIr8SU4mPcjxoDeWXNbJFJqSxj2zUKvsVRqOSA_l2qzomWgYyfnvNrQ4fx4cuFISp01KNoEB7bCQnKx_IG59SCYxK7Dj0l1JkcbVuYyBaibj6B8xi88N2"/>
+                            <div class="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent"></div>
+                            <div class="absolute bottom-10 left-10 right-10">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <span class="material-symbols-outlined text-2xl text-orange-500" data-icon="all_inclusive">all_inclusive</span>
+                                    <span class="font-black font-headline text-orange-500 text-xs tracking-widest uppercase">Offre Signature</span>
+                                </div>
+                                <h3 class="text-3xl font-headline font-black uppercase text-white mb-4">Tout Inclus</h3>
+                                <p class="text-on-surface-variant text-sm font-medium leading-relaxed uppercase tracking-wider mb-8">
+                            Entretien, assurance tous risques et assistance 24/7 réunis en un seul prélèvement fixe. La sérénité absolue. </p>
+                                <button class="border border-primary font-bold ignition-gradient px-8 py-3 rounded-lg text-on-primary-fixed text-xs tracking-widest transition-all uppercase">Découvrir</button>
+                            </div>
+                        </div>
+                        <!-- Service Card 2: Technical -->
+                        <div class="grid grid-rows-2 gap-8">
+                            <div class="bg-surface-container-low p-10 rounded-2xl border border-white/5 flex flex-col justify-between group hover:bg-surface-container transition-colors">
+                                <div class="space-y-6">
+                                    <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center">
+                                        <span class="material-symbols-outlined text-3xl text-orange-500" data-icon="support_agent">support_agent</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xl font-headline font-bold uppercase text-white mb-2">Conciergerie 24/7</h4>
+                                        <p class="text-sm text-on-surface-variant uppercase leading-relaxed">Une équipe dédiée pour répondre à tous vos besoins de mobilité, où que vous soyez.</p>
+                                    </div>
+                                </div>
+                                <div class="cursor-pointer flex font-bold gap-2 items-center mt-6 text-[10px] text-orange-500 tracking-widest uppercase">
+                                    En savoir plus <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+                                </div>
+                            </div>
+                            <div class="bg-surface-container-low p-10 rounded-2xl border border-white/5 flex flex-col justify-between group hover:bg-surface-container transition-colors">
+                                <div class="space-y-6">
+                                    <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center">
+                                        <span class="material-symbols-outlined text-3xl text-orange-500" data-icon="build">build</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xl font-headline font-bold uppercase text-white mb-2">Entretien Prédictif</h4>
+                                        <p class="text-sm text-on-surface-variant uppercase leading-relaxed">Maintenance proactive avec pièces constructeurs d'origine pour garantir la performance.</p>
+                                    </div>
+                                </div>
+                                <div class="cursor-pointer flex font-bold gap-2 items-center mt-6 text-[10px] text-orange-500 tracking-widest uppercase">
+                                    En savoir plus <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Service Card 3: Security & Guarantee -->
+                        <div class="bg-surface-container-high p-10 rounded-2xl border border-white/10 flex flex-col justify-between relative overflow-hidden group">
+                            <div class="absolute top-[-20%] right-[-10%] opacity-5 group-hover:opacity-10 transition-opacity"></div>
+                            <div class="space-y-8 relative z-10">
+                                <span class="material-symbols-outlined text-5xl text-orange-500" data-icon="verified_user">verified_user</span>
+                                <div>
+                                    <h4 class="text-2xl font-headline font-black uppercase text-white mb-4">Garantie Premium Étendue</h4>
+                                    <p class="text-sm text-on-surface-variant uppercase leading-relaxed mb-6">Sérénité totale sur 48 mois ou 100,000 km. Nous couvrons l'essentiel pour que vous ne pensiez qu'au plaisir de conduire.</p>
+                                    <ul class="space-y-3">
+                                        <li class="flex items-center gap-3 text-[10px] font-bold text-white uppercase tracking-widest">
+                                            <span class="material-symbols-outlined text-orange-500 text-sm" data-icon="check_circle">check_circle</span> Assistance Europe
+                                        </li>
+                                        <li class="flex items-center gap-3 text-[10px] font-bold text-white uppercase tracking-widest">
+                                            <span class="material-symbols-outlined text-orange-500 text-sm" data-icon="check_circle">check_circle</span> Remplacement véhicule
+                                        </li>
+                                        <li class="flex items-center gap-3 text-[10px] font-bold text-white uppercase tracking-widest">
+                                            <span class="material-symbols-outlined text-orange-500 text-sm" data-icon="check_circle">check_circle</span> Expertise certifiée
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <button class="font-black font-headline ignition-gradient mt-8 py-4 relative rounded-lg shadow-xl text-on-primary-fixed text-sm tracking-widest uppercase w-full z-10">
+                                Consulter les détails
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--SHORT ABOUT -->
+            <section class="bg-surface-dim overflow-hidden py-32 relative" data-pg-name="Section : Short About">
+                <div class="max-w-screen-2xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-12 gap-16">
+                    <!-- Text Content -->
+                    <div class="lg:col-span-7">
+                        <h2 class="text-5xl md:text-7xl font-headline font-bold text-white uppercase tracking-tighter leading-none mb-12">
+                            Héritage et
+                            <span class="text-primary-container">Excellence</span> Automobile
+                        </h2>
+                        <div class="space-y-6 text-on-surface-variant text-lg font-light leading-relaxed mb-16">
+                            <p>
+                                M-MOTORS incarne la quintessence du luxe et de la performance.
+                                Depuis trois décennies, nous cultivons un savoir-faire unique
+                                dans le sourcing de véhicules rares et la personnalisation de
+                                l'expérience client.
+                            </p>
+                            <p>
+                                Notre mission dépasse la simple transaction. Nous bâtissons des
+                                relations durables fondées sur la confiance technique et
+                                l'émotion esthétique.
+                            </p>
+                        </div>
+                        <!-- Spec-Grid Style Key Figures -->
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-outline-variant/10">
+                            <div class="bg-surface-container p-6 rounded-lg">
+                                <span class="label-sm text-on-surface-variant block mb-2 uppercase tracking-tighter">Expérience</span>
+                                <span class="text-3xl font-headline font-bold text-white">30+ Ans</span>
+                            </div>
+                            <div class="bg-surface-container p-6 rounded-lg">
+                                <span class="label-sm text-on-surface-variant block mb-2 uppercase tracking-tighter">Classement</span>
+                                <span class="text-3xl font-headline font-bold text-white">Top 10</span>
+                            </div>
+                            <div class="bg-surface-container p-6 rounded-lg">
+                                <span class="label-sm text-on-surface-variant block mb-2 uppercase tracking-tighter">Clients</span>
+                                <span class="text-3xl font-headline font-bold text-white">15k+</span>
+                            </div>
+                            <div class="bg-surface-container p-6 rounded-lg">
+                                <span class="label-sm text-on-surface-variant block mb-2 uppercase tracking-tighter">Pays</span>
+                                <span class="text-3xl font-headline font-bold text-white">12</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Ecosystem Image/List -->
+                    <div class="lg:col-span-5">
+                        <div class="bg-surface-container-low p-10 h-full flex flex-col justify-center">
+                            <h3 class="text-2xl font-headline font-bold text-white mb-10 uppercase tracking-widest border-l-4 border-primary-container pl-6">
+                                L'Écosystème M-Motors
+                            </h3>
+                            <ul class="space-y-4">
+                                <li class="bg-surface-container-lowest/50 flex group items-center justify-between p-4 rounded-lg transition-colors hover:bg-primary-container">
+                                    <span class="text-white font-bold uppercase tracking-widest group-hover:text-on-primary-fixed">Vente</span>
+                                    <span class="material-symbols-outlined text-primary-container group-hover:text-on-primary-fixed" data-icon="shopping_cart">shopping_cart</span>
+                                </li>
+                                <li class="bg-surface flex group items-center justify-between p-4 rounded-lg transition-colors hover:bg-primary-container">
+                                    <span class="text-white font-bold uppercase tracking-widest group-hover:text-on-primary-fixed">Accompagnement</span>
+                                    <span class="material-symbols-outlined text-primary-container group-hover:text-on-primary-fixed" data-icon="support_agent">support_agent</span>
+                                </li>
+                                <li class="bg-surface-container-lowest/50 flex group items-center justify-between p-4 rounded-lg transition-colors hover:bg-primary-container">
+                                    <span class="text-white font-bold uppercase tracking-widest group-hover:text-on-primary-fixed">Essai</span>
+                                    <span class="material-symbols-outlined text-primary-container group-hover:text-on-primary-fixed" data-icon="speed">speed</span>
+                                </li>
+                                <li class="bg-surface flex group items-center justify-between p-4 rounded-lg transition-colors hover:bg-primary-container">
+                                    <span class="text-white font-bold uppercase tracking-widest group-hover:text-on-primary-fixed">Financement</span>
+                                    <span class="material-symbols-outlined text-primary-container group-hover:text-on-primary-fixed" data-icon="account_balance">account_balance</span>
+                                </li>
+                                <li class="bg-surface-container-lowest/50 flex group items-center justify-between p-4 rounded-lg transition-colors hover:bg-primary-container">
+                                    <span class="text-white font-bold uppercase tracking-widest group-hover:text-on-primary-fixed">Reprise</span>
+                                    <span class="material-symbols-outlined text-primary-container group-hover:text-on-primary-fixed" data-icon="autorenew">autorenew</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA -->
+            <section class="py-24 bg-primary-container text-on-primary-container" data-pg-name="Section : Boutton action">
+                <div class="flex flex-col gap-12 items-center justify-between max-w-screen-2xl mx-auto pl-8 pr-16 md:flex-row">
+                    <h2 class="font-bold font-headline max-w-xl pl-8 text-4xl text-center tracking-tighter uppercase md:text-5xl md:text-left">
+                        Prêt à démarrer votre expérience ?
+                    </h2>
+                    <button class="bg-on-primary-fixed font-bold px-12 py-6 rounded-lg text-white tracking-[0.2em] transition-transform uppercase hover:scale-105">
+                        Commencer ici
+                    </button>
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="w-full border-t border-stone-800/20">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-12 px-12 py-20 w-full max-w-screen-2xl mx-auto">
+                <div class="col-span-2 md:col-span-1">
+                    <div class="font-['Space_Grotesk'] font-bold mb-6 text-orange-500 text-xl">M-MOTORS</div>
+                    <p class="text-stone-500 font-['Inter'] text-xs uppercase tracking-[0.2em] leading-relaxed">L'ingénierie de précision au service de votre mobilité. Achat ou location, nous redéfinissons les standards de l'automobile premium.</p>
+                    <div class="flex gap-4 mt-8">
+                        <span class="material-symbols-outlined text-stone-400 hover:text-orange-500 cursor-pointer" data-icon="share">share</span>
+                        <span class="material-symbols-outlined text-stone-400 hover:text-orange-500 cursor-pointer" data-icon="public">public</span>
+                        <span class="material-symbols-outlined text-stone-400 hover:text-orange-500 cursor-pointer" data-icon="mail">mail</span>
+                    </div>
+                </div>
+                <!-- COLONNE ENTREPRISE -->
+                <div>
+                    <h5 class="text-stone-100 font-bold mb-6 text-xs uppercase tracking-widest">entreprise</h5>
+                    <ul class="space-y-4">
+                        <li>
+                            <a class="text-stone-500 hover:text-orange-500 transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]" href="#">À propos</a>
+                        </li>
+                        <li>
+                            <a class="text-stone-500 hover:text-orange-500 transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]" href="#">Nos services</a>
+                        </li>
+                        <li>
+                            <a class="text-stone-500 hover:text-orange-500 transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]" href="#">Carrière</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- COLONNE LÉGAL -->
+                <div>
+                    <h5 class="text-stone-100 font-bold mb-6 text-xs uppercase tracking-widest">Légal</h5>
+                    <ul class="space-y-4">
+                        <li>
+                            <a class="text-stone-500 hover:text-orange-500 transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]" href="#">Contact</a>
+                        </li>
+                        <li>
+                            <a class="text-stone-500 hover:text-orange-500 transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]" href="#">Mentions Légales</a>
+                        </li>
+                        <li>
+                            <a class="text-stone-500 hover:text-orange-500 transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]" href="#">Confidentialité</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- COLONNE RÉSEAUX -->
+                <div>
+                    <h5 class="text-stone-100 font-bold mb-6 text-xs uppercase tracking-widest">Réseaux</h5>
+                    <ul class="space-y-4">
+                        <li>
+                            <a class="text-stone-500 hover:text-orange-500 transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]" href="#">Facebook</a>
+                        </li>
+                        <li>
+                            <a class="text-stone-500 hover:text-orange-500 transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]" href="#">Instagram</a>
+                        </li>
+                        <li>
+                            <a class="text-stone-500 hover:text-orange-500 transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]" href="#">YouTube</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- BOTTOM BAR -->
+            <div class="px-12 py-8 bg-stone-900 flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="text-stone-500 font-['Inter'] text-[10px] uppercase tracking-[0.2em]">© 2026 Concept M-Motors. Propulser par Jonathan  Araldi.</div>
+                <div class="text-stone-600 font-['Inter'] text-[9px] uppercase tracking-[0.1em] text-center md:text-right max-w-2xl">Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager. </div>
+            </div>
+        </footer>
+    </body>
+</html>
