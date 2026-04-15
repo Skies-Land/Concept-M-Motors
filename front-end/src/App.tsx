@@ -1,25 +1,13 @@
-import Header from './components/layout/Header';
-import Footer from './components/layout/Footer';
-import Hero from './components/home/Hero';
-import Process from './components/home/Process';
-import Services from './components/home/Services';
-import ShortAbout from './components/home/ShortAbout';
-import CTA from './components/home/CTA';
+// DEPENDANCE
+import { RouterProvider } from 'react-router-dom';
+// COMPONENTS
+import { router } from './routes/router';
 
-function App() {
+// Composant principal de l'application
+export default function App() {
   return (
     <div className="selection:bg-primary-container selection:text-on-primary-container">
-      <Header />
-      <main>
-        <Hero />
-        <Process />
-        <Services />
-        <ShortAbout />
-        <CTA />
-      </main>
-      <Footer />
+      <RouterProvider router={router} />
     </div>
   );
 }
-
-export default App;

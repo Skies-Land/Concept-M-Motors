@@ -1,3 +1,4 @@
+// Composant servant à afficher le processus d'aquisition
 export default function Process() {
   return (
     <section className="py-32 bg-surface-dim" data-pg-name="Section : Process">

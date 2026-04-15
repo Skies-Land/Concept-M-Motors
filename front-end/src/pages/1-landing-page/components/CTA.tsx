@@ -1,3 +1,4 @@
+// Composant servant à afficher un bouton d'appel à l'action
 export default function CTA() {
   return (
     <section className="py-24 bg-primary-container text-on-primary-container" data-pg-name="Section : Boutton action">

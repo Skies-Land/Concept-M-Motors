@@ -1,3 +1,4 @@
+// Composant servant à afficher une courte description de l'entreprise
 export default function ShortAbout() {
   return (
     <section className="bg-surface-dim overflow-hidden py-32 relative" data-pg-name="Section : Short About">
