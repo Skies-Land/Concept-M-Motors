@@ -1,4 +1,5 @@
-// Composant servant à afficher le processus d'aquisition
+// Composant servant à afficher les informations du processus d'aquisition d'un véhicule correspondant à la landing page 
+
 export default function Process() {
   return (
     <section className="py-32 bg-surface-dim" data-pg-name="Section : Process">

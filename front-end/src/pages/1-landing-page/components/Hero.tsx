@@ -1,4 +1,5 @@
-// Composant servant à afficher la section Hero correspondant au prmière élément visible du site
+// Composant servant à afficher la section Hero correspondant à la landing page
+
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center pt-24 overflow-hidden bg-surface-container-lowest" data-pg-name="Section : Hero">

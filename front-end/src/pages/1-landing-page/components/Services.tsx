@@ -1,3 +1,5 @@
+// Composant servant à afficher les services proposés par l'entreprise correspondant à la landing page
+
 export default function Services() {
   return (
     <section className="py-32 bg-surface-container-lowest" data-pg-name="Section : Services">

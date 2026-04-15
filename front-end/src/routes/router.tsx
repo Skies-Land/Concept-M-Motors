@@ -2,6 +2,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 import RootLayout from '../components/layout/RootLayout';
 import LandingPageView from '../pages/1-landing-page/Landing-page-view';
+import AboutPageView from '../pages/2-about-page/About-page-view';
 
 // RAPPEL : For better performance on large apps, use lazy loading: 
 // EXAMPLE : const CatalogPage = lazy(() => import('../pages/3-catalog-page/CatalogPageView'));
@@ -22,7 +23,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'about',
-        element: <div className="p-20 text-center text-2xl text-white">À propos (En cours de développement)</div>,
+        element: <AboutPageView />,
       },
       {
         path: 'login',

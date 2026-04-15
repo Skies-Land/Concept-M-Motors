@@ -21,16 +21,16 @@ export default function Footer() {
           <ul className="space-y-4">
             <li><Link className="text-stone-500 hover:text-orange-500 transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]" to="/about">À propos</Link></li>
             <li><Link className="text-stone-500 hover:text-orange-500 transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]" to="/catalog">Nos services</Link></li>
-            <li><Link className="text-stone-500 hover:text-orange-500 transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]" to="/careers">Carrière</Link></li>
+            <li><Link className="text-stone-500 hover:text-orange-500 transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]" to="/">Carrière</Link></li>
           </ul>
         </div>
         {/* COLONNE LÉGAL */}
         <div>
           <h5 className="text-stone-100 font-bold mb-6 text-xs uppercase tracking-widest">Légal</h5>
           <ul className="space-y-4">
-            <li><Link className="text-stone-500 hover:text-orange-500 transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]" to="/contact">Contact</Link></li>
-            <li><Link className="text-stone-500 hover:text-orange-500 transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]" to="/legal">Mentions Légales</Link></li>
-            <li><Link className="text-stone-500 hover:text-orange-500 transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]" to="/privacy">Confidentialité</Link></li>
+            <li><Link className="text-stone-500 hover:text-orange-500 transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]" to="/">Contact</Link></li>
+            <li><Link className="text-stone-500 hover:text-orange-500 transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]" to="/">Mentions Légales</Link></li>
+            <li><Link className="text-stone-500 hover:text-orange-500 transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]" to="/">Confidentialité</Link></li>
           </ul>
         </div>
         {/* COLONNE RÉSEAUX */}
@@ -45,7 +45,15 @@ export default function Footer() {
       </div>
       {/* BOTTOM BAR */}
       <div className="px-12 py-8 bg-stone-900 flex flex-col md:flex-row justify-between items-center gap-6">
-        <div className="text-stone-500 font-['Inter'] text-[10px] uppercase tracking-[0.2em]">© 2026 Concept M-Motors. Propulsé par Jonathan Araldi.</div>
+        <div className="text-stone-500 font-['Inter'] text-[10px] uppercase tracking-[0.2em]">© 2026 Concept M-Motors. Propulsé par  
+          <a 
+            className="text-orange-500 hover:text-orange-600 transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]" 
+            href="https://github.com/Skies-Land" 
+            target="_blank" 
+            rel="noopener noreferrer">
+            Jonathan Araldi
+          </a>.
+        </div>
         <div className="text-stone-600 font-['Inter'] text-[9px] uppercase tracking-[0.1em] text-center md:text-right max-w-2xl">Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager.</div>
       </div>
     </footer>
