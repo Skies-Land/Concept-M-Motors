@@ -1,9 +1,11 @@
-// Composant servant à afficher les informations du processus d'aquisition d'un véhicule correspondant à la landing page 
+// COMPONENTS
+import Container from "../../../components/layout/Container";
 
+// Composant servant à afficher les informations du processus d'aquisition d'un véhicule correspondant à la landing page 
 export default function Process() {
   return (
     <section className="py-32 bg-surface-dim" data-pg-name="Section : Process">
-      <div className="max-w-screen-2xl mx-auto px-8">
+      <Container>
         <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
           <div>
             <h2 className="text-5xl font-headline font-bold text-white uppercase tracking-tight">
@@ -70,7 +72,7 @@ export default function Process() {
             </p>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

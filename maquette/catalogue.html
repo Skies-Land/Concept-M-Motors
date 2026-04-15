@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html class="dark" lang="fr">
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+        <script id="tailwind-config">
+            tailwind.config = {
+                darkMode: "class",
+                theme: {
+                    extend: {
+                    "colors": {
+                            "surface-tint": "#ffb692",
+                            "on-primary-fixed-variant": "#793000",
+                            "on-surface-variant": "#dcc1b5",
+                            "tertiary-fixed": "#65f7fe",
+                            "on-tertiary-fixed-variant": "#004f52",
+                            "tertiary": "#44dde4",
+                            "on-secondary": "#303030",
+                            "tertiary-container": "#00c1c8",
+                            "secondary-container": "#494948",
+                            "on-tertiary-fixed": "#002021",
+                            "inverse-on-surface": "#313030",
+                            "on-primary-fixed": "#341100",
+                            "surface-container-low": "#1c1b1b",
+                            "on-primary": "#562000",
+                            "primary-fixed": "#ffdbcb",
+                            "on-primary-container": "#712c00",
+                            "surface-container": "#201f1f",
+                            "on-tertiary": "#003739",
+                            "on-background": "#e5e2e1",
+                            "on-tertiary-container": "#004a4c",
+                            "outline": "#a48c81",
+                            "on-surface": "#e5e2e1",
+                            "surface-bright": "#3a3939",
+                            "surface-dim": "#131313",
+                            "background": "#131313",
+                            "secondary": "#c8c6c4",
+                            "on-error": "#690005",
+                            "surface-container-highest": "#353534",
+                            "inverse-primary": "#9b450f",
+                            "surface-container-lowest": "#0e0e0e",
+                            "primary": "#ffba98",
+                            "secondary-fixed-dim": "#c8c6c4",
+                            "on-secondary-container": "#bab8b6",
+                            "on-secondary-fixed": "#1b1c1b",
+                            "on-error-container": "#ffdad6",
+                            "inverse-surface": "#e5e2e1",
+                            "tertiary-fixed-dim": "#40dae1",
+                            "surface-variant": "#353534",
+                            "surface-container-high": "#2a2a2a",
+                            "surface": "#131313",
+                            "secondary-fixed": "#e4e2e0",
+                            "on-secondary-fixed-variant": "#474746",
+                            "primary-container": "#ff9157",
+                            "primary-fixed-dim": "#ffb692",
+                            "outline-variant": "#56433a",
+                            "error-container": "#93000a",
+                            "error": "#ffb4ab"
+                    },
+                    "borderRadius": {
+                            "DEFAULT": "0.25rem",
+                            "lg": "0.5rem",
+                            "xl": "0.75rem",
+                            "full": "9999px"
+                    },
+                    "fontFamily": {
+                            "headline": ["Space Grotesk"],
+                            "body": ["Inter"],
+                            "label": ["Inter"]
+                    }
+                },
+                },
+            }
+        </script>
+        <style>
+            body { 
+            background-color: #0e0e0e; color: #e5e2e1; 
+            font-family: 'Inter', sans-serif; 
+            } 
+            .material-symbols-outlined { 
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; 
+            } 
+            .tonal-shift { 
+            background-color: rgba(32, 31, 31, 0.4); 
+            } 
+            .glass-panel { 
+            backdrop-filter: blur(20px); 
+            background: rgba(38, 38, 38, 0.6); 
+            } 
+            .text-tension-lg { 
+            font-size: clamp(3rem, 10vw, 8rem); 
+            line-height: 0.9; 
+            } 
+            .ignition-gradient { 
+            background: linear-gradient(135deg, #ff9157 0%, #ff7a2c 100%); 
+            }
+        </style>
+    </head>
+
+    <body class="selection:bg-primary-container selection:text-on-primary-container">
+
+        <!-- HEADER -->
+        <header>
+            <nav class="fixed top-0 w-full z-50 bg-stone-950/60 backdrop-blur-xl">
+                <div class="flex justify-between items-center px-8 py-6 w-full max-w-screen-2xl mx-auto" data-pg-name="Navbar">
+                    <div class="text-2xl font-black text-orange-500 tracking-tighter font-['Space_Grotesk']" data-pg-name="Logo">
+                        M-MOTORS
+                    </div>
+                    <div class="hidden items-end space-x-12 md:flex" data-pg-name="Liens">
+                        <a class="font-['Space_Grotesk'] pb-1 text-orange-500 text-xs tracking-wider uppercase hover:text-stone-100" href="#">
+                            Catalogue
+                        </a>
+                        <a class="font-['Space_Grotesk'] p-1 text-stone-400 text-xs tracking-wider transition-colors uppercase" href="#">
+                            À propos
+                        </a>
+                    </div>
+                    <div class="flex items-center gap-6" data-pg-name="Connexion">
+                        <button class="font-bold hidden ignition-gradient px-6 py-2 rounded-lg text-on-primary-fixed text-sm tracking-widest transition-transform uppercase active:scale-95 md:block">CONNEXION</button>
+                        <span class="material-symbols-outlined text-stone-100 cursor-pointer" data-icon="menu">menu</span>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        
+        <main class="pt-32 pb-24 px-8 max-w-[1600px] mx-auto">
+
+            <!-- HERO -->
+            <section class="bg-center bg-cover border-b border-white/5 flex flex-col h-[614px] items-center justify-center px-8 relative rounded-lg text-center bg-[url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&amp;w=2070&amp;auto=format&amp;fit=crop')]" data-pg-name="Section : Hero">
+                <!-- Overlay -->
+                <div class="absolute bg-black/60 inset-0"></div>
+                <div class="relative z-10 max-w-4xl">
+                    <span class="block font-headline mb-4 text-orange-500 text-xs tracking-[0.4em] uppercase">La Collection Signature</span>
+                    <h1 class="font-headline text-6xl md:text-8xl font-extrabold tracking-tighter mb-6 leading-none">
+                        L'ART DE <br/><span class="text-white italic">L'EXCEPTION</span>
+                    </h1>
+                    <p class="text-neutral-300 text-lg font-light tracking-wide max-w-2xl mx-auto mb-8 font-body">
+                        Une sélection d'automobiles, où chaque courbe raconte une histoire de savoir-faire ancestral et d'innovation visionnaire.
+                    </p>
+                </div>
+                <!-- Filtre de recherche -->
+                <!-- <div class="absolute -bottom-10 left-1/2 -translate-x-1/2 w-full max-w-5xl px-8">
+                    <div class="backdrop-blur-xl bg-surface-container-high border border-white/10 flex flex-wrap gap-6 items-center justify-between p-6 rounded-lg shadow-2xl">
+                        <div class="flex-1 min-w-[200px]">
+                            <p class="font-bold mb-2 text-[9px] text-orange-500 tracking-widest uppercase">Prestige &amp; Marque</p>
+                            <select class="w-full bg-transparent border-none p-0 text-sm focus:ring-0 font-headline uppercase tracking-tight">
+                                <option>Toutes les Manufactures</option>
+                                <option>Rolls-Royce</option>
+                                <option>Bentley</option>
+                                <option>Aston Martin</option>
+                                <option>Ferrari</option>
+                            </select>
+                        </div>
+                        <div class="w-px h-10 bg-white/10 hidden md:block"></div>
+                        <div class="flex-1 min-w-[200px]">
+                            <p class="font-bold mb-2 text-[9px] text-orange-500 tracking-widest uppercase">Investissement</p>
+                            <div class="flex justify-between items-center text-sm font-headline">
+                                <span>100k €</span>
+                                <input class="accent-primary flex-grow mx-4" max="2000000" min="100000" step="50000" type="range"/>
+                                <span>2M €+</span>
+                            </div>
+                        </div>
+                        <div class="w-px h-10 bg-white/10 hidden md:block"></div>
+                        <button class="bg-primary font-bold font-headline ignition-gradient px-10 py-4 rounded-lg text-[11px] text-on-primary-fixed tracking-[0.2em] transition-all uppercase hover:brightness-110">
+                            Filtrer
+                        </button>
+                    </div>
+                </div> -->
+            </section>
+            
+            <!-- SECTION : VÉHICULES -->
+            <section class="flex-1 py-32" data-pg-name="Section : Véhicules">
+                <div class="flex justify-between items-end mb-12">
+                    <div>
+                        <h1 class="font-headline text-5xl font-black tracking-tighter uppercase mb-2">
+                            Nos Modèles disponible
+                        </h1>
+                        <p class="text-on-surface-variant text-sm max-w-md">
+                            Explorez notre inventaire d'exception. Chaque véhicule a été expertisé selon des standards d'excellence dépassant les normes industrielles habituelles.
+                        </p>
+                    </div>
+                    <div class="flex gap-4">
+                        <span class="px-4 py-2 bg-surface-container text-xs font-bold tracking-widest border border-outline-variant/10 rounded-md">
+                            6 RESULTATS
+                        </span>
+                    </div>
+                </div>
+                <!-- Grille 3x2 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                    <!-- Vehicle Card 1 -->
+                    <article class="group bg-surface-container-low hover:bg-surface-container transition-all duration-500 rounded-xl overflow-hidden flex flex-col">
+                        <div class="relative h-64 overflow-hidden">
+                            <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="sleek black porsche 911 parked in a minimalist concrete architectural space with dramatic shadows and sharp highlights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoJstpUSDZ8hKbGUZdBgHVegUhLYuwbAZOHAnvkCKS4vG_UNjMmME82K-YD90HI3fDDOSSyaGNM-R7EJ0lEz1K8fppHeo10fYlkDgxfkioSqJj5RXCVXmU0GDSz9N3rPXLGkoq7A0wrL1WQJZwaXLWww3TZg5_tiWNldvrmkMiL6xLWAKeGBHA6Wa1yXEfOqXWvQ8dnqYwwmhnSp1_7fgFaAwuCRhYsRkQvS5ONGjwOqyGlNLprEFVteEfCOH4o9LjNnYJmumXtiCm"/>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col">
+                            <!-- Info véhicule -->
+                            <h3 class="font-headline text-xl font-bold mb-4 tracking-tight">
+                                Porsche 911
+                            </h3>
+                            <!-- Achat / Location -->
+                            <div class="mt-auto pt-6 border-t border-white/5 flex flex-col gap-2">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-[10px] text-on-surface-variant font-bold uppercase tracking-widest">
+                                        Achat
+                                    </span>
+                                    <span class="font-bold font-headline text-lg text-orange-500">
+                                        224 900€
+                                    </span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-[10px] text-on-surface-variant font-bold uppercase tracking-widest">
+                                        Location
+                                    </span>
+                                    <span class="text-sm font-medium">
+                                        2 849€/mois
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Vehicle Card 2 -->
+                    <article class="group bg-surface-container-low hover:bg-surface-container transition-all duration-500 rounded-xl overflow-hidden flex flex-col">
+                        <div class="relative h-64 overflow-hidden">
+                            <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="front view of a modern gray audi rs7 with sharp led headlights illuminated against a dark urban garage background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6IkKkWnfkX4MOp9bSa5K0Xt0ybipajWOxpqCL04713jvdNSg7N41hmO2CjXb9lro82mL63ar8rMvaKvu4ACskLI3TKfUpbrJzDrd04sn2a_GvgAQZfunR5B57tWXK1b8DwEe5aYiv5-AgX7JuGh_JkF1hvoXO0Kxc2KxyDoPfb79pNn15uOwYjo_EngMn373KIlXEgqJ-d5ucD5mQ7QAnvN7BsS1vury3d8sIWOrNN_f4V5NkWHUjbcDmBJ28bjRC-FwYsYYVqVpJ"/>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col">
+                            <!-- Info véhicule -->
+                            <h3 class="font-headline text-xl font-bold mb-4 tracking-tight">
+                                Audi RS7 Performance
+                            </h3>
+                            <!-- Achat / Location -->
+                            <div class="mt-auto pt-6 border-t border-white/5 flex flex-col gap-2">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-[10px] text-on-surface-variant font-bold uppercase tracking-widest">
+                                        Achat
+                                    </span>
+                                    <span class="font-bold font-headline text-lg text-orange-500">
+                                        148 500€
+                                    </span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-[10px] text-on-surface-variant font-bold uppercase tracking-widest">
+                                        Location
+                                    </span>
+                                    <span class="text-sm font-medium">
+                                        1 690€/mois
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Vehicle Card 3 -->
+                    <article class="group bg-surface-container-low hover:bg-surface-container transition-all duration-500 rounded-xl overflow-hidden flex flex-col">
+                        <div class="relative h-64 overflow-hidden">
+                            <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="white bmw m4 competition driving on a coastal road at sunset with orange light reflecting on the bodywork" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWdDsOWDAl-AKBl8ZkMvLdMC8R8uPHtZvHna0LLI2tw1HcwBWv_popcJe2RkDxKOTeuk9iQml2JZALEBOojw15POnRcDMHzLHjug0B455RYKaIR4AJa_nc65A1bIffQ1JCuABR8VB9_yMPER3VVz-yh8hU59zA1H7fxh4S_9qEtzjxLAIaHheYEtn4u6BKghTrbMf31lTDe8F1oQgFaG17jnbf6Nsm9tlQXgtqJKJrLsycl80uhZlnQ0hGDVAo4sfqyOSI4Q5vbNfN"/>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col">
+                            <!-- Info véhicule -->
+                            <h3 class="font-headline text-xl font-bold mb-4 tracking-tight">
+                                BMW M4 Competition
+                            </h3>
+                            <!-- Achat / Location -->
+                            <div class="mt-auto pt-6 border-t border-white/5 flex flex-col gap-2">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-[10px] text-on-surface-variant font-bold uppercase tracking-widest">
+                                        Achat
+                                    </span>
+                                    <span class="font-bold font-headline text-lg text-orange-500">
+                                        94 200€
+                                    </span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-[10px] text-on-surface-variant font-bold uppercase tracking-widest">
+                                        Location
+                                    </span>
+                                    <span class="text-sm font-medium">
+                                        1 150€/mois
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Vehicle Card 4 -->
+                    <article class="group bg-surface-container-low hover:bg-surface-container transition-all duration-500 rounded-xl overflow-hidden flex flex-col">
+                        <div class="relative h-64 overflow-hidden">
+                            <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="vibrant blue ferrari f8 tributo parked in a clean futuristic garage with soft overhead lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdAf0MHCO4qzkxM1HugoyNd4xTr2h5OU354NkE0HYG9WgmNwiuX_0nIEVzEnnCrxDQKhs9hvslbRewcaqYEBSojUDgEgfdK1EGAMP2CKgVO3V9eXj3LYShe9NrqagL64oAiCFxARC55NjtSsUT5xafQiBtEnipVCvqNkDJIHf4zNQl7nE-yPNUkcluBfrpKqOgmZtB_CmXagpiOe7lfS6U4rtCDruwCkeiK1a3ecy1j_hy9mgNanKGZjuudYqfP8H5FPo_rKTOddoK"/>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col">
+                            <!-- Info véhicule -->
+                            <h3 class="font-headline text-xl font-bold mb-4 tracking-tight">
+                                Ferrari F8 Tributo
+                            </h3>
+                            <!-- Achat / Location -->
+                            <div class="mt-auto pt-6 border-t border-white/5 flex flex-col gap-2">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-[10px] text-on-surface-variant font-bold uppercase tracking-widest">
+                                        Achat
+                                    </span>
+                                    <span class="font-bold font-headline text-lg text-orange-500">
+                                        315 000€
+                                    </span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-[10px] text-on-surface-variant font-bold uppercase tracking-widest">
+                                        Location
+                                    </span>
+                                    <span class="text-sm font-medium">
+                                        3 900€/mois
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Vehicle Card 5 -->
+                    <article class="group bg-surface-container-low hover:bg-surface-container transition-all duration-500 rounded-xl overflow-hidden flex flex-col">
+                        <div class="relative h-64 overflow-hidden">
+                            <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="matte green mercedes-amg g63 parked in an industrial setting with steel beams and warm accent lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD01zJ-aUmbucYnOEDaSIJADT3qYauN4sWKphfx7yaDtD7IT5AuC6pz16mxbD7ROKylg9zQW9gDuesvJv4ixKVNelK9oTUhAJo4pLeq8ajwOZu6RPWSqUyf7YW3CXTnrru6VA95XL6o53b4na8jxwCAktwx8bASYv2p4DXFBRiYTk7kIXP3fJ5YtrdYS2sGSU6n0XSnhOCwxcP0foHWKARd2_0gACxGoZ164FkaRC8c8P02lwo0LL7ZDgHh59WaNKxGixpNJdMk3MR2"/>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col">
+                            <!-- Info véhicule -->
+                            <h3 class="font-headline text-xl font-bold mb-4 tracking-tight">
+                                Mercedes-AMG G63
+                            </h3>
+                            <!-- Achat / Location -->
+                            <div class="mt-auto pt-6 border-t border-white/5 flex flex-col gap-2">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-[10px] text-on-surface-variant font-bold uppercase tracking-widest">
+                                        Achat
+                                    </span>
+                                    <span class="font-bold font-headline text-lg text-orange-500">
+                                        208 000€
+                                    </span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-[10px] text-on-surface-variant font-bold uppercase tracking-widest">
+                                        Location
+                                    </span>
+                                    <span class="text-sm font-medium">
+                                        2 450€/mois
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Vehicle Card 6 -->
+                    <article class="group bg-surface-container-low hover:bg-surface-container transition-all duration-500 rounded-xl overflow-hidden flex flex-col">
+                        <div class="relative h-64 overflow-hidden">
+                            <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="silver aston martin vantage shown from a side profile in a minimal white studio environment with cold studio lights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDI0XkGuchpkH8yMI0kEptewvR8J9j4kKWJX2mXUgorwDVccsd5wXxxBhTksj45Ia3AGBr3X-xUs82u3m41Q7oppeAj-cn7cdWpF4G2HGBza-_7xz7jvQjvAUvjL-eq3EfgN9RQ0WfuZv5boBiooc7raAH-6l1efzTlX9xYKcjl4914NyQQpbmVt0s9QItL0cOB-s3nlMRrlnxkPd677auEWB686xhhM58MfLySNLnwwkDficm1_AAodzKltSVgWPq10dVfmvuW4G1d"/>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col">
+                            <!-- Info véhicule -->
+                            <h3 class="font-headline text-xl font-bold mb-4 tracking-tight">
+                                Aston Martin Vantage
+                            </h3>
+                            <!-- Achat / Location -->
+                            <div class="mt-auto pt-6 border-t border-white/5 flex flex-col gap-2">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-[10px] text-on-surface-variant font-bold uppercase tracking-widest">
+                                        Achat
+                                    </span>
+                                    <span class="font-bold font-headline text-lg text-orange-500">
+                                        162 000€
+                                    </span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-[10px] text-on-surface-variant font-bold uppercase tracking-widest">
+                                        Location
+                                    </span>
+                                    <span class="text-sm font-medium">
+                                        1 890€/mois
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Pagination -->
+                <div class="mt-24 flex justify-between items-center border-t border-white/10 pt-12">
+                    <button class="text-[10px] font-bold tracking-widest uppercase hover:text-white transition-colors flex items-center gap-2">
+                        <span class="material-symbols-outlined text-sm">west</span> Précédent
+                    </button>
+                    <div class="flex gap-8 font-headline text-sm font-bold">
+                        <span class="text-orange-500 underline underline-offset-8">01</span>
+                        <span class="hover:text-white cursor-pointer transition-colors">02</span>
+                        <span class="hover:text-white cursor-pointer transition-colors">03</span>
+                    </div>
+                    <button class="text-[10px] font-bold tracking-widest uppercase hover:text-white transition-colors flex items-center gap-2">
+                        Suivant <span class="material-symbols-outlined text-sm">east</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- CTA -->
+            <section data-pg-name="Section : CTA">
+                <div class="mt-24 col-span-12 group">
+                    <div class="relative h-[500px] overflow-hidden">
+                        <img alt="High speed racing photography" class="w-full h-full object-cover brightness-50" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFXi8qg75g0zi_6Q-FZk7eteOcZ68_qcYWebp2NIBGt-Lq88cuZB5FjwvlUxmfazCRpJ92TWBG3AMd8e8FJ3P7SIX5qtWFDdikXCMkIIBxugjYS57iAzaR8todxmxJ79IiKGjuIAH2neHlep5toxh0eCcEC9WhJbLMWMC9gpicG6MsLlIqaTPafmNNqEL_omyobi1xQEWYvIXCmdPxvrPiUKrfHdNuiAOP6hdtjwDUtwwwgAbK4NcPlAm_13zryIPIIqTh7COvJ_nw"/>
+                        <div class="absolute inset-0 flex flex-col justify-center items-center text-center p-8">
+                            <span class="font-bold font-headline mb-4 text-orange-500 text-xs tracking-[0.4em] uppercase">
+                                Conciergerie M-Motors
+                            </span>
+                            <h2 class="font-headline text-5xl font-extrabold uppercase tracking-tighter max-w-2xl mb-8">
+                                Un Service Au-Delà de la Possession
+                            </h2>
+                            <p class="text-neutral-200 max-w-xl font-light leading-relaxed mb-10">
+                                Nous n'offrons pas seulement des clés. Nous offrons une entrée dans un cercle restreint de collectionneurs passionnés et un accès exclusif à nos événements privés.
+                            </p>
+                            <button class="bg-transparent border border-white font-bold font-headline hover:bg-white hover:text-black px-12 py-4 text-[10px] tracking-[0.3em] transition-all uppercase">
+                                Consulter un Expert
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SERVICES -->
+            <section class="mt-32" data-pg-name="Section : Services">
+                <div class="text-center mb-16">
+                    <span class="block font-black mb-4 text-[10px] text-orange-500 tracking-[0.4em] uppercase">
+                        M-Motors Ecosystem
+                    </span>
+                    <h2 class="font-headline text-4xl font-bold tracking-tighter uppercase">
+                        Écosystème de Services
+                    </h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Service 1 -->
+                    <div class="p-10 bg-surface-container-high border border-white/5 rounded-xl hover:bg-surface-container-highest transition-all group">
+                        <div class="mb-8">
+                            <span class="material-symbols-outlined text-4xl text-orange-500 transition-transform group-hover:scale-110">
+                                support_agent
+                            </span>
+                        </div>
+                        <h4 class="font-headline text-lg font-bold mb-4 uppercase tracking-tight">
+                            Assistance 24/7
+                        </h4>
+                        <p class="text-on-surface-variant text-sm leading-relaxed mb-6">
+                            Conciergerie dédiée et assistance routière premium disponible partout en Europe en moins de 45 minutes.
+                        </p>
+                        <a class="font-bold text-[10px] text-orange-500 tracking-widest uppercase hover:underline" href="#">
+                            Détails techniques
+                        </a>
+                    </div>
+                    <!-- Service 2 -->
+                    <div class="p-10 bg-surface-container-high border border-white/5 rounded-xl hover:bg-surface-container-highest transition-all group">
+                        <div class="mb-8">
+                            <span class="material-symbols-outlined text-4xl text-orange-500 transition-transform group-hover:scale-110">
+                                precision_manufacturing
+                            </span>
+                        </div>
+                        <h4 class="font-headline text-lg font-bold mb-4 uppercase tracking-tight">
+                            Maintenance Expert
+                        </h4>
+                        <p class="text-on-surface-variant text-sm leading-relaxed mb-6">
+                            Entretien réalisé exclusivement par des techniciens certifiés utilisant des pièces d'origine constructeur.
+                        </p>
+                        <a class="font-bold text-[10px] text-orange-500 tracking-widest uppercase hover:underline" href="#">
+                            Planifier
+                        </a>
+                    </div>
+                    <!-- Service 3 -->
+                    <div class="p-10 bg-surface-container-high border border-white/5 rounded-xl hover:bg-surface-container-highest transition-all group">
+                        <div class="mb-8">
+                            <span class="material-symbols-outlined text-4xl text-orange-500 transition-transform group-hover:scale-110">
+                                verified
+                            </span>
+                        </div>
+                        <h4 class="font-headline text-lg font-bold mb-4 uppercase tracking-tight">
+                            Garantie Premium
+                        </h4>
+                        <p class="text-on-surface-variant text-sm leading-relaxed mb-6">
+                            Couverture intégrale jusqu'à 60 mois, incluant l'ensemble des composants mécaniques et électroniques.
+                        </p>
+                        <a class="font-bold text-[10px] text-orange-500 tracking-widest uppercase hover:underline" href="#">
+                            Conditions
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="w-full border-t border-stone-800/20">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-12 px-12 py-20 w-full max-w-screen-2xl mx-auto">
+                <div class="col-span-2 md:col-span-1">
+                    <div class="font-['Space_Grotesk'] font-bold mb-6 text-orange-500 text-xl">M-MOTORS</div>
+                    <p class="text-stone-500 font-['Inter'] text-xs uppercase tracking-[0.2em] leading-relaxed">L'ingénierie de précision au service de votre mobilité. Achat ou location, nous redéfinissons les standards de l'automobile premium.</p>
+                    <div class="flex gap-4 mt-8">
+                        <span class="material-symbols-outlined text-stone-400 hover:text-orange-500 cursor-pointer" data-icon="share">share</span>
+                        <span class="material-symbols-outlined text-stone-400 hover:text-orange-500 cursor-pointer" data-icon="public">public</span>
+                        <span class="material-symbols-outlined text-stone-400 hover:text-orange-500 cursor-pointer" data-icon="mail">mail</span>
+                    </div>
+                </div>
+                <!-- COLONNE ENTREPRISE -->
+                <div>
+                    <h5 class="text-stone-100 font-bold mb-6 text-xs uppercase tracking-widest">entreprise</h5>
+                    <ul class="space-y-4">
+                        <li>
+                            <a class="text-stone-500 hover:text-orange-500 transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]" href="#">À propos</a>
+                        </li>
+                        <li>
+                            <a class="text-stone-500 hover:text-orange-500 transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]" href="#">Nos services</a>
+                        </li>
+                        <li>
+                            <a class="text-stone-500 hover:text-orange-500 transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]" href="#">Carrière</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- COLONNE LÉGAL -->
+                <div>
+                    <h5 class="text-stone-100 font-bold mb-6 text-xs uppercase tracking-widest">Légal</h5>
+                    <ul class="space-y-4">
+                        <li>
+                            <a class="text-stone-500 hover:text-orange-500 transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]" href="#">Contact</a>
+                        </li>
+                        <li>
+                            <a class="text-stone-500 hover:text-orange-500 transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]" href="#">Mentions Légales</a>
+                        </li>
+                        <li>
+                            <a class="text-stone-500 hover:text-orange-500 transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]" href="#">Confidentialité</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- COLONNE RÉSEAUX -->
+                <div>
+                    <h5 class="text-stone-100 font-bold mb-6 text-xs uppercase tracking-widest">Réseaux</h5>
+                    <ul class="space-y-4">
+                        <li>
+                            <a class="text-stone-500 hover:text-orange-500 transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]" href="#">Facebook</a>
+                        </li>
+                        <li>
+                            <a class="text-stone-500 hover:text-orange-500 transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]" href="#">Instagram</a>
+                        </li>
+                        <li>
+                            <a class="text-stone-500 hover:text-orange-500 transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]" href="#">YouTube</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- BOTTOM BAR -->
+            <div class="px-12 py-8 bg-stone-900 flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="text-stone-500 font-['Inter'] text-[10px] uppercase tracking-[0.2em]">© 2026 Concept M-Motors. Propulser par Jonathan  Araldi.</div>
+                <div class="text-stone-600 font-['Inter'] text-[9px] uppercase tracking-[0.1em] text-center md:text-right max-w-2xl">Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager. </div>
+            </div>
+        </footer>
+    </body>
+</html>

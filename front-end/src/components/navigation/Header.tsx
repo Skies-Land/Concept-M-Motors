@@ -1,14 +1,17 @@
 // DEPENDANCE
 import { Link } from 'react-router-dom';
 
+// COMPONENTS
+import Container from '../layout/Container';
+
 // Composant servant à afficher l'en-tête "Header" du site
 export default function Header() {
   return (
     <header>
       <nav className="fixed top-0 w-full z-50 bg-stone-950/60 backdrop-blur-xl">
 
-        <div 
-          className="flex justify-between items-center px-8 py-6 w-full max-w-screen-2xl mx-auto" 
+        <Container 
+          className="flex justify-between items-center py-6" 
           data-pg-name="Navbar">
           <Link 
             to="/" 
@@ -43,7 +46,7 @@ export default function Header() {
               menu
             </span>
           </div>
-        </div>
+        </Container>
 
       </nav>
     </header>

@@ -1,9 +1,11 @@
-// Composant servant à afficher une courte description de l'entreprise correspondant à la landing page
+// COMPONENT
+import Container from "../../../components/layout/Container";
 
+// Composant servant à afficher une courte description de l'entreprise correspondant à la landing page
 export default function ShortAbout() {
   return (
     <section className="bg-surface-dim overflow-hidden py-32 relative" data-pg-name="Section : Short About">
-      <div className="max-w-screen-2xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-12 gap-16">
+      <Container className="grid grid-cols-1 lg:grid-cols-12 gap-16">
         {/* Text Content */}
         <div className="lg:col-span-7">
           <h2 className="text-5xl md:text-7xl font-headline font-bold text-white uppercase tracking-tighter leading-none mb-12">
@@ -73,7 +75,7 @@ export default function ShortAbout() {
             </ul>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

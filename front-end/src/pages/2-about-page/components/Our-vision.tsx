@@ -1,5 +1,4 @@
 // Composant servant à afficher les services de l'entreprise correspondant à la page à propos
-
 export default function OurVision() {
     return (
         <section className="py-24 px-6 max-w-7xl mx-auto">

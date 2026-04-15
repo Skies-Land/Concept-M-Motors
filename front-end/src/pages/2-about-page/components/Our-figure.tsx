@@ -1,5 +1,4 @@
 // Composant servant à afficher les chiffres clés de l'entreprise correspondant à la page à propos
-
 export default function OurFigure() {
     return (
         <section className="relative z-20 -mt-20 px-6 max-w-7xl mx-auto" data-pg-name="Section : Chiffre">

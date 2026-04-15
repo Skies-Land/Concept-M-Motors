@@ -1,8 +1,11 @@
-// COMPONENTS
+// DEPENDANCE
 import { createBrowserRouter } from 'react-router-dom';
+
+// COMPONENTS
 import RootLayout from '../components/layout/RootLayout';
 import LandingPageView from '../pages/1-landing-page/Landing-page-view';
 import AboutPageView from '../pages/2-about-page/About-page-view';
+import CatalogPageView from '../pages/3-catalog-page/catalog-page-view';
 
 // RAPPEL : For better performance on large apps, use lazy loading: 
 // EXAMPLE : const CatalogPage = lazy(() => import('../pages/3-catalog-page/CatalogPageView'));
@@ -19,7 +22,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'catalog',
-        element: <div className="p-20 text-center text-2xl text-white">Catalogue (En cours de développement)</div>,
+        element: <CatalogPageView />,
       },
       {
         path: 'about',

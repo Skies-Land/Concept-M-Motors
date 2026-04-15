@@ -1,6 +1,7 @@
 // DEPENDANCE
 import { RouterProvider } from 'react-router-dom';
-// COMPONENTS
+
+// COMPONENT
 import { router } from './routes/router';
 
 // Composant principal de l'application

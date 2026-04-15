@@ -1,5 +1,4 @@
 // Composant servant à afficher la section Hero correspondant à la page à propos
-
 export default function HeroAbout() {
     return (
         <section className="relative h-[870px] flex items-center justify-center overflow-hidden" data-pg-name="Section : Hero">

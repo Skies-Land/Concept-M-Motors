@@ -1,9 +1,11 @@
-// Composant servant à afficher les services proposés par l'entreprise correspondant à la landing page
+// COMPONENT
+import Container from "../../../components/layout/Container";
 
+// Composant servant à afficher les services proposés par l'entreprise correspondant à la landing page
 export default function Services() {
   return (
     <section className="py-32 bg-surface-container-lowest" data-pg-name="Section : Services">
-      <div className="max-w-screen-2xl mx-auto p-8">
+      <Container>
         <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-20 gap-8">
           <div>
             <span className="font-black font-headline text-orange-500 text-xs tracking-[0.5em] uppercase">Écosystème Premium</span>
@@ -87,7 +89,7 @@ export default function Services() {
             </button>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

@@ -26,5 +26,4 @@ src/
 
 
 ## 👤 Skies-Land - Jonathan Araldi
-
 - **[Portfolio](https://portfolio-jonathan-araldi.netlify.app/)** | **[LinkedIn](https://www.linkedin.com/in/jonathan-araldi/)** | **[GitHub](https://github.com/Skies-Land)**

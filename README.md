@@ -29,13 +29,15 @@ Le dossier **[Maquette](./Maquette)** contient la maquette du projet en HTML et 
 - **Étape 4 :** J'ai structurer l'architecture du projet en créant les dossiers et fichiers nécessaires à prévoir. Plus d'information sur cette structure dans le fichier **[README.md](./front-end/README.md)**.
 
 ## Phase de développement côté Front-end
-- **Étape 1 :** Développement de chaque composant qui compose les différentes pages du site. Intégration de ces composants dans des pages de vues (landing-page, about-page, catalog-page, login-page, customer-area-page).
+- **Étape 1 :** Développement de chaque composant qui compose les différentes pages du site. Intégration de ces composants dans des pages de vues *(Landing-page-view, About-page-view, Catalog-page-view, Login-page-view, Customer-area-page-view)*.
 - **Étape 2 :** Configuration des routes avec **[React Router](https://reactrouter.com/)** pour la navigation entre les pages.
+- **Étape 3 :** Implémentation du composant **[Container](./front-end/src/components/layout/Container.tsx)** pour avoir une cohérence dans chaque page.
+    Ce composant utilise des marges automatiques *(mx-auto)*, une largeur maximale stricte *(max-w-7xl)*, et des paddings qui s'adaptent progressivement selon les écrans *(px-4 sm:px-6 lg:px-8 xl:px-12)*. Cela évite que les textes ou le contenu ne touchent les bords sur téléphones ou tablettes, tout en limitant la largeur sur très grand écran pour préserver la lisibilité. Il utilise la propriété *as* pour s'adapter sémantiquement si besoin (bien que défini par défaut sur un simple *div*).
 
-
+## Phase de développement côté Back-end
+*À venir...*
 
 
 
 ## 👤 Skies-Land - Jonathan Araldi
-
 - **[Portfolio](https://portfolio-jonathan-araldi.netlify.app/)** | **[LinkedIn](https://www.linkedin.com/in/jonathan-araldi/)** | **[GitHub](https://github.com/Skies-Land)**
