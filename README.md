@@ -33,9 +33,11 @@ Le dossier **[Maquette](./Maquette)** contient la maquette du projet en HTML et 
 - **Étape 2 :** Configuration des routes avec **[React Router](https://reactrouter.com/)** pour la navigation entre les pages.
 - **Étape 3 :** Implémentation du composant **[Container](./front-end/src/components/layout/Container.tsx)** pour avoir une cohérence dans chaque page.
     Ce composant utilise des marges automatiques *(mx-auto)*, une largeur maximale stricte *(max-w-7xl)*, et des paddings qui s'adaptent progressivement selon les écrans *(px-4 sm:px-6 lg:px-8 xl:px-12)*. Cela évite que les textes ou le contenu ne touchent les bords sur téléphones ou tablettes, tout en limitant la largeur sur très grand écran pour préserver la lisibilité. Il utilise la propriété *as* pour s'adapter sémantiquement si besoin (bien que défini par défaut sur un simple *div*).
+- **Étape 4 :** Configuration du composant **[VehicleCard](./front-end/src/components/catalog/VehicleCard.tsx)** pour afficher les véhicules du catalogue. Définition des types de données pour les véhicules dans le fichier **[Vehicle.tsx](./front-end/src/types/Vehicle.tsx)**.
 
 ## Phase de développement côté Back-end
-*À venir...*
+- **Étape 1 :** Stockage des images de véhicule de la base de données dans **[Cloudinary](https://cloudinary.com/)**.
+
 
 
 
