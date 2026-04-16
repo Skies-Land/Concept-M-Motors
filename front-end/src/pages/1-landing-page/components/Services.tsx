@@ -1,5 +1,6 @@
-// COMPONENT
+// COMPOSANTS
 import Container from "../../../components/layout/Container";
+import { Typography } from "../../../components/design-system/Typography";
 
 // Composant servant à afficher les services proposés par l'entreprise correspondant à la landing page
 export default function Services() {
@@ -8,12 +9,12 @@ export default function Services() {
       <Container>
         <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-20 gap-8">
           <div>
-            <span className="font-black font-headline text-orange-500 text-xs tracking-[0.5em] uppercase">Écosystème Premium</span>
-            <h2 className="text-4xl lg:text-6xl font-headline font-black uppercase tracking-tighter mt-4">Services Intégrés</h2>
+            <Typography variant="label-sm" color="primary">Écosystème Premium</Typography>
+            <Typography variant="headline-lg" component="h2" color="on-surface" className="uppercase mt-4">Services Intégrés</Typography>
           </div>
-          <p className="text-on-surface-variant max-w-md text-sm lg:text-base uppercase tracking-wider font-medium">
+          <Typography variant="label-md" component="p" color="on-surface-variant" className="max-w-md">
             Plus qu'un véhicule, une expérience de mobilité totale sans les contraintes traditionnelles.
-          </p>
+          </Typography>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Service Card 1: All Inclusive */}
@@ -23,12 +24,12 @@ export default function Services() {
             <div className="absolute bottom-10 left-10 right-10">
               <div className="flex items-center gap-3 mb-4">
                 <span className="material-symbols-outlined text-2xl text-orange-500" data-icon="all_inclusive">all_inclusive</span>
-                <span className="font-black font-headline text-orange-500 text-xs tracking-widest uppercase">Offre Signature</span>
+                <Typography variant="label-sm" color="primary">Offre Signature</Typography>
               </div>
-              <h3 className="text-3xl font-headline font-black uppercase text-white mb-4">Tout Inclus</h3>
-              <p className="text-on-surface-variant text-sm font-medium leading-relaxed uppercase tracking-wider mb-8">
+              <Typography variant="headline-md" component="h3" color="on-surface" className="uppercase mb-4">Tout Inclus</Typography>
+              <Typography variant="label-md" color="on-surface-variant" className="mb-8">
                 Entretien, assurance tous risques et assistance 24/7 réunis en un seul prélèvement fixe. La sérénité absolue.
-              </p>
+              </Typography>
               <button className="border border-primary font-bold ignition-gradient px-8 py-3 rounded-lg text-on-primary-fixed text-xs tracking-widest transition-all uppercase">Découvrir</button>
             </div>
           </div>
@@ -40,12 +41,13 @@ export default function Services() {
                   <span className="material-symbols-outlined text-3xl text-orange-500" data-icon="support_agent">support_agent</span>
                 </div>
                 <div>
-                  <h4 className="text-xl font-headline font-bold uppercase text-white mb-2">Conciergerie 24/7</h4>
-                  <p className="text-sm text-on-surface-variant uppercase leading-relaxed">Une équipe dédiée pour répondre à tous vos besoins de mobilité, où que vous soyez.</p>
+                  <Typography variant="headline-sm" component="h4" color="on-surface" className="uppercase mb-2">Conciergerie 24/7</Typography>
+                  <Typography variant="label-md" color="on-surface-variant">Une équipe dédiée pour répondre à tous vos besoins de mobilité, où que vous soyez.</Typography>
                 </div>
               </div>
-              <div className="cursor-pointer flex font-bold gap-2 items-center mt-6 text-[10px] text-orange-500 tracking-widest uppercase">
-                En savoir plus <span className="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+              <div className="cursor-pointer flex items-center mt-6 gap-2">
+                <Typography variant="label-sm" color="primary">En savoir plus</Typography>
+                <span className="material-symbols-outlined text-orange-500 text-sm" data-icon="arrow_forward">arrow_forward</span>
               </div>
             </div>
             <div className="bg-surface-container-low p-10 rounded-2xl border border-white/5 flex flex-col justify-between group hover:bg-surface-container transition-colors">
@@ -54,32 +56,36 @@ export default function Services() {
                   <span className="material-symbols-outlined text-3xl text-orange-500" data-icon="build">build</span>
                 </div>
                 <div>
-                  <h4 className="text-xl font-headline font-bold uppercase text-white mb-2">Entretien Prédictif</h4>
-                  <p className="text-sm text-on-surface-variant uppercase leading-relaxed">Maintenance proactive avec pièces constructeurs d'origine pour garantir la performance.</p>
+                  <Typography variant="headline-sm" component="h4" color="on-surface" className="uppercase mb-2">Entretien Prédictif</Typography>
+                  <Typography variant="label-md" color="on-surface-variant">Maintenance proactive avec pièces constructeurs d'origine pour garantir la performance.</Typography>
                 </div>
               </div>
-              <div className="cursor-pointer flex font-bold gap-2 items-center mt-6 text-[10px] text-orange-500 tracking-widest uppercase">
-                En savoir plus <span className="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+              <div className="cursor-pointer flex items-center mt-6 gap-2">
+                <Typography variant="label-sm" color="primary">En savoir plus</Typography>
+                <span className="material-symbols-outlined text-orange-500 text-sm" data-icon="arrow_forward">arrow_forward</span>
               </div>
             </div>
           </div>
           {/* Service Card 3: Security & Guarantee */}
-          <div className="bg-surface-container-high p-10 rounded-2xl border border-white/10 flex flex-col justify-between relative overflow-hidden group">
+          <div className="bg-surface-container-low p-10 rounded-2xl border border-white/10 flex flex-col justify-between relative overflow-hidden group hover:bg-surface-container transition-colors">
             <div className="absolute top-[-20%] right-[-10%] opacity-5 group-hover:opacity-10 transition-opacity"></div>
             <div className="space-y-8 relative z-10">
               <span className="material-symbols-outlined text-5xl text-orange-500" data-icon="verified_user">verified_user</span>
               <div>
-                <h4 className="text-2xl font-headline font-black uppercase text-white mb-4">Garantie Premium Étendue</h4>
-                <p className="text-sm text-on-surface-variant uppercase leading-relaxed mb-6">Sérénité totale sur 48 mois ou 100,000 km. Nous couvrons l'essentiel pour que vous ne pensiez qu'au plaisir de conduire.</p>
+                <Typography variant="headline-md" component="h4" color="on-surface" className="uppercase mb-4">Garantie Premium Étendue</Typography>
+                <Typography variant="label-md" color="on-surface-variant" className="mb-6">Sérénité totale sur 48 mois ou 100,000 km. Nous couvrons l'essentiel pour que vous ne pensiez qu'au plaisir de conduire.</Typography>
                 <ul className="space-y-3">
-                  <li className="flex items-center gap-3 text-[10px] font-bold text-white uppercase tracking-widest">
-                    <span className="material-symbols-outlined text-orange-500 text-sm" data-icon="check_circle">check_circle</span> Assistance Europe
+                  <li className="flex items-center gap-3">
+                    <span className="material-symbols-outlined text-orange-500 text-sm" data-icon="check_circle">check_circle</span>
+                    <Typography variant="label-sm" component="span" color="on-surface">Assistance Europe</Typography>
                   </li>
-                  <li className="flex items-center gap-3 text-[10px] font-bold text-white uppercase tracking-widest">
-                    <span className="material-symbols-outlined text-orange-500 text-sm" data-icon="check_circle">check_circle</span> Remplacement véhicule
+                  <li className="flex items-center gap-3">
+                    <span className="material-symbols-outlined text-orange-500 text-sm" data-icon="check_circle">check_circle</span>
+                    <Typography variant="label-sm" component="span" color="on-surface">Remplacement véhicule</Typography>
                   </li>
-                  <li className="flex items-center gap-3 text-[10px] font-bold text-white uppercase tracking-widest">
-                    <span className="material-symbols-outlined text-orange-500 text-sm" data-icon="check_circle">check_circle</span> Expertise certifiée
+                  <li className="flex items-center gap-3">
+                    <span className="material-symbols-outlined text-orange-500 text-sm" data-icon="check_circle">check_circle</span>
+                    <Typography variant="label-sm" component="span" color="on-surface">Expertise certifiée</Typography>
                   </li>
                 </ul>
               </div>

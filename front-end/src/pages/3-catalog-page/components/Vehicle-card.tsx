@@ -1,7 +1,15 @@
+// DEPENDANCES
 import { useState, useEffect } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
+
+// CONFIGURATION
 import { db } from '../../../config/firebase-config';
+
+// TYPES
 import { type Vehicle } from '../../../types/Vehicle';
+
+// COMPOSANTS
+import { Typography } from "../../../components/design-system/Typography";
 
 // Composant servant à afficher une carte de véhicule
 export default function VehicleCard() {
@@ -41,39 +49,39 @@ export default function VehicleCard() {
                     </div>
                     <div className="p-6 flex-1 flex flex-col">
                         {/* Info véhicule */}
-                        <h3 className="font-headline text-xl font-bold mb-4 tracking-tight">
+                        <Typography variant="headline-sm" component="h3" color="on-surface" className="mb-4">
                             {vehicle.brand} {vehicle.model}
-                        </h3>
+                        </Typography>
                         {/* Kilométrage (Optionnel) */}
                         {vehicle.mileage !== undefined && (
-                            <div className="text-xs text-on-surface-variant font-medium mb-4">
+                            <Typography variant="body-sm" color="on-surface-variant" className="mb-4">
                                 {vehicle.mileage.toLocaleString()} km
-                            </div>
+                            </Typography>
                         )}
                         {/* Achat / Location */}
                         <div className="mt-auto pt-6 border-t border-white/5 flex flex-col gap-2">
                             {vehicle.acquisition?.isAvailableForSale && (
                                 <div className="flex justify-between items-center">
-                                    <span className="text-[10px] text-on-surface-variant font-bold uppercase tracking-widest">
+                                    <Typography variant="label-sm" component="span" color="on-surface-variant">
                                         Achat
-                                    </span>
-                                    <span className="font-bold font-headline text-lg text-orange-500">
+                                    </Typography>
+                                    <Typography variant="headline-sm" component="span" color="primary">
                                         {vehicle.acquisition.purchasePrice 
                                             ? `${vehicle.acquisition.purchasePrice.toLocaleString()} €` 
                                             : "Sur demande"}
-                                    </span>
+                                    </Typography>
                                 </div>
                             )}
                             {vehicle.acquisition?.isAvailableForRent && (
                                 <div className="flex justify-between items-center">
-                                    <span className="text-[10px] text-on-surface-variant font-bold uppercase tracking-widest">
+                                    <Typography variant="label-sm" component="span" color="on-surface-variant">
                                         Location
-                                    </span>
-                                    <span className="text-sm font-medium">
+                                    </Typography>
+                                    <Typography variant="body-md" component="span" color="on-surface">
                                         {vehicle.acquisition.rentalPrice 
                                             ? `${vehicle.acquisition.rentalPrice.toLocaleString()} €/mois` 
                                             : "Sur demande"}
-                                    </span>
+                                    </Typography>
                                 </div>
                             )}
                         </div>

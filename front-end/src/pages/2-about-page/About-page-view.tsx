@@ -1,4 +1,4 @@
-// COMPONENTS
+// COMPOSANTS
 import Seo from "../../components/seo/Seo"
 import HeroAbout from "./components/Hero-about"
 import OurFigure from "./components/Our-figure";

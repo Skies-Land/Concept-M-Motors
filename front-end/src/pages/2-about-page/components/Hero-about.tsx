@@ -1,3 +1,6 @@
+// COMPOSANT
+import { Typography } from "../../../components/design-system/Typography";
+
 // Composant servant à afficher la section Hero correspondant à la page à propos
 export default function HeroAbout() {
     return (
@@ -7,21 +10,21 @@ export default function HeroAbout() {
                 <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/60 to-background"></div>
             </div>
             <div className="relative z-10 text-center max-w-5xl px-6">
-                <p className="font-label mb-6 text-orange-500 text-sm tracking-[0.4em] uppercase">
+                <Typography variant="label-lg" color="primary" className="mb-6">
                     Établi en 1994
-                </p>
-                <h1 className="font-headline text-5xl md:text-8xl font-black italic tracking-tighter leading-none mb-8">
+                </Typography>
+                <Typography variant="display-lg" component="h1" color="on-surface" className="italic mb-8 md:text-8xl">
                     HÉRITAGE ET 
-                    <span className="border-b-4 border-orange-500 text-transparent" style={{ WebkitTextStroke: '1px white' }}>
+                    <span className="border-b-4 border-primary text-transparent" style={{ WebkitTextStroke: '1px white' }}>
                         EXCELLENCE
                     </span> 
                     <br />AUTOMOBILE 
-                </h1>
-                <p className="font-body text-zinc-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+                </Typography>
+                <Typography variant="body-lg" component="p" color="on-surface-variant" className="max-w-2xl mx-auto md:text-xl">
                     Depuis trois décennies, M-MOTORS redéfinit les standards de l'automobile d'exception. 
                     Notre quête de perfection technique et notre passion pour l'ingénierie nous ont propulsés 
                     au sommet du secteur national.
-                </p>
+                </Typography>
             </div>
         </section>
     )

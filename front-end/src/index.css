@@ -3,7 +3,7 @@
 @theme {
   --color-surface-tint: #ffb692;
   --color-on-primary-fixed-variant: #793000;
-  --color-on-surface-variant: #dcc1b5;
+  --color-on-surface-variant: #D6D6D6;
   --color-tertiary-fixed: #65f7fe;
   --color-on-tertiary-fixed-variant: #004f52;
   --color-tertiary: #44dde4;
@@ -31,7 +31,7 @@
   --color-surface-container-highest: #353534;
   --color-inverse-primary: #9b450f;
   --color-surface-container-lowest: #0e0e0e;
-  --color-primary: #ffba98;
+  --color-primary: #FF5500;
   --color-secondary-fixed-dim: #c8c6c4;
   --color-on-secondary-container: #bab8b6;
   --color-on-secondary-fixed: #1b1c1b;
@@ -79,6 +79,6 @@
     line-height: 0.9;
   }
   .ignition-gradient {
-    background: linear-gradient(135deg, #ff9157 0%, #ff7a2c 100%);
+    background: linear-gradient(135deg, #FF5500 0%, #ff7a2c 100%);
   }
 }

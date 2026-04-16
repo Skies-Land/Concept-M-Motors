@@ -1,3 +1,6 @@
+// COMPOSANTS
+import { Typography } from "../../../components/design-system/Typography";
+
 // IMAGE
 import imageHero from "../../../assets/IMG_hero-catalog.jpg"
 
@@ -12,22 +15,22 @@ export default function HeroCatalog() {
             {/* Overlay */}
             <div className="absolute bg-black/60 inset-0"></div>
             <div className="relative z-10 max-w-4xl">
-                <span className="block font-headline mb-4 text-orange-500 text-xs tracking-[0.4em] uppercase">
+                <Typography variant="label-lg" color="primary" className="mb-4 block">
                     La Collection Signature
-                </span>
-                <h1 className="font-headline text-6xl md:text-8xl font-extrabold tracking-tighter mb-6 leading-none">
+                </Typography>
+                <Typography variant="display-lg" component="h1" color="on-surface" className="mb-6 md:text-8xl">
                     L'ART DE <br/><span className="text-white italic">L'EXCEPTION</span>
-                </h1>
-                <p className="text-neutral-300 text-lg font-light tracking-wide max-w-2xl mx-auto mb-8 font-body">
+                </Typography>
+                <Typography variant="body-lg" color="on-surface-variant" className="max-w-2xl mx-auto mb-8">
                     Une sélection d'automobiles, où chaque courbe raconte une histoire de savoir-faire ancestral et d'innovation visionnaire.
-                </p>
+                </Typography>
             </div>
 
             {/* Filtre de recherche */}
             <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-full max-w-5xl px-8">
                 <div className="backdrop-blur-xl bg-surface-container-high border border-white/10 flex flex-wrap gap-6 items-center justify-between p-6 rounded-lg shadow-2xl">
                     <div className="flex-1 min-w-[200px]">
-                        <p className="font-bold mb-2 text-[9px] text-orange-500 tracking-widest uppercase">Prestige &amp; Marque</p>
+                        <Typography variant="label-sm" color="primary" className="mb-2 block">Prestige &amp; Marque</Typography>
                         <select className="w-full bg-transparent border-none p-0 text-sm focus:ring-0 font-headline uppercase tracking-tight">
                             <option>Toutes les Manufactures</option>
                             <option>Rolls-Royce</option>
@@ -38,7 +41,7 @@ export default function HeroCatalog() {
                     </div>
                     <div className="w-px h-10 bg-white/10 hidden md:block"></div>
                     <div className="flex-1 min-w-[200px]">
-                        <p className="font-bold mb-2 text-[9px] text-orange-500 tracking-widest uppercase">Investissement</p>
+                        <Typography variant="label-sm" color="primary" className="mb-2 block">Investissement</Typography>
                         <div className="flex justify-between items-center text-sm font-headline">
                             <span>100k €</span>
                             <input className="accent-primary flex-grow mx-4" max="2000000" min="100000" step="50000" type="range"/>

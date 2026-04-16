@@ -1,4 +1,4 @@
-// COMPONENTS
+// COMPOSANTS
 import Hero from "./components/Hero";
 import Process from "./components/Process";
 import Services from "./components/Services";

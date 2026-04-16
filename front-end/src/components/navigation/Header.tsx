@@ -1,7 +1,7 @@
 // DEPENDANCE
 import { Link } from 'react-router-dom';
 
-// COMPONENTS
+// COMPOSANT
 import Container from '../layout/Container';
 
 // Composant servant à afficher l'en-tête "Header" du site
@@ -15,7 +15,7 @@ export default function Header() {
           data-pg-name="Navbar">
           <Link 
             to="/" 
-            className="text-2xl font-black text-orange-500 tracking-tighter font-['Space_Grotesk']" 
+            className="text-2xl font-black text-primary tracking-tighter font-['Space_Grotesk']" 
             data-pg-name="Logo">
             M-MOTORS
           </Link>

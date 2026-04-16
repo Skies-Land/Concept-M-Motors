@@ -1,6 +1,7 @@
-// COMPONENTS
+// COMPOSANTS
 import Container from "../../../components/layout/Container";
 import VehicleCard from "./Vehicle-card";
+import { Typography } from "../../../components/design-system/Typography";
 
 // Composant servant à afficher une grille de véhicules
 export default function VehiclesGridCards() { 
@@ -9,18 +10,18 @@ export default function VehiclesGridCards() {
             <Container>
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
                     <div>
-                        <h1 className="font-headline text-5xl font-black tracking-tighter uppercase mb-2">
+                        <Typography variant="headline-lg" component="h1" color="on-surface" className="uppercase mb-2">
                             Nos Modèles disponible
-                        </h1>
-                        <p className="text-on-surface-variant text-sm max-w-md">
+                        </Typography>
+                        <Typography variant="body-md" color="on-surface-variant" className="max-w-md">
                             Explorez notre inventaire d'exception. Chaque véhicule a été expertisé selon des 
                             standards d'excellence dépassant les normes industrielles habituelles.
-                        </p>
+                        </Typography>
                     </div>
                     <div className="flex gap-4">
-                        <span className="px-4 py-2 bg-surface-container text-xs font-bold tracking-widest border border-outline-variant/10 rounded-md">
+                        <Typography variant="label-sm" component="span" color="on-surface" className="px-4 py-2 bg-surface-container border border-outline-variant/10 rounded-md">
                             6 RESULTATS
-                        </span>
+                        </Typography>
                     </div>
                 </div>
 

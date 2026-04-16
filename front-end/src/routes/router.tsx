@@ -1,7 +1,7 @@
 // DEPENDANCE
 import { createBrowserRouter } from 'react-router-dom';
 
-// COMPONENTS
+// COMPOSANTS
 import RootLayout from '../components/layout/RootLayout';
 import LandingPageView from '../pages/1-landing-page/Landing-page-view';
 import AboutPageView from '../pages/2-about-page/About-page-view';

@@ -1,4 +1,4 @@
-// COMPONENTS
+// COMPOSANTS
 import Seo from "../../components/seo/Seo";
 import HeroCatalog from "./components/Hero-catalog";
 import VehiclesGridCards from "./components/Vehicles-grid-cards";

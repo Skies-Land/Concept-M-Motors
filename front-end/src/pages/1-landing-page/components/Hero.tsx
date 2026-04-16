@@ -1,5 +1,6 @@
-// COMPONENT
+// COMPOSANTS
 import Container from "../../../components/layout/Container";
+import { Typography } from "../../../components/design-system/Typography";
 
 // Composant servant à afficher la section Hero correspondant à la landing page
 export default function Hero() {
@@ -11,16 +12,37 @@ export default function Hero() {
       </div>
       <Container className="relative z-20">
         <div className="max-w-4xl">
-          <span className="label-sm text-primary-container font-medium tracking-[0.3em] uppercase block mb-6">Précision Ingénierie</span>
-          <h1 className="text-tension-lg font-headline font-bold text-white uppercase tracking-tighter mb-8">
+          <Typography 
+            variant="label-sm" 
+            color="primary" 
+            component="span" 
+            className="block mb-6"
+          >
+            Précision Ingénierie
+          </Typography>
+
+          <Typography 
+            variant="display-lg" 
+            component="h1" 
+            color="on-surface" 
+            className="uppercase mb-8"
+          >
             Valoriser la
-            <span className="text-primary-container"> flexibilité</span>
-          </h1>
-          <p className="text-xl text-on-surface-variant font-light max-w-2xl mb-12 leading-relaxed">
+            <span className="text-primary"> flexibilité</span>
+          </Typography>
+
+          <Typography 
+            variant="body-lg" 
+            component="p" 
+            color="on-surface-variant" 
+            weight="regular"
+            className="max-w-2xl mb-12 text-xl"
+          >
             L'excellence automobile redéfinie par la technologie et
             l'accompagnement sur-mesure. Accédez à un catalogue exclusif de
             véhicules d'exception.
-          </p>
+          </Typography>
+          
           <div className="flex flex-col sm:flex-row gap-6">
             <button className="flex font-bold gap-3 ignition-gradient items-center justify-center px-10 py-5 rounded-lg text-on-primary-fixed tracking-widest uppercase">
               Parcourir notre catalogue
@@ -34,7 +56,9 @@ export default function Hero() {
       </Container>
       {/* Scroll Indicator */}
       <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 opacity-30">
-        <span className="text-[10px] uppercase tracking-[0.5em] font-label">En savoir plus</span>
+        <Typography variant="label-sm" component="span" color="on-surface">
+            En savoir plus
+        </Typography>
         <div className="w-px h-12 bg-white"></div>
       </div>
     </section>
