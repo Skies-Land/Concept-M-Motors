@@ -1,6 +1,7 @@
 // COMPOSANTS
-import Container from "../../../components/layout/Container";
+import Container from "../../../components/design-system/Container";
 import { Typography } from "../../../components/design-system/Typography";
+import { Button } from "../../../components/design-system/Button";
 
 // Composant servant à afficher la section Hero correspondant à la landing page
 export default function Hero() {
@@ -44,13 +45,20 @@ export default function Hero() {
           </Typography>
           
           <div className="flex flex-col sm:flex-row gap-6">
-            <button className="flex font-bold gap-3 ignition-gradient items-center justify-center px-10 py-5 rounded-lg text-on-primary-fixed tracking-widest uppercase">
+            <Button 
+              variant="primary" 
+              size="large" 
+              icon={<span className="material-symbols-outlined">arrow_forward</span>} 
+              iconPosition="right"
+            >
               Parcourir notre catalogue
-              <span className="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
-            </button>
-            <button className="bg-surface-container-highest font-bold px-10 py-5 rounded-lg text-white tracking-widest transition-colors uppercase hover:bg-surface-container-high">
+            </Button>
+            <Button 
+              variant="secondary" 
+              size="large"
+            >
               En savoir plus
-            </button>
+            </Button>
           </div>
         </div>
       </Container>

@@ -2,7 +2,8 @@
 import { Link } from 'react-router-dom';
 
 // COMPOSANT
-import Container from '../layout/Container';
+import Container from '../design-system/Container';
+import { Button } from '../design-system/Button';
 
 // Composant servant à afficher l'en-tête "Header" du site
 export default function Header() {
@@ -35,11 +36,15 @@ export default function Header() {
 
           {/* Bouton de connexion */}
           <div className="flex items-center gap-6" data-pg-name="Connexion">
-            <Link 
-              to="/login" 
-              className="font-bold hidden ignition-gradient px-6 py-2 rounded-lg text-on-primary-fixed text-sm tracking-widest transition-transform uppercase active:scale-95 md:block">
-              CONNEXION
-            </Link>
+            <div className="hidden md:block">
+              <Button 
+                variant="primary" 
+                size="small" 
+                baseUrl="/login"
+              >
+                Connexion
+              </Button>
+            </div>
             <span 
               className="material-symbols-outlined text-stone-100 cursor-pointer" 
               data-icon="menu">

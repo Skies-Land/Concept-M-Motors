@@ -1,5 +1,5 @@
 // COMPOSANTS
-import Container from "../../../components/layout/Container";
+import Container from "../../../components/design-system/Container";
 import { Typography } from "../../../components/design-system/Typography";
 
 // Composant servant à afficher les services qu'offre l'entreprise correspondant à la page catalogue

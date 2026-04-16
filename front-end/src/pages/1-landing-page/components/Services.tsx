@@ -1,6 +1,7 @@
 // COMPOSANTS
-import Container from "../../../components/layout/Container";
+import Container from "../../../components/design-system/Container";
 import { Typography } from "../../../components/design-system/Typography";
+import { Button } from "../../../components/design-system/Button";
 
 // Composant servant à afficher les services proposés par l'entreprise correspondant à la landing page
 export default function Services() {
@@ -30,7 +31,9 @@ export default function Services() {
               <Typography variant="label-md" color="on-surface-variant" className="mb-8">
                 Entretien, assurance tous risques et assistance 24/7 réunis en un seul prélèvement fixe. La sérénité absolue.
               </Typography>
-              <button className="border border-primary font-bold ignition-gradient px-8 py-3 rounded-lg text-on-primary-fixed text-xs tracking-widest transition-all uppercase">Découvrir</button>
+              <Button variant="primary" size="small">
+                Découvrir
+              </Button>
             </div>
           </div>
           {/* Service Card 2: Technical */}
@@ -45,10 +48,15 @@ export default function Services() {
                   <Typography variant="label-md" color="on-surface-variant">Une équipe dédiée pour répondre à tous vos besoins de mobilité, où que vous soyez.</Typography>
                 </div>
               </div>
-              <div className="cursor-pointer flex items-center mt-6 gap-2">
-                <Typography variant="label-sm" color="primary">En savoir plus</Typography>
-                <span className="material-symbols-outlined text-orange-500 text-sm" data-icon="arrow_forward">arrow_forward</span>
-              </div>
+              <Button 
+                variant="tertiary" 
+                size="small" 
+                className="mt-6 p-0 w-max" 
+                icon={<span className="material-symbols-outlined text-sm">arrow_forward</span>} 
+                iconPosition="right"
+              >
+                En savoir plus
+              </Button>
             </div>
             <div className="bg-surface-container-low p-10 rounded-2xl border border-white/5 flex flex-col justify-between group hover:bg-surface-container transition-colors">
               <div className="space-y-6">
@@ -60,10 +68,15 @@ export default function Services() {
                   <Typography variant="label-md" color="on-surface-variant">Maintenance proactive avec pièces constructeurs d'origine pour garantir la performance.</Typography>
                 </div>
               </div>
-              <div className="cursor-pointer flex items-center mt-6 gap-2">
-                <Typography variant="label-sm" color="primary">En savoir plus</Typography>
-                <span className="material-symbols-outlined text-orange-500 text-sm" data-icon="arrow_forward">arrow_forward</span>
-              </div>
+              <Button 
+                variant="tertiary" 
+                size="small" 
+                className="mt-6 p-0 w-max" 
+                icon={<span className="material-symbols-outlined text-sm">arrow_forward</span>} 
+                iconPosition="right"
+              >
+                En savoir plus
+              </Button>
             </div>
           </div>
           {/* Service Card 3: Security & Guarantee */}
@@ -90,9 +103,14 @@ export default function Services() {
                 </ul>
               </div>
             </div>
-            <button className="font-black font-headline ignition-gradient mt-8 py-4 relative rounded-lg shadow-xl text-on-primary-fixed text-sm tracking-widest uppercase w-full z-10">
+            <Button 
+              variant="primary" 
+              size="medium" 
+              fullWidth={true} 
+              className="mt-8 relative z-10"
+            >
               Consulter les détails
-            </button>
+            </Button>
           </div>
         </div>
       </Container>

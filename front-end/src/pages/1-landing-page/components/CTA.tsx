@@ -1,6 +1,7 @@
 // COMPOSANTS
-import Container from "../../../components/layout/Container";
+import Container from "../../../components/design-system/Container";
 import { Typography } from "../../../components/design-system/Typography";
+import { Button } from "../../../components/design-system/Button";
 
 // Composant servant à afficher un bouton d'appel à l'action correspondant à la landing page
 export default function CTA() {
@@ -15,9 +16,13 @@ export default function CTA() {
         >
           Prêt à démarrer votre expérience ?
         </Typography>
-        <button className="bg-on-primary-fixed font-bold px-12 py-6 rounded-lg text-white tracking-[0.2em] transition-transform uppercase hover:scale-105">
-          Commencer ici
-        </button>
+        
+        <Button 
+            variant="secondary" 
+            size="large"
+        >
+            Commencer ici
+        </Button>
       </Container>
     </section>
   );

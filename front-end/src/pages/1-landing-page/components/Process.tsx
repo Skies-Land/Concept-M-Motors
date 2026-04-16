@@ -1,5 +1,5 @@
 // COMPOSANTS
-import Container from "../../../components/layout/Container";
+import Container from "../../../components/design-system/Container";
 import { Typography } from "../../../components/design-system/Typography";
 
 // Composant servant à afficher les informations du processus d'aquisition d'un véhicule correspondant à la landing page 

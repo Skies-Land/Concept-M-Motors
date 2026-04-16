@@ -2,7 +2,7 @@
 import { Link } from 'react-router-dom';
 
 // COMPOSANT
-import Container from '../layout/Container';
+import Container from '../design-system/Container';
 
 // Composant servant à afficher le pied de page "Footer" du site
 export default function Footer() {

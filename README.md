@@ -3,6 +3,7 @@ Ce projet est structuré en deux parties principales pour séparer les responsab
 
 ## Structure du dossier
 - `/front-end` : Application React + Vite + TypeScript + Tailwind CSS v4. Cette partie contient également l'intégration au service de base de données.
+    > *Consulter le fichier **[README.md](./front-end/README.md)** pour les détails l'architecture du projet côté front-end.*
 - `/back-end` : Architecture "Serverless" utilisant **Firebase** comme base de données NoSQL (Firestore) et pour la future authentification, ainsi que **Cloudinary** pour le stockage et l'optimisation des images.
 
 ## Installation et lancement
@@ -18,7 +19,7 @@ npm run dev
 *À venir...*
 
 ---
-> Consulter le fichier **[PROJECT_CONFIG.md](./PROJECT_CONFIG.md)** pour les détails techniques de configuration.
+> *Consulter le fichier **[PROJECT_CONFIG.md](./PROJECT_CONFIG.md)** pour les détails techniques de configuration.*
 ---
 ## Déroulement du projet
 
@@ -32,7 +33,9 @@ Le dossier **[Maquette](./Maquette)** contient la maquette du projet en HTML et 
 
 ### Phase de développement côté Front-end
 - **Étape 1 :** Développement de chaque composant qui compose les différentes pages du site. Intégration de ces composants dans des pages de vues *(Landing-page-view, About-page-view, Catalog-page-view, Login-page-view, Customer-area-page-view)*.
-- **Étape 2 :** Création du composant **[Typography](./front-end/src/components/design-system/Typography.tsx)** pour gérer le style du texte : *type de balise, taille, couleur, etc.* Intégration de ce composant dans les différentes pages du site.
+- **Étape 2 :** Desing system :
+    Création du composant **[Typography](./front-end/src/components/design-system/Typography.tsx)** pour gérer le style du texte : *type de balise, taille, couleur, etc.* Intégration de ce composant dans les différentes pages du site.
+    Création du composant **[Button](./front-end/src/components/design-system/Button.tsx)** pour gérer l'apparence et les actions des boutons du site. Intégration de ce composant dans les différentes pages du site.
 - **Étape 3 :** Configuration des routes avec **[React Router](https://reactrouter.com/)** pour la navigation entre les pages.
 - **Étape 4 :** Implémentation du composant **[Container](./front-end/src/components/layout/Container.tsx)** pour avoir une cohérence dans chaque page.
     Ce composant utilise des marges automatiques *(mx-auto)*, une largeur maximale stricte *(max-w-7xl)*, et des paddings qui s'adaptent progressivement selon les écrans *(px-4 sm:px-6 lg:px-8 xl:px-12)*. Cela évite que les textes ou le contenu ne touchent les bords sur téléphones ou tablettes, tout en limitant la largeur sur très grand écran pour préserver la lisibilité. Il utilise la propriété *as* pour s'adapter sémantiquement si besoin (bien que défini par défaut sur un simple *div*).

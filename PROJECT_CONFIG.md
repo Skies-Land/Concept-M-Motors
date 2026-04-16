@@ -21,8 +21,11 @@ Ce document résume la configuration technique du projet Concept M-Motors.
 - **Stockage d'Images :** Cloudinary
 
 ## Organisation du Code (Front-end)
-- **Design System :** Centralisation du style textuel (Font, Size, Color) avec le composant `Typography`.
-- **Layouts :** Utilisation d'un `RootLayout` centralisé et du `Container` pour la cohérence des marges.
+- **Design System :** 
+    - Centralisation du style textuel (Font, Size, Color) avec le composant `Typography`. 
+    - Centralisation du style des boutons avec le composant `Button`. 
+    - Centralisation du style des conteneurs avec le composant `Container`.
+- **Layout :** Utilisation d'un `RootLayout` pour la structure globale du site.
 - **Pages :** Découpage par fonctionnalités dans `/src/pages/`.
 - **Navigation :** Composants `Header` et `Footer` utilisant `<Link>` pour le mode SPA.
 - **Référencement :** Composant `Seo` réutilisable par page.

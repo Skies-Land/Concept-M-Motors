@@ -12,8 +12,8 @@ src/
 ├── assets/                     # Médias et ressources statiques du projet
 │
 ├── components/                 # Composants réutilisables
-│   ├── design-system/          # Composants de base d'interface (Typography)
-│   ├── layout/                 # Composants de structure (RootLayout, Container)
+│   ├── design-system/          # Composants de base d'interface (Typography, Button, Container)
+│   ├── layout/                 # Composants de structure (RootLayout)
 │   ├── navigation/             # Composants de navigation (Header, Footer)
 │   └── seo/                    # Composants liés au référencement (Seo)
 │

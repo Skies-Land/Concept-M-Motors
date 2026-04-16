@@ -1,5 +1,6 @@
 // COMPOSANTS
 import { Typography } from "../../../components/design-system/Typography";
+import { Button } from "../../../components/design-system/Button";
 
 // IMAGE
 import imageHero from "../../../assets/IMG_hero-catalog.jpg"
@@ -49,9 +50,9 @@ export default function HeroCatalog() {
                         </div>
                     </div>
                     <div className="w-px h-10 bg-white/10 hidden md:block"></div>
-                    <button className="bg-primary font-bold font-headline ignition-gradient px-10 py-4 rounded-lg text-[11px] text-on-primary-fixed tracking-[0.2em] transition-all uppercase hover:brightness-110">
+                    <Button variant="primary" size="medium">
                         Filtrer
-                    </button>
+                    </Button>
                 </div>
             </div>
         </section>

@@ -1,6 +1,7 @@
 // COMPOSANTS
-import Container from "../../../components/layout/Container";
+import Container from "../../../components/design-system/Container";
 import { Typography } from "../../../components/design-system/Typography";
+import { Button } from "../../../components/design-system/Button";
 
 // IMAGE
 import imageCTA from "../../../assets/IMG_CTA_catalog.png"
@@ -27,9 +28,9 @@ export default function CTA_catalog() {
                         <Typography variant="body-lg" className="max-w-xl mb-10">
                             Nous n'offrons pas seulement des clés. Nous offrons une entrée dans un cercle restreint de collectionneurs passionnés et un accès exclusif à nos événements privés.
                         </Typography>
-                        <button className="bg-transparent border border-white font-bold font-headline hover:bg-white hover:text-black px-12 py-4 text-[10px] tracking-[0.3em] transition-all uppercase rounded-lg">
+                        <Button variant="primary" size="large">
                             Consulter un Expert
-                        </button>
+                        </Button>
                     </div>
                 </div>
             </Container>
