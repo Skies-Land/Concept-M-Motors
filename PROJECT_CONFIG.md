@@ -4,15 +4,21 @@ Ce document résume la configuration technique du projet Concept M-Motors.
 
 ## Architecture Fullstack
 - **Front-end :** `/front-end` (React, React Router, Vite, TypeScript, Tailwind v4)
-- **Back-end :** `/back-end` (A venir)
+- **Back-end :** Services BaaS (Firebase Firestore, Firebase Auth, Cloudinary)
 
 ## Stack Front-end
 - **Framework :** Vite.js 8.x
 - **UI :** React 19.x
 - **Navigation :** React Router 7.x (Data Router via `createBrowserRouter`)
 - **SEO :** React Helmet Async (Gestion dynamique des balises meta)
+- **Backend SDK :** Firebase (Module API Client)
 - **Langage :** TypeScript
 - **Styling :** Tailwind CSS v4 (PostCSS bridge)
+
+## Stack Back-end (Services)
+- **Base de données :** Firebase Firestore (NoSQL)
+- **Authentification :** Firebase Auth (Prévu)
+- **Stockage d'Images :** Cloudinary
 
 ## Organisation du Code (Front-end)
 - **Layouts :** Utilisation d'un `RootLayout` centralisé avec `<Outlet />`.

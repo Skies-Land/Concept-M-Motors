@@ -1,6 +1,6 @@
 // COMPONENTS
 import Seo from "../../components/seo/Seo";
-import HeroCatalog from "./components/hero-catalog";
+import HeroCatalog from "./components/Hero-catalog";
 import VehiclesGridCards from "./components/Vehicles-grid-cards";
 import CTA_catalog from "./components/CTA-catalog";
 import OurServices from "./components/Our-services";

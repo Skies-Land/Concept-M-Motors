@@ -5,7 +5,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import RootLayout from '../components/layout/RootLayout';
 import LandingPageView from '../pages/1-landing-page/Landing-page-view';
 import AboutPageView from '../pages/2-about-page/About-page-view';
-import CatalogPageView from '../pages/3-catalog-page/catalog-page-view';
+import CatalogPageView from '../pages/3-catalog-page/Catalog-page-view';
 
 // RAPPEL : For better performance on large apps, use lazy loading: 
 // EXAMPLE : const CatalogPage = lazy(() => import('../pages/3-catalog-page/CatalogPageView'));
