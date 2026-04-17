@@ -1,4 +1,4 @@
-// DEPENDANCE
+// DÉPENDANCE
 import { Helmet } from 'react-helmet-async';
 
 // PROPS

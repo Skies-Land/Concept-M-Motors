@@ -1,4 +1,4 @@
-// DEPENDANCE
+// DÉPENDANCE
 import { Outlet } from 'react-router-dom';
 
 // COMPONENTS

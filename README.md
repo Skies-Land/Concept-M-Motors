@@ -33,14 +33,16 @@ Le dossier **[Maquette](./Maquette)** contient la maquette du projet en HTML et 
 
 ### Phase de développement côté Front-end
 - **Étape 1 :** Développement de chaque composant qui compose les différentes pages du site. Intégration de ces composants dans des pages de vues *(Landing-page-view, About-page-view, Catalog-page-view, Login-page-view, Customer-area-page-view)*.
-- **Étape 2 :** Desing system :
-    Création du composant **[Typography](./front-end/src/components/design-system/Typography.tsx)** pour gérer le style du texte : *type de balise, taille, couleur, etc.* Intégration de ce composant dans les différentes pages du site.
-    Création du composant **[Button](./front-end/src/components/design-system/Button.tsx)** pour gérer l'apparence et les actions des boutons du site. Intégration de ce composant dans les différentes pages du site.
+- **Étape 2 :** Développement d'un **Design System**, afin d'avoir une cohérence dans chaque page.
+     - Création du composant **[Typography](./front-end/src/components/design-system/Typography.tsx)** pour gérer le style du texte : *type de balise, taille, couleur, etc.*
+     - Création du composant **[Button](./front-end/src/components/design-system/Button.tsx)** pour gérer l'apparence et les actions des boutons du site.
+     - Création du composant **[Logo](./front-end/src/components/design-system/Logo.tsx)** pour gérer l'apparence du logo du site.
+     - Création du composant **[Container](./front-end/src/components/layout/Container.tsx)** pour avoir une cohérence dans chaque page.
+     Ce composant utilise des marges automatiques *(mx-auto)*, une largeur maximale stricte *(max-w-7xl)*, et des paddings qui s'adaptent progressivement selon les écrans *(px-4 sm:px-6 lg:px-8 xl:px-12)*. Cela évite que les textes ou le contenu ne touchent les bords sur téléphones ou tablettes, tout en limitant la largeur sur très grand écran pour préserver la lisibilité. Il utilise la propriété *as* pour s'adapter sémantiquement si besoin (bien que défini par défaut sur un simple *div*).
+    - Intégration de ces composants dans les différentes pages du site. Fonctionnement par *props*, *children*, *switch case*.
 - **Étape 3 :** Configuration des routes avec **[React Router](https://reactrouter.com/)** pour la navigation entre les pages.
-- **Étape 4 :** Implémentation du composant **[Container](./front-end/src/components/layout/Container.tsx)** pour avoir une cohérence dans chaque page.
-    Ce composant utilise des marges automatiques *(mx-auto)*, une largeur maximale stricte *(max-w-7xl)*, et des paddings qui s'adaptent progressivement selon les écrans *(px-4 sm:px-6 lg:px-8 xl:px-12)*. Cela évite que les textes ou le contenu ne touchent les bords sur téléphones ou tablettes, tout en limitant la largeur sur très grand écran pour préserver la lisibilité. Il utilise la propriété *as* pour s'adapter sémantiquement si besoin (bien que défini par défaut sur un simple *div*).
-- **Étape 5 :** Configuration du composant **[VehicleCard](./front-end/src/components/catalog/VehicleCard.tsx)** pour afficher les véhicules du catalogue. Définition des types de données pour les véhicules dans le fichier **[Vehicle.tsx](./front-end/src/types/Vehicle.tsx)**.
-- **Étape 6 :** Connexion dynamique du Front-end à Firebase.
+- **Étape 4 :** Implémentation du composant **[VehicleCard](./front-end/src/components/catalog/VehicleCard.tsx)** pour afficher les véhicules du catalogue. Définition des types de données pour les véhicules dans le fichier **[Vehicle.tsx](./front-end/src/types/Vehicle.tsx)**.
+- **Étape 5 :** Connexion dynamique du Front-end à Firebase.
     *   Installation du SDK Firebase `npm install firebase`.
     *   Sécurisation des clés d'API avec un fichier `front-end/.env` *(ignoré par Git pour la sécurité)*.
     *   Initialisation de la connexion Firebase dans le fichier de configuration `front-end/src/config/firebase-config.ts`.

@@ -1,4 +1,4 @@
-// DEPENDANCES
+// DÉPENDANCES
 import { useState, useEffect } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
 
@@ -8,7 +8,7 @@ import { db } from '../../../config/firebase-config';
 // TYPES
 import { type Vehicle } from '../../../types/Vehicle';
 
-// COMPOSANTS
+// COMPOSANT
 import { Typography } from "../../../components/design-system/Typography";
 
 // Composant servant à afficher une carte de véhicule
@@ -19,14 +19,11 @@ export default function VehicleCard() {
     useEffect(() => {
         const fetchVehicles = async () => {
             try {
-                console.log("Début de la récupération Firebase...");
                 const querySnapshot = await getDocs(collection(db, "vehicles"));
-                console.log("Snapshot Firebase:", querySnapshot.empty ? "VIDE" : "CONTIENT DES DONNEES", querySnapshot.size, "documents");
                 const data = querySnapshot.docs.map(doc => ({
                     ...doc.data(),
                     id: doc.id
                 })) as Vehicle[];
-                console.log("Données formatées:", data);
                 setVehicles(data);
             } catch (error) {
                 console.error("Erreur détaillée lors de la récupération des véhicules:", error);
@@ -38,8 +35,11 @@ export default function VehicleCard() {
 
     return (
         <>
+            {/* Carte du véhicule */}
+            {/* TODO: Ajouter un lien vers la page de détails du véhicule */}
             {vehicles.map((vehicle) => (
                 <article key={vehicle.id} className="group bg-surface-container-low hover:bg-surface-container transition-all duration-500 rounded-xl overflow-hidden flex flex-col">
+                    {/* Image du véhicule */}
                     <div className="relative h-64 overflow-hidden">
                         <img 
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
@@ -47,19 +47,21 @@ export default function VehicleCard() {
                             src={vehicle.imageUrl}
                         />
                     </div>
+                    {/* Carte du conteneur d'informations du véhicule */}
                     <div className="p-6 flex-1 flex flex-col">
-                        {/* Info véhicule */}
+                        {/* Titre - Marque et modèle du véhicule */}
                         <Typography variant="headline-sm" component="h3" color="on-surface" className="mb-4">
                             {vehicle.brand} {vehicle.model}
                         </Typography>
-                        {/* Kilométrage (Optionnel) */}
+                        {/* Indication du kilométrage du véhicule */}
                         {vehicle.mileage !== undefined && (
                             <Typography variant="body-sm" color="on-surface-variant" className="mb-4">
                                 {vehicle.mileage.toLocaleString()} km
                             </Typography>
                         )}
-                        {/* Achat / Location */}
+                        {/* Indication de la méthode d'acquisition - Prix : Achat ou Location */}
                         <div className="mt-auto pt-6 border-t border-white/5 flex flex-col gap-2">
+                            {/* Achat */}
                             {vehicle.acquisition?.isAvailableForSale && (
                                 <div className="flex justify-between items-center">
                                     <Typography variant="label-sm" component="span" color="on-surface-variant">
@@ -72,6 +74,7 @@ export default function VehicleCard() {
                                     </Typography>
                                 </div>
                             )}
+                            {/* Location */}
                             {vehicle.acquisition?.isAvailableForRent && (
                                 <div className="flex justify-between items-center">
                                     <Typography variant="label-sm" component="span" color="on-surface-variant">

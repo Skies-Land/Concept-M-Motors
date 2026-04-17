@@ -1,4 +1,4 @@
-// DEPENDANCE
+// DÉPENDANCE
 import React from 'react';
 
 // INTERFACES

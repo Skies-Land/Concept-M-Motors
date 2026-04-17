@@ -1,4 +1,4 @@
-// DEPENDANCE
+// DÉPENDANCE
 import type { ReactNode, ElementType } from 'react';
 
 // PROPS

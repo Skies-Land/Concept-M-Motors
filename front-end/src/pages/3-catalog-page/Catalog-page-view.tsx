@@ -9,10 +9,12 @@ import OurServices from "./components/Our-services";
 export default function CatalogPageView() {
     return (
         <>
+            {/* Composant SEO pour définir les métadonnées de la page catalogue */}
             <Seo
                 title="Concept M-Motors - Catalogue"
                 description="Découvrez notre catalogue de véhicules disponibles en achat ou location."
             />
+            {/* Composants de la page catalogue */}
             <HeroCatalog />
             <VehiclesGridCards />
             <CTA_catalog />

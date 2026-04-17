@@ -1,66 +1,92 @@
-// DEPENDANCE
+// DÉPENDANCE
 import { Link } from 'react-router-dom';
 
-// COMPOSANT
+// COMPOSANTS
 import Container from '../design-system/Container';
+import Logo from '../design-system/Logo';
+import { Typography } from '../design-system/Typography';
 
 // Composant servant à afficher le pied de page "Footer" du site
 export default function Footer() {
   return (
     <footer className="w-full border-t border-stone-800/20">
       <Container className="grid grid-cols-2 md:grid-cols-4 gap-12 py-20 w-full">
+
+        {/* COLONNE LOGO + DESCRIPTION */}
         <div className="col-span-2 md:col-span-1">
-          <div className="font-['Space_Grotesk'] font-bold mb-6 text-primary text-xl">M-MOTORS</div>
-          <p className="text-stone-500 font-['Inter'] text-xs uppercase tracking-[0.2em] leading-relaxed">L'ingénierie de précision au service de votre mobilityé. Achat ou location, nous redéfinissons les standards de l'automobile premium.</p>
-          <div className="flex gap-4 mt-8">
-            <span className="material-symbols-outlined text-stone-400 hover:text-primary cursor-pointer" data-icon="share">share</span>
-            <span className="material-symbols-outlined text-stone-400 hover:text-primary cursor-pointer" data-icon="public">public</span>
-            <span className="material-symbols-outlined text-stone-400 hover:text-primary cursor-pointer" data-icon="mail">mail</span>
-          </div>
+          <Logo className="mb-6 !text-xl" />
+          <Typography 
+            variant="label-sm" 
+            color="on-surface-variant" 
+            className="leading-relaxed !text-xs"
+            component="p"
+          >
+            L'ingénierie de précision au service de votre mobilité. Achat ou location, nous redéfinissons les standards de l'automobile premium.
+          </Typography>
         </div>
+
         {/* COLONNE ENTREPRISE */}
         <div>
-          <h5 className="text-stone-100 font-bold mb-6 text-xs uppercase tracking-widest">Entreprise</h5>
+          <Typography variant="label-lg" weight="bold" className="mb-6" component="h5">
+            Entreprise
+          </Typography>
           <ul className="space-y-4">
-            <li><Link className="text-stone-500 hover:text-primary transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]" to="/about">À propos</Link></li>
-            <li><Link className="text-stone-500 hover:text-primary transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]" to="/catalog">Nos services</Link></li>
-            <li><Link className="text-stone-500 hover:text-primary transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]" to="/">Carrière</Link></li>
+            <li><Link to="/about"><Typography variant="label-sm" color="on-surface-variant" className="hover:text-primary transition-colors" component="span">À propos</Typography></Link></li>
+            <li><Link to="/catalog"><Typography variant="label-sm" color="on-surface-variant" className="hover:text-primary transition-colors" component="span">Nos services</Typography></Link></li>
+            <li><Link to="/"><Typography variant="label-sm" color="on-surface-variant" className="hover:text-primary transition-colors" component="span">Carrière</Typography></Link></li>
           </ul>
         </div>
+
         {/* COLONNE LÉGAL */}
         <div>
-          <h5 className="text-stone-100 font-bold mb-6 text-xs uppercase tracking-widest">Légal</h5>
+          <Typography variant="label-lg" weight="bold" className="mb-6" component="h5">
+            Légal
+          </Typography>
           <ul className="space-y-4">
-            <li><Link className="text-stone-500 hover:text-primary transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]" to="/">Contact</Link></li>
-            <li><Link className="text-stone-500 hover:text-primary transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]" to="/">Mentions Légales</Link></li>
-            <li><Link className="text-stone-500 hover:text-primary transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]" to="/">Confidentialité</Link></li>
+            <li><Link to="/contact"><Typography variant="label-sm" color="on-surface-variant" className="hover:text-primary transition-colors" component="span">Contact</Typography></Link></li>
+            <li><Link to="/"><Typography variant="label-sm" color="on-surface-variant" className="hover:text-primary transition-colors" component="span">Mentions Légales</Typography></Link></li>
+            <li><Link to="/"><Typography variant="label-sm" color="on-surface-variant" className="hover:text-primary transition-colors" component="span">Confidentialité</Typography></Link></li>
           </ul>
         </div>
+
         {/* COLONNE RÉSEAUX */}
         <div>
-          <h5 className="text-stone-100 font-bold mb-6 text-xs uppercase tracking-widest">Réseaux</h5>
+          <Typography variant="label-lg" weight="bold" className="mb-6" component="h5">
+            Réseaux
+          </Typography>
           <ul className="space-y-4">
-            <li><a className="text-stone-500 hover:text-primary transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]" href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a></li>
-            <li><a className="text-stone-500 hover:text-primary transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]" href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-            <li><a className="text-stone-500 hover:text-primary transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]" href="https://youtube.com" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+            <li>
+              <Link to="https://facebook.com" target="_blank" rel="noopener noreferrer"><Typography variant="label-sm" color="on-surface-variant" className="hover:text-primary transition-colors" component="span">Facebook</Typography></Link>
+            </li>
+            <li>
+              <Link to="https://instagram.com" target="_blank" rel="noopener noreferrer"><Typography variant="label-sm" color="on-surface-variant" className="hover:text-primary transition-colors" component="span">Instagram</Typography></Link>
+            </li>
+            <li>
+              <Link to="https://youtube.com" target="_blank" rel="noopener noreferrer"><Typography variant="label-sm" color="on-surface-variant" className="hover:text-primary transition-colors" component="span">YouTube</Typography></Link>
+            </li>
           </ul>
         </div>
       </Container>
+
       {/* BOTTOM BAR */}
       <div className="bg-stone-900 border border-stone-800/20">
         <Container className="py-8 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="text-stone-500 font-['Inter'] text-[10px] uppercase tracking-[0.2em]">© 2026 Concept M-Motors. Propulsé par  
-            <a 
-              className="text-primary hover:text-primary-container transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]" 
-              href="https://github.com/Skies-Land" 
+          <Typography variant="label-sm" color="on-surface-variant" component="div">
+            © 2026 Concept M-Motors. Propulsé par  
+            <Link 
+              className="text-primary hover:text-primary-container transition-colors ml-1" 
+              to="https://github.com/Skies-Land" 
               target="_blank" 
               rel="noopener noreferrer">
               Jonathan Araldi
-            </a>.
-          </div>
-          <div className="text-stone-600 font-['Inter'] text-[9px] uppercase tracking-[0.1em] text-center md:text-right max-w-2xl">Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager.</div>
+            </Link>.
+          </Typography>
+          <Typography variant="label-sm" color="on-surface-variant" className="text-center md:text-right max-w-2xl opacity-60" component="div">
+            Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager.
+          </Typography>
         </Container>
       </div>
+
     </footer>
   );
 }

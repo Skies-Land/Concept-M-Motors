@@ -4,7 +4,9 @@ import { Typography } from "../../../components/design-system/Typography";
 // Composant servant à afficher les chiffres clés de l'entreprise correspondant à la page à propos
 export default function OurFigure() {
     return (
-        <section className="relative z-20 -mt-20 px-6 max-w-7xl mx-auto" data-pg-name="Section : Chiffre">
+        <section className="relative z-20 -mt-20 px-6 max-w-7xl mx-auto" data-pg-name="Section sur les chiffres clés de l'entreprise de la page à propos">
+
+            {/* Grille des chiffres clés */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-0.5 bg-outline-variant/20 rounded-xl overflow-hidden shadow-2xl">
                 <div className="bg-surface-container-high p-10 text-center flex flex-col items-center justify-center border-r border-b border-white/5">
                     <Typography variant="headline-md" component="span" color="primary" className="mb-2">
@@ -39,6 +41,7 @@ export default function OurFigure() {
                     </Typography>
                 </div>
             </div>
+
         </section>
     )
 }

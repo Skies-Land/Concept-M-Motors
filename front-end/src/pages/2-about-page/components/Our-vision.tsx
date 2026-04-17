@@ -4,7 +4,9 @@ import { Typography } from "../../../components/design-system/Typography";
 // Composant servant à afficher les services de l'entreprise correspondant à la page à propos
 export default function OurVision() {
     return (
-        <section className="py-24 px-6 max-w-7xl mx-auto">
+        <section className="py-24 px-6 max-w-7xl mx-auto" data-pg-name="Section sur les services de l'entreprise de la page à propos">
+
+            {/* En-tête de la section */}
             <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
                 <div className="max-w-2xl">
                     <Typography variant="headline-md" component="h2" color="on-surface" className="uppercase mb-4">
@@ -20,11 +22,13 @@ export default function OurVision() {
                     Services Précision
                 </Typography>
             </div>
+
+            {/* Grille des services */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {/* Vente et Qualité */}
                 <div className="bg-surface-container-low duration-500 flex flex-col gap-6 group p-8 rounded-lg transition-all hover:bg-surface-container-high">
                     <div className="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-lg transition-colors duration-500">
-                        <span className="material-symbols-outlined text-primary" data-icon="verified">
+                        <span className="material-symbols-outlined text-primary" data-icon="Icône de coche de vérification">
                             verified
                         </span>
                     </div>
@@ -39,7 +43,7 @@ export default function OurVision() {
                 {/* Accompagnement Client */}
                 <div className="bg-surface-container-low duration-500 flex flex-col gap-6 group p-8 rounded-lg transition-all hover:bg-surface-container-high">
                     <div className="bg-primary/10 duration-500 flex h-12 items-center justify-center rounded-lg transition-colors w-12">
-                        <span className="material-symbols-outlined text-primary" data-icon="handshake">
+                        <span className="material-symbols-outlined text-primary" data-icon="Icône de poignée de main">
                             handshake
                         </span>
                     </div>
@@ -54,7 +58,7 @@ export default function OurVision() {
                 {/* Essai Routier */}
                 <div className="bg-surface-container-low duration-500 flex flex-col gap-6 group p-8 rounded-lg transition-all hover:bg-surface-container-high">
                     <div className="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-lg transition-colors duration-500">
-                        <span className="material-symbols-outlined text-primary" data-icon="speed">
+                        <span className="material-symbols-outlined text-primary" data-icon="Icône de vitesse">
                             speed
                         </span>
                     </div>
@@ -69,7 +73,7 @@ export default function OurVision() {
                 {/* Financement */}
                 <div className="bg-surface-container-low duration-500 flex flex-col gap-6 group p-8 rounded-lg transition-all hover:bg-surface-container-high">
                     <div className="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-lg transition-colors duration-500">
-                        <span className="material-symbols-outlined text-primary" data-icon="payments">
+                        <span className="material-symbols-outlined text-primary" data-icon="Icône de paiement">
                             payments
                         </span>
                     </div>
@@ -85,7 +89,7 @@ export default function OurVision() {
                 <div className="bg-surface-container-low duration-500 flex flex-col gap-6 group p-8 rounded-lg transition-all hover:bg-surface-container-high md:col-span-2">
                     <div className="flex flex-col md:flex-row gap-8 items-start">
                         <div className="w-12 h-12 shrink-0 flex items-center justify-center bg-primary/10 rounded-lg transition-colors duration-500">
-                            <span className="material-symbols-outlined text-primary" data-icon="autorenew">
+                            <span className="material-symbols-outlined text-primary" data-icon="Icône de flèches circulaire">
                                 autorenew
                             </span>
                         </div>
@@ -101,6 +105,7 @@ export default function OurVision() {
                     </div>
                 </div>
             </div>
+
         </section>
     )
 }

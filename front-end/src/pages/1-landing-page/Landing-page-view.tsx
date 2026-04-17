@@ -10,10 +10,13 @@ import Seo from "../../components/seo/Seo"
 export default function LandingPageView() {
     return (
         <>
+            {/* Composant SEO pour définir les métadonnées de la page d'accueil */}
             <Seo
                 title="Concept M-Motors - Page d'accueil"
                 description="Vente de véhicules, achat et location avec services associés"
             />
+
+            {/* Composants de la page d'accueil */}
             <Hero />
             <Process />
             <Services />

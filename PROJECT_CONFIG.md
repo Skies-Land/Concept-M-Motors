@@ -25,6 +25,7 @@ Ce document résume la configuration technique du projet Concept M-Motors.
     - Centralisation du style textuel (Font, Size, Color) avec le composant `Typography`. 
     - Centralisation du style des boutons avec le composant `Button`. 
     - Centralisation du style des conteneurs avec le composant `Container`.
+    - Centralisation du style du designdu logo avec le composant `Logo`. 
 - **Layout :** Utilisation d'un `RootLayout` pour la structure globale du site.
 - **Pages :** Découpage par fonctionnalités dans `/src/pages/`.
 - **Navigation :** Composants `Header` et `Footer` utilisant `<Link>` pour le mode SPA.

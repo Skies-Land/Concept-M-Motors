@@ -29,6 +29,10 @@ export const router = createBrowserRouter([
         element: <AboutPageView />,
       },
       {
+        path: 'contact',
+        element: <div className="p-20 text-center text-2xl text-white">Contact (En cours de développement)</div>,
+      },
+      {
         path: 'login',
         element: <div className="p-20 text-center text-2xl text-white">Connexion (En cours de développement)</div>,
       },

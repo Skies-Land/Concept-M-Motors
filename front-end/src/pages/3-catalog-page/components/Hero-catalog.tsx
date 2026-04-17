@@ -3,18 +3,20 @@ import { Typography } from "../../../components/design-system/Typography";
 import { Button } from "../../../components/design-system/Button";
 
 // IMAGE
-import imageHero from "../../../assets/IMG_hero-catalog.jpg"
+import imageHeroPageCatalog from "../../../assets/IMG_hero-catalog.jpg"
 
 // Composant servant à afficher la section Hero correspondant à la page catalogue
 export default function HeroCatalog() { 
     return (
         <section 
             className="bg-center bg-cover border-b border-white/5 flex flex-col h-[614px] items-center justify-center px-8 relative rounded-lg text-center" 
-            style={{ backgroundImage: `url(${imageHero})` }}
-            data-pg-name="Section : Hero">
+            style={{ backgroundImage: `url(${imageHeroPageCatalog})` }}
+            data-pg-name="Section Hero de la page catalogue">
 
             {/* Overlay */}
             <div className="absolute bg-black/60 inset-0"></div>
+
+            {/* Conteneur du texte */}
             <div className="relative z-10 max-w-4xl">
                 <Typography variant="label-lg" color="primary" className="mb-4 block">
                     La Collection Signature
@@ -28,6 +30,7 @@ export default function HeroCatalog() {
             </div>
 
             {/* Filtre de recherche */}
+            {/* TODO: Ajouter la logique de filtre */}
             <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-full max-w-5xl px-8">
                 <div className="backdrop-blur-xl bg-surface-container-high border border-white/10 flex flex-wrap gap-6 items-center justify-between p-6 rounded-lg shadow-2xl">
                     <div className="flex-1 min-w-[200px]">
@@ -50,11 +53,14 @@ export default function HeroCatalog() {
                         </div>
                     </div>
                     <div className="w-px h-10 bg-white/10 hidden md:block"></div>
+                    {/* Bouton de filtre */}
+                    {/* TODO: Ajouter la logique de filtre */}
                     <Button variant="primary" size="medium">
                         Filtrer
                     </Button>
                 </div>
             </div>
+
         </section>
     );
 };

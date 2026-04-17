@@ -9,10 +9,10 @@ src/
 │   main.tsx                    # Point d'entrée React
 │   index.css                   # Styles CSS globaux (Tailwind)
 │
-├── assets/                     # Médias et ressources statiques du projet
+├── assets/                     # Médias et ressources statiques du projet (favicon, images)
 │
 ├── components/                 # Composants réutilisables
-│   ├── design-system/          # Composants de base d'interface (Typography, Button, Container)
+│   ├── design-system/          # Composants de base d'interface (Container, Typography, Button, Logo)
 │   ├── layout/                 # Composants de structure (RootLayout)
 │   ├── navigation/             # Composants de navigation (Header, Footer)
 │   └── seo/                    # Composants liés au référencement (Seo)
@@ -21,11 +21,12 @@ src/
 │   └── firebase-config.ts      # Initialisation et export de l'instance Firebase
 │
 ├── pages/                      # Différentes pages de l'application
-│   ├── 1-landing-page/         # Composants et vue pour la page d'accueil
-│   ├── 2-about-page/           # Composants pour la page "À propos"
-│   ├── 3-catalog-page/         # Composants pour le catalogue
-│   ├── 4-login-page/           # Composants pour la page de connexion
-│   └── 5-customer-area/        # Composants pour l'espace client
+│   ├── 1-landing-page/         # Composants et vue pour la page "d'accueil"
+│   ├── 2-about-page/           # Composants et vue pour la page "À propos"
+│   ├── 3-catalog-page/         # Composants et vue pour la page du "Catalogue"
+│   ├── 4-contact-page/         # Composants et vue pour la page de "Contact"
+│   ├── 5-login-page/           # Composants et vue pour la page de "Connexion"
+│   └── 6-customer-area/        # Composants et vue pour la page de "l'Espace client"
 │
 ├── routes/                     # Fichiers de configuration du routage
 │   └── router.tsx              # Définition des routes avec React Router

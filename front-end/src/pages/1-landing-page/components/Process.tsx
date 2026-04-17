@@ -5,8 +5,12 @@ import { Typography } from "../../../components/design-system/Typography";
 // Composant servant à afficher les informations du processus d'aquisition d'un véhicule correspondant à la landing page 
 export default function Process() {
   return (
-    <section className="py-32 bg-surface-dim" data-pg-name="Section : Process">
+    <section className="py-32 bg-surface-dim" data-pg-name="Section processus d'aquisition de la landing page">
+
+      {/* Conteneur principal */}
       <Container>
+
+        {/* En-tête de la section */}
         <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
           <div>
             <Typography variant="headline-lg" component="h2" color="on-surface" className="uppercase">
@@ -19,8 +23,10 @@ export default function Process() {
             de la sélection à la remise des clés.
           </Typography>
         </div>
+
+        {/* Grille des étapes */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-px bg-outline-variant/10">
-          {/* Step 1 */}
+          {/* Étape 1 */}
           <div className="bg-surface-container group p-10 rounded-lg transition-colors hover:bg-surface-container-high">
             <Typography variant="display-lg" component="span" className="text-outline-variant/30 group-hover:text-primary-container/20 transition-colors">
               01
@@ -33,7 +39,7 @@ export default function Process() {
               leur excellence technique et leur rareté.
             </Typography>
           </div>
-          {/* Step 2 */}
+          {/* Étape 2 */}
           <div className="bg-surface-container group p-10 rounded-lg transition-colors hover:bg-surface-container-high">
             <Typography variant="display-lg" component="span" className="text-outline-variant/30 group-hover:text-primary-container/20 transition-colors">
               02
@@ -46,7 +52,7 @@ export default function Process() {
               durée souhaitée via notre interface intuitive.
             </Typography>
           </div>
-          {/* Step 3 */}
+          {/* Étape 3 */}
           <div className="bg-surface-container group p-10 rounded-lg transition-colors hover:bg-surface-container-high">
             <Typography variant="display-lg" component="span" className="text-outline-variant/30 group-hover:text-primary-container/20 transition-colors">
               03
@@ -59,7 +65,7 @@ export default function Process() {
               ultra-rapide et confidentiel de votre dossier.
             </Typography>
           </div>
-          {/* Step 4 */}
+          {/* Étape 4 */}
           <div className="bg-surface-container group p-10 rounded-lg transition-colors hover:bg-surface-container-high">
             <Typography variant="display-lg" component="span" className="text-outline-variant/30 group-hover:text-primary-container/20 transition-colors">
               04
@@ -73,7 +79,9 @@ export default function Process() {
             </Typography>
           </div>
         </div>
+
       </Container>
+
     </section>
   );
 }

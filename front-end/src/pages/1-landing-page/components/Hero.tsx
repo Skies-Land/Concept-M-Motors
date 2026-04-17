@@ -3,14 +3,25 @@ import Container from "../../../components/design-system/Container";
 import { Typography } from "../../../components/design-system/Typography";
 import { Button } from "../../../components/design-system/Button";
 
+// IMPORT
+import imageHeroLandingPage from "../../../assets/IMG_Hero_landing-page.png"
+
 // Composant servant à afficher la section Hero correspondant à la landing page
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center pt-24 overflow-hidden bg-surface-container-lowest" data-pg-name="Section : Hero">
+    <section className="relative min-h-screen flex items-center pt-24 overflow-hidden bg-surface-container-lowest" data-pg-name="Section hero de la landing page">
+
+      {/* Image de fond */}
       <div className="absolute inset-0 z-0" data-pg-name="Image de fond">
         <div className="absolute inset-0 bg-gradient-to-r from-surface-container-lowest via-surface-container-lowest/80 to-transparent z-10" data-pg-name="Ombre devant l'image"></div>
-        <img className="w-full h-full object-cover grayscale opacity-50" data-alt="sleek modern supercar side profile in a dark cinematic garage" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2L8bbipyhdBjNqpVQ-Jlwvg3b9HzayQRSG5JLFwfNb9pAUNgoz7Ed2ulzWr2ZFOD8Ul-2hZ6tI5QNHYkvNobBRnTbBeQ6uudeGH06kkx9xpo2DINPUAeaM8_Nl0ujAeKk562UOVPSGp3B9eH0F0QDG9fINC6zSnpWOMi0Dbg-7ihmr3FoNhqpQyMz0RrS0zN2IDD7tL9J7YMb_7fIhMG9xHhUNAOYmOTMAc9b3-hk1Wjo5cLo0VgVXH94CrDxlnBPdZzVTpmZFj4i" alt="Hero background" />
+        <img 
+          className="w-full h-full object-cover grayscale opacity-50" 
+          data-alt="Profil latéral d'une supercar moderne et élégante dans un garage sombre et cinématique" 
+          src = {imageHeroLandingPage}
+          alt="Image de fond de la section hero" />
       </div>
+
+      {/* Conteneur principal */}
       <Container className="relative z-20">
         <div className="max-w-4xl">
           <Typography 
@@ -21,7 +32,6 @@ export default function Hero() {
           >
             Précision Ingénierie
           </Typography>
-
           <Typography 
             variant="display-lg" 
             component="h1" 
@@ -31,7 +41,6 @@ export default function Hero() {
             Valoriser la
             <span className="text-primary"> flexibilité</span>
           </Typography>
-
           <Typography 
             variant="body-lg" 
             component="p" 
@@ -43,32 +52,38 @@ export default function Hero() {
             l'accompagnement sur-mesure. Accédez à un catalogue exclusif de
             véhicules d'exception.
           </Typography>
-          
+
+          {/* Boutons de navigation */}
           <div className="flex flex-col sm:flex-row gap-6">
             <Button 
               variant="primary" 
               size="large" 
-              icon={<span className="material-symbols-outlined">arrow_forward</span>} 
+              // TODO: Ajouter un icône de flèche pointant vers la droite
               iconPosition="right"
+              baseUrl="/catalog"
             >
               Parcourir notre catalogue
             </Button>
             <Button 
               variant="secondary" 
               size="large"
+              baseUrl="/about"
             >
-              En savoir plus
+              Notre histoire
             </Button>
+
           </div>
         </div>
       </Container>
-      {/* Scroll Indicator */}
+
+      {/* Indicateur de défilement - Scroll */}
       <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 opacity-30">
         <Typography variant="label-sm" component="span" color="on-surface">
             En savoir plus
         </Typography>
         <div className="w-px h-12 bg-white"></div>
       </div>
+
     </section>
   );
 }

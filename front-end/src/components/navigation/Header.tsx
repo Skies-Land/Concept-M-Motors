@@ -1,9 +1,11 @@
-// DEPENDANCE
+// DÉPENDANCE
 import { Link } from 'react-router-dom';
 
-// COMPOSANT
+// COMPOSANTS
 import Container from '../design-system/Container';
 import { Button } from '../design-system/Button';
+import Logo from '../design-system/Logo';
+import { Typography } from '../design-system/Typography';
 
 // Composant servant à afficher l'en-tête "Header" du site
 export default function Header() {
@@ -11,26 +13,34 @@ export default function Header() {
     <header>
       <nav className="fixed top-0 w-full z-50 bg-stone-950/60 backdrop-blur-xl">
 
+        {/* Conteneur principal */}
         <Container 
           className="flex justify-between items-center py-6" 
           data-pg-name="Navbar">
-          <Link 
-            to="/" 
-            className="text-2xl font-black text-primary tracking-tighter font-['Space_Grotesk']" 
-            data-pg-name="Logo">
-            M-MOTORS
-          </Link>
+          <Logo />
 
           {/* Liens de navigation */}
+          {/* TODO: Ajouter un effet de lien actif */}
           <div className="hidden items-end space-x-12 md:flex" data-pg-name="Liens">
-            <Link 
-              className="font-['Space_Grotesk'] pb-1 text-stone-400 text-xs tracking-wider uppercase hover:text-stone-100" 
-              to="/catalog">
+            <Link to="/catalog">
+              <Typography 
+                variant="label-md" 
+                color="on-surface-variant" 
+                className="pb-1 transition-colors hover:text-on-surface"
+                component="span"
+              >
                 Catalogue
+              </Typography>
             </Link>
-            <Link className="font-['Space_Grotesk'] p-1 text-stone-400 text-xs tracking-wider transition-colors uppercase hover:text-stone-100" 
-              to="/about">
+            <Link to="/about">
+              <Typography 
+                variant="label-md" 
+                color="on-surface-variant" 
+                className="pb-1 transition-colors hover:text-on-surface"
+                component="span"
+              >
                 À propos
+              </Typography>
             </Link>
           </div>
 
@@ -45,12 +55,15 @@ export default function Header() {
                 Connexion
               </Button>
             </div>
-            <span 
+
+            {/* TODO: Ajouter le menu burger pour mobile */}
+            {/* <span 
               className="material-symbols-outlined text-stone-100 cursor-pointer" 
               data-icon="menu">
               menu
-            </span>
+            </span> */}
           </div>
+
         </Container>
 
       </nav>
