@@ -49,18 +49,20 @@ export default function VehicleCard({ vehicle }: VehicleCardProps) {
                         </div>
                     )}
                     {/* Location */}
-                    {vehicle.acquisition?.isAvailableForRent && (
-                        <div className="flex justify-between items-center">
-                            <Typography variant="label-sm" component="span" color="on-surface-variant">
-                                Location
-                            </Typography>
-                            <Typography variant="body-md" component="span" color="on-surface">
-                                {vehicle.acquisition.rentalPrice 
-                                    ? `${vehicle.acquisition.rentalPrice.toLocaleString()} €/mois` 
-                                    : "Sur demande"}
-                            </Typography>
-                        </div>
-                    )}
+                    <div className="flex justify-between items-center">
+                        <Typography variant="label-sm" component="span" color="on-surface-variant">
+                            Location
+                        </Typography>
+                        <Typography variant="body-md" component="span" color="on-surface">
+                            {/* Affichage conditionnel du prix de location :
+                                Dans la base de donnée, 
+                                - si le véhicule est disponible à la location le prix est affiché
+                                - Sinon, l'affichage du prix est remplacer par "Nous contacter" */}
+                            {vehicle.acquisition?.isAvailableForRent && vehicle.acquisition?.rentalPrice 
+                                ? `${vehicle.acquisition.rentalPrice.toLocaleString()} €/mois` 
+                                : "Nous contacter"}
+                        </Typography>
+                    </div>
                 </div>
             </div>
         </article>
