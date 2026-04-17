@@ -24,6 +24,8 @@ src/
 │   ├── 1-landing-page/         # Composants et vue pour la page "d'accueil"
 │   ├── 2-about-page/           # Composants et vue pour la page "À propos"
 │   ├── 3-catalog-page/         # Composants et vue pour la page du "Catalogue"
+│   │   └── components/         # Sous-composants propres à la page
+│   │       └── features/       # Composants de fonctionnalités (Filtres, Pagination...)
 │   ├── 4-contact-page/         # Composants et vue pour la page de "Contact"
 │   ├── 5-login-page/           # Composants et vue pour la page de "Connexion"
 │   └── 6-customer-area/        # Composants et vue pour la page de "l'Espace client"
@@ -34,7 +36,6 @@ src/
 └── types/                      # Interfaces TypeScript partagées
     └── Vehicle.tsx             # Définition du contrat de données "Vehicle"
 ```
-
 
 ## 👤 Skies-Land - Jonathan Araldi
 - **[Portfolio](https://portfolio-jonathan-araldi.netlify.app/)** | **[LinkedIn](https://www.linkedin.com/in/jonathan-araldi/)** | **[GitHub](https://github.com/Skies-Land)**

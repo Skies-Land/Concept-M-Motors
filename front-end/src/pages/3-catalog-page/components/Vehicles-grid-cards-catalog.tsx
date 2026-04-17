@@ -12,13 +12,25 @@ import { type Vehicle } from '../../../types/Vehicle';
 import Container from "../../../components/design-system/Container";
 import VehicleCard from "./Vehicle-card-catalog";
 import { Typography } from "../../../components/design-system/Typography";
-import PaginationCatalog from "./Pagination-catalog";
+import PaginationCatalog from "./features/Pagination-catalog";
+
+interface FilterState {
+    brand: string;
+    maxPrice: number;
+}
+
+interface VehiclesGridCardsCatalogProps {
+    filters: FilterState;
+}
 
 // Composant servant à présenter les véhicules disponibles sous forme de grille avec pagination
-export default function VehiclesGridCardsCatalog() {
-    const [vehicles, setVehicles] = useState<Vehicle[]>([]); // État pour stocker les véhicules
-    const [currentPage, setCurrentPage] = useState(1); // État pour stocker la page actuelle
-    const itemsPerPage = 6; // Nombre de véhicules à afficher par page
+export default function VehiclesGridCardsCatalog({ filters }: VehiclesGridCardsCatalogProps) {
+    // État pour stocker les véhicules
+    const [vehicles, setVehicles] = useState<Vehicle[]>([]);
+    // État pour stocker la page actuelle
+    const [currentPage, setCurrentPage] = useState(1);
+    // Nombre de véhicules à afficher par page
+    const itemsPerPage = 6;
 
     // Récupération des données de la collection vehicles à partir de Firebase
     useEffect(() => {
@@ -38,14 +50,31 @@ export default function VehiclesGridCardsCatalog() {
         fetchVehicles();
     }, []);
 
-    // Calcul du nombre total de pages
-    const totalPages = Math.ceil(vehicles.length / itemsPerPage);
+    // On réinitialise la page à 1 quand les filtres changent
+    useEffect(() => {
+        setCurrentPage(1);
+    }, [filters]);
+
+    // Application des filtres
+    const filteredVehicles = vehicles.filter(vehicle => {
+        const matchesBrand = filters.brand === "Toutes les Manufactures" || vehicle.brand === filters.brand;
+        
+        // On vérifie le prix d'achat en priorité pour l'investissement
+        // Si pas de prix d'achat, on regarde si c'est une location (facultatif selon règle métier)
+        const price = vehicle.acquisition?.purchasePrice || 0;
+        const matchesPrice = price <= filters.maxPrice;
+
+        return matchesBrand && matchesPrice;
+    });
+
+    // Calcul du nombre total de pages sur la liste filtrée
+    const totalPages = Math.ceil(filteredVehicles.length / itemsPerPage);
 
     // Calcul de l'index de début et de fin pour la pagination
     const startIndex = (currentPage - 1) * itemsPerPage;
 
-    // Récupération des véhicules de la page actuelle
-    const currentVehicles = vehicles.slice(startIndex, startIndex + itemsPerPage);
+    // Récupération des véhicules de la page actuelle à partir de la liste filtrée
+    const currentVehicles = filteredVehicles.slice(startIndex, startIndex + itemsPerPage);
 
     return (
         <section className="flex-1 py-32 bg-surface-dim" data-pg-name="Section de présentation des véhicules de la page de catalogue">
@@ -65,23 +94,32 @@ export default function VehiclesGridCardsCatalog() {
                             standards d'excellence dépassant les normes industrielles habituelles.
                         </Typography>
                     </div>
-                    {/* TODO: Implémenter un affichage dynamique du nombre de véhicule disponible en fonction du système de filtres */}
+                    {/* Affichage dynamique du nombre de véhicule disponible en fonction du système de filtres */}
                     <div className="flex gap-4">
                         <Typography 
                             variant="label-sm" 
                             component="span" 
                             color="on-surface" 
                             className="px-4 py-2 bg-surface-container border border-outline-variant/10 rounded-md">
-                            {vehicles.length} RÉSULTATS
+                            {/* Condition : Ajout du 'S' à 'RÉSULTAT' si le nombre de véhicule est supérieur à 1 */}
+                            {filteredVehicles.length} RÉSULTAT{filteredVehicles.length > 1 ? "S" : ""}
                         </Typography>
                     </div>
                 </div>
 
                 {/* Affichage dynamique des cartes de véhicules trouvé dans la base de données */}
                 <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-                    {currentVehicles.map(vehicle => (
-                        <VehicleCard key={vehicle.id} vehicle={vehicle} />
-                    ))}
+                    {filteredVehicles.length > 0 ? (
+                        currentVehicles.map(vehicle => (
+                            <VehicleCard key={vehicle.id} vehicle={vehicle} />
+                        ))
+                    ) : (
+                        <div className="col-span-full py-20 text-center">
+                            <Typography variant="body-lg" color="on-surface-variant">
+                                Aucun véhicule ne correspond à vos critères de recherche.
+                            </Typography>
+                        </div>
+                    )}
                 </div>
 
                 {/* Pagination */}
