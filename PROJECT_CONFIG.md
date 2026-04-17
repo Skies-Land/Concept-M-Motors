@@ -27,6 +27,7 @@ Ce document résume la configuration technique du projet Concept M-Motors.
     - Centralisation du style des conteneurs avec le composant `Container`.
     - Centralisation du style du designdu logo avec le composant `Logo`. 
 - **Layout :** Utilisation d'un `RootLayout` pour la structure globale du site.
+- **API & Logique métier :** Centralisation des appels réseau dans `/src/api/` et isolation de la logique métier dans des dossiers locaux `functions/` (par exemple, pour le filtrage ou la pagination).
 - **Pages :** Découpage par fonctionnalités dans `/src/pages/`.
 - **Navigation :** Composants `Header` et `Footer` utilisant `<Link>` pour le mode SPA.
 - **Référencement :** Composant `Seo` réutilisable par page.

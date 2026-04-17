@@ -1,9 +1,8 @@
 // DÉPENDANCES
 import { useState, useEffect } from 'react';
-import { collection, getDocs } from 'firebase/firestore';
 
-// CONFIGURATION
-import { db } from '../../../config/firebase-config';
+// API
+import { getVehicles } from '../../../api/Get-vehicles';
 
 // TYPES
 import { type Vehicle } from '../../../types/Vehicle';
@@ -14,11 +13,11 @@ import VehicleCard from "./Vehicle-card-catalog";
 import { Typography } from "../../../components/design-system/Typography";
 import PaginationCatalog from "./features/Pagination-catalog";
 
-interface FilterState {
-    brand: string;
-    maxPrice: number;
-}
+// FONCTIONS (LOGIQUE)
+import { filterVehiclesCatalog, type FilterState } from "./functions/Filter-vehicles-catalog";
+import { paginateVehiclesCatalog } from "./functions/Paginate-vehicles-catalog";
 
+// TYPES
 interface VehiclesGridCardsCatalogProps {
     filters: FilterState;
 }
@@ -34,20 +33,16 @@ export default function VehiclesGridCardsCatalog({ filters }: VehiclesGridCardsC
 
     // Récupération des données de la collection vehicles à partir de Firebase
     useEffect(() => {
-        const fetchVehicles = async () => {
+        const fetchVehiclesData = async () => {
             try {
-                const querySnapshot = await getDocs(collection(db, "vehicles"));
-                const data = querySnapshot.docs.map(doc => ({
-                    ...doc.data(),
-                    id: doc.id
-                })) as Vehicle[];
+                const data = await getVehicles();
                 setVehicles(data);
             } catch (error) {
                 console.error("Erreur détaillée lors de la récupération des véhicules:", error);
             }
         };
 
-        fetchVehicles();
+        fetchVehiclesData();
     }, []);
 
     // On réinitialise la page à 1 quand les filtres changent
@@ -56,25 +51,10 @@ export default function VehiclesGridCardsCatalog({ filters }: VehiclesGridCardsC
     }, [filters]);
 
     // Application des filtres
-    const filteredVehicles = vehicles.filter(vehicle => {
-        const matchesBrand = filters.brand === "Toutes les Manufactures" || vehicle.brand === filters.brand;
-        
-        // On vérifie le prix d'achat en priorité pour l'investissement
-        // Si pas de prix d'achat, on regarde si c'est une location (facultatif selon règle métier)
-        const price = vehicle.acquisition?.purchasePrice || 0;
-        const matchesPrice = price <= filters.maxPrice;
+    const filteredVehicles = filterVehiclesCatalog(vehicles, filters);
 
-        return matchesBrand && matchesPrice;
-    });
-
-    // Calcul du nombre total de pages sur la liste filtrée
-    const totalPages = Math.ceil(filteredVehicles.length / itemsPerPage);
-
-    // Calcul de l'index de début et de fin pour la pagination
-    const startIndex = (currentPage - 1) * itemsPerPage;
-
-    // Récupération des véhicules de la page actuelle à partir de la liste filtrée
-    const currentVehicles = filteredVehicles.slice(startIndex, startIndex + itemsPerPage);
+    // Calcul de la pagination
+    const { totalPages, currentVehicles } = paginateVehiclesCatalog(filteredVehicles, currentPage, itemsPerPage);
 
     return (
         <section className="flex-1 py-32 bg-surface-dim" data-pg-name="Section de présentation des véhicules de la page de catalogue">

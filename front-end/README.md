@@ -11,6 +11,9 @@ src/
 │
 ├── assets/                     # Médias et ressources statiques du projet (favicon, images)
 │
+├── api/                        # Appels réseau et communication base de données
+│   └── Get-vehicles.tsx        # Fonction de récupération des véhicules depuis Firebase
+│
 ├── components/                 # Composants réutilisables
 │   ├── design-system/          # Composants de base d'interface (Container, Typography, Button, Logo)
 │   ├── layout/                 # Composants de structure (RootLayout)
@@ -25,7 +28,8 @@ src/
 │   ├── 2-about-page/           # Composants et vue pour la page "À propos"
 │   ├── 3-catalog-page/         # Composants et vue pour la page du "Catalogue"
 │   │   └── components/         # Sous-composants propres à la page
-│   │       └── features/       # Composants de fonctionnalités (Filtres, Pagination...)
+│   │       └── features/       # Composants de fonctionnalités (Filtres, Pagination)
+│   │       └── functions/      # Fonctions utilitaires propres à la page
 │   ├── 4-contact-page/         # Composants et vue pour la page de "Contact"
 │   ├── 5-login-page/           # Composants et vue pour la page de "Connexion"
 │   └── 6-customer-area/        # Composants et vue pour la page de "l'Espace client"

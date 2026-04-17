@@ -1,12 +1,12 @@
 // DÉPENDANCES
 import { useState, useEffect } from "react";
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "../../../../config/firebase-config";
+import { getBrandsCatalog } from "../functions/Get-brands-catalog";
 
 // COMPOSANTS
 import { Typography } from "../../../../components/design-system/Typography";
 import { Button } from "../../../../components/design-system/Button";
 
+// TYPES
 interface SearchFilterCatalogProps {
     onFilterChange: (filters: { brand: string; maxPrice: number }) => void;
 }
@@ -26,10 +26,7 @@ export default function SearchFilterCatalog({ onFilterChange }: SearchFilterCata
     useEffect(() => {
         const fetchBrands = async () => {
             try {
-                const querySnapshot = await getDocs(collection(db, "vehicles"));
-                const vehicleBrands = querySnapshot.docs.map(doc => doc.data().brand as string);
-                // On retire les doublons et on trie par ordre alphabétique
-                const uniqueBrands = Array.from(new Set(vehicleBrands)).sort();
+                const uniqueBrands = await getBrandsCatalog();
                 setBrands(uniqueBrands);
             } catch (error) {
                 console.error("Erreur lors de la récupération des marques:", error);
