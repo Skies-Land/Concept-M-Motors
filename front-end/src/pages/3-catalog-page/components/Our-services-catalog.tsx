@@ -6,7 +6,7 @@ import Container from "../../../components/design-system/Container";
 import { Typography } from "../../../components/design-system/Typography";
 
 // Composant servant à afficher les services qu'offre l'entreprise correspondant à la page catalogue
-export default function OurServices() {
+export default function OurServicesCatalog() {
     return (
         <section className="mt-32" data-pg-name="Section services de la page catalogue">
 

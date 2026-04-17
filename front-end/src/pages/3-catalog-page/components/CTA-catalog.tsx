@@ -7,7 +7,7 @@ import { Button } from "../../../components/design-system/Button";
 import imageCTACatalogPage from "../../../assets/IMG_CTA_catalog.png"
 
 // Composant servant à afficher la section d'appel à l'action correspondant de la page catalogue
-export default function CTA_catalog() {
+export default function CTACatalog() {
     return (
         <section data-pg-name="Section d'appel à l'action de la page catalogue">
 

@@ -1,9 +1,9 @@
 // COMPOSANTS
 import Seo from "../../components/seo/Seo";
 import HeroCatalog from "./components/Hero-catalog";
-import VehiclesGridCards from "./components/Vehicles-grid-cards";
-import CTA_catalog from "./components/CTA-catalog";
-import OurServices from "./components/Our-services";
+import VehiclesGridCardsCatalog from "./components/Vehicles-grid-cards-catalog";
+import CTACatalog from "./components/CTA-catalog";
+import OurServicesCatalog from "./components/Our-services-catalog";
 
 // Composant principal de la page catalogue
 export default function CatalogPageView() {
@@ -16,9 +16,9 @@ export default function CatalogPageView() {
             />
             {/* Composants de la page catalogue */}
             <HeroCatalog />
-            <VehiclesGridCards />
-            <CTA_catalog />
-            <OurServices />
+            <VehiclesGridCardsCatalog />
+            <CTACatalog />
+            <OurServicesCatalog />
         </>
     );
 };
