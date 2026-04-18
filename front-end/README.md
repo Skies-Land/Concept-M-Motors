@@ -33,6 +33,7 @@ src/
 │   ├── 4-contact-page/         # Composants et vue pour la page de "Contact"
 │   ├── 5-login-page/           # Composants et vue pour la page de "Connexion"
 │   └── 6-customer-area/        # Composants et vue pour la page de "l'Espace client"
+│   └── 7-error-page/           # Composants et vue pour la page d'erreur 404
 │
 ├── routes/                     # Fichiers de configuration du routage
 │   └── router.tsx              # Définition des routes avec React Router

@@ -55,6 +55,8 @@ Le dossier **[Maquette](./maquette/)** contient la maquette du projet en HTML et
 - **Étape 7 :** Organisation de l'architecture pour séparer la logique métier de l'interface graphique (Single Responsibility Principle).
     * Création du composant d'appels réseau autonome **[Get-vehicles](./front-end/src/api/Get-vehicles.tsx)** dans le dossier `api/` pour centraliser les appels généraux à l'API Firebase Firestore.
     * Création du sous-dossier `functions/` propre à la page catalogue listant la logique fine séparée de ses composants graphiques (logique complète du système de filtre **[Filter-vehicles-catalog](./front-end/src/pages/3-catalog-page/components/functions/Filter-vehicles-catalog.tsx)**, calcul et partition des numéros de pages **[Paginate-vehicles-catalog](./front-end/src/pages/3-catalog-page/components/functions/Paginate-vehicles-catalog.tsx)**, ainsi que la récupération isolée des noms de marques de véhicules **[Get-brands-catalog](./front-end/src/pages/3-catalog-page/components/functions/Get-brands-catalog.tsx)**).
+- **Étape 8 :** Implémentation de la page d'erreur 404 avec le composant **[Error-content](./front-end/src/pages/7-error-page/components/Error-content.tsx)**. Cette page sert à informer l'utilisateur que la page demandée n'existe pas (ou n'est plus référencé) et lui propose deux solutions pour retrouver ce qu'il cherche *(Retour à l'accueil et Revenir à la page précédente)*.
+
 
 ### Phase de développement côté Back-end
 - **Étape 1 :** Pour la page de catalogue de véhicules, stockage des images des véhicules dans **[Cloudinary](https://cloudinary.com/)**.
