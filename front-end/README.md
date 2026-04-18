@@ -30,10 +30,12 @@ src/
 │   │   └── components/         # Sous-composants propres à la page
 │   │       └── features/       # Composants de fonctionnalités (Filtres, Pagination)
 │   │       └── functions/      # Fonctions utilitaires propres à la page
-│   ├── 4-contact-page/         # Composants et vue pour la page de "Contact"
-│   ├── 5-login-page/           # Composants et vue pour la page de "Connexion"
-│   └── 6-customer-area/        # Composants et vue pour la page de "l'Espace client"
-│   └── 7-error-page/           # Composants et vue pour la page d'erreur 404
+│   ├── 4-vehicle-page/         # Composants et vue pour la page de description d'un "Véhicule"
+│   │   └── components/         # Sous-composants propres à la page
+│   ├── 5-contact-page/         # Composants et vue pour la page de "Contact"
+│   ├── 6-login-page/           # Composants et vue pour la page de "Connexion"
+│   └── 7-customer-area/        # Composants et vue pour la page de "l'Espace client"
+│   └── 8-error-page/           # Composants et vue pour la page d'erreur 404
 │
 ├── routes/                     # Fichiers de configuration du routage
 │   └── router.tsx              # Définition des routes avec React Router

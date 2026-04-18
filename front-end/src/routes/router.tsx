@@ -6,7 +6,8 @@ import RootLayout from '../components/layout/RootLayout';
 import LandingPageView from '../pages/1-landing-page/Landing-page-view';
 import AboutPageView from '../pages/2-about-page/About-page-view';
 import CatalogPageView from '../pages/3-catalog-page/Catalog-page-view';
-import ErrorPageView from '../pages/7-error-page/Error-page-view';
+import VehiclePageView from '../pages/4-vehicle-page/Vehicle-page-view';
+import ErrorPageView from '../pages/8-error-page/Error-page-view';
 
 // RAPPEL : For better performance on large apps, use lazy loading: 
 // EXAMPLE : const CatalogPage = lazy(() => import('../pages/3-catalog-page/CatalogPageView'));
@@ -24,6 +25,10 @@ export const router = createBrowserRouter([
       {
         path: 'catalog',
         element: <CatalogPageView />,
+      },
+      {
+        path: 'catalog/:id',
+        element: <VehiclePageView />,
       },
       {
         path: 'about',

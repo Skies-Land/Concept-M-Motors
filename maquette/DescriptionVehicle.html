@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html class="dark" lang="fr">
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+        <script id="tailwind-config">
+            tailwind.config = {
+            darkMode: "class",
+            theme: {
+            extend: {
+                "colors": {
+                        "surface-tint": "#ffb692",
+                        "on-primary-fixed-variant": "#793000",
+                        "on-surface-variant": "#dcc1b5",
+                        "tertiary-fixed": "#65f7fe",
+                        "on-tertiary-fixed-variant": "#004f52",
+                        "tertiary": "#44dde4",
+                        "on-secondary": "#303030",
+                        "tertiary-container": "#00c1c8",
+                        "secondary-container": "#494948",
+                        "on-tertiary-fixed": "#002021",
+                        "inverse-on-surface": "#313030",
+                        "on-primary-fixed": "#341100",
+                        "surface-container-low": "#1c1b1b",
+                        "on-primary": "#562000",
+                        "primary-fixed": "#ffdbcb",
+                        "on-primary-container": "#712c00",
+                        "surface-container": "#201f1f",
+                        "on-tertiary": "#003739",
+                        "on-background": "#e5e2e1",
+                        "on-tertiary-container": "#004a4c",
+                        "outline": "#a48c81",
+                        "on-surface": "#e5e2e1",
+                        "surface-bright": "#3a3939",
+                        "surface-dim": "#131313",
+                        "background": "#131313",
+                        "secondary": "#c8c6c4",
+                        "on-error": "#690005",
+                        "surface-container-highest": "#353534",
+                        "inverse-primary": "#9b450f",
+                        "surface-container-lowest": "#0e0e0e",
+                        "primary": "#ffba98",
+                        "secondary-fixed-dim": "#c8c6c4",
+                        "on-secondary-container": "#bab8b6",
+                        "on-secondary-fixed": "#1b1c1b",
+                        "on-error-container": "#ffdad6",
+                        "inverse-surface": "#e5e2e1",
+                        "tertiary-fixed-dim": "#40dae1",
+                        "surface-variant": "#353534",
+                        "surface-container-high": "#2a2a2a",
+                        "surface": "#131313",
+                        "secondary-fixed": "#e4e2e0",
+                        "on-secondary-fixed-variant": "#474746",
+                        "primary-container": "#ff9157",
+                        "primary-fixed-dim": "#ffb692",
+                        "outline-variant": "#56433a",
+                        "error-container": "#93000a",
+                        "error": "#ffb4ab"
+                },
+                "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                },
+                "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                }
+            },
+            },
+        }
+        </script>
+        <style>
+            body { 
+                background-color: #0e0e0e; 
+                color: #e5e2e1; 
+                font-family: 'Inter', sans-serif; 
+            } 
+            .material-symbols-outlined { 
+                font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; 
+            } 
+            .tonal-shift { 
+                background-color: rgba(32, 31, 31, 0.4); 
+            } 
+            .glass-panel { 
+                backdrop-filter: blur(20px); 
+                background: rgba(38, 38, 38, 0.6); 
+            } 
+            .text-tension-lg { 
+                font-size: clamp(3rem, 10vw, 8rem); 
+                line-height: 0.9; 
+            } 
+            .ignition-gradient { 
+                background: linear-gradient(135deg, #ff9157 0%, #ff7a2c 100%); 
+            }
+        </style>
+    </head>
+    <body class="selection:bg-primary-container selection:text-on-primary-container">
+        <!-- HEADER -->
+        <header>
+            <nav class="fixed top-0 w-full z-50 bg-stone-950/60 backdrop-blur-xl">
+                <div class="flex justify-between items-center px-8 py-6 w-full max-w-screen-2xl mx-auto" data-pg-name="Navbar">
+                    <div class="text-2xl font-black text-orange-500 tracking-tighter font-['Space_Grotesk']" data-pg-name="Logo">
+                        M-MOTORS
+                    </div>
+                    <div class="hidden items-end space-x-12 md:flex" data-pg-name="Liens">
+                        <a class="font-['Space_Grotesk'] pb-1 text-stone-400 text-xs tracking-wider uppercase hover:text-stone-100" href="catalogue.html">Catalogue</a>
+                        <a class="font-['Space_Grotesk'] p-1 text-stone-400 text-xs tracking-wider transition-colors uppercase" href="a-propos.html">À propos</a>
+                    </div>
+                    <div class="flex items-center gap-6" data-pg-name="Connexion">
+                        <button class="font-bold hidden ignition-gradient px-6 py-2 rounded-lg text-on-primary-fixed text-sm tracking-widest transition-transform uppercase active:scale-95 md:block">CONNEXION</button>
+                        <span class="material-symbols-outlined text-stone-100 cursor-pointer" data-icon="menu">menu</span>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <!-- HERO DESCRIPTION -->
+            <section class="relative w-full h-[614px] md:h-[768px] flex items-end pb-12 md:pb-24 overflow-hidden" data-pg-name="Section : Hero de la page de description d'un véhicule">
+                <div class="absolute inset-0 z-0">
+                    <img alt="Audi A4 2022" class="w-full h-full object-cover object-center opacity-80" data-alt="Sleek silver Audi A4 2022 parked in a modern, dimly lit industrial studio setting, dramatic cinematic lighting highlighting its precise engineering lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYQbG09rPMiwovI2ulzcHF4CdAMxiGlk423btx_BpND2N__3YfXmrzeaq3kmzAd05d6hvH7R3snCLjkBOyBFwxu5ux8-B_zSqzbBPuEyqLjLhyMgIO8H0GHXKhbUp-qe3TkMrxsolioP3vuB3ft_ZjEy4i_k1s9GF_h0yLpj3-N4SiaSNpyFWUMJL-unjjcsEfsweXQSEq4iOvili-Xg0h0uaVuEjK9LXVraeqykJOvybrh7F3lG23BjRsykuIWIkTLDqcc6ZR-unS"/>
+                    <div class="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent"></div>
+                </div>
+                <div class="relative z-10 container mx-auto px-6 md:px-12 flex flex-col items-start max-w-7xl">
+                    <span class="text-primary font-headline tracking-[0.2em] uppercase text-sm mb-4 font-semibold">
+                        Ingénierie de précision
+                    </span>
+                    <h1 class="font-headline text-5xl md:text-7xl font-bold tracking-tighter text-on-background leading-tight mb-6">
+                        Audi A4 2022
+                    </h1>
+                    <div class="flex flex-wrap items-center gap-4 text-on-surface-variant font-body text-sm md:text-base">
+                        <span class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-lg">
+                            speed</span> 45,000 km</span>
+                        <span class="w-1 h-1 rounded-full bg-outline-variant/50"></span>
+                        <span class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-lg">
+                            directions_car</span> Berline</span>
+                        <span class="w-1 h-1 rounded-full bg-outline-variant/50"></span>
+                        <span class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-lg">
+                            calendar_month</span> 2022</span>
+                    </div>
+                </div>
+            </section>
+    
+            <!-- DESCRIPTION VEHICULE -->
+            <section class="gap-16 grid grid-cols-1 lg:grid-cols-12 max-w-7xl mx-auto px-12 py-24 w-full" data-pg-name="Section : Information technique du véhicule">
+                <div class="lg:col-span-4 flex flex-col gap-6">
+                    <h2 class="font-headline text-3xl font-bold tracking-tight text-on-surface uppercase">
+                        Engineering<br/>Excellence
+                    </h2>
+                    <p class="font-body text-on-surface-variant leading-relaxed">
+                        Texte d'information à propos du véhicule
+                    </p>
+                </div>
+                <div class="lg:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="bg-surface-container-highest p-6 rounded flex flex-col justify-between aspect-square">
+                        <span class="font-body text-on-surface-variant text-sm uppercase tracking-widest flex items-center gap-2"><span class="material-symbols-outlined text-primary" style="font-size: 18px;">timer</span> 0-100 km/h</span>
+                        <span class="font-headline text-4xl font-black text-on-surface tracking-tighter">3.4s</span>
+                    </div>
+                    <div class="bg-surface-container-highest p-6 rounded flex flex-col justify-between aspect-square">
+                        <span class="font-body text-on-surface-variant text-sm uppercase tracking-widest flex items-center gap-2"><span class="material-symbols-outlined text-primary" style="font-size: 18px;">speed</span> Top Speed</span>
+                        <span class="font-headline text-4xl font-black text-on-surface tracking-tighter">320 <span class="text-xl text-on-surface-variant">km/h</span></span>
+                    </div>
+                    <div class="bg-surface-container-highest p-6 rounded flex flex-col justify-between aspect-square">
+                        <span class="font-body text-on-surface-variant text-sm uppercase tracking-widest flex items-center gap-2"><span class="material-symbols-outlined text-primary" style="font-size: 18px;">bolt</span> Power</span>
+                        <span class="font-headline text-4xl font-black text-on-surface tracking-tighter">510 <span class="text-xl text-on-surface-variant">PS</span></span>
+                    </div>
+                    <div class="bg-surface-container-highest p-6 rounded flex flex-col justify-between aspect-square">
+                        <span class="font-body text-on-surface-variant text-sm uppercase tracking-widest flex items-center gap-2"><span class="material-symbols-outlined text-primary" style="font-size: 18px;">settings</span> Engine</span>
+                        <span class="font-headline text-4xl font-black text-on-surface tracking-tighter">4.0L <span class="text-xl text-on-surface-variant">Flat-6</span></span>
+                    </div>
+                </div>
+            </section>
+    
+            <!-- ACQUISITION METHOD -->
+            <section class="bg-surface-container-low py-24" data-pg-name="Section : Option d'acquisition v1">
+                <div class="px-12 max-w-7xl mx-auto w-full">
+                    <h2 class="font-headline text-4xl font-bold tracking-tight text-on-surface uppercase mb-12 text-center">Options d'acquisition</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Achat Module -->
+                        <div class="bg-surface-container p-8 rounded flex flex-col gap-8 relative overflow-hidden group">
+                            <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <div class="relative z-10 flex flex-col gap-2">
+                                <span class="font-body text-primary text-sm uppercase tracking-widest font-semibold">Achat définitif</span>
+                                <h3 class="font-headline text-3xl font-bold text-on-surface uppercase">Achat</h3>
+                            </div>
+                            <div class="relative z-10 flex flex-col gap-1">
+                                <span class="font-body text-on-surface-variant text-sm">À partir de</span>
+                                <span class="font-headline text-5xl font-black text-on-surface tracking-tighter">192 400 €</span>
+                            </div>
+                            <p class="font-body text-on-surface-variant text-sm relative z-10">Découvrez le plaisir d'être propriétaire d'un véhicule sur mesure. </p>
+                            <button class="relative z-10 mt-auto bg-surface-container-highest border border-outline-variant/15 text-on-surface font-headline font-bold uppercase text-sm tracking-tight py-4 px-6 rounded hover:bg-surface-variant transition-colors flex justify-center items-center gap-2">Commander</button>
+                        </div>
+                        <!-- Location Module -->
+                        <div class="bg-surface-container-highest p-8 rounded flex flex-col gap-8 relative border border-primary/20 shadow-[0_0_40px_rgba(255,145,87,0.05)]">
+                            <div class="relative z-10 flex flex-col gap-2">
+                                <span class="font-body text-primary text-sm uppercase tracking-widest font-semibold">Conditions flexibles</span>
+                                <h3 class="font-headline text-3xl font-bold text-on-surface uppercase">Location</h3>
+                            </div>
+                            <div class="relative z-10 flex flex-col gap-1">
+                                <span class="font-body text-on-surface-variant text-sm">Estimation sur 24 mois</span>
+                                <span class="font-headline text-5xl font-black text-on-surface tracking-tighter">3 200 € /mois</span>
+                            </div>
+                            <p class="font-body text-on-surface-variant text-sm relative z-10">Découvrez ci-dessous notre tableau complet des offres de location.</p>
+                            <button class="relative z-10 mt-auto bg-gradient-to-r from-primary to-primary-container text-on-primary-fixed font-headline font-bold uppercase text-sm tracking-tight py-4 px-6 rounded hover:from-primary-dim hover:to-primary transition-colors flex justify-center items-center gap-2">Commander en location</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+    
+            <!-- GRILLE TARIFAIRE -->
+            <section class="max-w-7xl mx-auto px-12 py-24 rounded-lg w-full" data-pg-name="Section : Grille tarifaire pour la location">
+                <h2 class="font-headline text-3xl font-bold tracking-tight text-on-surface uppercase mb-8">
+                    Grille tarifaire pour la location
+                </h2>
+                <div class="bg-surface-container overflow-hidden rounded-lg">
+                    <div class="bg-surface-container-highest border-b border-outline-variant/15 font-body font-semibold grid grid-cols-2 p-4 text-on-surface-variant text-sm tracking-widest uppercase">
+                        <div>Durée</div>
+                        <div>Mensualités</div>
+                    </div>
+                    <div class="bg-surface-container grid grid-cols-2 group items-center p-4 transition-colors hover:bg-surface-container-low">
+                        <div class="font-headline font-bold text-on-surface">
+                            24 mois
+                        </div>
+                        <div class="font-body text-on-surface-variant group-hover:text-primary transition-colors">
+                            3 200 € / mois
+                        </div>
+                    </div>
+                    <div class="bg-surface-container-highest grid grid-cols-2 group items-center p-4 transition-colors hover:bg-surface-container-low">
+                        <div class="font-headline font-bold text-on-surface">
+                            36 mois
+                        </div>
+                        <div class="font-body text-on-surface-variant group-hover:text-primary transition-colors">
+                            2 850 € / mois
+                        </div>
+                    </div>
+                    <div class="bg-surface-container grid grid-cols-2 group items-center p-4 transition-colors hover:bg-surface-container-low">
+                        <div class="font-headline font-bold text-on-surface">
+                            48 mois
+                        </div>
+                        <div class="font-body text-on-surface-variant group-hover:text-primary transition-colors">
+                            2 600 € / mois
+                        </div>
+                    </div>
+                </div>
+                <p class="font-body text-xs text-on-surface-variant mt-4 text-right">
+                    Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager.
+                </p>
+            </section>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="w-full border-t border-stone-800/20">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-12 px-12 py-20 w-full max-w-screen-2xl mx-auto">
+                <div class="col-span-2 md:col-span-1">
+                    <div class="font-['Space_Grotesk'] font-bold mb-6 text-orange-500 text-xl">M-MOTORS</div>
+                    <p class="text-stone-500 font-['Inter'] text-xs uppercase tracking-[0.2em] leading-relaxed">L'ingénierie de précision au service de votre mobilité. Achat ou location, nous redéfinissons les standards de l'automobile premium.</p>
+                    <div class="flex gap-4 mt-8">
+                        <span class="material-symbols-outlined text-stone-400 hover:text-orange-500 cursor-pointer" data-icon="share">share</span>
+                        <span class="material-symbols-outlined text-stone-400 hover:text-orange-500 cursor-pointer" data-icon="public">public</span>
+                        <span class="material-symbols-outlined text-stone-400 hover:text-orange-500 cursor-pointer" data-icon="mail">mail</span>
+                    </div>
+                </div>
+                <div>
+                    <h5 class="text-stone-100 font-bold mb-6 text-xs uppercase tracking-widest">entreprise</h5>
+                    <ul class="space-y-4">
+                        <li>
+                            <a class="text-stone-500 hover:text-orange-500 transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]" href="#">À propos</a>
+                        </li>
+                        <li>
+                            <a class="text-stone-500 hover:text-orange-500 transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]" href="#">Nos services</a>
+                        </li>
+                        <li>
+                            <a class="text-stone-500 hover:text-orange-500 transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]" href="#">Carrière</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-stone-100 font-bold mb-6 text-xs uppercase tracking-widest">Légal</h5>
+                    <ul class="space-y-4">
+                        <li>
+                            <a class="text-stone-500 hover:text-orange-500 transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]" href="#">Contact</a>
+                        </li>
+                        <li>
+                            <a class="text-stone-500 hover:text-orange-500 transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]" href="#">Mentions Légales</a>
+                        </li>
+                        <li>
+                            <a class="text-stone-500 hover:text-orange-500 transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]" href="#">Confidentialité</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-stone-100 font-bold mb-6 text-xs uppercase tracking-widest">Réseaux</h5>
+                    <ul class="space-y-4">
+                        <li>
+                            <a class="text-stone-500 hover:text-orange-500 transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]" href="#">Facebook</a>
+                        </li>
+                        <li>
+                            <a class="text-stone-500 hover:text-orange-500 transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]" href="#">Instagram</a>
+                        </li>
+                        <li>
+                            <a class="text-stone-500 hover:text-orange-500 transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]" href="#">YouTube</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Bottom Bar -->
+            <div class="px-12 py-8 bg-stone-900 flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="text-stone-500 font-['Inter'] text-[10px] uppercase tracking-[0.2em]">© 2026 Concept M-Motors. Propulser par Jonathan  Araldi.</div>
+                <div class="text-stone-600 font-['Inter'] text-[9px] uppercase tracking-[0.1em] text-center md:text-right max-w-2xl">Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager. </div>
+            </div>
+        </footer>
+    </body>
+</html>
