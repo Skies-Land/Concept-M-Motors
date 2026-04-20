@@ -7,7 +7,7 @@ import { db } from '../config/firebase-config';
 // TYPES
 import { type Vehicle } from '../types/Vehicle';
 
-// Fonction servant à récupérer les données de véhicules de la base de données Firestore de Firebase
+// Fonction servant à récupérer les données des véhicules de la base de données Firestore de Firebase
 export const getVehicles = async (): Promise<Vehicle[]> => {
     try {
         const querySnapshot = await getDocs(collection(db, "vehicles"));

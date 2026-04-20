@@ -1,4 +1,4 @@
-📂 Architecture du projet
+## 📂 ARCHITECTURE DU PROJET (CÔTÉ FRONT-END)
 
 ```text
 ├── .env                        # Variables d'environnement (Secrètes)
@@ -32,6 +32,7 @@ src/
 │   │       └── functions/      # Fonctions utilitaires propres à la page
 │   ├── 4-vehicle-page/         # Composants et vue pour la page de description d'un "Véhicule"
 │   │   └── components/         # Sous-composants propres à la page
+│   │       └── functions/      # Fonctions utilitaires propres à la page
 │   ├── 5-contact-page/         # Composants et vue pour la page de "Contact"
 │   ├── 6-login-page/           # Composants et vue pour la page de "Connexion"
 │   └── 7-customer-area/        # Composants et vue pour la page de "l'Espace client"

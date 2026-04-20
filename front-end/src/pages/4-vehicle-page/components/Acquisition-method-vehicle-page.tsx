@@ -3,74 +3,79 @@ import { Typography } from "../../../components/design-system/Typography"
 import { Button } from "../../../components/design-system/Button"
 import Container from "../../../components/design-system/Container"
 
+// TYPES
+import { type Vehicle } from '../../../types/Vehicle';
+export interface VehicleAcquisitionProps {
+    vehicle: Vehicle;
+}
+
 // Composant servant à afficher deux options d'acquisition d'un véhicule - Achat / Location
-export default function AcquisitionMethodVehiclePage() {
+export default function AcquisitionMethodVehiclePage({ vehicle }: VehicleAcquisitionProps) {
     return (
         <>
-        {/* TODO: Ajouter les prix réels des véhicules en fonction de l'ID du véhicule */}
             <section className="bg-surface-container-low py-24" data-pg-name="Section sur le choix des options d'acquisition">
-                <div className="px-12 max-w-7xl mx-auto w-full">
-                    <h2 className="font-headline text-4xl font-bold tracking-tight text-on-surface uppercase mb-12 text-center">
+                <Container>
+                    <Typography variant="headline-md" component="h2" color="on-surface" className="uppercase mb-12 text-center">
                         Options d'acquisition
-                    </h2>
+                    </Typography>
 
                     {/* Grid pour afficher les options d'acquisition */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {/* OPTION 1 : Achat */}
-                        <div className="bg-surface-container p-8 rounded flex flex-col gap-8 relative overflow-hidden group">
+                        <div className="bg-surface-container p-8 rounded-xl flex flex-col gap-8 relative overflow-hidden group">
                             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                             <div className="relative z-10 flex flex-col gap-2">
-                                <span className="font-body text-primary text-sm uppercase tracking-widest font-semibold">
+                                <Typography variant="label-sm" color="primary" component="span" className="font-semibold">
                                     Achat définitif
-                                </span>
-                                <h3 className="font-headline text-3xl font-bold text-on-surface uppercase">
+                                </Typography>
+                                <Typography variant="headline-sm" component="h3" color="on-surface" className="uppercase">
                                     Achat
-                                </h3>
+                                </Typography>
                             </div>
                             <div className="relative z-10 flex flex-col gap-1">
-                                <span className="font-body text-on-surface-variant text-sm">
+                                <Typography variant="body-sm" color="on-surface-variant" component="span">
                                     À partir de
-                                </span>
-                                <span className="font-headline text-5xl font-black text-on-surface tracking-tighter">
-                                    192 400 €
-                                </span>
+                                </Typography>
+                                <Typography variant="headline-md" color="primary" component="span" className="tracking-tighter">
+                                    {vehicle.acquisition.purchasePrice ? `${vehicle.acquisition.purchasePrice} €` : "Nous contacter"}
+                                </Typography>
                             </div>
-                            <p className="font-body text-on-surface-variant text-sm relative z-10">
+                            <Typography variant="body-sm" color="on-surface-variant" className="relative z-10">
                                 Découvrez le plaisir d'être propriétaire d'un véhicule sur mesure.
-                            </p>
+                            </Typography>
                             {/* Bouton pour commander le véhicule */}
-                            <button className="relative z-10 mt-auto bg-surface-container-highest border border-outline-variant/15 text-on-surface font-headline font-bold uppercase text-sm tracking-tight py-4 px-6 rounded hover:bg-surface-variant transition-colors flex justify-center items-center gap-2">
+                            <Button variant="primary" className="relative z-10 mt-auto">
                                 Commander
-                            </button>
+                            </Button>
                         </div>
                         {/* OPTION 2 : Location */}
-                        <div className="bg-surface-container-highest p-8 rounded flex flex-col gap-8 relative border border-primary/20 shadow-[0_0_40px_rgba(255,145,87,0.05)]">
+                        <div className="bg-surface-container-highest p-8 rounded-xl flex flex-col gap-8 relative border border-primary/20 shadow-[0_0_40px_rgba(255,145,87,0.05)]">
                             <div className="relative z-10 flex flex-col gap-2">
-                                <span className="font-body text-primary text-sm uppercase tracking-widest font-semibold">
+                                <Typography variant="label-sm" color="primary" component="span" className="font-semibold">
                                     Conditions flexibles
-                                </span>
-                                <h3 className="font-headline text-3xl font-bold text-on-surface uppercase">
-                                    Location
-                                </h3>
+                                </Typography>
+                                <Typography variant="headline-sm" component="h3" color="on-surface" className="uppercase">
+                                    Location *
+                                </Typography>
                             </div>
                             <div className="relative z-10 flex flex-col gap-1">
-                                <span className="font-body text-on-surface-variant text-sm">
+                                <Typography variant="body-sm" color="on-surface-variant" component="span">
                                     Estimation sur 24 mois
-                                </span>
-                                <span className="font-headline text-5xl font-black text-on-surface tracking-tighter">
-                                    3 200 € /mois
-                                </span>
+                                </Typography>
+                                <Typography variant="headline-md" color="primary" component="span" className="tracking-tighter">
+                                    {vehicle.acquisition.rentalPrice ? `${vehicle.acquisition.rentalPrice} € /mois` : "Nous contacter"}
+                                </Typography>
                             </div>
-                            <p className="font-body text-on-surface-variant text-sm relative z-10">
+                            <Typography variant="body-sm" color="on-surface-variant" className="relative z-10">
                                 Découvrez ci-dessous notre tableau complet des offres de location.
-                            </p>
+                            </Typography>
                             {/* Bouton pour commander le véhicule en location */}
-                            <button className="relative z-10 mt-auto bg-gradient-to-r from-primary to-primary-container text-on-primary-fixed font-headline font-bold uppercase text-sm tracking-tight py-4 px-6 rounded hover:from-primary-dim hover:to-primary transition-colors flex justify-center items-center gap-2">
+                            <Button variant="secondary" className="relative z-10 mt-auto border-primary/50 text-primary hover:bg-primary/5">
                                 Commander en location
-                            </button>
+                            </Button>
                         </div>
                     </div>
-                </div>
+                </Container>
             </section>
         </>
     )

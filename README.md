@@ -1,79 +1,131 @@
-# 🚗 Concept M-Motors
-Ce projet est structuré en deux parties principales pour séparer les responsabilités du client *(front-end)* et du serveur *(back-end)*.
+# 🚗 CONCEPT M-MOTORS
+**M-Motors** *(entreprise fictive)*, leader dans le secteur des véhicules d'occasion depuis 1987, opère une transformation digitale majeure. Avec un réseau de 800 collaborateurs et un parc servant plus d'un million de clients, l'entreprise modernise son infrastructure pour répondre aux nouveaux usages.
 
-## Structure du dossier
-- `/front-end` : Application React + Vite + TypeScript + Tailwind CSS v4. Cette partie contient également l'intégration au service de base de données.
-    > *Consulter le fichier **[README.md](./front-end/README.md)** pour les détails l'architecture du projet côté front-end.*
-- `/back-end` : Architecture "Serverless" utilisant **Firebase** comme base de données NoSQL (Firestore) et pour la future authentification, ainsi que **Cloudinary** pour le stockage et l'optimisation des images.
+### **OBJECTIF DU MVP (Minimum Viable Product)**
+Le projet consiste à développer une plateforme web modernisée visant à digitaliser l'intégralité du tunnel de vente et à introduire un service de LLD (Location longue durée).
 
-## Installation et lancement
+#### **FONCTIONNALITÉS CLÉS :**
+* **Catalogue** : consultation des véhicules disponibles avec affichage des prix d'achat comptant et de location comprenant une grille de tarification pour les mensualités.
+* **Espace client** : permettant de suivre l'état d'avancement des dossiers de souscription. Module de dépôt dématérialisé et sécurisé des pièces justificatives.
 
-### Front-end
+## 🛠️ **STACKS UTILISÉS**
+- `front-end` : Application développée avec **[Vite](https://vitejs.dev/) + [React](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/) + [Tailwind CSS](https://tailwindcss.com/)**. Cette partie contient également l'intégration au service de base de données avec **[Firebase](https://firebase.google.com/)**.
+    > 💡*Consulter le fichier **[README.md](./front-end/README.md)** pour les détails de l'architecture du projet côté front-end.*
+- `back-end` : Architecture "Serverless" utilisant **[Firebase](https://firebase.google.com/)** comme base de données NoSQL (Firestore) et pour la gestion de l'authentification. **[Cloudinary](https://cloudinary.com/)** pour le stockage des images.
+    > 💡*Consulter le fichier **[PROJECT_CONFIG.md](./PROJECT_CONFIG.md)** pour les détails techniques de configuration.*
+
+## 🚀 **INSTALLATION ET LANCEMENT**
 ```bash
+# Accéder au dossier front-end
 cd front-end
+
+# Installer les dépendances
 npm install
+
+# Lancer le développement
 npm run dev
 ```
 
-### Back-end
-*À venir...*
+## 🔄 **DÉROULEMENT DU PROJET**
 
----
-> *Consulter le fichier **[PROJECT_CONFIG.md](./PROJECT_CONFIG.md)** pour les détails techniques de configuration.*
----
-## Déroulement du projet
-
-### Phase de conception et préparation
-Le dossier **[Maquette](./maquette/)** contient la maquette du projet en HTML et Tailwind CSS.
-
-- **Étape 1 :** J'ai utilisé **[Google Stitch](https://stitch.withgoogle.com/)** pour générer les maquettes comme point de départ.
+### ➖ **PHASE 1 : CONCEPTION ET PRÉPARATION | MAQUETTAGE**
+- **Étape 1 :** J'ai utilisé **[Google Stitch](https://stitch.withgoogle.com/)** pour générer les maquettes du site.
 - **Étape 2 :** J'ai affiné les maquettes en éditant certains éléments avec le logiciel de conception **[Pinegrow](https://www.pinegrow.com/)**.
-- **Étape 3 :** À partir des fichiers de maquettes du dossier **[Maquette](./maquette/)**, j'ai procédé au découpage en identifiant les éléments et sections avec des commentaires, pour prévoir une meilleure adaptation en plusieurs composants React réutilisables et de les intégrer dans le dossier **[front-end](./front-end)**.
-- **Étape 4 :** J'ai structuré l'architecture du projet en créant les dossiers et fichiers nécessaires à prévoir. Plus d'information sur cette structure dans le fichier **[README.md](./front-end/README.md)**.
-
-### Phase de développement côté Front-end
-- **Étape 1 :** Développement de chaque composant qui compose les différentes pages du site. Intégration de ces composants dans des pages de vues *(Landing-page-view, About-page-view, Catalog-page-view, Login-page-view, Customer-area-page-view)*.
-- **Étape 2 :** Développement d'un **Design System**, afin d'avoir une cohérence dans chaque page.
-    * Création du composant **[Typography](./front-end/src/components/design-system/Typography.tsx)** pour gérer le style du texte : *type de balise, taille, couleur, etc.*
-    * Création du composant **[Button](./front-end/src/components/design-system/Button.tsx)** pour gérer l'apparence et les actions des boutons du site.
-    * Création du composant **[Logo](./front-end/src/components/design-system/Logo.tsx)** pour gérer l'apparence du logo du site.
-    * Création du composant **[Container](./front-end/src/components/design-system/Container.tsx)** pour avoir une cohérence dans chaque page.
-        * Ce composant utilise des marges automatiques *(mx-auto)*, une largeur maximale stricte *(max-w-7xl)*, et des paddings qui s'adaptent progressivement selon les écrans *(px-4 sm:px-6 lg:px-8 xl:px-12)*. Cela évite que les textes ou le contenu ne touchent les bords sur téléphones ou tablettes, tout en limitant la largeur sur très grand écran pour préserver la lisibilité. Il utilise la propriété *as* pour s'adapter sémantiquement si besoin (bien que défini par défaut sur un simple *div*).
-    * Intégration de ces composants dans les différentes pages du site. Fonctionnement par *props*, *children*, *switch case*.
-- **Étape 3 :** Configuration des routes avec **[React Router](https://reactrouter.com/)** pour la navigation entre les pages.
-- **Étape 4 :** Implémentation du composant **[Vehicle-Card](./front-end/src/pages/3-catalog-page/components/Vehicle-card-catalog.tsx)** pour afficher les véhicules du catalogue. Définition des types de données pour les véhicules dans le fichier **[Vehicle](./front-end/src/types/Vehicle.tsx)**.
-- **Étape 5 :** Connexion et affichage dynamique des données du Front-end avec Firebase.
-    * Installation du SDK Firebase `npm install firebase`.
-    * Sécurisation des clés d'API avec un fichier `front-end/.env` *(ignoré par Git pour la sécurité)*.
-    * Initialisation de la connexion Firebase dans le fichier de configuration **[firebase-config](./front-end/src/config/firebase-config.ts)**.
-    * Centralisation de la récupération des données Firestore dans le composant **[Vehicles-grid-cards-catalog](./front-end/src/pages/3-catalog-page/components/Vehicles-grid-cards-catalog.tsx)** via un `useEffect`, transformant **[Vehicle-card-catalog](./front-end/src/pages/3-catalog-page/components/Vehicle-card-catalog.tsx)** en composant d'affichage pur (props).
-    * Création du composant **[Pagination-catalog](./front-end/src/pages/3-catalog-page/components/features/Pagination-catalog.tsx)** et implémentation de la logique de gestion du nombre de page visible des véhicules du catalogue.
-    * Limitation du nombre de véhicules affichés par page à 6 dans le composant **[Vehicles-grid-cards-catalog](./front-end/src/pages/3-catalog-page/components/Vehicles-grid-cards-catalog.tsx)**.
-- **Étape 6 :** Création du composant **[Search-filter-catalog](./front-end/src/pages/3-catalog-page/components/features/Search-filter-catalog.tsx)** pour permettre de filtrer les véhicules du catalogue.
-    * Fonctionnalité de recherche par marque et par budget en fonction de la base de données.
-    * Gestion de l'état actif des boutons de filtre. Dès qu'un des boutons est cliqué, il devient le type de recherche "actif" *(sa couleur reste orange)* alors que l'autre bouton devient visuellement "secondaire" *(grisé). Le bouton "grisé" reste néanmoins 100% fonctionnel et interactif au survol, s'il est cliqué à son tour, les états s'inversent.
-- **Étape 7 :** Organisation de l'architecture pour séparer la logique métier de l'interface graphique (Single Responsibility Principle).
-    * Création du composant d'appels réseau autonome **[Get-vehicles](./front-end/src/api/Get-vehicles.tsx)** dans le dossier `api/` pour centraliser les appels généraux à l'API Firebase Firestore.
-    * Création du sous-dossier `functions/` propre à la page catalogue listant la logique fine séparée de ses composants graphiques (logique complète du système de filtre **[Filter-vehicles-catalog](./front-end/src/pages/3-catalog-page/components/functions/Filter-vehicles-catalog.tsx)**, calcul et partition des numéros de pages **[Paginate-vehicles-catalog](./front-end/src/pages/3-catalog-page/components/functions/Paginate-vehicles-catalog.tsx)**, ainsi que la récupération isolée des noms de marques de véhicules **[Get-brands-catalog](./front-end/src/pages/3-catalog-page/components/functions/Get-brands-catalog.tsx)**).
-- **Étape 8 :** Implémentation de la page **[Vehicle-page](./front-end/src/pages/4-vehicle-page/Vehicle-page.tsx)** consacrer à la présentation d'un véhicule choisi dans le catalogue. Les informations du véhicule sont récupérées en fonction de son ID dans la base de données.
-- **Étape 9 :** Implémentation de la page d'erreur 404 avec le composant **[Error-content](./front-end/src/pages/7-error-page/components/Error-content.tsx)**. Cette page sert à informer l'utilisateur que la page demandée n'existe pas (ou n'est plus référencé) et lui propose deux solutions pour retrouver ce qu'il cherche *(Retour à l'accueil et Revenir à la page précédente)*.
+- **Étape 3 :** À partir des fichiers du dossier **[Maquette](./maquette/)**, j'ai procédé au découpage en identifiant les éléments et sections, avec l'ajout de commentaires, dans le but d'identifier et prévoir les composants React nécessaires dans l'architecture du dossier **[front-end](./front-end)**.
+> 💡*L'utilisation de **[Google Stitch](https://stitch.withgoogle.com/)** m'a permis d'avoir une base de départ que j'ai pu **peaufiner** avec le logiciel **[Pinegrow](https://www.pinegrow.com/)** pour démarrer mon développement.*
 
 
-### Phase de développement côté Back-end
-- **Étape 1 :** Pour la page de catalogue de véhicules, stockage des images des véhicules dans **[Cloudinary](https://cloudinary.com/)**.
-- **Étape 2 :** Configuration d'une base de donnée NoSQL avec Firebase, collection nommée `vehicles` avec la structure suivante  :
+### ➖ **PHASE 2 : DÉVELOPPEMENT**
+#### **DESIGN SYSTEM :**
+* Composant **[Typography](./front-end/src/components/design-system/Typography.tsx)** : gérant le style du texte : *type de balise, taille, couleur, etc.*
+* Composant **[Button](./front-end/src/components/design-system/Button.tsx)** : gérant l'apparence et les actions des boutons du site.
+* Composant **[Logo](./front-end/src/components/design-system/Logo.tsx)** : gérant l'apparence du logo du site.
+* Composant **[Container](./front-end/src/components/design-system/Container.tsx)** : gérant la cohérence dans chaque page. Ce composant utilise des marges automatiques *(mx-auto)*, une largeur maximale stricte *(max-w-7xl)*, et des paddings qui s'adaptent progressivement selon les écrans *(px-4 sm:px-6 lg:px-8 xl:px-12)*. Cela évite que les textes ou le contenu ne touchent les bords sur téléphones ou tablettes, tout en limitant la largeur sur très grand écran pour préserver la lisibilité. Il utilise la propriété `as` pour s'adapter sémantiquement si besoin (bien que défini par défaut sur un simple `div`).
+* Intégration de ces composants dans les différentes pages du site. Fonctionnement par `props`, `children` et `switch case` notamment pour les composants `Button` et `Typography`.
+> 💡*Le développement d'un **[Design System](./front-end/src/components/design-system)** m'a servi à **adopter** un design cohérent qui se réplique sur toutes les pages du site et facilement modifiable depuis ces composants.*
+
+#### **NAVIGATION & RÉFÉRENCEMENT :**
+* Composant **[Header](./front-end/src/components/navigation/Header.tsx)** : gérant l'en-tête du site. Regroupant logo, menu de navigation, bouton de connexion.
+* Composant **[Footer](./front-end/src/components/navigation/Footer.tsx)** : gérant le pied de page du site. Regroupant logo, liens de navigation, réseaux sociaux, mentions légales.
+* Composant **[RootLayout](./front-end/src/components/layout/RootLayout.tsx)** : Servant à structurer la page en intégrant les éléments communs (`Header`, `main`, `Footer`).
+* Composant **[SEO](./front-end/src/components/seo/Seo.tsx)** : servant à identifier la page par son titre et sa description.
+* Composant **[router.tsx](./front-end/src/routes/router.tsx)** : gérant les routes pour la navigation entre les pages, avec la dépendance **[React Router](https://reactrouter.com/)**
+> 💡*Cette structure de navigation me sert à avoir une cohérence des éléments React à charger entre chaque page. Plus d'information sur cette structure dans le fichier **[README.md](./front-end/README.md)**.*
+
+#### **STRUCTURE DU PROJET :** 
+Chaque partie du site est découpée par dossier qui représente une page. Chaque page est **regroupée** dans ce dossier **[pages](./front-end/src/pages)**. Dans chaque dossier de page, un ou deux sous-dossiers.
+* `src/pages/nom-de-la-page/` : Dossier représentant la page et les sous-dossiers associés.
+* `src/pages/nom-de-la-page/components/` : Dossier regroupant les différentes éléments graphiques qui composent la page.
+* `src/pages/nom-de-la-page/features/` : Dossier regroupant des petites fonctionnalités clés de la page.
+* `src/pages/nom-de-la-page/functions/` : Dossier regroupant les fonctions de logique de la page.
+>💡*Cette structure de dossier principale par page et de sous-dossier, me sert à séparer la logique fonctionnelle du contenu graphique de la page. Le but **étant** que le code soit plus facilement maintenable et plus facile à comprendre. Plus d'information sur cette structure dans le fichier **[README.md](./front-end/README.md)**.*
+    
+
+#### **PRÉPARATION ET CONFIGURATION DE LA BASE DE DONNÉES DES VÉHICULES** :
+* Pour la page de catalogue de véhicules, j'ai choisi d'opter pour **[Firebase](https://firebase.google.com/)** pour stocker les données des véhicules. Configuré avec **[Firestore](https://firebase.google.com/docs/firestore?hl=fr)** comme base de données NoSQL. 
+* J'ai configuré une collection de données nommée `vehicles` avec la structure suivante  :
     *   **ID du document** : (`id` auto-généré dans Firebase)
     *   **Champs** :
         *   `brand` (string) # Marque du véhicule
         *   `model` (string) # Modèle du véhicule
+        *   `category` (string) # Catégorie du véhicule
+        *   `year` (number) # Année du véhicule
         *   `mileage` (number) # Kilométrage du véhicule
+        *   `slogan` (string) # Slogan du véhicule
         *   `imageUrl` (string) # Lien web de Cloudinary de l'image du véhicule
+        *   `description` (string) # Description du véhicule
+        *   `technicalSpecs` (map) : # Spécifications techniques du véhicule
+            *   `acceleration` (string) # Accélération du véhicule (ex: "0-100 km/h en 3.4s")
+            *   `topSpeed` (number) # Vitesse maximale du véhicule
+            *   `power` (number) # Puissance du véhicule
+            *   `engine` (string) # Moteur du véhicule
         *   `acquisition` (map) : # Acquisition du véhicule
             *   `purchasePrice` (number | null) # Prix d'achat du véhicule
             *   `rentalPrice` (number | null) # Prix de location du véhicule
             *   `isAvailableForSale` (boolean) # Disponibilité à la vente
             *   `isAvailableForRent` (boolean) # Disponibilité à la location
-- **Étape 3 :** Configuration des règles Firestore pour la base de données pour n'autoriser que la lecture publique et l'écriture authentifiée *(pour l'admin)*.
+* Dans l'interface Firebase, j'ai configuré les règles Firestore pour la base de données pour n'autoriser que la lecture publique et l'écriture authentifiée *(pour l'admin)*.
+* Concernant les images de chaque **véhicule**, elles sont **stockées** avec le service de stockage cloud **[Cloudinary](https://cloudinary.com/)**.
+* J'ai initialisé la connexion Firebase dans le front-end avec le fichier de configuration **[firebase-config](./front-end/src/config/firebase-config.ts)**. Les informations de connexion (`apiKey`, `authDomain`, `projectId`, `storageBucket`, `messagingSenderId`, `appId`) sont stockées dans une variable d'environnement `.env` *(mais ignoré par Git pour la sécurité)*.
+
+> 💡 *J'ai préféré utiliser **[Firebase](https://firebase.google.com/)** pour la gestion des données des véhicules, car connaissant déjà cette technologie, il **était** plus facile pour moi de l'implémenter dans le projet.*
+
+#### **AFFICHAGE DYNAMIQUE DE LA PAGE CATALOGUE :**
+* Le composant **[Catalog-page-view](./front-end/src/pages/3-catalog-page/Catalog-page-view.tsx)** sert à afficher la page de catalogue du site. Il est composée de plusieurs éléments :
+    * **[Vehicle-card-catalog](./front-end/src/pages/3-catalog-page/components/Vehicle-card-catalog.tsx)** : servant à identifer et présenter les données de véhicule sous forme d'une carte. Les informations sont identifiées via des `props` et intégrer au composant suivant.
+    * **[Vehicles-grid-cards-catalog](./front-end/src/pages/3-catalog-page/components/Vehicles-grid-cards-catalog.tsx)** : servant à gérer la disposition des véhicules du catalogue, sous forme d'une grille. Ce composant utilise la fonction **[GetVehicles](./front-end/src/api/Get-vehicles.tsx)** qui sert à récupérer les données de la collection `vehicles` de la base de données Firestore. `useEffect` est utilisé pour récupérer les données une seule fois au montage du composant.
+
+* **Fonctionnalités clés liées à cette page :**
+    * **[Pagination-catalog](./front-end/src/pages/3-catalog-page/components/features/Pagination-catalog.tsx)** : Gérant l'affichage de la pagination de la page de catalogue. La fonction de logique est **séparée** dans le composant **[Paginate-vehicles-catalog](./front-end/src/pages/3-catalog-page/components/functions/Paginate-vehicles-catalog.tsx)**.
+    * **[Search-filter-catalog](./front-end/src/pages/3-catalog-page/components/features/Search-filter-catalog.tsx)** : Gérant l'affichage de la recherche et du filtrage des véhicules du catalogue. Ce composant est associé à deux fonctions de logique :
+        * **[Get-brands-catalog](./front-end/src/pages/3-catalog-page/components/functions/Get-brands-catalog.tsx)** : sert à récupérer les données par marque de véhicule depuis la collection Firebase `vehicles`.
+        * **[Filter-vehicles-catalog](./front-end/src/pages/3-catalog-page/components/functions/Filter-vehicles-catalog.tsx)** : sert à filtrer les véhicules du catalogue en fonction de la marque et du budget.
+
+#### **AFFICHAGE DYNAMIQUE DE LA PAGE DESCRIPTION D'UN VÉHICULE :**
+* Le composant **[Vehicle-page-view](./front-end/src/pages/4-vehicle-page/Vehicle-page-view.tsx)** sert à afficher la page de description d'un véhicule en fonction de son ID et des `props` sélectionnées dans chaque sous-composants.
+    * **[Hero-vehicle page](./front-end/src/pages/4-vehicle-page/components/Hero-vehicle-page.tsx)** : sert à afficher la bannière de la page de description d'un véhicule. L'image est récupérée par la propriété -> `vehicle.imageUrl` de la base de données. 
+    * **[Description-vehicle-page](./front-end/src/pages/4-vehicle-page/components/Description-vehicle-page.tsx)** : sert à afficher un texte explicatif sur le véhicule et ses informations techniques.
+    * **[Acquisition-method-vehicle-page](./front-end/src/pages/4-vehicle-page/components/Acquisition-method-vehicle-page.tsx)** : sert à afficher deux options d'acquisition (achat ou location) avec les prix correspondants à l' `ID` du véhicule.
+    * **[Tarif-catalog-page](./front-end/src/pages/4-vehicle-page/components/Tarif-catalog-description.tsx)** : sert à afficher une grille tarifaire pour la méthode d'acquisition par location en fonction du prix d'achat du véhicule correspondant à son `ID`. Une formule est utilisée pour calculer le tarif de location en fonction du nombre de mois (36, 48, 72) choisie pour la location.
+    * **[Get-description-vehicle](./front-end/src/pages/4-vehicle-page/components/functions/Get-description-vehicle.tsx)** : est la fonction de logique permettant de récupérer les détails d'un véhicule spécifique depuis la base de données. Cette fonction est **implémentée** dans le composant **[Vehicle-page-view](./front-end/src/pages/4-vehicle-page/Vehicle-page-view.tsx)**.
+
+> 💡*Les informations textuelles et les images de chaque véhicule ont été générées par IA afin de disposer de contenu à développer pour être affiché sur le site.*
+
+#### **ESPACE CLIENT**
+*A venir...*
+
+#### **AUTRES PAGES**
+* **[About-page-view](./front-end/src/pages/2-about-page/About-page-view.tsx)** : servant à afficher une brève description de l'entreprise et les services qu'elle propose.
+* **[Error-page-view](./front-end/src/pages/8-error-page/Error-page-view.tsx)** : servant à afficher une page pour informer l'utilisateur que le contenu demandé n'existe pas *(ou n'est plus référencé)* et lui propose deux solutions pour retrouver ce qu'il cherche *(Retour à l'accueil et Revenir à la page précédente)*.
+* **Contact-page-view** : prochainement développé.
+
+
+### ➖ **PHASE 3 : OPTIMISATION ET TESTING**
+*A venir...*
+
+### ➖ **PHASE 4 : DÉPLOIEMENT**
+*A venir...*
+
 
 ## 👤 Skies-Land - Jonathan Araldi
 - **[Portfolio](https://portfolio-jonathan-araldi.netlify.app/)** | **[LinkedIn](https://www.linkedin.com/in/jonathan-araldi/)** | **[GitHub](https://github.com/Skies-Land)**

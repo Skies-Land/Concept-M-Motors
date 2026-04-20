@@ -1,6 +1,7 @@
 // TYPES
 import { type Vehicle } from '../../../../types/Vehicle';
 
+// INTERFACES
 export interface FilterState {
     brand: string;
     maxPrice: number;

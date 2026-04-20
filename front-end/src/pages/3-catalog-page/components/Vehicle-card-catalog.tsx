@@ -1,10 +1,11 @@
-// TYPES
-import { type Vehicle } from '../../../types/Vehicle';
+// DEPENDANCES
+import { Link } from 'react-router-dom';
 
 // COMPOSANT
 import { Typography } from "../../../components/design-system/Typography";
 
 // TYPES
+import { type Vehicle } from '../../../types/Vehicle';
 export interface VehicleCardProps {
     vehicle: Vehicle;
 }
@@ -12,7 +13,10 @@ export interface VehicleCardProps {
 // Composant servant à afficher une carte de véhicule en suivant des propriétés
 export default function VehicleCard({ vehicle }: VehicleCardProps) {
     return (
-        <article className="group bg-surface-container-low hover:bg-surface-container transition-all duration-500 rounded-xl overflow-hidden flex flex-col">
+        <Link 
+            to={`/catalog/${vehicle.id}`}
+            className="group bg-surface-container-low hover:bg-surface-container transition-all duration-500 rounded-xl overflow-hidden flex flex-col cursor-pointer"
+        >
             {/* Image du véhicule */}
             <div className="relative h-64 overflow-hidden">
                 <img 
@@ -65,6 +69,6 @@ export default function VehicleCard({ vehicle }: VehicleCardProps) {
                     </div>
                 </div>
             </div>
-        </article>
+        </Link>
     );
 }

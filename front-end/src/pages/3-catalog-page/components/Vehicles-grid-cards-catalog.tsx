@@ -4,20 +4,18 @@ import { useState, useEffect } from 'react';
 // API
 import { getVehicles } from '../../../api/Get-vehicles';
 
-// TYPES
-import { type Vehicle } from '../../../types/Vehicle';
-
 // COMPOSANTS
 import Container from "../../../components/design-system/Container";
 import VehicleCard from "./Vehicle-card-catalog";
 import { Typography } from "../../../components/design-system/Typography";
 import PaginationCatalog from "./features/Pagination-catalog";
 
-// FONCTIONS (LOGIQUE)
+// FONCTIONS DE LOGIQUE
 import { filterVehiclesCatalog, type FilterState } from "./functions/Filter-vehicles-catalog";
 import { paginateVehiclesCatalog } from "./functions/Paginate-vehicles-catalog";
 
 // TYPES
+import { type Vehicle } from '../../../types/Vehicle';
 interface VehiclesGridCardsCatalogProps {
     filters: FilterState;
 }

@@ -1,76 +1,98 @@
 // COMPOSANTS
 import { Typography } from "../../../components/design-system/Typography"
-import { Button } from "../../../components/design-system/Button"
 import Container from "../../../components/design-system/Container"
 
+// TYPES
+import { type Vehicle } from '../../../types/Vehicle';
+export interface VehicleDescriptionProps {
+    vehicle: Vehicle;
+}
+
 // Composant servant à afficher la section de description et les informations techniques du véhicule
-export default function DescriptionVehiclePage() {
+export default function DescriptionVehiclePage({ vehicle }: VehicleDescriptionProps) {
     return (
         <>
-            {/* TODO: Remplacer le texte et les informations technique de présentation 
-            par celles de la voiture en fonction de son ID dans la base de données */}
-            <section className="gap-16 grid grid-cols-1 lg:grid-cols-12 max-w-7xl mx-auto px-12 py-24 w-full" data-pg-name="Section d'information technique du véhicule">
+            <Container as="section" className="gap-16 grid grid-cols-1 lg:grid-cols-12 py-24" data-pg-name="Section d'information technique du véhicule">
                 <div className="lg:col-span-4 flex flex-col gap-6">
-                    <h2 className="font-headline text-3xl font-bold tracking-tight text-on-surface uppercase">
-                        Engineering<br/>Excellence
-                    </h2>
+                    {/* Titre de la section */}
+                    <Typography variant="headline-md" component="h2" color="on-surface" className="uppercase">
+                        En savoir plus
+                    </Typography>
                     {/* Description du véhicule */}
-                    <p className="font-body text-on-surface-variant leading-relaxed">
-                        Texte d'information à propos du véhicule
-                    </p>
+                    <Typography variant="body-md" color="on-surface-variant">
+                        {vehicle.description}
+                    </Typography>
                 </div>
 
                 {/* Carte d'information technique du véhicule */}
                 <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div className="bg-surface-container-highest p-6 rounded flex flex-col justify-between aspect-square">
-                        <span className="font-body text-on-surface-variant text-sm uppercase tracking-widest flex items-center gap-2">
-                            <span className="material-symbols-outlined text-primary" style={{ fontSize: '18px' }}>
-                                timer
-                            </span> 
-                            0-100 km/h
-                        </span>
-                        <span className="font-headline text-4xl font-black text-on-surface tracking-tighter">
-                            3.4s
-                        </span>
+                    {/* Information sur l'accélération du véhicule */}
+                    <div className="bg-surface-container-highest p-4 lg:p-6 rounded-xl flex flex-col justify-between aspect-square">
+                        <div className="flex flex-col gap-2">
+                            <span className="material-symbols-outlined text-primary text-2xl">timer</span> 
+                            <Typography variant="label-sm" color="on-surface-variant" className="leading-tight">
+                                Accélération 0-100
+                            </Typography>
+                        </div>
+                        <div className="flex items-end gap-1 mt-2">
+                            <Typography variant="headline-sm" component="span" color="on-surface" className="tracking-tighter">
+                                {vehicle.technicalSpecs.acceleration}
+                            </Typography>
+                            <Typography variant="label-sm" color="on-surface-variant" component="span" className="mb-1 lowercase">
+                                s
+                            </Typography>
+                        </div>
                     </div>
-                    <div className="bg-surface-container-highest p-6 rounded flex flex-col justify-between aspect-square">
-                        <span className="font-body text-on-surface-variant text-sm uppercase tracking-widest flex items-center gap-2">
-                            <span className="material-symbols-outlined text-primary" style={{ fontSize: '18px' }}>
-                                speed
-                            </span> 
-                            Top Speed
-                        </span>
-                        <span className="font-headline text-4xl font-black text-on-surface tracking-tighter">
-                            320 
-                            <span className="text-xl text-on-surface-variant">km/h</span>
-                        </span>
+                    {/* Information sur la vitesse maximale du véhicule */}
+                    <div className="bg-surface-container-highest p-4 lg:p-6 rounded-xl flex flex-col justify-between aspect-square">
+                        <div className="flex flex-col gap-2">
+                            <span className="material-symbols-outlined text-primary text-2xl">speed</span> 
+                            <Typography variant="label-sm" color="on-surface-variant" className="leading-tight">
+                                Vitesse max
+                            </Typography>
+                        </div>
+                        <div className="flex items-end gap-1 mt-2">
+                            <Typography variant="headline-sm" component="span" color="on-surface" className="tracking-tighter">
+                                {vehicle.technicalSpecs.topSpeed}
+                            </Typography>
+                            <Typography variant="label-sm" color="on-surface-variant" component="span" className="mb-1 lowercase">
+                                km/h
+                            </Typography>
+                        </div>
                     </div>
-                    <div className="bg-surface-container-highest p-6 rounded flex flex-col justify-between aspect-square">
-                        <span className="font-body text-on-surface-variant text-sm uppercase tracking-widest flex items-center gap-2">
-                            <span className="material-symbols-outlined text-primary" style={{ fontSize: '18px' }}>
-                                bolt
-                            </span> 
-                            Power
-                        </span>
-                        <span className="font-headline text-4xl font-black text-on-surface tracking-tighter">
-                            510 
-                            <span className="text-xl text-on-surface-variant">PS</span>
-                        </span>
+                    {/* Information sur la puissance du véhicule */}
+                    <div className="bg-surface-container-highest p-4 lg:p-6 rounded-xl flex flex-col justify-between aspect-square">
+                        <div className="flex flex-col gap-2">
+                            <span className="material-symbols-outlined text-primary text-2xl">bolt</span> 
+                            <Typography variant="label-sm" color="on-surface-variant" className="leading-tight">
+                                Puissance
+                            </Typography>
+                        </div>
+                        <div className="flex items-end gap-1 mt-2">
+                            <Typography variant="headline-sm" component="span" color="on-surface" className="tracking-tighter">
+                                {vehicle.technicalSpecs.power}
+                            </Typography>
+                            <Typography variant="label-sm" color="on-surface-variant" component="span" className="mb-1 lowercase">
+                                ch
+                            </Typography>
+                        </div>
                     </div>
-                    <div className="bg-surface-container-highest p-6 rounded flex flex-col justify-between aspect-square">
-                        <span className="font-body text-on-surface-variant text-sm uppercase tracking-widest flex items-center gap-2">
-                            <span className="material-symbols-outlined text-primary" style={{ fontSize: '18px' }}>
-                                settings
-                            </span> 
-                            Engine
-                        </span>
-                        <span className="font-headline text-4xl font-black text-on-surface tracking-tighter">
-                            4.0L 
-                            <span className="text-xl text-on-surface-variant">Flat-6</span>
-                        </span>
+                    {/* Information sur le moteur du véhicule */}
+                    <div className="bg-surface-container-highest p-4 lg:p-6 rounded-xl flex flex-col justify-between aspect-square">
+                        <div className="flex flex-col gap-2">
+                            <span className="material-symbols-outlined text-primary text-2xl">settings</span> 
+                            <Typography variant="label-sm" color="on-surface-variant" className="leading-tight">
+                                Moteur
+                            </Typography>
+                        </div>
+                        <div className="flex items-end gap-1 mt-2">
+                            <Typography variant="label-md" color="on-surface" component="span" className="leading-tight uppercase">
+                                {vehicle.technicalSpecs.engine}
+                            </Typography>
+                        </div>
                     </div>
                 </div>
-            </section>
+            </Container>
         </>
     )
 }
