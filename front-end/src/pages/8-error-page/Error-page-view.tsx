@@ -1,6 +1,6 @@
 // COMPOSANTS
 import Seo from "../../components/seo/Seo";
-import ErrorContent from "./components/Error-content";
+import ErrorContent from "./components/1-Content-error-page";
 
 // Composant principal de la page d'erreur 404
 export default function ErrorPageView() {

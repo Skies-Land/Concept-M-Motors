@@ -1,8 +1,8 @@
 // COMPOSANTS
 import Seo from "../../components/seo/Seo"
-import HeroAbout from "./components/Hero-about"
-import OurFigure from "./components/Our-figure";
-import OurVision from "./components/Our-vision";
+import HeroAbout from "./components/1-Hero-about-page"
+import OurFigure from "./components/2-Our-figure-about-page";
+import OurVision from "./components/3-Our-vision-about-page";
 
 // Composant principal de la page à propos
 export default function AboutPageView() {

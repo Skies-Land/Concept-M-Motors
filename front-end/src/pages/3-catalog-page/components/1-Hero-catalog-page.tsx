@@ -1,6 +1,6 @@
 // COMPOSANTS
 import { Typography } from "../../../components/design-system/Typography";
-import SearchFilterCatalog from "./features/Search-filter-catalog";
+import SearchFilterCatalog from "./features/Search-filter-catalog-page";
 
 // IMAGE
 import imageHeroPageCatalog from "../../../assets/IMG_hero-catalog.jpg"

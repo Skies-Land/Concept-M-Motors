@@ -3,10 +3,10 @@ import { useState } from "react";
 
 // COMPOSANTS
 import Seo from "../../components/seo/Seo";
-import HeroCatalog from "./components/Hero-catalog";
-import VehiclesGridCardsCatalog from "./components/Vehicles-grid-cards-catalog";
-import CTACatalog from "./components/CTA-catalog";
-import OurServicesCatalog from "./components/Our-services-catalog";
+import HeroCatalog from "./components/1-Hero-catalog-page";
+import VehiclesGridCardsCatalog from "./components/2-2-Vehicles-grid-cards-catalog-page";
+import CTACatalog from "./components/3-CTA-catalog-page";
+import OurServicesCatalog from "./components/4-Our-services-catalog-page";
 
 // Composant principal de la page catalogue
 export default function CatalogPageView() {

@@ -1,9 +1,9 @@
 // COMPOSANTS
-import Hero from "./components/Hero";
-import Process from "./components/Process";
-import Services from "./components/Services";
-import ShortAbout from "./components/ShortAbout";
-import CTA from "./components/CTA";
+import Hero from "./components/1-Hero-landing-page";
+import Process from "./components/2-Process-landing-page";
+import Services from "./components/3-Services-landing-page";
+import ShortAbout from "./components/4-Short-about-landing-page";
+import CTA from "./components/5-CTA-landing-page";
 import Seo from "../../components/seo/Seo"
 
 // Composant principal de la page d'accueil

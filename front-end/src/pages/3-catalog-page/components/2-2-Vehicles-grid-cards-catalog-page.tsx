@@ -6,13 +6,13 @@ import { getVehicles } from '../../../api/Get-vehicles';
 
 // COMPOSANTS
 import Container from "../../../components/design-system/Container";
-import VehicleCard from "./Vehicle-card-catalog";
+import VehicleCard from "./2-1-Vehicle-card-catalog-page";
 import { Typography } from "../../../components/design-system/Typography";
-import PaginationCatalog from "./features/Pagination-catalog";
+import PaginationCatalog from "./features/Pagination-catalog-page";
 
 // FONCTIONS DE LOGIQUE
-import { filterVehiclesCatalog, type FilterState } from "./functions/Filter-vehicles-catalog";
-import { paginateVehiclesCatalog } from "./functions/Paginate-vehicles-catalog";
+import { filterVehiclesCatalog, type FilterState } from "./functions/Filter-vehicles-catalog-page";
+import { paginateVehiclesCatalog } from "./functions/Paginate-vehicles-catalog-page";
 
 // TYPES
 import { type Vehicle } from '../../../types/Vehicle';

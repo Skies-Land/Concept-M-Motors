@@ -4,13 +4,13 @@ import { useParams } from "react-router-dom";
 
 // COMPOSANTS
 import Seo from "../../components/seo/Seo";
-import HeroVehiclePage from "./components/Hero-vehicle-page";
-import DescriptionVehiclePage from "./components/Description-vehicle-page"
-import AcquisitionMethodVehiclePage from "./components/Acquisition-method-vehicle-page";
-import TarifCatalogDescription from "./components/Tarif-catalog-description";
+import HeroVehiclePage from "./components/1-Hero-vehicle-page";
+import DescriptionVehiclePage from "./components/2-Description-vehicle-page"
+import AcquisitionMethodVehiclePage from "./components/3-Acquisition-method-vehicle-page";
+import TarifCatalogDescription from "./components/4-Tarif-catalog-vehicle-page";
 
 // FONCTIONS DE LOGIQUE
-import { getVehicleDescription } from "./components/functions/Get-description-vehicle";
+import { getVehicleDescription } from "./components/functions/Get-description-vehicle-page";
 
 // TYPES
 import { type Vehicle } from "../../types/Vehicle";
