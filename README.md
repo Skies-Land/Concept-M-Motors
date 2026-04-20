@@ -64,30 +64,65 @@ Chaque partie du site est découpée par dossier qui représente une page. Chaqu
 #### **PRÉPARATION ET CONFIGURATION DE LA BASE DE DONNÉES DES VÉHICULES** :
 * Pour la page de catalogue de véhicules, j'ai choisi d'opter pour **[Firebase](https://firebase.google.com/)** pour stocker les données des véhicules. Configuré avec **[Firestore](https://firebase.google.com/docs/firestore?hl=fr)** comme base de données NoSQL. 
 * J'ai configuré une collection de données nommée `vehicles` avec la structure suivante  :
-    *   **ID du document** : (`id` auto-généré dans Firebase)
-    *   **Champs** :
-        *   `brand` (string) # Marque du véhicule
-        *   `model` (string) # Modèle du véhicule
-        *   `category` (string) # Catégorie du véhicule
-        *   `year` (number) # Année du véhicule
-        *   `mileage` (number) # Kilométrage du véhicule
-        *   `slogan` (string) # Slogan du véhicule
-        *   `imageUrl` (string) # Lien web de Cloudinary de l'image du véhicule
-        *   `description` (string) # Description du véhicule
-        *   `technicalSpecs` (map) : # Spécifications techniques du véhicule
-            *   `acceleration` (string) # Accélération du véhicule (ex: "0-100 km/h en 3.4s")
-            *   `topSpeed` (number) # Vitesse maximale du véhicule
-            *   `power` (number) # Puissance du véhicule
-            *   `engine` (string) # Moteur du véhicule
-        *   `acquisition` (map) : # Acquisition du véhicule
-            *   `purchasePrice` (number | null) # Prix d'achat du véhicule
-            *   `rentalPrice` (number | null) # Prix de location du véhicule
-            *   `isAvailableForSale` (boolean) # Disponibilité à la vente
-            *   `isAvailableForRent` (boolean) # Disponibilité à la location
-* Dans l'interface Firebase, j'ai configuré les règles Firestore pour la base de données pour n'autoriser que la lecture publique et l'écriture authentifiée *(pour l'admin)*.
-* Concernant les images de chaque **véhicule**, elles sont **stockées** avec le service de stockage cloud **[Cloudinary](https://cloudinary.com/)**.
-* J'ai initialisé la connexion Firebase dans le front-end avec le fichier de configuration **[firebase-config](./front-end/src/config/firebase-config.ts)**. Les informations de connexion (`apiKey`, `authDomain`, `projectId`, `storageBucket`, `messagingSenderId`, `appId`) sont stockées dans une variable d'environnement `.env` *(mais ignoré par Git pour la sécurité)*.
 
+| Champ | Type | Description |
+| :--- | :--- | :--- |
+| `id` | `string` | ID auto-généré par Firestore |
+| `brand` | `string` | Marque du véhicule |
+| `model` | `string` | Modèle du véhicule |
+| `category` | `string` | Catégorie (ex: Berline, SUV, Sport) |
+| `year` | `number` | Année de mise en circulation |
+| `mileage` | `number` | Kilométrage |
+| `slogan` | `string` | Accroche commerciale |
+| `imageUrl` | `string` | URL Cloudinary de l'image principale |
+| `description` | `string` | Description détaillée |
+| `technicalSpecs` | `map` | Objet contenant les performances (voir ci-dessous) |
+| `acquisition` | `map` | Détails financiers et disponibilité (voir ci-dessous) |
+
+**Détails des objets (Maps) :**
+
+* **`technicalSpecs`** :
+    * `acceleration` (string) : Accélération du véhicule
+    * `topSpeed` (number) : Vitesse max en km/h
+    * `power` (number) : Puissance en chevaux
+    * `engine` (string) : Type de motorisation
+* **`acquisition`** :
+    * `purchasePrice` (number \| null) : Prix de vente
+    * `rentalPrice` (number \| null) : Loyer mensuel
+    * `isAvailableForSale` (boolean) : Disponibilité à la vente
+    * `isAvailableForRent` (boolean) : Disponibilité à la location
+
+**Interface TypeScript correspondante :**
+
+```typescript
+interface Vehicle {
+  id: string;
+  brand: string;
+  model: string;
+  category: string;
+  year: number;
+  mileage: number;
+  slogan: string;
+  imageUrl: string;
+  description: string;
+  technicalSpecs: {
+    acceleration: string;
+    topSpeed: number;
+    power: number;
+    engine: string;
+  };
+  acquisition: {
+    purchasePrice: number | null;
+    rentalPrice: number | null;
+    isAvailableForSale: boolean;
+    isAvailableForRent: boolean;
+  };
+}
+```
+
+* Dans l'interface Firebase, j'ai configuré les règles Firestore pour la base de données pour n'autoriser que la lecture publique et l'écriture authentifiée (pour l'admin)
+* Concernant les images de chaque véhicule, elles sont stockées avec le service de stockage cloud **[Cloudinary](https://cloudinary.com/)**.
+* J'ai initialisé la connexion Firebase dans le front-end avec le fichier de configuration **[firebase-config](./front-end/src/config/firebase-config.ts)**. Les informations de connexion sont sécurisées via des variables d'environnement `.env` *(mais ignoré par Git pour la sécurité)*.
 > 💡 *J'ai préféré utiliser **[Firebase](https://firebase.google.com/)** pour la gestion des données des véhicules, car connaissant déjà cette technologie, il **était** plus facile pour moi de l'implémenter dans le projet.*
 
 #### **AFFICHAGE DYNAMIQUE DE LA PAGE CATALOGUE :**
