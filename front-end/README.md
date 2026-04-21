@@ -34,6 +34,8 @@ src/
 │   │   └── components/         # Sous-composants propres à la page
 │   │       └── functions/      # Fonctions utilitaires propres à la page
 │   ├── 5-contact-page/         # Composants et vue pour la page de "Contact"
+│   │   └── components/         # Sous-composants propres à la page
+│   │       └── module-form/    # Module pour le formulaire de contact
 │   ├── 6-login-page/           # Composants et vue pour la page de "Connexion"
 │   └── 7-customer-area/        # Composants et vue pour la page de "l'Espace client"
 │   └── 8-error-page/           # Composants et vue pour la page d'erreur 404
