@@ -150,8 +150,26 @@ interface Vehicle {
 *A venir...*
 
 #### **AUTRES PAGES**
-* **[About-page-view](./front-end/src/pages/2-about-page/About-page-view.tsx)** : servant à afficher une brève description de l'entreprise, les services qu'elle propose et une section FAQ. 
-    * **[Get-faq](./front-end/src/api/Get-faq.tsx)** : est la fonction de logique permettant de récupérer les questions et réponses de la section FAQ depuis la base de données. Cette fonction est **implémentée** dans le composant **[FAQAboutPage](./front-end/src/pages/2-about-page/components/4-FAQ-about-page.tsx)**.
+* **[About-page-view](./front-end/src/pages/2-about-page/About-page-view.tsx)** : servant à afficher une brève description de l'entreprise, les services qu'elle propose et une section FAQ. **[Get-faq](./front-end/src/api/Get-faq.tsx)** : est la fonction de logique permettant de récupérer les questions et réponses de la section FAQ depuis la base de données. Cette fonction est **implémentée** dans le composant **[FAQAboutPage](./front-end/src/pages/2-about-page/components/4-FAQ-about-page.tsx)**. 
+J'ai configuré cette collection de données nommée `faq` avec la structure suivante  :
+
+| Champ | Type | Description |
+| :--- | :--- | :--- |
+| `id` | `string` | ID auto-généré par Firestore |
+| `question` | `string` | La question posée |
+| `answer` | `string` | La réponse à la question |
+
+**Interface TypeScript correspondante :**
+
+```typescript
+interface FAQItem {
+  id: string;
+  question: string;
+  answer: string;
+}
+```
+
+
 * **[Contact-page-view](./front-end/src/pages/5-contact-page/Contact-page-view.tsx)** : servant à afficher un formulaire de contact pour permettre aux utilisateurs de contacter l'entreprise en choisisant parmis un menu déroulant le sujet de leur demande. <br> **⚠️ Ce formulaire n'est pas relié à une base de données et n'est donc pas fonctionnel. Il est présent à titre de présentation.⚠️**
 * **[Error-page-view](./front-end/src/pages/8-error-page/Error-page-view.tsx)** : servant à afficher une page pour informer l'utilisateur que le contenu demandé n'existe pas *(ou n'est plus référencé)* et lui propose deux solutions pour retrouver ce qu'il cherche *(Retour à l'accueil et Revenir à la page précédente)*.
 
