@@ -3,6 +3,7 @@ import Seo from "../../components/seo/Seo"
 import HeroAbout from "./components/1-Hero-about-page"
 import OurFigure from "./components/2-Our-figure-about-page";
 import OurVision from "./components/3-Our-vision-about-page";
+import FAQAboutPage from "./components/4-FAQ-about-page";
 
 // Composant principal de la page à propos
 export default function AboutPageView() {
@@ -18,6 +19,7 @@ export default function AboutPageView() {
             <HeroAbout />
             <OurFigure />
             <OurVision />
+            <FAQAboutPage />
         </>
     );
 };

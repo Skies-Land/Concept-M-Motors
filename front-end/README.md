@@ -12,7 +12,10 @@ src/
 ├── assets/                     # Médias et ressources statiques du projet (favicon, images)
 │
 ├── api/                        # Appels réseau et communication base de données
-│   └── Get-vehicles.tsx        # Fonction de récupération des véhicules depuis Firebase
+│   └── Get-vehicles.tsx        # Fonction de récupération des véhicules depuis la collection Firebase `vehicles`
+│   └── Get-brands-catalog.tsx  # Fonction de récupération des données par "marque" de véhicule depuis la collection Firebase `vehicles`
+│   └── Get-description-vehicle-page.tsx  # Fonction de récupération des données par "véhicule" depuis la collection Firebase `vehicles`
+│   └── Get-faq.tsx             # Fonction de récupération des questions et réponses de la section FAQ depuis la collection Firebase `faq`
 │
 ├── components/                 # Composants réutilisables
 │   ├── design-system/          # Composants de base d'interface (Container, Typography, Button, Logo)
@@ -31,8 +34,6 @@ src/
 │   │       └── features/       # Composants de fonctionnalités (Filtres, Pagination)
 │   │       └── functions/      # Fonctions utilitaires propres à la page
 │   ├── 4-vehicle-page/         # Composants et vue pour la page de description d'un "Véhicule"
-│   │   └── components/         # Sous-composants propres à la page
-│   │       └── functions/      # Fonctions utilitaires propres à la page
 │   ├── 5-contact-page/         # Composants et vue pour la page de "Contact"
 │   │   └── components/         # Sous-composants propres à la page
 │   │       └── module-form/    # Module pour le formulaire de contact

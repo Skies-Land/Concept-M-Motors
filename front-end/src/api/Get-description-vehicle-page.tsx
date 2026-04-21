@@ -2,10 +2,10 @@
 import { doc, getDoc } from "firebase/firestore";
 
 // CONFIGURATION
-import { db } from "../../../../config/firebase-config";
+import { db } from "../config/firebase-config";
 
 // TYPES
-import { type Vehicle } from '../../../../types/Vehicle';
+import { type Vehicle } from '../types/Vehicle';
 
 // Fonction servant à récupérer les détails d'un véhicule spécifique depuis la base de données
 export const getVehicleDescription = async (id: string): Promise<Vehicle | null> => {

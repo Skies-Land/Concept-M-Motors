@@ -1,6 +1,6 @@
 // DÉPENDANCES
 import { useState, useEffect } from "react";
-import { getBrandsCatalog } from "../functions/Get-brands-catalog-page";
+import { getBrandsCatalog } from "../../../../api/Get-brands-catalog";
 
 // COMPOSANTS
 import { Typography } from "../../../../components/design-system/Typography";

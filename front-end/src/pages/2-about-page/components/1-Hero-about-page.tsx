@@ -1,5 +1,6 @@
-// COMPOSANT
+// COMPOSANTS
 import { Typography } from "../../../components/design-system/Typography";
+import Container from "../../../components/design-system/Container";
 
 // IMPORT
 import imageHeroAboutPage from "../../../assets/IMG-Hero-about-page.png"
@@ -7,6 +8,7 @@ import imageHeroAboutPage from "../../../assets/IMG-Hero-about-page.png"
 // Composant servant à afficher la section Hero correspondant à la page à propos
 export default function HeroAbout() {
     return (
+
         <section className="relative h-[870px] flex items-center justify-center overflow-hidden" data-pg-name="Section hero de la page à propos">
 
             {/* Image de fond et dégradé */}

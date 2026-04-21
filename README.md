@@ -133,7 +133,7 @@ interface Vehicle {
 * **Fonctionnalités clés liées à cette page :**
     * **[Pagination-catalog](./front-end/src/pages/3-catalog-page/components/features/Pagination-catalog-page.tsx)** : Gérant l'affichage de la pagination de la page de catalogue. La fonction de logique est **séparée** dans le composant **[Paginate-vehicles-catalog](./front-end/src/pages/3-catalog-page/components/functions/Paginate-vehicles-catalog-page.tsx)**.
     * **[Search-filter-catalog](./front-end/src/pages/3-catalog-page/components/features/Search-filter-catalog-page.tsx)** : Gérant l'affichage de la recherche et du filtrage des véhicules du catalogue. Ce composant est associé à deux fonctions de logique :
-        * **[Get-brands-catalog](./front-end/src/pages/3-catalog-page/components/functions/Get-brands-catalog-page.tsx)** : sert à récupérer les données par marque de véhicule depuis la collection Firebase `vehicles`.
+        * **[Get-brands-catalog](./front-end/src/api/Get-brands-catalog.tsx)** : sert à récupérer les données par marque de véhicule depuis la collection Firebase `vehicles`.
         * **[Filter-vehicles-catalog](./front-end/src/pages/3-catalog-page/components/functions/Filter-vehicles-catalog-page.tsx)** : sert à filtrer les véhicules du catalogue en fonction de la marque et du budget.
 
 #### **AFFICHAGE DYNAMIQUE DE LA PAGE DESCRIPTION D'UN VÉHICULE :**
@@ -142,7 +142,7 @@ interface Vehicle {
     * **[Description-vehicle-page](./front-end/src/pages/4-vehicle-page/components/2-Description-vehicle-page.tsx)** : sert à afficher un texte explicatif sur le véhicule et ses informations techniques.
     * **[Acquisition-method-vehicle-page](./front-end/src/pages/4-vehicle-page/components/3-Acquisition-method-vehicle-page.tsx)** : sert à afficher deux options d'acquisition (achat ou location) avec les prix correspondants à l' `ID` du véhicule.
     * **[Tarif-catalog-page](./front-end/src/pages/4-vehicle-page/components/4-Tarif-catalog-vehicle-page.tsx)** : sert à afficher une grille tarifaire pour la méthode d'acquisition par location en fonction du prix d'achat du véhicule correspondant à son `ID`. Une formule est utilisée pour calculer le tarif de location en fonction du nombre de mois (36, 48, 72) choisie pour la location.
-    * **[Get-description-vehicle](./front-end/src/pages/4-vehicle-page/components/functions/Get-description-vehicle-page.tsx)** : est la fonction de logique permettant de récupérer les détails d'un véhicule spécifique depuis la base de données. Cette fonction est **implémentée** dans le composant **[Vehicle-page-view](./front-end/src/pages/4-vehicle-page/Vehicle-page-view.tsx)**.
+    * **[Get-description-vehicle](./front-end/src/api/Get-description-vehicle-page.tsx)** : est la fonction de logique permettant de récupérer les détails d'un véhicule spécifique depuis la base de données. Cette fonction est **implémentée** dans le composant **[Vehicle-page-view](./front-end/src/pages/4-vehicle-page/Vehicle-page-view.tsx)**.
 
 > 💡*Les informations textuelles et les images de chaque véhicule ont été générées par IA afin de disposer de contenu à développer pour être affiché sur le site.*
 
@@ -150,7 +150,8 @@ interface Vehicle {
 *A venir...*
 
 #### **AUTRES PAGES**
-* **[About-page-view](./front-end/src/pages/2-about-page/About-page-view.tsx)** : servant à afficher une brève description de l'entreprise et les services qu'elle propose.
+* **[About-page-view](./front-end/src/pages/2-about-page/About-page-view.tsx)** : servant à afficher une brève description de l'entreprise, les services qu'elle propose et une section FAQ. 
+    * **[Get-faq](./front-end/src/api/Get-faq.tsx)** : est la fonction de logique permettant de récupérer les questions et réponses de la section FAQ depuis la base de données. Cette fonction est **implémentée** dans le composant **[FAQAboutPage](./front-end/src/pages/2-about-page/components/4-FAQ-about-page.tsx)**.
 * **[Contact-page-view](./front-end/src/pages/5-contact-page/Contact-page-view.tsx)** : servant à afficher un formulaire de contact pour permettre aux utilisateurs de contacter l'entreprise en choisisant parmis un menu déroulant le sujet de leur demande. <br> **⚠️ Ce formulaire n'est pas relié à une base de données et n'est donc pas fonctionnel. Il est présent à titre de présentation.⚠️**
 * **[Error-page-view](./front-end/src/pages/8-error-page/Error-page-view.tsx)** : servant à afficher une page pour informer l'utilisateur que le contenu demandé n'existe pas *(ou n'est plus référencé)* et lui propose deux solutions pour retrouver ce qu'il cherche *(Retour à l'accueil et Revenir à la page précédente)*.
 

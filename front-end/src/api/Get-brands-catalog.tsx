@@ -2,7 +2,7 @@
 import { collection, getDocs } from "firebase/firestore";
 
 // CONFIGURATION
-import { db } from "../../../../config/firebase-config";
+import { db } from "../config/firebase-config";
 
 // Fonction servant à récupérer les marques uniques de véhicules depuis la base de données
 export const getBrandsCatalog = async (): Promise<string[]> => {

@@ -10,7 +10,7 @@ import AcquisitionMethodVehiclePage from "./components/3-Acquisition-method-vehi
 import TarifCatalogDescription from "./components/4-Tarif-catalog-vehicle-page";
 
 // FONCTIONS DE LOGIQUE
-import { getVehicleDescription } from "./components/functions/Get-description-vehicle-page";
+import { getVehicleDescription } from "../../api/Get-description-vehicle-page";
 
 // TYPES
 import { type Vehicle } from "../../types/Vehicle";
