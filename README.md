@@ -8,13 +8,35 @@ Le projet consiste à développer une plateforme web modernisée visant à digit
 * **Catalogue** : consultation des véhicules disponibles avec affichage des prix d'achat comptant et de location comprenant une grille de tarification pour les mensualités.
 * **Espace client** : permettant de suivre l'état d'avancement des dossiers de souscription. Module de dépôt dématérialisé et sécurisé des pièces justificatives.
 
-## 🛠️ **STACKS UTILISÉS**
+---
+
+# 📜 Table des matières
+- **[🧰 STACKS UTILISÉS](#stacks-utiliss)**
+- **[⚙️ INSTALLATION ET LANCEMENT](#installation-et-lancement)**
+- **[🔄 DÉROULEMENT DU PROJET](#droulement-du-projet)**
+    - **[🎨 PHASE 1 : CONCEPTION ET PRÉPARATION | MAQUETTAGE](#phase-1--conception-et-prparation--maquettage)**
+    - **[💻 PHASE 2 : DÉVELOPPEMENT](#phase-2--dveloppement)**
+        - **[🧩 Design System](#design-system-)**
+        - **[🔍 Navigation & Référencement](#navigation--rfrencement-)**
+        - **[🏗️ Structure du projet](#structure-du-projet-)**
+        - **[🗄️ Base de données des véhicules](#prparation-et-configuration-de-la-base-de-donnes-des-vhicules-)**
+        - **[🖥️ Affichage dynamique du catalogue](#affichage-dynamique-de-la-page-catalogue-)**
+        - **[🚗 Description d'un véhicule](#affichage-dynamique-de-la-page-description-dun-vhicule-)**
+        - **[👤 Espace client](#espace-client)**
+        - **[📄 Autres pages](#autres-pages)**
+    - **[🧪 PHASE 3 : OPTIMISATION ET TESTING](#phase-3--optimisation-et-testing)**
+    - **[🚀 PHASE 4 : DÉPLOIEMENT](#phase-4--dploiement)**
+- **[👨‍💻 Skies-Land - Jonathan Araldi](#skies-land---jonathan-araldi)**
+
+---
+
+## 🧰 **STACKS UTILISÉS**
 - `front-end` : Application développée avec **[Vite](https://vitejs.dev/) + [React](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/) + [Tailwind CSS](https://tailwindcss.com/)**. Cette partie contient également l'intégration au service de base de données avec **[Firebase](https://firebase.google.com/)**.
     > 💡*Consulter le fichier **[README.md](./front-end/README.md)** pour les détails de l'architecture du projet côté front-end.*
 - `back-end` : Architecture "Serverless" utilisant **[Firebase](https://firebase.google.com/)** comme base de données NoSQL (Firestore) et pour la gestion de l'authentification. **[Cloudinary](https://cloudinary.com/)** pour le stockage des images.
     > 💡*Consulter le fichier **[PROJECT_CONFIG.md](./PROJECT_CONFIG.md)** pour les détails techniques de configuration.*
 
-## 🚀 **INSTALLATION ET LANCEMENT**
+## ⚙️ **INSTALLATION ET LANCEMENT**
 ```bash
 # Accéder au dossier front-end
 cd front-end
@@ -26,17 +48,20 @@ npm install
 npm run dev
 ```
 
+---
+
 ## 🔄 **DÉROULEMENT DU PROJET**
 
-### ➖ **PHASE 1 : CONCEPTION ET PRÉPARATION | MAQUETTAGE**
+### 🎨 **PHASE 1 : CONCEPTION ET PRÉPARATION | MAQUETTAGE**
 - **Étape 1 :** J'ai utilisé **[Google Stitch](https://stitch.withgoogle.com/)** pour générer les maquettes du site.
 - **Étape 2 :** J'ai affiné les maquettes en éditant certains éléments avec le logiciel de conception **[Pinegrow](https://www.pinegrow.com/)**.
 - **Étape 3 :** À partir des fichiers du dossier **[Maquette](./maquette/)**, j'ai procédé au découpage en identifiant les éléments et sections, avec l'ajout de commentaires, dans le but d'identifier et prévoir les composants React nécessaires dans l'architecture du dossier **[front-end](./front-end)**.
 > 💡*L'utilisation de **[Google Stitch](https://stitch.withgoogle.com/)** m'a permis d'avoir une base de départ que j'ai pu **peaufiner** avec le logiciel **[Pinegrow](https://www.pinegrow.com/)** pour démarrer mon développement.*
 
 
-### ➖ **PHASE 2 : DÉVELOPPEMENT**
-#### **DESIGN SYSTEM :**
+### 💻 **PHASE 2 : DÉVELOPPEMENT**
+
+#### **🧩 DESIGN SYSTEM :**
 * Composant **[Typography](./front-end/src/components/design-system/Typography.tsx)** : gérant le style du texte : *type de balise, taille, couleur, etc.*
 * Composant **[Button](./front-end/src/components/design-system/Button.tsx)** : gérant l'apparence et les actions des boutons du site.
 * Composant **[Logo](./front-end/src/components/design-system/Logo.tsx)** : gérant l'apparence du logo du site.
@@ -44,7 +69,7 @@ npm run dev
 * Intégration de ces composants dans les différentes pages du site. Fonctionnement par `props`, `children` et `switch case` notamment pour les composants `Button` et `Typography`.
 > 💡*Le développement d'un **[Design System](./front-end/src/components/design-system)** m'a servi à **adopter** un design cohérent qui se réplique sur toutes les pages du site et facilement modifiable depuis ces composants.*
 
-#### **NAVIGATION & RÉFÉRENCEMENT :**
+#### **🔍 NAVIGATION & RÉFÉRENCEMENT :**
 * Composant **[Header](./front-end/src/components/navigation/Header.tsx)** : gérant l'en-tête du site. Regroupant logo, menu de navigation, bouton de connexion.
 * Composant **[Footer](./front-end/src/components/navigation/Footer.tsx)** : gérant le pied de page du site. Regroupant logo, liens de navigation, réseaux sociaux, mentions légales.
 * Composant **[RootLayout](./front-end/src/components/layout/RootLayout.tsx)** : Servant à structurer la page en intégrant les éléments communs (`Header`, `main`, `Footer`).
@@ -52,7 +77,7 @@ npm run dev
 * Composant **[router.tsx](./front-end/src/routes/router.tsx)** : gérant les routes pour la navigation entre les pages, avec la dépendance **[React Router](https://reactrouter.com/)**
 > 💡*Cette structure de navigation me sert à avoir une cohérence des éléments React à charger entre chaque page. Plus d'information sur cette structure dans le fichier **[README.md](./front-end/README.md)**.*
 
-#### **STRUCTURE DU PROJET :** 
+#### **🏗️ STRUCTURE DU PROJET :** 
 Chaque partie du site est découpée par dossier qui représente une page. Chaque page est **regroupée** dans ce dossier **[pages](./front-end/src/pages)**. Dans chaque dossier de page, un ou deux sous-dossiers.
 * `src/pages/nom-de-la-page/` : Dossier représentant la page et les sous-dossiers associés.
 * `src/pages/nom-de-la-page/components/` : Dossier regroupant les différentes éléments graphiques qui composent la page.
@@ -61,7 +86,7 @@ Chaque partie du site est découpée par dossier qui représente une page. Chaqu
 >💡*Cette structure de dossier principale par page et de sous-dossier, me sert à séparer la logique fonctionnelle du contenu graphique de la page. Le but **étant** que le code soit plus facilement maintenable et plus facile à comprendre. Plus d'information sur cette structure dans le fichier **[README.md](./front-end/README.md)**.*
     
 
-#### **PRÉPARATION ET CONFIGURATION DE LA BASE DE DONNÉES DES VÉHICULES** :
+#### **🗄️ PRÉPARATION ET CONFIGURATION DE LA BASE DE DONNÉES DES VÉHICULES** :
 * Pour la page de catalogue de véhicules, j'ai choisi d'opter pour **[Firebase](https://firebase.google.com/)** pour stocker les données des véhicules. Configuré avec **[Firestore](https://firebase.google.com/docs/firestore?hl=fr)** comme base de données NoSQL. 
 * J'ai configuré une collection de données nommée `vehicles` avec la structure suivante  :
 
@@ -125,7 +150,7 @@ interface Vehicle {
 * J'ai initialisé la connexion Firebase dans le front-end avec le fichier de configuration **[firebase-config](./front-end/src/config/firebase-config.ts)**. Les informations de connexion sont sécurisées via des variables d'environnement `.env` *(mais ignoré par Git pour la sécurité)*.
 > 💡 *J'ai préféré utiliser **[Firebase](https://firebase.google.com/)** pour la gestion des données des véhicules, car connaissant déjà cette technologie, il **était** plus facile pour moi de l'implémenter dans le projet.*
 
-#### **AFFICHAGE DYNAMIQUE DE LA PAGE CATALOGUE :**
+#### **🖥️ AFFICHAGE DYNAMIQUE DE LA PAGE CATALOGUE :**
 * Le composant **[Catalog-page-view](./front-end/src/pages/3-catalog-page/Catalog-page-view.tsx)** sert à afficher la page de catalogue du site. Il est composée de plusieurs éléments :
     * **[Vehicle-card-catalog](./front-end/src/pages/3-catalog-page/components/2-1-Vehicle-card-catalog-page.tsx)** : servant à identifer et présenter les données de véhicule sous forme d'une carte. Les informations sont identifiées via des `props` et intégrer au composant suivant.
     * **[Vehicles-grid-cards-catalog](./front-end/src/pages/3-catalog-page/components/2-2-Vehicles-grid-cards-catalog-page.tsx)** : servant à gérer la disposition des véhicules du catalogue, sous forme d'une grille. Ce composant utilise la fonction **[GetVehicles](./front-end/src/api/Get-vehicles.tsx)** qui sert à récupérer les données de la collection `vehicles` de la base de données Firestore. `useEffect` est utilisé pour récupérer les données une seule fois au montage du composant.
@@ -136,7 +161,7 @@ interface Vehicle {
         * **[Get-brands-catalog](./front-end/src/api/Get-brands-catalog.tsx)** : sert à récupérer les données par marque de véhicule depuis la collection Firebase `vehicles`.
         * **[Filter-vehicles-catalog](./front-end/src/pages/3-catalog-page/components/functions/Filter-vehicles-catalog-page.tsx)** : sert à filtrer les véhicules du catalogue en fonction de la marque et du budget.
 
-#### **AFFICHAGE DYNAMIQUE DE LA PAGE DESCRIPTION D'UN VÉHICULE :**
+#### **🚗 AFFICHAGE DYNAMIQUE DE LA PAGE DESCRIPTION D'UN VÉHICULE :**
 * Le composant **[Vehicle-page-view](./front-end/src/pages/4-vehicle-page/Vehicle-page-view.tsx)** sert à afficher la page de description d'un véhicule en fonction de son ID et des `props` sélectionnées dans chaque sous-composants.
     * **[Hero-vehicle page](./front-end/src/pages/4-vehicle-page/components/1-Hero-vehicle-page.tsx)** : sert à afficher la bannière de la page de description d'un véhicule. L'image est récupérée par la propriété -> `vehicle.imageUrl` de la base de données.
     * **[Description-vehicle-page](./front-end/src/pages/4-vehicle-page/components/2-Description-vehicle-page.tsx)** : sert à afficher un texte explicatif sur le véhicule et ses informations techniques.
@@ -146,10 +171,10 @@ interface Vehicle {
 
 > 💡*Les informations textuelles et les images de chaque véhicule ont été générées par IA afin de disposer de contenu à développer pour être affiché sur le site.*
 
-#### **ESPACE CLIENT**
+#### **👤 ESPACE CLIENT**
 *A venir...*
 
-#### **AUTRES PAGES**
+#### **📄 AUTRES PAGES**
 * **[About-page-view](./front-end/src/pages/2-about-page/About-page-view.tsx)** : servant à afficher une brève description de l'entreprise, les services qu'elle propose et une section FAQ. **[Get-faq](./front-end/src/api/Get-faq.tsx)** : est la fonction de logique permettant de récupérer les questions et réponses de la section FAQ depuis la base de données. Cette fonction est **implémentée** dans le composant **[FAQAboutPage](./front-end/src/pages/2-about-page/components/4-FAQ-about-page.tsx)**. 
 J'ai configuré cette collection de données nommée `faq` avec la structure suivante  :
 
@@ -174,12 +199,12 @@ interface FAQItem {
 * **[Error-page-view](./front-end/src/pages/8-error-page/Error-page-view.tsx)** : servant à afficher une page pour informer l'utilisateur que le contenu demandé n'existe pas *(ou n'est plus référencé)* et lui propose deux solutions pour retrouver ce qu'il cherche *(Retour à l'accueil et Revenir à la page précédente)*.
 
 
-### ➖ **PHASE 3 : OPTIMISATION ET TESTING**
+### 🧪 **PHASE 3 : OPTIMISATION ET TESTING**
 *A venir...*
 
-### ➖ **PHASE 4 : DÉPLOIEMENT**
+### 🚀 **PHASE 4 : DÉPLOIEMENT**
 *A venir...*
 
 
-## 👤 Skies-Land - Jonathan Araldi
+## 👨‍💻 Skies-Land - Jonathan Araldi
 - **[Portfolio](https://portfolio-jonathan-araldi.netlify.app/)** | **[LinkedIn](https://www.linkedin.com/in/jonathan-araldi/)** | **[GitHub](https://github.com/Skies-Land)**
