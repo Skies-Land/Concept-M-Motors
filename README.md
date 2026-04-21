@@ -193,7 +193,7 @@ interface FAQItem {
   answer: string;
 }
 ```
-
+> 💡*J'ai choisi d'externaliser les données de la section FAQ vers Firebase, afin de faciliter la gestion des questions/réponses (ajout, modification, suppression) pour l'équipe back-office de M-Motors.*
 
 * **[Contact-page-view](./front-end/src/pages/5-contact-page/Contact-page-view.tsx)** : servant à afficher un formulaire de contact pour permettre aux utilisateurs de contacter l'entreprise en choisisant parmis un menu déroulant le sujet de leur demande. <br> **⚠️ Ce formulaire n'est pas relié à une base de données et n'est donc pas fonctionnel. Il est présent à titre de présentation.⚠️**
 * **[Error-page-view](./front-end/src/pages/8-error-page/Error-page-view.tsx)** : servant à afficher une page pour informer l'utilisateur que le contenu demandé n'existe pas *(ou n'est plus référencé)* et lui propose deux solutions pour retrouver ce qu'il cherche *(Retour à l'accueil et Revenir à la page précédente)*.
