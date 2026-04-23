@@ -172,7 +172,10 @@ interface Vehicle {
 > 💡*Les informations textuelles et les images de chaque véhicule ont été générées par IA afin de disposer de contenu à développer pour être affiché sur le site.*
 
 #### **👤 ESPACE CLIENT**
-*A venir...*
+* Le composant **[Login-page-view](./front-end/src/pages/6-login-page/Login-page-view.tsx)** sert à afficher la page de connexion/inscription et mot de passe oublié pour accéder à l'espace client. Le composant gère l'affichage conditionnel des 3 sous-formulaires :
+    * **[Login-form](./front-end/src/pages/6-login-page/components/1-Login-form.tsx)** : sert à afficher le formulaire principale pour la connexion. Au clic sur *"mot de passe oublié ?"*, le composant **[Forget-password-form](./front-end//src//pages//6-login-page//components/3-Forget-password-form.tsx)** est affiché à la place du formulaire de connexion, pour permettre à l'utilisateur de réinitialiser son mot de passe. 
+    * **[Register-form](./front-end/src/pages/6-login-page/components/2-Register-form.tsx)** : sert à afficher le formulaire pour l'inscription.
+
 
 #### **📄 AUTRES PAGES**
 * **[About-page-view](./front-end/src/pages/2-about-page/About-page-view.tsx)** : servant à afficher une brève description de l'entreprise, les services qu'elle propose et une section FAQ. **[Get-faq](./front-end/src/api/Get-faq.tsx)** : est la fonction de logique permettant de récupérer les questions et réponses de la section FAQ depuis la base de données. Cette fonction est **implémentée** dans le composant **[FAQAboutPage](./front-end/src/pages/2-about-page/components/4-FAQ-about-page.tsx)**. 

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <title>Concept M-Motors - Login</title>
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+        <link href="https://fonts.googleapis.com" rel="preconnect" />
+        <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@400;500;600;700;900&amp;display=swap"
+                rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+                rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+                rel="stylesheet" />
+        <script id="tailwind-config">
+                tailwind.config = {
+                        darkMode: "class",
+                        theme: {
+                                extend: {
+                                        colors: {
+                                                "surface-tint": "#ffb692",
+                                                "on-primary-fixed-variant": "#793000",
+                                                "on-surface-variant": "#dcc1b5",
+                                                "tertiary-fixed": "#65f7fe",
+                                                "on-tertiary-fixed-variant": "#004f52",
+                                                tertiary: "#44dde4",
+                                                "on-secondary": "#303030",
+                                                "tertiary-container": "#00c1c8",
+                                                "secondary-container": "#494948",
+                                                "on-tertiary-fixed": "#002021",
+                                                "inverse-on-surface": "#313030",
+                                                "on-primary-fixed": "#341100",
+                                                "surface-container-low": "#1c1b1b",
+                                                "on-primary": "#562000",
+                                                "primary-fixed": "#ffdbcb",
+                                                "on-primary-container": "#712c00",
+                                                "surface-container": "#201f1f",
+                                                "on-tertiary": "#003739",
+                                                "on-background": "#e5e2e1",
+                                                "on-tertiary-container": "#004a4c",
+                                                outline: "#a48c81",
+                                                "on-surface": "#e5e2e1",
+                                                "surface-bright": "#3a3939",
+                                                "surface-dim": "#131313",
+                                                background: "#131313",
+                                                secondary: "#c8c6c4",
+                                                "on-error": "#690005",
+                                                "surface-container-highest": "#353534",
+                                                "inverse-primary": "#9b450f",
+                                                "surface-container-lowest": "#0e0e0e",
+                                                primary: "#ffba98",
+                                                "secondary-fixed-dim": "#c8c6c4",
+                                                "on-secondary-container": "#bab8b6",
+                                                "on-secondary-fixed": "#1b1c1b",
+                                                "on-error-container": "#ffdad6",
+                                                "inverse-surface": "#e5e2e1",
+                                                "tertiary-fixed-dim": "#40dae1",
+                                                "surface-variant": "#353534",
+                                                "surface-container-high": "#2a2a2a",
+                                                surface: "#131313",
+                                                "secondary-fixed": "#e4e2e0",
+                                                "on-secondary-fixed-variant": "#474746",
+                                                "primary-container": "#ff9157",
+                                                "primary-fixed-dim": "#ffb692",
+                                                "outline-variant": "#56433a",
+                                                "error-container": "#93000a",
+                                                error: "#ffb4ab",
+                                        },
+                                        borderRadius: {
+                                                DEFAULT: "0.25rem",
+                                                lg: "0.5rem",
+                                                xl: "0.75rem",
+                                                full: "9999px",
+                                        },
+                                        fontFamily: {
+                                                headline: ["Space Grotesk"],
+                                                body: ["Inter"],
+                                                label: ["Inter"],
+                                        },
+                                },
+                        },
+                };
+        </script>
+        <style>
+                body {
+                        background-color: #0e0e0e;
+                        color: #e5e2e1;
+                        font-family: "Inter", sans-serif;
+                }
+
+                .material-symbols-outlined {
+                        font-variation-settings:
+                                "FILL" 0,
+                                "wght" 400,
+                                "GRAD" 0,
+                                "opsz" 24;
+                }
+
+                .tonal-shift {
+                        background-color: rgba(32, 31, 31, 0.4);
+                }
+
+                .glass-panel {
+                        backdrop-filter: blur(20px);
+                        background: rgba(38, 38, 38, 0.6);
+                }
+
+                .text-tension-lg {
+                        font-size: clamp(3rem, 10vw, 8rem);
+                        line-height: 0.9;
+                }
+
+                .ignition-gradient {
+                        background: linear-gradient(135deg, #ff9157 0%, #ff7a2c 100%);
+                }
+        </style>
+</head>
+
+<body>
+
+        <!-- HEADER -->
+        <header>
+                <nav class="fixed top-0 w-full z-50 bg-stone-950/60 backdrop-blur-xl">
+                        <div class="flex justify-between items-center px-8 py-6 w-full max-w-screen-2xl mx-auto"
+                                data-pg-name="Navbar">
+                                <div class="text-2xl font-black text-orange-500 tracking-tighter font-['Space_Grotesk']"
+                                        data-pg-name="Logo">
+                                        M-MOTORS
+                                </div>
+                                <!-- Liens de navigation -->
+                                <div class="hidden items-end space-x-12 md:flex" data-pg-name="Liens">
+                                        <a class="font-['Space_Grotesk'] pb-1 text-stone-400 text-xs tracking-wider uppercase hover:text-stone-100"
+                                                href="catalogue.html">Catalogue</a>
+                                        <a class="font-['Space_Grotesk'] p-1 text-stone-400 text-xs tracking-wider transition-colors uppercase"
+                                                href="a-propos.html">À propos</a>
+                                </div>
+                                <!-- Bouton de connexion -->
+                                <div class="flex items-center gap-6" data-pg-name="Connexion">
+                                        <button
+                                                class="font-bold hidden ignition-gradient px-6 py-2 rounded-lg text-on-primary-fixed text-sm tracking-widest transition-transform uppercase active:scale-95 md:block">
+                                                CONNEXION
+                                        </button>
+                                        <span class="material-symbols-outlined text-stone-100 cursor-pointer"
+                                                data-icon="menu">
+                                                menu
+                                        </span>
+                                </div>
+                        </div>
+                </nav>
+        </header>
+
+        <!--  -->
+        <main class="flex-grow flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 relative z-10 overflow-hidden">
+                <div class="w-full max-w-lg">
+                        <div class="mt-16 bg-surface-variant/60 backdrop-blur-[20px] rounded-lg shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)] border border-outline-variant/15 p-8 sm:p-10">
+                                <!-- Onglets de connexion/inscription -->
+                                <div class="flex gap-8 mb-8 border-b border-outline-variant/15 pb-4">
+                                        <button class="font-headline font-bold text-lg text-primary border-b-2 border-primary pb-4 -mb-[18px]">
+                                                Se connecter
+                                        </button>
+                                        <button class="font-headline font-bold text-lg text-on-surface-variant hover:text-on-surface transition-colors pb-4 -mb-[18px]">
+                                                S'inscrire
+                                        </button>
+                                </div>
+
+                                <!-- Formulaire de connexion -->
+                                <form class="space-y-6">
+                                        <div>
+                                                <label class="block font-label text-xs uppercase tracking-wider text-on-surface-variant mb-2"
+                                                        for="email">E mail</label>
+                                                <input autocomplete="email"
+                                                        class="w-full bg-surface-container-high border border-outline-variant/15 rounded text-on-surface font-body px-4 py-3 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all placeholder:text-on-surface-variant/50"
+                                                        id="email" name="email" placeholder="votre-adresse-mail@example.com"
+                                                        required="" type="email" />
+                                        </div>
+                                        <div>
+                                                <div class="flex items-center justify-between mb-2">
+                                                        <label class="block font-label text-xs uppercase tracking-wider text-on-surface-variant"
+                                                                for="password">
+                                                                Mot de passe
+                                                        </label>
+                                                        <a class="font-label text-xs text-primary hover:text-primary-dim transition-colors"
+                                                                href="#">
+                                                                Mot de passe oublié ?
+                                                        </a>
+                                                </div>
+                                                <input autocomplete="current-password"
+                                                        class="w-full bg-surface-container-high border border-outline-variant/15 rounded text-on-surface font-body px-4 py-3 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all placeholder:text-on-surface-variant/50"
+                                                        id="password" name="password" placeholder="********" required=""
+                                                        type="password" />
+                                        </div>
+                                        <button class="w-full flex justify-center py-3 px-4 rounded bg-gradient-to-r from-primary to-primary-container text-on-primary-fixed font-headline font-bold text-sm uppercase tracking-wider hover:from-primary-dim hover:to-primary transition-all duration-300"
+                                                type="submit">
+                                                Se connecter
+                                        </button>
+                                </form>
+                        </div>
+
+                        <!--  -->
+                        <div class="text-center mt-8">
+                                <a class="font-label text-sm text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center gap-2"
+                                        href="index.html">
+                                        <span class="material-symbols-outlined text-lg">arrow_back</span>
+                                        Retour à l'accueil
+                                </a>
+                        </div>
+                </div>
+        </main>
+        <!-- FOOTER -->
+        <footer class="w-full border-t border-stone-800/20">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-12 px-12 py-20 w-full max-w-screen-2xl mx-auto">
+                        <div class="col-span-2 md:col-span-1">
+                                <div class="font-['Space_Grotesk'] font-bold mb-6 text-orange-500 text-xl">M-MOTORS
+                                </div>
+                                <p
+                                        class="text-stone-500 font-['Inter'] text-xs uppercase tracking-[0.2em] leading-relaxed">
+                                        L'ingénierie de précision au service de votre mobilité. Achat ou location, nous
+                                        redéfinissons les standards de l'automobile premium.</p>
+                                <div class="flex gap-4 mt-8">
+                                        <span class="material-symbols-outlined text-stone-400 hover:text-orange-500 cursor-pointer"
+                                                data-icon="share">share</span>
+                                        <span class="material-symbols-outlined text-stone-400 hover:text-orange-500 cursor-pointer"
+                                                data-icon="public">public</span>
+                                        <span class="material-symbols-outlined text-stone-400 hover:text-orange-500 cursor-pointer"
+                                                data-icon="mail">mail</span>
+                                </div>
+                        </div>
+                        <!-- COLONNE ENTREPRISE -->
+                        <div>
+                                <h5 class="text-stone-100 font-bold mb-6 text-xs uppercase tracking-widest">entreprise
+                                </h5>
+                                <ul class="space-y-4">
+                                        <li>
+                                                <a class="text-stone-500 hover:text-orange-500 transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]"
+                                                        href="#">À propos</a>
+                                        </li>
+                                        <li>
+                                                <a class="text-stone-500 hover:text-orange-500 transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]"
+                                                        href="#">Nos services</a>
+                                        </li>
+                                        <li>
+                                                <a class="text-stone-500 hover:text-orange-500 transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]"
+                                                        href="#">Carrière</a>
+                                        </li>
+                                </ul>
+                        </div>
+                        <!-- COLONNE LÉGAL -->
+                        <div>
+                                <h5 class="text-stone-100 font-bold mb-6 text-xs uppercase tracking-widest">Légal</h5>
+                                <ul class="space-y-4">
+                                        <li>
+                                                <a class="text-stone-500 hover:text-orange-500 transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]"
+                                                        href="#">Contact</a>
+                                        </li>
+                                        <li>
+                                                <a class="text-stone-500 hover:text-orange-500 transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]"
+                                                        href="#">Mentions Légales</a>
+                                        </li>
+                                        <li>
+                                                <a class="text-stone-500 hover:text-orange-500 transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]"
+                                                        href="#">Confidentialité</a>
+                                        </li>
+                                </ul>
+                        </div>
+                        <!-- COLONNE RÉSEAUX -->
+                        <div>
+                                <h5 class="text-stone-100 font-bold mb-6 text-xs uppercase tracking-widest">Réseaux</h5>
+                                <ul class="space-y-4">
+                                        <li>
+                                                <a class="text-stone-500 hover:text-orange-500 transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]"
+                                                        href="#">Facebook</a>
+                                        </li>
+                                        <li>
+                                                <a class="text-stone-500 hover:text-orange-500 transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]"
+                                                        href="#">Instagram</a>
+                                        </li>
+                                        <li>
+                                                <a class="text-stone-500 hover:text-orange-500 transition-colors font-['Inter'] text-xs uppercase tracking-[0.2em]"
+                                                        href="#">YouTube</a>
+                                        </li>
+                                </ul>
+                        </div>
+                </div>
+                <!-- BOTTOM BAR -->
+                <div class="px-12 py-8 bg-stone-900 flex flex-col md:flex-row justify-between items-center gap-6">
+                        <div class="text-stone-500 font-['Inter'] text-[10px] uppercase tracking-[0.2em]">© 2026 Concept
+                                M-Motors. Propulser par Jonathan Araldi.</div>
+                        <div
+                                class="text-stone-600 font-['Inter'] text-[9px] uppercase tracking-[0.1em] text-center md:text-right max-w-2xl">
+                                Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement
+                                avant de vous engager. </div>
+                </div>
+        </footer>
+</body>
+
+</html>
