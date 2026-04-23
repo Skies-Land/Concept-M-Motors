@@ -47,6 +47,10 @@ export const router = createBrowserRouter([
         element: <LoginPageView />,
       },
       {
+        path: 'account',
+        element: <div className="p-20 text-center text-2xl text-white">Espace client (En cours de développement)</div>,
+      },
+      {
         path: '*',
         element: <ErrorPageView />,
       },

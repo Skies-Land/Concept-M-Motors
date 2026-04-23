@@ -6,9 +6,15 @@ import Container from '../design-system/Container';
 import { Button } from '../design-system/Button';
 import Logo from '../design-system/Logo';
 import { Typography } from '../design-system/Typography';
+import UserAccount from './User-account';
+
+// CONTEXTE
+import { useAuth } from '../../context/AuthUserContext';
 
 // Composant servant à afficher l'en-tête "Header" du site
 export default function Header() {
+  const { authUser, signOut } = useAuth();
+
   return (
     <header>
       <nav className="fixed top-0 w-full z-50 bg-stone-950/60 backdrop-blur-xl">
@@ -44,16 +50,23 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* Bouton de connexion */}
+          {/* Bouton de connexion
+          Si l'utilisateur est connecté, affichage du nom utilisateur et d'un bouton de déconnexion
+          Sinon, affichage du bouton de connexion
+          */}
           <div className="flex items-center gap-6" data-pg-name="Connexion">
             <div className="hidden md:block">
-              <Button 
-                variant="primary" 
-                size="small" 
-                baseUrl="/login"
-              >
-                Connexion
-              </Button>
+              {authUser ? (
+                <UserAccount user={authUser} onLogout={signOut} />
+              ) : (
+                <Button 
+                  variant="primary" 
+                  size="small" 
+                  baseUrl="/login"
+                >
+                  Connexion
+                </Button>
+              )}
             </div>
 
             {/* TODO: Ajouter le menu burger pour mobile */}

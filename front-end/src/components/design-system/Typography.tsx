@@ -80,7 +80,7 @@ export const Typography = ({
             colorStyle = "text-on-surface-variant";
             break;
         case "error":
-            colorStyle = "text-error";
+            colorStyle = "text-red-500";
             break;
         case "inverse":
             colorStyle = "text-inverse-on-surface";

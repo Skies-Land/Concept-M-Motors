@@ -12,9 +12,10 @@ src/
 ├── assets/                     # Médias et ressources statiques du projet (favicon, images)
 │
 ├── api/                        # Appels réseau et communication base de données
-│   └── Get-vehicles.tsx        # Fonction de récupération des véhicules depuis la collection Firebase `vehicles`
-│   └── Get-brands-catalog.tsx  # Fonction de récupération des données par "marque" de véhicule depuis la collection Firebase `vehicles`
-│   └── Get-description-vehicle-page.tsx  # Fonction de récupération des données par "véhicule" depuis la collection Firebase `vehicles`
+│   ├── Get-vehicles.tsx        # Fonction de récupération des véhicules depuis la collection Firebase `vehicles`
+│   ├── Get-brands-catalog.tsx  # Fonction de récupération des données par "marque" de véhicule depuis la collection Firebase `vehicles`
+│   ├── Get-description-vehicle-page.tsx  # Fonction de récupération des données par "véhicule" depuis la collection Firebase `vehicles`
+│   ├── Get-user.tsx            # Fonction de récupération du profil utilisateur depuis la collection Firebase `users`
 │   └── Get-faq.tsx             # Fonction de récupération des questions et réponses de la section FAQ depuis la collection Firebase `faq`
 │
 ├── components/                 # Composants réutilisables
@@ -25,6 +26,12 @@ src/
 │
 ├── config/                     # Configuration des services tiers
 │   └── firebase-config.ts      # Initialisation et export de l'instance Firebase
+│
+├── constants/                  # Constantes du projet
+│   └── Session-status.tsx      # Constantes pour les statuts de session (GUEST, REGISTERED)
+│
+├── context/                    # Contexts React
+│   └── AuthUserContext.tsx     # Context pour la gestion de l'utilisateur connecté
 │
 ├── pages/                      # Différentes pages de l'application
 │   ├── 1-landing-page/         # Composants et vue pour la page "d'accueil"
@@ -38,15 +45,18 @@ src/
 │   │   └── components/         # Sous-composants propres à la page
 │   │       └── module-form/    # Module pour le formulaire de contact
 │   ├── 6-login-page/           # Composants et vue pour la page de "Connexion"
-│   └── 7-customer-area/        # Composants et vue pour la page de "l'Espace client"
+│   ├── 7-customer-area/        # Composants et vue pour la page de "l'Espace client"
 │   └── 8-error-page/           # Composants et vue pour la page d'erreur 404
 │
 ├── routes/                     # Fichiers de configuration du routage
 │   └── router.tsx              # Définition des routes avec React Router
 │
 └── types/                      # Interfaces TypeScript partagées
-    └── Vehicle.tsx             # Définition du contrat de données "Vehicle"
+    ├── FAQItem.tsx            # Définition du contrat de données "FAQItem"
+    ├── UserType.tsx            # Définition du contrat de données "User"
+    ├── Vehicle.tsx             # Définition du contrat de données "Vehicle"
+    └── Session-status-type.tsx # Définition du contrat de type TypeScript pour garantir qu'aucune valeur de statut invalide ne soit utilisée dans le code.
 ```
 
-## 👤 Skies-Land - Jonathan Araldi
+## 👨‍💻 Skies-Land - Jonathan Araldi
 - **[Portfolio](https://portfolio-jonathan-araldi.netlify.app/)** | **[LinkedIn](https://www.linkedin.com/in/jonathan-araldi/)** | **[GitHub](https://github.com/Skies-Land)**

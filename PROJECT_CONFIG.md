@@ -17,7 +17,7 @@ Ce document résume la configuration technique du projet Concept M-Motors.
 
 ## Stack Back-end (Services)
 - **Base de données :** Firebase Firestore (NoSQL)
-- **Authentification :** Firebase Auth (Prévu)
+- **Authentification :** Firebase Auth (Opérationnelle - Connexion, Inscription, Réinitialisation)
 - **Stockage d'Images :** Cloudinary
 
 ## Organisation du Code (Front-end)
@@ -26,10 +26,11 @@ Ce document résume la configuration technique du projet Concept M-Motors.
     - Centralisation du style des boutons avec le composant `Button`. 
     - Centralisation du style des conteneurs avec le composant `Container`.
     - Centralisation du style du designdu logo avec le composant `Logo`. 
-- **Layout :** Utilisation d'un `RootLayout` pour la structure globale du site.
-- **API & Logique métier :** Centralisation des appels réseau dans `/src/api/` et isolation de la logique métier dans des dossiers locaux `functions/` (par exemple, pour le filtrage ou la pagination).
+- **Gestion d'état :** Utilisation de la **React Context API** (`AuthUserContext`) pour centraliser l'état de l'utilisateur et la persistance de la session en temps réel.
+- **Sécurisation :** Centralisation des statuts de session via des constantes (`Session-status`) et des types TypeScript dédiés pour une sécurité maximale du code.
+- **API & Logique métier :** Centralisation des appels réseau dans `/src/api/` (ex: `Get-user.tsx`) et isolation de la logique métier dans des dossiers locaux `functions/`.
 - **Pages :** Découpage par fonctionnalités dans `/src/pages/`.
-- **Navigation :** Composants `Header` et `Footer` utilisant `<Link>` pour le mode SPA.
+- **Navigation :** Composants `Header` et `Footer` adaptatifs (le Header change d'état selon la connexion de l'utilisateur).
 - **Référencement :** Composant `Seo` réutilisable par page.
 
 ## Thème Visuel
@@ -47,5 +48,5 @@ cd front-end
 npm run dev
 ```
 
-## 👤 Skies-Land - Jonathan Araldi
+## 👨‍💻 Skies-Land - Jonathan Araldi
 - **[Portfolio](https://portfolio-jonathan-araldi.netlify.app/)** | **[LinkedIn](https://www.linkedin.com/in/jonathan-araldi/)** | **[GitHub](https://github.com/Skies-Land)**

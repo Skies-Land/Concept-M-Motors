@@ -1,5 +1,12 @@
-// COMPOSANT
+// DÉPENDANCES
+import { useState } from "react";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import { auth } from "../../../config/firebase-config";
+
+// COMPOSANTS
 import { Button } from "../../../components/design-system/Button";
+import { Typography } from "../../../components/design-system/Typography";
 
 // PROPS
 interface LoginFormProps {
@@ -8,14 +15,39 @@ interface LoginFormProps {
 
 // Composant servant à afficher un formulaire de connexion
 export default function LoginForm({ onForgotPassword }: LoginFormProps) {
-    const handleSubmit = (e: React.FormEvent) => {
+    const navigate = useNavigate();
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState<string | null>(null);
+    const [loading, setLoading] = useState(false);
+
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // TODO: Logique de connexion à implémenter plus tard avec Firebase
-        console.log("Tentative de connexion");
+        setError(null);
+        setLoading(true);
+
+        try {
+            await signInWithEmailAndPassword(auth, email, password);
+            // Redirection vers l'espace client après connexion réussie
+            navigate("/account");
+        } catch (err: any) {
+            console.error("Erreur de connexion :", err);
+            setError("Email ou mot de passe incorrect.");
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
         <form className="space-y-6" onSubmit={handleSubmit}>
+            {error && (
+                <div className="bg-error/10 border border-error/20 rounded p-4">
+                    <Typography variant="body-sm" color="error">
+                        {error}
+                    </Typography>
+                </div>
+            )}
+            
             <div>
                 <label className="block font-label text-xs uppercase tracking-wider text-on-surface-variant mb-2" htmlFor="email">
                     E-mail
@@ -28,6 +60,8 @@ export default function LoginForm({ onForgotPassword }: LoginFormProps) {
                     placeholder="votre-adresse-mail@example.com"
                     required 
                     type="email" 
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                 />
             </div>
             <div>
@@ -35,13 +69,13 @@ export default function LoginForm({ onForgotPassword }: LoginFormProps) {
                     <label className="block font-label text-xs uppercase tracking-wider text-on-surface-variant" htmlFor="password">
                         Mot de passe
                     </label>
-                    <Button 
+                    <button 
                         type="button"
                         onClick={onForgotPassword}
-                        variant="tertiary"
+                        className="font-label text-xs text-primary hover:text-primary-dim transition-colors"
                     >
                         Mot de passe oublié ?
-                    </Button>
+                    </button>
                 </div>
                 <input 
                     autoComplete="current-password"
@@ -51,6 +85,8 @@ export default function LoginForm({ onForgotPassword }: LoginFormProps) {
                     placeholder="********" 
                     required
                     type="password" 
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                 />
             </div>
             <div className="pt-2">
@@ -58,6 +94,7 @@ export default function LoginForm({ onForgotPassword }: LoginFormProps) {
                     type="submit"
                     variant="primary"
                     fullWidth
+                    isLoading={loading}
                 >
                     Se connecter
                 </Button>

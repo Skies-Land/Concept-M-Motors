@@ -172,9 +172,23 @@ interface Vehicle {
 > 💡*Les informations textuelles et les images de chaque véhicule ont été générées par IA afin de disposer de contenu à développer pour être affiché sur le site.*
 
 #### **👤 ESPACE CLIENT**
-* Le composant **[Login-page-view](./front-end/src/pages/6-login-page/Login-page-view.tsx)** sert à afficher la page de connexion/inscription et mot de passe oublié pour accéder à l'espace client. Le composant gère l'affichage conditionnel des 3 sous-formulaires :
+* **Formulaire de connexion / inscription / mot de passe oublié :**
+   * Le composant **[Login-page-view](./front-end/src/pages/6-login-page/Login-page-view.tsx)** sert à afficher la page de connexion/inscription et mot de passe oublié pour accéder à l'espace client. Le composant gère l'affichage conditionnel des 3 sous-formulaires :
     * **[Login-form](./front-end/src/pages/6-login-page/components/1-Login-form.tsx)** : sert à afficher le formulaire principale pour la connexion. Au clic sur *"mot de passe oublié ?"*, le composant **[Forget-password-form](./front-end//src//pages//6-login-page//components/3-Forget-password-form.tsx)** est affiché à la place du formulaire de connexion, pour permettre à l'utilisateur de réinitialiser son mot de passe. 
     * **[Register-form](./front-end/src/pages/6-login-page/components/2-Register-form.tsx)** : sert à afficher le formulaire pour l'inscription.
+
+* **Gestion de la session utilisateur :**
+    * Activation de l'authentification par e-mail/mot de passe avec **[Firebase Authentication](./https://firebase.google.com/docs/auth)**.
+    * **[AuthUserProvider](./front-end/src/context/AuthUserContext.tsx)** : chef d'orchestre de la session utilisateur. Il surveille l'état de connexion en temps réel via Firebase et centralise les données pour l'ensemble de l'application via la Context API de React.
+    * **[Get-user](./front-end/src/api/Get-user.tsx)** : logique permettant de récupérer le profil complet de l'utilisateur dans Firestore (collection `users`) en synchronisation avec son identifiant d'authentification (UID).
+    * **Hook `useAuth()`** : interface simplifiée permettant aux composants (comme le **Header**) de réagir dynamiquement au statut de connexion.
+
+* **Sécurisation et Typage :**
+    * **[Session-status.tsx](./front-end/src/constants/Session-status.tsx)** : définit les constantes de valeurs (`GUEST`, `REGISTERED`) utilisées pour la logique de navigation et d'affichage.
+    * **[Session-status-type.tsx](./front-end/src/types/Session-status-type.tsx)** : définit le contrat de type TypeScript pour garantir qu'aucune valeur de statut invalide ne soit utilisée dans le code.
+
+> 💡 *La session est persistante : grâce à l'initialisation de `getAuth()` dans [firebase-config](./front-end/src/config/firebase-config.ts) et à l'écouteur `onAuthStateChanged` du composant [AuthUserProvider](./front-end/src/context/AuthUserContext.tsx), Firebase récupère automatiquement le jeton de connexion stocké dans le navigateur. L'utilisateur reste ainsi connecté même après avoir actualisé la page ou fermé son navigateur.*
+
 
 
 #### **📄 AUTRES PAGES**
