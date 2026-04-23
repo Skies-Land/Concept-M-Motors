@@ -11,21 +11,21 @@ Le projet consiste à développer une plateforme web modernisée visant à digit
 ---
 
 # 📜 Table des matières
-- **[🧰 STACKS UTILISÉS](#stacks-utiliss)**
+- **[🧰 STACKS UTILISÉS](#stacks-utilises)**
 - **[⚙️ INSTALLATION ET LANCEMENT](#installation-et-lancement)**
-- **[🔄 DÉROULEMENT DU PROJET](#droulement-du-projet)**
-    - **[🎨 PHASE 1 : CONCEPTION ET PRÉPARATION | MAQUETTAGE](#phase-1--conception-et-prparation--maquettage)**
-    - **[💻 PHASE 2 : DÉVELOPPEMENT](#phase-2--dveloppement)**
+- **[🔄 DÉROULEMENT DU PROJET](#deroulement-du-projet)**
+    - **[🎨 PHASE 1 : CONCEPTION ET PRÉPARATION | MAQUETTAGE](#phase-1--conception-et-preparation--maquettage)**
+    - **[💻 PHASE 2 : DÉVELOPPEMENT](#phase-2--developpement)**
         - **[🧩 Design System](#design-system-)**
-        - **[🔍 Navigation & Référencement](#navigation--rfrencement-)**
+        - **[🔍 Navigation & Référencement](#navigation--referencement-)**
         - **[🏗️ Structure du projet](#structure-du-projet-)**
-        - **[🗄️ Base de données des véhicules](#prparation-et-configuration-de-la-base-de-donnes-des-vhicules-)**
+        - **[🗄️ Base de données des véhicules](#preparation-et-configuration-de-la-base-de-donnees-des-vehicules)**
         - **[🖥️ Affichage dynamique du catalogue](#affichage-dynamique-de-la-page-catalogue-)**
-        - **[🚗 Description d'un véhicule](#affichage-dynamique-de-la-page-description-dun-vhicule-)**
+        - **[🚗 Description d'un véhicule](#affichage-dynamique-de-la-page-description-dun-vehicule-)**
         - **[👤 Espace client](#espace-client)**
         - **[📄 Autres pages](#autres-pages)**
     - **[🧪 PHASE 3 : OPTIMISATION ET TESTING](#phase-3--optimisation-et-testing)**
-    - **[🚀 PHASE 4 : DÉPLOIEMENT](#phase-4--dploiement)**
+    - **[🚀 PHASE 4 : DÉPLOIEMENT](#phase-4--deploiement)**
 - **[👨‍💻 Skies-Land - Jonathan Araldi](#skies-land---jonathan-araldi)**
 
 ---
