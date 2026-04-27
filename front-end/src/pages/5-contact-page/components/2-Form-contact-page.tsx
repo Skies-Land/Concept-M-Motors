@@ -1,5 +1,7 @@
 // COMPOSANT
 import { Link } from "react-router-dom"
+
+// DESIGN SYSTEM
 import { Typography } from "../../../components/design-system/Typography"
 
 // MODULES

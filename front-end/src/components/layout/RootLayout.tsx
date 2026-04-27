@@ -1,7 +1,7 @@
 // DÉPENDANCE
 import { Outlet } from 'react-router-dom';
 
-// COMPONENTS
+// COMPOSANTS
 import Header from '../navigation/Header';
 import Footer from '../navigation/Footer';
 

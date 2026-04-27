@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { getBrandsCatalog } from "../../../../api/Get-brands-catalog";
 
-// COMPOSANTS
+// DESIGN SYSTEM
 import { Typography } from "../../../../components/design-system/Typography";
 import { Button } from "../../../../components/design-system/Button";
 

@@ -1,4 +1,4 @@
-// COMPOSANT
+// DESIGN SYSTEM
 import { Typography } from "../../../components/design-system/Typography";
 import Container from "../../../components/design-system/Container";
 

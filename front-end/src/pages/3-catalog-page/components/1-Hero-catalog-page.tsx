@@ -1,5 +1,7 @@
-// COMPOSANTS
+// DESIGN SYSTEM
 import { Typography } from "../../../components/design-system/Typography";
+
+// FEATURES
 import SearchFilterCatalog from "./features/Search-filter-catalog-page";
 
 // IMAGE

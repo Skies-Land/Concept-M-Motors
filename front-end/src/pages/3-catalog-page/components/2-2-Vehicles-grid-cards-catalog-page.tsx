@@ -4,10 +4,12 @@ import { useState, useEffect } from 'react';
 // API
 import { getVehicles } from '../../../api/Get-vehicles';
 
-// COMPOSANTS
+// DESIGN SYSTEM
 import Container from "../../../components/design-system/Container";
-import VehicleCard from "./2-1-Vehicle-card-catalog-page";
 import { Typography } from "../../../components/design-system/Typography";
+
+// COMPONENTS
+import VehicleCard from "./2-1-Vehicle-card-catalog-page";
 import PaginationCatalog from "./features/Pagination-catalog-page";
 
 // FONCTIONS DE LOGIQUE

@@ -1,6 +1,5 @@
-// COMPOSANTS
+// DESIGN SYSTEM
 import { Typography } from "../../../components/design-system/Typography"
-import { Button } from "../../../components/design-system/Button"
 import Container from "../../../components/design-system/Container"
 
 // TYPES

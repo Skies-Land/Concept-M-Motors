@@ -1,7 +1,7 @@
 // DEPENDANCES
 import { Link } from 'react-router-dom';
 
-// COMPOSANT
+// DESIGN SYSTEM
 import { Typography } from "../../../components/design-system/Typography";
 
 // TYPES

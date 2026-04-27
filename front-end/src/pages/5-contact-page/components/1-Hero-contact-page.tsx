@@ -1,4 +1,4 @@
-// COMPOSANT
+// DESIGN SYSTEM
 import { Typography } from "../../../components/design-system/Typography"
 
 // Composant servant à afficher la section Hero correspondant à la page de contact
