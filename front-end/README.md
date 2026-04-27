@@ -19,7 +19,7 @@ src/
 │   └── Get-faq.tsx             # Fonction de récupération des questions et réponses de la section FAQ depuis la collection Firebase `faq`
 │
 ├── components/                 # Composants réutilisables
-│   ├── design-system/          # Composants de base d'interface (Container, Typography, Button, Logo)
+│   ├── design-system/          # Composants de base d'interface (Container, Typography, Button, Logo, Input)
 │   ├── layout/                 # Composants de structure (RootLayout)
 │   ├── navigation/             # Composants de navigation (Header, Footer)
 │   └── seo/                    # Composants liés au référencement (Seo)

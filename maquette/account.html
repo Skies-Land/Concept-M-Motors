@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html class="dark" lang="fr">
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <title>Concept M-Motors - Espace Client</title>
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;900&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
+        <script id="tailwind-config">
+            tailwind.config = {
+                darkMode: "class",
+                theme: {
+                    extend: {
+                        "colors": {
+                            "primary-fixed": "#ff7a2c",
+                            "surface-container-highest": "#262626",
+                            "tertiary-dim": "#ebebeb",
+                            "tertiary-container": "#ebebeb",
+                            "surface-dim": "#0e0e0e",
+                            "secondary-fixed": "#e3e2e2",
+                            "surface-container-high": "#20201f",
+                            "outline-variant": "#484847",
+                            "error-dim": "#d53d18",
+                            "on-tertiary-fixed": "#4f5051",
+                            "secondary-dim": "#d5d4d4",
+                            "surface-container-low": "#131313",
+                            "on-secondary-fixed": "#3e3f40",
+                            "tertiary-fixed-dim": "#f1f1f1",
+                            "surface-bright": "#2c2c2c",
+                            "on-surface": "#ffffff",
+                            "on-tertiary": "#5e5f5f",
+                            "on-surface-variant": "#adaaaa",
+                            "tertiary": "#f9f9f9",
+                            "surface-tint": "#ff9157",
+                            "surface-container-lowest": "#000000",
+                            "inverse-surface": "#fcf9f8",
+                            "inverse-on-surface": "#565555",
+                            "on-secondary-container": "#d1d0d0",
+                            "on-tertiary-container": "#555757",
+                            "secondary": "#e3e2e2",
+                            "on-primary-fixed": "#000000",
+                            "error": "#ff7351",
+                            "on-error-container": "#ffd2c8",
+                            "on-error": "#450900",
+                            "inverse-primary": "#a04200",
+                            "tertiary-fixed": "#ffffff",
+                            "surface-container": "#1a1a1a",
+                            "on-tertiary-fixed-variant": "#6c6d6e",
+                            "on-primary": "#531e00",
+                            "secondary-fixed-dim": "#d5d4d4",
+                            "on-secondary-fixed-variant": "#5b5c5c",
+                            "primary-container": "#ff7a2c",
+                            "primary": "#ff9157",
+                            "background": "#0e0e0e",
+                            "primary-fixed-dim": "#f46800",
+                            "on-primary-container": "#401600",
+                            "on-background": "#ffffff",
+                            "primary-dim": "#ff7520",
+                            "surface": "#0e0e0e",
+                            "on-secondary": "#515252",
+                            "secondary-container": "#464747",
+                            "on-primary-fixed-variant": "#4f1d00",
+                            "surface-variant": "#262626",
+                            "error-container": "#b92902",
+                            "outline": "#767575"
+                        },
+                        "borderRadius": {
+                            "DEFAULT": "0.5rem",
+                            "lg": "1rem",
+                            "xl": "1.5rem",
+                            "full": "9999px"
+                        },
+                        "fontFamily": {
+                            "headline": ["Space Grotesk", "sans-serif"],
+                            "display": ["Space Grotesk", "sans-serif"],
+                            "body": ["Inter", "sans-serif"],
+                            "label": ["Inter", "sans-serif"]
+                        }
+                    }
+                }
+            }
+        </script>
+        <style>
+            body {
+                font-family: 'Inter', sans-serif;
+            }
+
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6,
+            .font-headline,
+            .font-display {
+                font-family: 'Space Grotesk', sans-serif;
+            }
+        </style>
+    </head>
+
+    <body class="bg-surface text-on-surface antialiased min-h-screen flex selection:bg-primary selection:text-on-primary-fixed">
+        <!-- Barre latérale gauche -->
+        <nav class="h-screen w-72 flex flex-col fixed left-0 top-0 bg-zinc-950 border-r border-white/5 z-40 hidden md:flex">
+            <!-- Nom de l'utilisateur connecté -->
+            <div class="p-6 bg-zinc-900">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 rounded-full bg-surface-container-highest overflow-hidden flex-shrink-0 relative">
+                        <img alt="M-Motors Logo" class="w-full h-full object-cover"
+                            data-alt="Abstract metallic silver and orange automotive logo design on dark background, sharp edges, metallic reflections, high contrast"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQRcIUOxybBOKmjHWnGW04nRS5KdPlhPpcg30VWBRzpxqPPxjABj11PA4ibCIuJrqHTw2oTh0HwyArtVNLU6OZDcotxkv0LqDlEkmZtrZb_qa9dAKVwJHmUogyVEN37I3ajm9FRN6qU8zOIe8kbzR0zC2jft0naPs2-ZjiWJakAuSbNFI6J4ujbqWOKvD7dajWYDSxQ2w-9F1YHICerHw808MLAGbwb55pS5TXZ0UFQCkuaMyTRasdngHGH0-94-lIGQliKaGvL3oC" />
+                    </div>
+                    <div>
+                        <h1 class="font-['Space_Grotesk'] font-bold text-orange-600 text-lg leading-tight tracking-tight">
+                            Nom du client
+                        </h1>
+                        <p class="font-['Inter'] text-sm font-medium text-zinc-400">Bienvenue sur votre espace client</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Menu de navigation principal -->
+            <div class="flex-1 py-6 flex flex-col gap-2 px-3 overflow-y-auto">
+                <a class="flex items-center gap-3 px-4 py-3 rounded-DEFAULT bg-zinc-900 text-orange-500 border-r-2 border-orange-600 font-['Inter'] text-sm font-medium scale-98 active:scale-95 transition-all duration-200"
+                    href="#">
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+                    Mon profil
+                </a>
+                <a class="flex items-center gap-3 px-4 py-3 rounded-DEFAULT text-zinc-500 hover:bg-zinc-900/50 hover:text-zinc-200 font-['Inter'] text-sm font-medium transition-all duration-200"
+                    href="#">
+                    <span class="material-symbols-outlined">upload_file</span>
+                    Mes documents
+                </a>
+                <a class="flex items-center gap-3 px-4 py-3 rounded-DEFAULT text-zinc-500 hover:bg-zinc-900/50 hover:text-zinc-200 font-['Inter'] text-sm font-medium transition-all duration-200"
+                    href="#">
+                    <span class="material-symbols-outlined">settings_input_component</span>
+                    Gestion de mes services
+                </a>
+                <a class="flex items-center gap-3 px-4 py-3 rounded-DEFAULT text-zinc-500 hover:bg-zinc-900/50 hover:text-zinc-200 font-['Inter'] text-sm font-medium transition-all duration-200"
+                    href="#">
+                    <span class="material-symbols-outlined">event_available</span>
+                    Réservations
+                </a>
+            </div>
+
+            <!-- Menu de pied de page -->
+            <div class="p-6 bg-zinc-900 mt-auto flex flex-col gap-2">
+                <a class="flex items-center gap-3 px-4 py-3 rounded-DEFAULT text-zinc-500 hover:bg-zinc-900/50 hover:text-zinc-200 font-['Inter'] text-sm font-medium transition-all duration-200"
+                    href="#">
+                    <span class="material-symbols-outlined">help</span>
+                    Aide
+                </a>
+                <a class="flex items-center gap-3 px-4 py-3 rounded-DEFAULT text-zinc-500 hover:bg-zinc-900/50 hover:text-zinc-200 font-['Inter'] text-sm font-medium transition-all duration-200"
+                    href="#">
+                    <span class="material-symbols-outlined">logout</span>
+                    Déconnexion
+                </a>
+            </div>
+        </nav>
+
+
+        <!-- Contenu principal -->
+        <main class="flex-1 ml-0 md:ml-72 flex flex-col relative min-h-screen">
+            <div class="p-6 md:p-12 lg:p-16 max-w-7xl mx-auto w-full flex flex-col gap-12">
+                <!-- Page Header -->
+                <div class="flex flex-col gap-2">
+                    <h2 class="text-4xl md:text-5xl font-display font-bold text-on-surface tracking-tight">
+                        Profil
+                    </h2>
+                    <p class="text-on-surface-variant font-body text-base max-w-2xl">
+                        Gérez vos informations personnelles et
+                        préférences de contact pour une expérience M-Motors sur mesure.
+                    </p>
+                </div>
+
+                <!-- Section 1: Profil (Formulaire) -->
+                <section class="flex flex-col lg:flex-row gap-8">
+                    <!-- Image d'avatar du client -->
+                    <div class="lg:w-1/4 flex flex-col gap-6 items-center lg:items-start">
+                        <div class="relative group cursor-pointer">
+                            <div class="w-32 h-32 md:w-48 md:h-48 rounded-DEFAULT bg-surface-container-high overflow-hidden border border-outline-variant/15 relative z-10">
+                                <img alt="User profile avatar large"
+                                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                    data-alt="Portrait of a young man with short dark hair and a light beard, neutral expression, subtle dark background lighting, high resolution"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-GSBZWHaI6Ysk5WLIEiNHeen7Jodi0D54y1LRpHDqyX5NxHOnYy4Bf3wSxudndyO3THJ3a3TsyEixNzlzk-TpIRTfIHh2-w1_ANtfPv7cf7nYciHHGm58HGmIvHkb6AVni90EThIg8EKRrlEkdnDIEcHUbVR-be-VcC_TeytvvI0yF9-3GPsjOo08c1YzFWnXQsfSwKzdAri_aDLowEBspdOvrLaBgpPoZlpjULr5ISVfZwqWPV6GdXtqumEpr7svhXuAyRWlnpZ-" />
+                            </div>
+                            <button class="absolute bottom-4 right-4 md:bottom-6 md:right-6 w-10 h-10 bg-surface-container-highest rounded-full flex items-center justify-center border border-outline-variant/30 text-on-surface hover:text-primary transition-colors z-20 shadow-lg shadow-black/50">
+                                <span class="material-symbols-outlined text-sm">edit</span>
+                            </button>
+                        </div>
+                        <div class="text-center lg:text-left">
+                            <p class="font-body text-xs text-on-surface-variant mt-1">Membre depuis Jan 2023</p>
+                        </div>
+                    </div>
+                    <!-- Formulaire - Informations personnelles -->
+                    <div class="lg:w-3/4 flex flex-col gap-8 bg-surface-container-low p-6 md:p-8 rounded-lg relative overflow-hidden">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
+                            <!-- Prénom -->
+                            <div class="flex flex-col gap-2">
+                                <label class="font-label text-sm uppercase tracking-wider text-on-surface-variant">Prénom</label>
+                                <input class="bg-surface-container-high border-outline-variant/15 text-on-surface focus:ring-1 focus:ring-primary focus:border-primary/50 rounded-DEFAULT px-4 py-3 font-body outline-none transition-all w-full placeholder:text-on-surface-variant/50"
+                                    type="text" value="Thomas" />
+                            </div>
+                            <!-- Nom -->
+                            <div class="flex flex-col gap-2">
+                                <label class="font-label text-sm uppercase tracking-wider text-on-surface-variant">
+                                    Nom
+                                </label>
+                                <input class="bg-surface-container-high border-outline-variant/15 text-on-surface focus:ring-1 focus:ring-primary focus:border-primary/50 rounded-DEFAULT px-4 py-3 font-body outline-none transition-all w-full placeholder:text-on-surface-variant/50"
+                                    type="text" value="Dubois" />
+                            </div>
+                            <!-- Adresse e-mail -->
+                            <div class="flex flex-col gap-2 md:col-span-2">
+                                <label class="font-label text-sm uppercase tracking-wider text-on-surface-variant">
+                                    Adresse E-mail
+                                </label>
+                                <input class="bg-surface-container-high border-outline-variant/15 text-on-surface focus:ring-1 focus:ring-primary focus:border-primary/50 rounded-DEFAULT px-4 py-3 font-body outline-none transition-all w-full placeholder:text-on-surface-variant/50"
+                                    readonly="" type="email" value="thomas.dubois@example.com" />
+                            </div>
+                            <!-- Adresse postale -->
+                            <div class="flex flex-col gap-2 md:col-span-2">
+                                <label class="font-label text-sm uppercase tracking-wider text-on-surface-variant">
+                                    Adresse postale
+                                </label>
+                                <input
+                                    class="bg-surface-container-high border-outline-variant/15 text-on-surface focus:ring-1 focus:ring-primary focus:border-primary/50 rounded-DEFAULT px-4 py-3 font-body outline-none transition-all w-full placeholder:text-on-surface-variant/50"
+                                    type="text" value="14 Avenue des Champs-Élysées, 75008 Paris" />
+                            </div>
+                            <!-- Téléphone -->
+                            <div class="flex flex-col gap-2">
+                                <label class="font-label text-sm uppercase tracking-wider text-on-surface-variant">
+                                    Téléphone
+                                </label>
+                                <input class="bg-surface-container-high border-outline-variant/15 text-on-surface focus:ring-1 focus:ring-primary focus:border-primary/50 rounded-DEFAULT px-4 py-3 font-body outline-none transition-all w-full placeholder:text-on-surface-variant/50"
+                                    type="tel" value="+33 6 12 34 56 78" />
+                            </div>
+                        </div>
+                        <!-- Bouton de sauvegarde -->
+                        <div class="flex justify-end pt-4 border-t border-outline-variant/15 mt-2 relative z-10">
+                            <button
+                                class="px-8 py-4 bg-gradient-to-r from-primary to-primary-container text-on-primary-fixed font-bold font-body rounded-DEFAULT hover:from-primary-dim hover:to-primary transition-all duration-300 flex items-center gap-2">
+                                Sauvegarder les modifications
+                                <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">save</span>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </body>
+
+</html>

@@ -189,6 +189,13 @@ interface Vehicle {
 
 > 💡 *La session est persistante : grâce à l'initialisation de `getAuth()` dans [firebase-config](./front-end/src/config/firebase-config.ts) et à l'écouteur `onAuthStateChanged` du composant [AuthUserProvider](./front-end/src/context/AuthUserContext.tsx), Firebase récupère automatiquement le jeton de connexion stocké dans le navigateur. L'utilisateur reste ainsi connecté même après avoir actualisé la page ou fermé son navigateur.*
 
+* **Dashboard client :**
+   * **[Account-page-view](./front-end/src/pages/7-account-page/Account-page-view.tsx)** : sert à afficher l'espace client de l'utilisateur lui  permettant une visibilité immédiate sur l'ensemble des actions qu'il peux faire. Le composant gère l'affichage conditionnel des sous-composants :
+        * **[Sidebar-account](./front-end/src/pages/7-account-page/components/features/Sidebar-account.tsx)** : sert à afficher la barre latérale gauche de l'espace client avec les liens vers les différentes sections de l'espace client.
+        * **[Edit-profil](./front-end/src/pages/7-account-page/components/1-Edit-profil-account.tsx)** : servant à afficher un formulaire pour l'édition du profil de l'utilisateur en renseignant ou modifiant son prénom, nom, adresse e-mail, adresse postale et numéro de téléphone.
+        * **[Docs-account](./front-end/src/pages/7-account-page/components/2-Docs-acount.tsx)** : *(En cours de développement)*
+        * **[Services-account](./front-end/src/pages/7-account-page/components/3-Services-acount.tsx)** : *(En cours de développement)*
+        * **[Booking-account](./front-end/src/pages/7-account-page/components/4-Booking-account.tsx)** : *(En cours de développement)*
 
 
 #### **📄 AUTRES PAGES**
