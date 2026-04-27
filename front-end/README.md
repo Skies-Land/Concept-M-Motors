@@ -12,6 +12,7 @@ src/
 ├── assets/                     # Médias et ressources statiques du projet (favicon, images)
 │
 ├── api/                        # Appels réseau et communication base de données
+│   ├── Create-user.tsx         # Fonction de création d'utilisateur dans la collection Firebase `users`
 │   ├── Get-vehicles.tsx        # Fonction de récupération des véhicules depuis la collection Firebase `vehicles`
 │   ├── Get-brands-catalog.tsx  # Fonction de récupération des données par "marque" de véhicule depuis la collection Firebase `vehicles`
 │   ├── Get-description-vehicle-page.tsx  # Fonction de récupération des données par "véhicule" depuis la collection Firebase `vehicles`
@@ -39,14 +40,19 @@ src/
 │   ├── 3-catalog-page/         # Composants et vue pour la page du "Catalogue"
 │   │   └── components/         # Sous-composants propres à la page
 │   │       └── features/       # Composants de fonctionnalités (Filtres, Pagination)
-│   │       └── functions/      # Fonctions utilitaires propres à la page
+│   │       └── functions/      # Hooks de logique fonctionnelle
 │   ├── 4-vehicle-page/         # Composants et vue pour la page de description d'un "Véhicule"
 │   ├── 5-contact-page/         # Composants et vue pour la page de "Contact"
 │   │   └── components/         # Sous-composants propres à la page
 │   │       └── module-form/    # Module pour le formulaire de contact
-│   ├── 6-login-page/           # Composants et vue pour la page de "Connexion"
-│   ├── 7-customer-area/        # Composants et vue pour la page de "l'Espace client"
-│   └── 8-error-page/           # Composants et vue pour la page d'erreur 404
+│   ├── 6-login-page/           # Composants et vue pour la page de "Connexion / Inscription"
+│   │   └── components/         # Sous-composants propres à la page
+│   │       └── functions/      # Hooks de logique fonctionnelle (Connexion, Inscription)
+│   ├── 7-account-page/         # Composants et vue pour la page de "l'Espace client"
+│   │   └── components/         # Sous-composants propres à la page
+│   │       └── features/       # Composants de fonctionnalité (Barre latérale)
+│   │       └── functions/      # Hooks de logique fonctionnelle
+│   └── 8-error-page/           # Composants et vue pour la page "d'erreur 404"
 │
 ├── routes/                     # Fichiers de configuration du routage
 │   └── router.tsx              # Définition des routes avec React Router

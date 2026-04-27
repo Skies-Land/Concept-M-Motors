@@ -2,7 +2,7 @@
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-// Hook personnalisé servant à gérer les liens actifs de la barre latérale
+// Fonction gérant l'apparence et le défilement vers les différentes sections de la barre latérale de navigation de l'espace client
 export default function useActiveLinkSidebar() {
     const location = useLocation();
     const [activeHash, setActiveHash] = useState(window.location.hash || "#edit-profil");

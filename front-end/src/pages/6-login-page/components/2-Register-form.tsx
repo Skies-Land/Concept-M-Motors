@@ -1,65 +1,93 @@
-// COMPOSANT
+// FONCTION
+import { useRegister } from "./functions/Register-function";
+
+// DESIGN SYSTEM
 import { Button } from "../../../components/design-system/Button";
+import { Input } from "../../../components/design-system/Input";
+import { Typography } from "../../../components/design-system/Typography";
 
 // Composant servant à afficher un formulaire d'inscription
 export default function RegisterForm() {
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        // Logique d'inscription à implémenter plus tard avec Firebase
-        console.log("Tentative d'inscription");
-    };
+    const {
+        username,
+        setUsername,
+        email,
+        setEmail,
+        password,
+        setPassword,
+        confirmPassword,
+        setConfirmPassword,
+        error,
+        loading,
+        handleSubmit
+    } = useRegister();
 
     return (
         <form className="space-y-6" onSubmit={handleSubmit}>
-            <div>
-                <label className="block font-label text-xs uppercase tracking-wider text-on-surface-variant mb-2" htmlFor="sub-email">
-                    E-mail
-                </label>
-                <input 
-                    autoComplete="email"
-                    className="w-full bg-surface-container-high border border-outline-variant/15 rounded text-on-surface font-body px-4 py-3 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all placeholder:text-on-surface-variant/50"
-                    id="sub-email" 
-                    name="email" 
-                    placeholder="votre-adresse-mail@example.com"
-                    required 
-                    type="email" 
-                />
-            </div>
-            <div>
-                <label className="block font-label text-xs uppercase tracking-wider text-on-surface-variant mb-2" htmlFor="sub-password">
-                    Mot de passe
-                </label>
-                <input 
-                    autoComplete="new-password"
-                    className="w-full bg-surface-container-high border border-outline-variant/15 rounded text-on-surface font-body px-4 py-3 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all placeholder:text-on-surface-variant/50"
-                    id="sub-password" 
-                    name="password" 
-                    placeholder="********" 
-                    required
-                    type="password" 
-                />
-            </div>
-            <div>
-                <label className="block font-label text-xs uppercase tracking-wider text-on-surface-variant mb-2" htmlFor="sub-confirm-password">
-                    Confirmer le mot de passe
-                </label>
-                <input 
-                    autoComplete="new-password"
-                    className="w-full bg-surface-container-high border border-outline-variant/15 rounded text-on-surface font-body px-4 py-3 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all placeholder:text-on-surface-variant/50"
-                    id="sub-confirm-password" 
-                    name="confirm-password" 
-                    placeholder="********" 
-                    required
-                    type="password" 
-                />
-            </div>
+            {error && (
+                <div className="bg-error/10 border border-error/20 rounded p-4">
+                    <Typography variant="body-sm" color="error">
+                        {error}
+                    </Typography>
+                </div>
+            )}
+
+            <Input 
+                label="Nom d'utilisateur"
+                id="sub-username" 
+                name="username" 
+                placeholder="Un pseudo pour vous identifier"
+                required 
+                type="text"
+                autoComplete="username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+            />
+
+            <Input 
+                label="E-mail"
+                id="sub-email" 
+                name="email" 
+                placeholder="votre-adresse-mail@example.com"
+                required 
+                type="email" 
+                autoComplete="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+            />
+
+            <Input 
+                label="Mot de passe"
+                id="sub-password" 
+                name="password" 
+                placeholder="********" 
+                required
+                type="password" 
+                autoComplete="new-password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+            />
+
+            <Input 
+                label="Confirmer le mot de passe"
+                id="sub-confirm-password" 
+                name="confirm-password" 
+                placeholder="********" 
+                required
+                type="password" 
+                autoComplete="new-password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+            />
+
             <div className="pt-2">
                 <Button 
                     type="submit"
                     variant="primary"
                     fullWidth
+                    isLoading={loading}
                 >
-                    Créer un compte
+                    Créer mon compte
                 </Button>
             </div>
         </form>

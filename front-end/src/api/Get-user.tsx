@@ -15,8 +15,13 @@ export const getUser = async (userId: string): Promise<User | null> => {
         const userSnap = await getDoc(userRef);
 
         if (userSnap.exists()) {
-            // Retourne les données en ajoutant l'id du document
-            return { id: userSnap.id, ...userSnap.data() } as User;
+            const data = userSnap.data();
+            // Conversion du Timestamp Firestore en Date JS
+            return { 
+                ...data, 
+                id: userSnap.id,
+                creationDate: data.creationDate?.toDate() || null 
+            } as User;
         } else {
             console.log("Aucun utilisateur trouvé !");
             return null;

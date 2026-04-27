@@ -2,8 +2,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-// COMPOSANTS
+// DESIGN SYSTEM
 import Container from "../../components/design-system/Container";
+
+// COMPOSANTS
 import Seo from "../../components/seo/Seo";
 import LoginForm from "./components/1-Login-form";
 import RegisterForm from "./components/2-Register-form";
@@ -19,8 +21,7 @@ export default function LoginPageView() {
 
     return (
         <>
-            {/* Composant SEO pour définir les métadonnées de la page */}
-            {/* Les métadonnées sont définies de manière conditionnelle suivant la vue active */}
+            {/* Composant SEO pour définir les métadonnées de la page (définies de manière conditionnelle selon la vue active) */}
             <Seo
                 title={currentView === "subscribe" ? "Inscription - Concept M-Motors" : "Connexion - Concept M-Motors"}
                 description={currentView === "subscribe" ? "Créez votre compte pour accéder à votre espace personnel." : "Connectez-vous à votre compte pour accéder à votre espace personnel."}
@@ -31,19 +32,17 @@ export default function LoginPageView() {
                 <div className="w-full max-w-lg">
                     <div className="mt-16 bg-surface-variant/60 backdrop-blur-[20px] rounded-lg shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)] border border-outline-variant/15 p-8 sm:p-10">
 
-                        {/* Onglets de connexion/inscription - 
-                            (Ces onglets sont masqués si l'utilisateur clique sur "Mot de passe oublié ?") 
-                        */}
+                        {/* Onglets de connexion/inscription - Ces onglets sont masqués si l'utilisateur clique sur "Mot de passe oublié ?" */}
                         {currentView !== "forget-password" && (
                             <div className="flex gap-8 mb-8 border-b border-outline-variant/15 pb-4">
                                 <button 
-                                    className={`font-headline font-bold text-lg pb-4 -mb-[18px] transition-colors ${currentView === 'login' ? 'text-primary border-b-2 border-primary' : 'text-on-surface-variant hover:text-on-surface'}`}
+                                    className={`font-headline font-bold text-lg pb-4 -mb-[18px] transition-colors cursor-pointer ${currentView === 'login' ? 'text-primary border-b-2 border-primary' : 'text-on-surface-variant hover:text-on-surface'}`}
                                     onClick={() => setCurrentView('login')}
                                 >
                                     Se connecter
                                 </button>
                                 <button 
-                                    className={`font-headline font-bold text-lg pb-4 -mb-[18px] transition-colors ${currentView === 'subscribe' ? 'text-primary border-b-2 border-primary' : 'text-on-surface-variant hover:text-on-surface'}`}
+                                    className={`font-headline font-bold text-lg pb-4 -mb-[18px] transition-colors cursor-pointer ${currentView === 'subscribe' ? 'text-primary border-b-2 border-primary' : 'text-on-surface-variant hover:text-on-surface'}`}
                                     onClick={() => setCurrentView('subscribe')}
                                 >
                                     S'inscrire

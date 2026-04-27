@@ -4,13 +4,18 @@ import { Typography } from "../../../components/design-system/Typography";
 import { Button } from "../../../components/design-system/Button";
 import Input from "../../../components/design-system/Input";
 
+// CONTEXTE
+import { useAuth } from "../../../context/AuthUserContext";
+
 // Composant servant à éditer le profil de l'utilisateur (Nom / Prénom / E-mail / Téléphone / Adresse postale)
 export default function EditProfilAccount() {
+    const { authUser } = useAuth();
+
     return (
         <Container className="flex-1 flex flex-col relative w-full pb-16">
 
-            {/* Entête de la section */}
             <div className="p-6 md:p-12 lg:p-16 max-w-7xl mx-auto w-full flex flex-col gap-12">
+                {/* Entête de la section */}
                 <div className="flex flex-col gap-2">
                     <Typography component="h2" color="primary" variant="headline-md" >
                         Profil
@@ -30,12 +35,13 @@ export default function EditProfilAccount() {
                                     className="w-full h-full object-cover"
                                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-GSBZWHaI6Ysk5WLIEiNHeen7Jodi0D54y1LRpHDqyX5NxHOnYy4Bf3wSxudndyO3THJ3a3TsyEixNzlzk-TpIRTfIHh2-w1_ANtfPv7cf7nYciHHGm58HGmIvHkb6AVni90EThIg8EKRrlEkdnDIEcHUbVR-be-VcC_TeytvvI0yF9-3GPsjOo08c1YzFWnXQsfSwKzdAri_aDLowEBspdOvrLaBgpPoZlpjULr5ISVfZwqWPV6GdXtqumEpr7svhXuAyRWlnpZ-" />
                             </div>
-                            {/* TODO : Afficher la date d'inscription du client en fonction de la base données */}
                             <Typography
                                 component="p"
                                 className="py-6 font-body text-xs text-on-surface-variant text-center"
                             >
-                                Membre depuis Jan 2023
+                                Membre depuis {authUser?.creationDate 
+                                    ? new Date(authUser.creationDate).toLocaleDateString('fr-FR', { month: 'short', year: 'numeric' }) 
+                                    : "Chargement..."}
                             </Typography>
                         </div>
                     </div>
@@ -43,6 +49,13 @@ export default function EditProfilAccount() {
                     {/* Formulaire - Informations personnelles */}
                     <div className="lg:w-3/4 flex flex-col gap-8 bg-[#18181b] p-6 md:p-8 rounded-lg relative overflow-hidden">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
+                            {/* Nom d'utilisateur */}
+                            <Input 
+                                label="Nom d'utilisateur" 
+                                type="text"
+                                className="md:col-span-2"
+                                placeholder="Votre nom d'utilisateur" 
+                                required />
                             {/* Prénom */}
                             <Input 
                                 label="Prénom" 

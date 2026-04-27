@@ -67,6 +67,7 @@ npm run dev
 * Composant **[Logo](./front-end/src/components/design-system/Logo.tsx)** : gérant l'apparence du logo du site.
 * Composant **[Container](./front-end/src/components/design-system/Container.tsx)** : gérant la cohérence dans chaque page. Ce composant utilise des marges automatiques *(mx-auto)*, une largeur maximale stricte *(max-w-7xl)*, et des paddings qui s'adaptent progressivement selon les écrans *(px-4 sm:px-6 lg:px-8 xl:px-12)*. Cela évite que les textes ou le contenu ne touchent les bords sur téléphones ou tablettes, tout en limitant la largeur sur très grand écran pour préserver la lisibilité. Il utilise la propriété `as` pour s'adapter sémantiquement si besoin (bien que défini par défaut sur un simple `div`).
 * Intégration de ces composants dans les différentes pages du site. Fonctionnement par `props`, `children` et `switch case` notamment pour les composants `Button` et `Typography`.
+* Composant **[Input](./front-end/src/components/design-system/Input.tsx)** : gérant l'apparence et les fonctionnalités des différents champs de formulaire *(texte, email, mot de passe, etc)*.
 > 💡*Le développement d'un **[Design System](./front-end/src/components/design-system)** m'a servi à **adopter** un design cohérent qui se réplique sur toutes les pages du site et facilement modifiable depuis ces composants.*
 
 #### **🔍 NAVIGATION & RÉFÉRENCEMENT :**
@@ -191,7 +192,7 @@ interface Vehicle {
 
 * **Dashboard client :**
    * **[Account-page-view](./front-end/src/pages/7-account-page/Account-page-view.tsx)** : sert à afficher l'espace client de l'utilisateur lui  permettant une visibilité immédiate sur l'ensemble des actions qu'il peux faire. Le composant gère l'affichage conditionnel des sous-composants :
-        * **[Sidebar-account](./front-end/src/pages/7-account-page/components/features/Sidebar-account.tsx)** : sert à afficher la barre latérale gauche de l'espace client avec les liens vers les différentes sections de l'espace client.
+        * **[Sidebar-account](./front-end/src/pages/7-account-page/components/features/Sidebar-account.tsx)** : sert à afficher la barre latérale gauche de l'espace client avec les liens vers les différentes sections de l'espace client. Implémentation de la fonction **[Active-link-sidebar-account](./front-end/src/pages/7-account-page/components/functions/Active-link-sidebar-account.tsx)** pour rendre dynamique l'apparence des liens actifs.
         * **[Edit-profil](./front-end/src/pages/7-account-page/components/1-Edit-profil-account.tsx)** : servant à afficher un formulaire pour l'édition du profil de l'utilisateur en renseignant ou modifiant son prénom, nom, adresse e-mail, adresse postale et numéro de téléphone.
         * **[Docs-account](./front-end/src/pages/7-account-page/components/2-Docs-acount.tsx)** : *(En cours de développement)*
         * **[Services-account](./front-end/src/pages/7-account-page/components/3-Services-acount.tsx)** : *(En cours de développement)*

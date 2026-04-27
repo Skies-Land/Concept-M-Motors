@@ -19,21 +19,14 @@ export default function AccountPageView() {
             {/* Contenu principal de la page */}
             <div className="bg-surface text-on-surface antialiased min-h-screen flex selection:bg-primary selection:text-on-primary-fixed">
 
-                {/* Menu de navigation latérale gauche dans l'espace client */}
+                {/* Menu de navigation latérale gauche de l'espace client */}
                 <SidebarAccount />
 
-                {/* Contenu principal de la page */}
+                {/* Les onglets de l'espace client */}
                 <main className="flex-1 flex flex-col w-full min-h-screen pt-24">
-                    {/* Section d'édition du profil */}
                     <section id="edit-profil" className="w-full"><EditProfilAccount /></section>
-
-                    {/* Section des documents */}
                     <section id="docs" className="w-full"><DocsAccount /></section>
-
-                    {/* Section des services */}
                     <section id="services" className="w-full"><ServicesAccount /></section>
-
-                    {/* Section des réservations */}
                     <section id="booking" className="w-full"><BookingAccount /></section>
                 </main>
             </div>

@@ -1,5 +1,6 @@
+// DÉPENDANCE
 import React, { type InputHTMLAttributes } from 'react';
- 
+
 // PROPS
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     label: string;
@@ -7,7 +8,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     error?: string;
 }
 
-// Composant servant à créer des champs de saisie.
+// Composant servant à créer des champs de saisie type balise <input>.
 export function Input({ label, id, error, className = '', ...props }: InputProps) {
     const inputId = id || label.toLowerCase().replace(/\s+/g, '-');
     

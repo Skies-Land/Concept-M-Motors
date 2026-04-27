@@ -10,7 +10,7 @@ import { getUser } from "../api/Get-user";
 import type { User } from "../types/UserType";
 import type { SessionStatusTypes } from "../types/Session-status-type";
 
-// CONSTANTES
+// CONSTANTES (Définissant le statut de la session utilisateur)
 import { GUEST, REGISTERED } from "../constants/Session-status";
 
 // INTERFACES
@@ -29,7 +29,7 @@ export const AuthUserContext = createContext<AuthUserContextType>({
     signOut: async () => {},
 });
 
-// PROVIDER
+// Provider permettant de partager les données de l'utilisateur authentifié et le statut de sa session entre les composants de l'application
 export const AuthUserProvider = ({ children }: { children: ReactNode }) => {
     const [authUser, setAuthUser] = useState<User | null>(null);
     const [sessionStatus, setSessionStatus] = useState<SessionStatusTypes>(GUEST);
@@ -70,5 +70,4 @@ export const AuthUserProvider = ({ children }: { children: ReactNode }) => {
     );
 };
 
-// HOOK PERSONNALISÉ
 export const useAuth = () => useContext(AuthUserContext);
