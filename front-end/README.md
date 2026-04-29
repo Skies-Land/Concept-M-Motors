@@ -17,7 +17,8 @@ src/
 │   ├── Get-brands-catalog.tsx  # Fonction de récupération des données par "marque" de véhicule depuis la collection Firebase `vehicles`
 │   ├── Get-description-vehicle-page.tsx  # Fonction de récupération des données par "véhicule" depuis la collection Firebase `vehicles`
 │   ├── Get-user.tsx            # Fonction de récupération du profil utilisateur depuis la collection Firebase `users`
-│   └── Get-faq.tsx             # Fonction de récupération des questions et réponses de la section FAQ depuis la collection Firebase `faq`
+│   ├── Get-faq.tsx             # Fonction de récupération des questions et réponses de la section FAQ depuis la collection Firebase `faq`
+│   └── Update-user.tsx         # Fonction de mise à jour du profil utilisateur dans la collection Firebase `users`
 │
 ├── components/                 # Composants réutilisables
 │   ├── design-system/          # Composants de base d'interface (Container, Typography, Button, Logo, Input)

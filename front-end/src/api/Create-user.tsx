@@ -9,7 +9,7 @@ import type { User } from "../types/UserType";
 
 /** Fonction servant à enregistrer un nouvel utilisateur dans la base de données Firestore collection : `users`
  * @param userId - L'ID unique de l'utilisateur.
- * @param data - Les données de l'utilisateur (prénom, nom, email, numéro de téléphone).*/
+ * @param data - Les données de l'utilisateur (prénom, nom, email, téléphone, adresse).*/
 export const createUser = async (userId: string, data: Partial<User>): Promise<void> => {
     try {
         const userRef = doc(db, "users", userId);
@@ -20,6 +20,7 @@ export const createUser = async (userId: string, data: Partial<User>): Promise<v
             firstName: data.firstName || "",
             lastName: data.lastName || "",
             phoneNumber: data.phoneNumber || "",
+            address: data.address || "",
         });
     } catch (error) {
         console.error("Erreur lors de la création de l'utilisateur dans Firestore :", error);
