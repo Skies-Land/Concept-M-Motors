@@ -1,12 +1,12 @@
 // DÉPENDANCE
 import { Link } from 'react-router-dom';
 
-// COMPOSANTS
+// DESIGN SYSTEM
 import Container from '../design-system/Container';
 import Logo from '../design-system/Logo';
 import { Typography } from '../design-system/Typography';
 
-// Composant servant à afficher le pied de page "Footer" du site
+/** Composant servant à afficher le pied de page du site */
 export default function Footer() {
   return (
     <footer className="w-full border-t border-stone-800/20">

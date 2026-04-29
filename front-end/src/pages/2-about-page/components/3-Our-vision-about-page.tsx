@@ -2,8 +2,8 @@
 import { Typography } from "../../../components/design-system/Typography";
 import Container from "../../../components/design-system/Container";
 
-// Composant servant à afficher les services de l'entreprise correspondant à la page à propos
-export default function OurVision() {
+/** Composant servant à afficher les services de l'entreprise correspondant à la page à propos */
+export default function OurVisionAboutPage() {
     return (
         <Container>
             <section className="py-24 px-6 max-w-7xl mx-auto" data-pg-name="Section sur les services de l'entreprise de la page à propos">

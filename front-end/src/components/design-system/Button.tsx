@@ -32,7 +32,7 @@ export interface ButtonProps {
     className?: string;
 }
 
-// Composant servant à gérer l'apparence et les actions des boutons
+/** Composant servant à gérer l'apparence et les actions des boutons */
 export const Button = ({
     size = "medium",
     variant = "primary",

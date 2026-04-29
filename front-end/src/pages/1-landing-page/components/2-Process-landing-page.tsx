@@ -2,8 +2,8 @@
 import Container from "../../../components/design-system/Container";
 import { Typography } from "../../../components/design-system/Typography";
 
-// Composant servant à afficher les informations du processus d'aquisition d'un véhicule correspondant à la landing page 
-export default function Process() {
+/** Composant servant à afficher les informations du processus d'aquisition d'un véhicule correspondant à la landing page */
+export default function ProcessLandingPage() {
   return (
     <section className="py-32 bg-surface-dim" data-pg-name="Section processus d'aquisition de la landing page">
 

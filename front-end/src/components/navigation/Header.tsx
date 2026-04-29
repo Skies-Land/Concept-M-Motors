@@ -1,17 +1,19 @@
 // DÉPENDANCE
 import { Link } from 'react-router-dom';
 
-// COMPOSANTS
+// DESIGN SYSTEM
 import Container from '../design-system/Container';
 import { Button } from '../design-system/Button';
 import Logo from '../design-system/Logo';
 import { Typography } from '../design-system/Typography';
+
+// COMPOSANT
 import UserAccount from './User-account';
 
 // CONTEXTE
 import { useAuth } from '../../context/AuthUserContext';
 
-// Composant servant à afficher l'en-tête "Header" du site
+/** Composant servant à afficher l'en-tête du site */
 export default function Header() {
   const { authUser, signOut } = useAuth();
 
@@ -68,15 +70,7 @@ export default function Header() {
                 </Button>
               )}
             </div>
-
-            {/* TODO: Ajouter le menu burger pour mobile */}
-            {/* <span 
-              className="material-symbols-outlined text-stone-100 cursor-pointer" 
-              data-icon="menu">
-              menu
-            </span> */}
           </div>
-
         </Container>
 
       </nav>

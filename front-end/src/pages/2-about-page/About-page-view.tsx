@@ -1,11 +1,11 @@
 // COMPOSANTS
 import Seo from "../../components/seo/Seo"
-import HeroAbout from "./components/1-Hero-about-page"
-import OurFigure from "./components/2-Our-figure-about-page";
-import OurVision from "./components/3-Our-vision-about-page";
+import HeroAboutPage from "./components/1-Hero-about-page"
+import OurFigureAboutPage from "./components/2-Our-figure-about-page";
+import OurVisionAboutPage from "./components/3-Our-vision-about-page";
 import FAQAboutPage from "./components/4-FAQ-about-page";
 
-// Composant principal de la page à propos
+/** Composant principal de la page à propos */
 export default function AboutPageView() {
     return (
         <>
@@ -16,9 +16,9 @@ export default function AboutPageView() {
             />
 
             {/* Composants de la page à propos */}
-            <HeroAbout />
-            <OurFigure />
-            <OurVision />
+            <HeroAboutPage />
+            <OurFigureAboutPage />
+            <OurVisionAboutPage />
             <FAQAboutPage />
         </>
     );

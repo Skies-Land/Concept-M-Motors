@@ -3,10 +3,10 @@ import { useRegister } from "./functions/Register-function";
 
 // DESIGN SYSTEM
 import { Button } from "../../../components/design-system/Button";
-import { Input } from "../../../components/design-system/Input";
 import { Typography } from "../../../components/design-system/Typography";
+import Input from "../../../components/design-system/Input";
 
-// Composant servant à afficher un formulaire d'inscription
+/** Composant servant à afficher un formulaire d'inscription */
 export default function RegisterForm() {
     const {
         username,

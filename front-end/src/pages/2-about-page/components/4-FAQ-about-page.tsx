@@ -15,7 +15,7 @@ interface FAQItemProps {
     answer: string;
 }
 
-// Composant servant à structurer l'affichage d'une question et de sa réponse
+/** Composant servant à structurer l'affichage d'une question et de sa réponse */
 const FAQItemVisual = ({ question, answer }: FAQItemProps) => {
     const [isOpen, setIsOpen] = useState(false);
 
@@ -57,7 +57,7 @@ const FAQItemVisual = ({ question, answer }: FAQItemProps) => {
     );
 };
 
-// Composant servant à afficher une section de FAQ pour la page à propos
+/** Composant servant à afficher une section de FAQ pour la page à propos */
 export default function FAQAboutPage() {
     const [faqData, setFaqData] = useState<FAQItemType[]>([]);
     const [loading, setLoading] = useState(true);

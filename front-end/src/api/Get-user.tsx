@@ -7,7 +7,10 @@ import { db } from "../config/firebase-config";
 // TYPES
 import type { User } from "../types/UserType";
 
-// Fonction servant à récupérer les informations de l'utilisateur depuis la base de données
+/** Fonction servant à récupérer les informations de l'utilisateur depuis la base de données
+ * @param userId - L'ID unique de l'utilisateur.
+ * @returns {Promise<User | null>} - L'objet utilisateur si trouvé, sinon null.
+ * @throws {Error} - Lance une erreur si la récupération de l'utilisateur échoue.*/
 export const getUser = async (userId: string): Promise<User | null> => {
     try {
         // Crée une référence au document utilisateur spécifique basé sur son ID

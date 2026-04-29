@@ -9,7 +9,7 @@ import SidebarAccount from "./components/features/Sidebar-account";
 // FONCTIONS
 import useActiveLinkSidebar from "./components/functions/Active-link-sidebar-account";
 
-// Composant servant à afficher le tableau de bord de l'espace client
+/** Composant principal de la page espace client */
 export default function AccountPageView() {
     const { activeHash } = useActiveLinkSidebar();
 

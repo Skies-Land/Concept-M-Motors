@@ -2,7 +2,7 @@
 import Container from "../../../components/design-system/Container";
 import { Typography } from "../../../components/design-system/Typography";
 
-// Composant servant à l'upload des documents de l'utilisateur
+/** Composant servant à l'upload des documents de l'utilisateur */
 export default function DocsAccount() {
     return (
         <Container className="flex-1 flex flex-col relative w-full pb-16">

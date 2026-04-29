@@ -1,7 +1,7 @@
 // DESIGN SYSTEM
 import { Typography } from "../../../components/design-system/Typography"
 
-// Composant servant à afficher la section Hero correspondant à la page de contact
+/** Composant servant à afficher la section Hero correspondant à la page de contact */
 export default function HeroContactPage() {
     return (
         <section>

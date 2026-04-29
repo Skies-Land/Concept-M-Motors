@@ -29,7 +29,7 @@ export const AuthUserContext = createContext<AuthUserContextType>({
     signOut: async () => {},
 });
 
-// Provider permettant de partager les données de l'utilisateur authentifié et le statut de sa session entre les composants de l'application
+/** Provider permettant de partager les données de l'utilisateur authentifié et le statut de sa session entre les composants de l'application */
 export const AuthUserProvider = ({ children }: { children: ReactNode }) => {
     const [authUser, setAuthUser] = useState<User | null>(null);
     const [sessionStatus, setSessionStatus] = useState<SessionStatusTypes>(GUEST);

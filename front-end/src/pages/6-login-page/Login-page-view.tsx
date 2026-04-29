@@ -14,7 +14,7 @@ import ForgetPasswordForm from "./components/3-Forget-password-form";
 // Différents "types" de vues de la page de connexion/inscription
 type FormView = "login" | "subscribe" | "forget-password";
 
-// Composant servant à afficher la page de connexion/inscription
+/** Composant principal de la page de connexion/inscription */
 export default function LoginPageView() {
     // État définissant la vue active de la page de connexion/inscription
     const [currentView, setCurrentView] = useState<FormView>("login");

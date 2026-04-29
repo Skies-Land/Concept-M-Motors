@@ -5,11 +5,11 @@ interface PaginationCatalogProps {
     onPageChange: (page: number) => void;
 }
 
-// Composant servant à gérer la pagination des véhicules de la page catalogue du site
+/** Composant servant à gérer la pagination des véhicules de la page catalogue */
 export default function PaginationCatalog({ currentPage, totalPages, onPageChange }: PaginationCatalogProps) {
     if (totalPages <= 1) return null;
 
-    // Fonction pour afficher les numéros de page
+    /** Fonction pour afficher les numéros de page */
     const renderPageNumbers = () => {
         const pages = [];
         for (let i = 1; i <= totalPages; i++) {

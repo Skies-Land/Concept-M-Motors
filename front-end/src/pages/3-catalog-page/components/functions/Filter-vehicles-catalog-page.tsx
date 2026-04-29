@@ -7,7 +7,7 @@ export interface FilterState {
     maxPrice: number;
 }
 
-// Fonction servant à filtrer la liste des véhicules
+/** Fonction servant à filtrer la liste des véhicules */
 export const filterVehiclesCatalog = (vehicles: Vehicle[], filters: FilterState): Vehicle[] => {
     return vehicles.filter(vehicle => {
         const matchesBrand = filters.brand === "Toutes les Manufactures" || vehicle.brand === filters.brand;

@@ -7,7 +7,7 @@ import { Typography } from "../../../components/design-system/Typography"
 // MODULES
 import FormsModuleContactPage from "./module-form/module-form-contact-page"
 
-// Composant servant à afficher le formulaire de contact
+/** Composant servant à afficher le formulaire de contact */
 export default function FormContactPage() {
     return (
         <>

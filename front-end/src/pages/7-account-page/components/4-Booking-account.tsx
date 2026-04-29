@@ -2,7 +2,7 @@
 import Container from "../../../components/design-system/Container";
 import { Typography } from "../../../components/design-system/Typography";
 
-// Composant servant à planifier un rendez-vous ou une réservation
+/** Composant servant à planifier un rendez-vous ou une réservation */
 export default function BookingAccount() {
     return (
         <Container className="flex-1 flex flex-col relative w-full pb-16">

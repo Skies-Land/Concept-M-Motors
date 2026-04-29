@@ -14,8 +14,8 @@ interface ProtectedRouteProps {
     children: ReactNode;
 }
 
-/** Composant servant à sécuriser les routes nécessitant une authentification.
- * Si l'utilisateur n'est pas connecté, il est redirigé vers la page de connexion.
+/** Composant servant à sécuriser la route `/account` nécessitant une authentification.
+ * Si l'utilisateur n'est pas connecté, il sera redirigé vers la page de connexion `/login`.
  */
 export default function ProtectedRoute({ children }: ProtectedRouteProps) {
     const { sessionStatus, loading } = useAuth();

@@ -6,8 +6,8 @@ import { Button } from "../../../components/design-system/Button";
 // IMPORT
 import imageServicesLandingPage from "../../../assets/IMG_Services-landing-page.png"
 
-// Composant servant à afficher les services proposés par l'entreprise correspondant à la landing page
-export default function Services() {
+/** Composant servant à afficher les services proposés par l'entreprise correspondant à la landing page */
+export default function ServicesLandingPage() {
   return (
     <section className="py-32 bg-surface-container-lowest" data-pg-name="Section services de la landing page">
 

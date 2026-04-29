@@ -6,7 +6,7 @@ import { Typography } from "../../../components/design-system/Typography"
 import { Button } from "../../../components/design-system/Button"
 import Container from "../../../components/design-system/Container"
 
-// Composant servant à afficher le contenu de la page d'erreur 404
+/** Composant servant à afficher le contenu de la page d'erreur 404 */
 export default function ErrorContent() {
     // Hook pour la navigation
     const navigate = useNavigate();

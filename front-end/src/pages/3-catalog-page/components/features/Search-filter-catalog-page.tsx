@@ -11,7 +11,7 @@ interface SearchFilterCatalogProps {
     onFilterChange: (filters: { brand: string; maxPrice: number }) => void;
 }
 
-// Composant servant à filtrer les véhicules de la base de donnée dans la page catalogue
+/** Composant servant à filtrer les véhicules de la base de donnée dans la page catalogue */ 
 export default function SearchFilterCatalog({ onFilterChange }: SearchFilterCatalogProps) {
     // État pour stocker la marque sélectionnée
     const [selectedBrand, setSelectedBrand] = useState("Toutes les Manufactures");
@@ -36,7 +36,7 @@ export default function SearchFilterCatalog({ onFilterChange }: SearchFilterCata
         fetchBrands();
     }, []);
 
-    // Fonction pour mettre à jour les filtres de recherche par "marque"
+    /** Fonction pour mettre à jour les filtres de recherche par "marque" */
     const handleBrandSearch = () => {
         setActiveFilter("brand");
         onFilterChange({
@@ -45,7 +45,7 @@ export default function SearchFilterCatalog({ onFilterChange }: SearchFilterCata
         });
     };
 
-    // Fonction pour mettre à jour les filtres de recherche par "prix"
+    /** Fonction pour mettre à jour les filtres de recherche par "prix" */
     const handlePriceSearch = () => {
         setActiveFilter("price");
         onFilterChange({

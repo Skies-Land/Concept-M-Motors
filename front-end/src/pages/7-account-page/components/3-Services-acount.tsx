@@ -2,7 +2,7 @@
 import Container from "../../../components/design-system/Container";
 import { Typography } from "../../../components/design-system/Typography";
 
-// Composant servant à choisie les servicesassocié à la location longue durée (service optionnel)
+/** Composant servant à choisie les servicesassocié à la location longue durée (service optionnel) */
 export default function ServicesAccount() {
     return (
         <Container className="flex-1 flex flex-col relative w-full pb-16">

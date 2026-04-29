@@ -7,7 +7,7 @@ interface Props {
     description: string;
 }
 
-// Composant servant à définir le SEO de la page avec les props "title" et "description"
+/** Composant servant à définir le SEO de la page avec les props "title" et "description" */
 export default function Seo({ title, description }: Props) {
     return (
         <Helmet>

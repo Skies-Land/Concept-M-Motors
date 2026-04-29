@@ -4,7 +4,7 @@ import Seo from "../../components/seo/Seo";
 import HeroContactPage from "./components/1-Hero-contact-page";
 import FormContactPage from "./components/2-Form-contact-page";
 
-// Composant principal de la page de contact
+/** Composant principal de la page de contact */
 export default function ContactPageView() {
     return (
         <>
@@ -15,7 +15,7 @@ export default function ContactPageView() {
             />
 
             <Container>
-            {/* Composants de contenu de la page de contact */}
+                {/* Composants de contenu de la page de contact */}
                 <HeroContactPage />
                 <FormContactPage />
             </Container>

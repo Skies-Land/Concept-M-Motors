@@ -151,28 +151,28 @@ interface Vehicle {
 
 #### **🖥️ AFFICHAGE DYNAMIQUE DE LA PAGE CATALOGUE :**
 * Le composant **[Catalog-page-view](./front-end/src/pages/3-catalog-page/Catalog-page-view.tsx)** sert à afficher la page de catalogue du site. Il est composée de plusieurs éléments :
-    * **[Vehicle-card-catalog](./front-end/src/pages/3-catalog-page/components/2-1-Vehicle-card-catalog-page.tsx)** : servant à identifer et présenter les données de véhicule sous forme d'une carte. Les informations sont identifiées via des `props` et intégrer au composant suivant.
-    * **[Vehicles-grid-cards-catalog](./front-end/src/pages/3-catalog-page/components/2-2-Vehicles-grid-cards-catalog-page.tsx)** : servant à gérer la disposition des véhicules du catalogue, sous forme d'une grille. Ce composant utilise la fonction **[GetVehicles](./front-end/src/api/Get-vehicles.tsx)** qui sert à récupérer les données de la collection `vehicles` de la base de données Firestore. `useEffect` est utilisé pour récupérer les données une seule fois au montage du composant.
+    * **[Vehicle-card-catalog-page](./front-end/src/pages/3-catalog-page/components/2-1-Vehicle-card-catalog-page.tsx)** : servant à identifer et présenter les données de véhicule sous forme d'une carte. Les informations sont identifiées via des `props` et intégrer au composant suivant.
+    * **[Vehicles-grid-cards-catalog-page](./front-end/src/pages/3-catalog-page/components/2-2-Vehicles-grid-cards-catalog-page.tsx)** : servant à gérer la disposition des véhicules du catalogue, sous forme d'une grille. Ce composant utilise la fonction **[GetVehicles](./front-end/src/api/Get-vehicles.tsx)** qui sert à récupérer les données de la collection `vehicles` de la base de données Firestore. `useEffect` est utilisé pour récupérer les données une seule fois au montage du composant.
 
 * **Fonctionnalités clés liées à cette page :**
     * **[Pagination-catalog](./front-end/src/pages/3-catalog-page/components/features/Pagination-catalog-page.tsx)** : Gérant l'affichage de la pagination de la page de catalogue. La fonction de logique est **séparée** dans le composant **[Paginate-vehicles-catalog](./front-end/src/pages/3-catalog-page/components/functions/Paginate-vehicles-catalog-page.tsx)**.
     * **[Search-filter-catalog](./front-end/src/pages/3-catalog-page/components/features/Search-filter-catalog-page.tsx)** : Gérant l'affichage de la recherche et du filtrage des véhicules du catalogue. Ce composant est associé à deux fonctions de logique :
         * **[Get-brands-catalog](./front-end/src/api/Get-brands-catalog.tsx)** : sert à récupérer les données par marque de véhicule depuis la collection Firebase `vehicles`.
-        * **[Filter-vehicles-catalog](./front-end/src/pages/3-catalog-page/components/functions/Filter-vehicles-catalog-page.tsx)** : sert à filtrer les véhicules du catalogue en fonction de la marque et du budget.
+        * **[Filter-vehicles-catalog-page](./front-end/src/pages/3-catalog-page/components/functions/Filter-vehicles-catalog-page.tsx)** : sert à filtrer les véhicules du catalogue en fonction de la marque et du budget.
 
 #### **🚗 AFFICHAGE DYNAMIQUE DE LA PAGE DESCRIPTION D'UN VÉHICULE :**
 * Le composant **[Vehicle-page-view](./front-end/src/pages/4-vehicle-page/Vehicle-page-view.tsx)** sert à afficher la page de description d'un véhicule en fonction de son ID et des `props` sélectionnées dans chaque sous-composants.
-    * **[Hero-vehicle page](./front-end/src/pages/4-vehicle-page/components/1-Hero-vehicle-page.tsx)** : sert à afficher la bannière de la page de description d'un véhicule. L'image est récupérée par la propriété -> `vehicle.imageUrl` de la base de données.
+    * **[Hero-vehicle-page](./front-end/src/pages/4-vehicle-page/components/1-Hero-vehicle-page.tsx)** : sert à afficher la bannière de la page de description d'un véhicule. L'image est récupérée par la propriété -> `vehicle.imageUrl` de la base de données.
     * **[Description-vehicle-page](./front-end/src/pages/4-vehicle-page/components/2-Description-vehicle-page.tsx)** : sert à afficher un texte explicatif sur le véhicule et ses informations techniques.
     * **[Acquisition-method-vehicle-page](./front-end/src/pages/4-vehicle-page/components/3-Acquisition-method-vehicle-page.tsx)** : sert à afficher deux options d'acquisition (achat ou location) avec les prix correspondants à l' `ID` du véhicule.
-    * **[Tarif-catalog-page](./front-end/src/pages/4-vehicle-page/components/4-Tarif-catalog-vehicle-page.tsx)** : sert à afficher une grille tarifaire pour la méthode d'acquisition par location en fonction du prix d'achat du véhicule correspondant à son `ID`. Une formule est utilisée pour calculer le tarif de location en fonction du nombre de mois (36, 48, 72) choisie pour la location.
+    * **[Tarif-catalog-vehicle-page](./front-end/src/pages/4-vehicle-page/components/4-Tarif-catalog-vehicle-page.tsx)** : sert à afficher une grille tarifaire pour la méthode d'acquisition par location en fonction du prix d'achat du véhicule correspondant à son `ID`. Une formule est utilisée pour calculer le tarif de location en fonction du nombre de mois (36, 48, 72) choisie pour la location.
     * **[Get-description-vehicle](./front-end/src/api/Get-description-vehicle-page.tsx)** : est la fonction de logique permettant de récupérer les détails d'un véhicule spécifique depuis la base de données. Cette fonction est implémentée dans le composant **[Vehicle-page-view](./front-end/src/pages/4-vehicle-page/Vehicle-page-view.tsx)**.
     > 💡*Les informations textuelles et les images de chaque véhicule ont été générées par IA afin de disposer de contenu à développer pour être affiché sur le site.*
 
 #### **👤 ESPACE CLIENT**
 * **Formulaire de connexion / inscription / mot de passe oublié :**
    * Le composant **[Login-page-view](./front-end/src/pages/6-login-page/Login-page-view.tsx)** sert de conteneur principal. Il gère l'affichage conditionnel des trois sous-formulaires :
-       * **[Login-form](./front-end/src/pages/6-login-page/components/1-Login-form.tsx)** : formulaire principal de connexion. Au clic sur *"mot de passe oublié ?"*, il bascule l'affichage vers le formulaire de réinitialisation.
+       * **[Login-form](./front-end/src/pages/6-login-page/components/1-Login-form.tsx)** : formulaire principal de connexion. Au clic sur *mot de passe oublié ?*, il bascule l'affichage vers le formulaire de réinitialisation.
        * **[Register-form](./front-end/src/pages/6-login-page/components/2-Register-form.tsx)** : formulaire de création de compte.
        * **[Forget-password-form](./front-end/src/pages/6-login-page/components/3-Forget-password-form.tsx)** : formulaire dédié à la récupération de compte.
    * La logique fonctionnelle est séparée de la couche graphique via des hooks personnalisés :

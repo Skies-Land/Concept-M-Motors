@@ -1,4 +1,4 @@
-// Ce composant sert à définir les types de données des utilisateurs
+/** Interface définissant les types de données pour les utilisateurs */
 export interface User {
     id: string;
     creationDate: Date;

@@ -9,7 +9,7 @@ import Container from "../../../components/design-system/Container";
 import { Typography } from "../../../components/design-system/Typography";
 
 // COMPONENTS
-import VehicleCard from "./2-1-Vehicle-card-catalog-page";
+import VehicleCardPage from "./2-1-Vehicle-card-catalog-page";
 import PaginationCatalog from "./features/Pagination-catalog-page";
 
 // FONCTIONS DE LOGIQUE
@@ -18,12 +18,12 @@ import { paginateVehiclesCatalog } from "./functions/Paginate-vehicles-catalog-p
 
 // TYPES
 import { type Vehicle } from '../../../types/Vehicle';
-interface VehiclesGridCardsCatalogProps {
+interface VehiclesGridCardsCatalogPageProps {
     filters: FilterState;
 }
 
-// Composant servant à présenter les véhicules disponibles sous forme de grille avec pagination
-export default function VehiclesGridCardsCatalog({ filters }: VehiclesGridCardsCatalogProps) {
+/** Composant servant à présenter les véhicules disponibles sous forme de grille avec pagination */
+export default function VehiclesGridCardsCatalogPage({ filters }: VehiclesGridCardsCatalogPageProps) {
     // État pour stocker les véhicules
     const [vehicles, setVehicles] = useState<Vehicle[]>([]);
     // État pour stocker la page actuelle
@@ -91,7 +91,7 @@ export default function VehiclesGridCardsCatalog({ filters }: VehiclesGridCardsC
                 <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                     {filteredVehicles.length > 0 ? (
                         currentVehicles.map(vehicle => (
-                            <VehicleCard key={vehicle.id} vehicle={vehicle} />
+                            <VehicleCardPage key={vehicle.id} vehicle={vehicle} />
                         ))
                     ) : (
                         <div className="col-span-full py-20 text-center">

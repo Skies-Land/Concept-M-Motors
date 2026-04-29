@@ -5,7 +5,7 @@ import { sendPasswordResetEmail } from "firebase/auth";
 // DÉPENDANCE
 import { useState } from "react";
 
-// Fonction servant à gérer la logique du formulaire d'oubli de mot de passe
+/** Fonction servant à gérer la logique du formulaire d'oubli de mot de passe */
 export const useForgetPassword = () => {
     // State pour les données du formulaire
     const [email, setEmail] = useState("");
@@ -19,7 +19,7 @@ export const useForgetPassword = () => {
     // State pour le chargement
     const [loading, setLoading] = useState(false);
 
-    // Fonction gérant la soumission du formulaire
+    /** Fonction gérant la soumission du formulaire */
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setError(null);

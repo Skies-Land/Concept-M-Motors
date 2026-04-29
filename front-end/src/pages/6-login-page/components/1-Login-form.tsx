@@ -4,14 +4,14 @@ import { useLogin } from "./functions/Login-function";
 // DESIGN SYSTEM
 import { Button } from "../../../components/design-system/Button";
 import { Typography } from "../../../components/design-system/Typography";
-import { Input } from "../../../components/design-system/Input";
+import Input from "../../../components/design-system/Input";
 
 // PROPS
 interface LoginFormProps {
     onForgotPassword: () => void;
 }
 
-// Composant servant à afficher un formulaire de connexion (Composant graphique pur)
+/** Composant servant à afficher un formulaire de connexion */
 export default function LoginForm({ onForgotPassword }: LoginFormProps) {
     const {
         email,

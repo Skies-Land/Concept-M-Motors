@@ -3,13 +3,14 @@ import { useState } from "react";
 
 // COMPOSANTS
 import Seo from "../../components/seo/Seo";
-import HeroCatalog from "./components/1-Hero-catalog-page";
-import VehiclesGridCardsCatalog from "./components/2-2-Vehicles-grid-cards-catalog-page";
-import CTACatalog from "./components/3-CTA-catalog-page";
-import OurServicesCatalog from "./components/4-Our-services-catalog-page";
+import HeroCatalogPage from "./components/1-Hero-catalog-page";
+import VehiclesGridCardsCatalogPage from "./components/2-2-Vehicles-grid-cards-catalog-page";
+import CTACatalogPage from "./components/3-CTA-catalog-page";
+import OurServicesCatalogPage from "./components/4-Our-services-catalog-page";
 
-// Composant principal de la page catalogue
+/** Composant principal de la page catalogue */
 export default function CatalogPageView() {
+    // États des filtres de recherche de la page catalogue
     const [filters, setFilters] = useState({
         brand: "Toutes les Manufactures",
         maxPrice: 2000000
@@ -28,10 +29,10 @@ export default function CatalogPageView() {
                 description="Découvrez notre catalogue de véhicules disponibles en achat ou location."
             />
             {/* Composants de la page catalogue */}
-            <HeroCatalog onFilterChange={handleFilterChange} />
-            <VehiclesGridCardsCatalog filters={filters} />
-            <CTACatalog />
-            <OurServicesCatalog />
+            <HeroCatalogPage onFilterChange={handleFilterChange} />
+            <VehiclesGridCardsCatalogPage filters={filters} />
+            <CTACatalogPage />
+            <OurServicesCatalogPage />
         </>
     );
 };

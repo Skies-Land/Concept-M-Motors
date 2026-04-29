@@ -8,7 +8,7 @@ export interface VehicleDescriptionProps {
     vehicle: Vehicle;
 }
 
-// Composant servant à afficher la section de description et les informations techniques du véhicule
+/** Composant servant à afficher la section de description et les informations techniques du véhicule */
 export default function DescriptionVehiclePage({ vehicle }: VehicleDescriptionProps) {
     return (
         <>

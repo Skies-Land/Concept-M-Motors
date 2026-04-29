@@ -3,8 +3,8 @@ import Container from "../../../components/design-system/Container";
 import { Typography } from "../../../components/design-system/Typography";
 import { Button } from "../../../components/design-system/Button";
 
-// Composant servant à afficher un bouton d'appel à l'action correspondant à la landing page
-export default function CTA() {
+/** Composant servant à afficher un bouton d'appel à l'action correspondant à la landing page */
+export default function CTALandingPage() {
   return (
     <section className="py-24 ignition-gradient text-on-primary-container" data-pg-name="Section bouton d'appel à l'action de la landing page">
 

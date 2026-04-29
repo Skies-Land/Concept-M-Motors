@@ -6,7 +6,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-// Fonction servant à gérer la logique du formulaire de connexion
+/** Fonction servant à gérer la logique du formulaire de connexion */
 export const useLogin = () => {
 
     // State pour la navigation
@@ -22,7 +22,7 @@ export const useLogin = () => {
     // State pour le chargement
     const [loading, setLoading] = useState(false);
 
-    // Fonction gérant la soumission du formulaire
+    /** Fonction gérant la soumission du formulaire */
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setError(null);

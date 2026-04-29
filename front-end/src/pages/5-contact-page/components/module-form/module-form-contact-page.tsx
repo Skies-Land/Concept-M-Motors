@@ -2,7 +2,7 @@
 import { Typography } from "../../../../components/design-system/Typography"
 import { Button } from "../../../../components/design-system/Button"
 
-// Composant servant à afficher le module dédier au formulaire de contact
+/** Composant servant à afficher le module dédier au formulaire de contact */
 export default function ModuleFormContactPage() {
     return (
         <div className="lg:col-span-7 bg-surface-container rounded-lg p-8 md:p-12">

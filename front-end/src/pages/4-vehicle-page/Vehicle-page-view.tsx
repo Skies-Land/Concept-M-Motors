@@ -7,7 +7,7 @@ import Seo from "../../components/seo/Seo";
 import HeroVehiclePage from "./components/1-Hero-vehicle-page";
 import DescriptionVehiclePage from "./components/2-Description-vehicle-page"
 import AcquisitionMethodVehiclePage from "./components/3-Acquisition-method-vehicle-page";
-import TarifCatalogDescription from "./components/4-Tarif-catalog-vehicle-page";
+import TarifCatalogDescriptionPage from "./components/4-Tarif-catalog-vehicle-page";
 
 // FONCTIONS DE LOGIQUE
 import { getVehicleDescription } from "../../api/Get-description-vehicle-page";
@@ -15,7 +15,7 @@ import { getVehicleDescription } from "../../api/Get-description-vehicle-page";
 // TYPES
 import { type Vehicle } from "../../types/Vehicle";
 
-// Composant principal de la page de description d'un véhicule
+/** Composant principal de la page de description d'un véhicule */
 export default function VehiclePageView() {
     const { id } = useParams<{ id: string }>(); // Récupération de l'ID du véhicule dans l'URL
     const [vehicle, setVehicle] = useState<Vehicle | null>(null); // État pour stocker les données du véhicule
@@ -78,7 +78,7 @@ export default function VehiclePageView() {
             <HeroVehiclePage vehicle={vehicle} />
             <DescriptionVehiclePage vehicle={vehicle} />
             <AcquisitionMethodVehiclePage vehicle={vehicle} />
-            <TarifCatalogDescription vehicle={vehicle} />
+            <TarifCatalogDescriptionPage vehicle={vehicle} />
         </>
     )
 }

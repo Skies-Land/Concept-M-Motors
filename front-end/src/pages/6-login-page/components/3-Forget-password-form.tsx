@@ -11,7 +11,7 @@ interface ForgetPasswordFormProps {
     onBackToLogin: () => void;
 }
 
-// Composant servant à afficher un formulaire d'oubli de mot de passe
+/** Composant servant à afficher un formulaire d'oubli de mot de passe */
 export default function ForgetPasswordForm({ onBackToLogin }: ForgetPasswordFormProps) {
     const {
         email,

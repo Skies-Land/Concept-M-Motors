@@ -7,7 +7,7 @@ import Input from "../../../components/design-system/Input";
 // CONTEXTE
 import { useAuth } from "../../../context/AuthUserContext";
 
-// Composant servant à éditer le profil de l'utilisateur (Nom / Prénom / E-mail / Téléphone / Adresse postale)
+/** Composant servant à éditer le profil de l'utilisateur (Nom / Prénom / E-mail / Téléphone / Adresse postale) */
 export default function EditProfilAccount() {
     const { authUser } = useAuth();
 

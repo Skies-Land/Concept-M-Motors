@@ -8,12 +8,12 @@ import SearchFilterCatalog from "./features/Search-filter-catalog-page";
 import imageHeroPageCatalog from "../../../assets/IMG_hero-catalog.jpg"
 
 // INTERFACE
-interface HeroCatalogProps {
+interface HeroCatalogPageProps {
     onFilterChange: (filters: { brand: string; maxPrice: number }) => void;
 }
 
-// Composant servant à afficher la section Hero correspondant à la page catalogue
-export default function HeroCatalog({ onFilterChange }: HeroCatalogProps) { 
+/** Composant servant à afficher la section Hero correspondant à la page catalogue */
+export default function HeroCatalogPage({ onFilterChange }: HeroCatalogPageProps) { 
     return (
         <section 
             className="bg-center bg-cover border-b border-white/5 flex flex-col min-h-[614px] items-center justify-center px-4 md:px-8 relative rounded-lg text-center pt-32 pb-16 md:py-0" 

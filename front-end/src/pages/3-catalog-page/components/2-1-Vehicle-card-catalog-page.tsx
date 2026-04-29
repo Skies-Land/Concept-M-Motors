@@ -6,12 +6,12 @@ import { Typography } from "../../../components/design-system/Typography";
 
 // TYPES
 import { type Vehicle } from '../../../types/Vehicle';
-export interface VehicleCardProps {
+export interface VehicleCardCatalogPageProps {
     vehicle: Vehicle;
 }
 
-// Composant servant à afficher une carte de véhicule en suivant des propriétés
-export default function VehicleCard({ vehicle }: VehicleCardProps) {
+/** Composant servant à afficher une carte de véhicule en suivant des propriétés */
+export default function VehicleCardCatalogPage({ vehicle }: VehicleCardCatalogPageProps) {
     return (
         <Link 
             to={`/catalog/${vehicle.id}`}

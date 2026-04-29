@@ -2,8 +2,8 @@
 import { Typography } from "../../../components/design-system/Typography";
 import Container from "../../../components/design-system/Container";
 
-// Composant servant à afficher les chiffres clés de l'entreprise correspondant à la page à propos
-export default function OurFigure() {
+/** Composant servant à afficher les chiffres clés de l'entreprise correspondant à la page à propos */
+export default function OurFigureAboutPage() {
     return (
         <Container>
             <section className="relative z-20 -mt-20 px-6 max-w-7xl mx-auto" data-pg-name="Section sur les chiffres clés de l'entreprise de la page à propos">

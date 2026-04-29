@@ -1,4 +1,4 @@
-// Ce composant sert à définir les types de données pour identifier et décrire les véhicules.
+/** Interface définissant les types de données pour identifier et décrire les véhicules */
 export interface Vehicle {
     id: string; // ID unique du véhicule (auto-généré dans Firebase)
     brand: string; // Marque du véhicule

@@ -10,14 +10,14 @@ import { useAuth } from "../../../../context/AuthUserContext";
 // FONCTIONS
 import useActiveLinkSidebar from "../functions/Active-link-sidebar-account";
 
-// Composant servant à afficher la barre latérale de gauche pour la navigation dans l'espace client
+/** Composant servant à afficher la barre latérale de gauche pour la navigation dans l'espace client */
 export default function SidebarAccount() {
     // Utilisation des fonctions personnalisées pour l'affichage des liens actifs
     const { getLinkClasses } = useActiveLinkSidebar();
     const { authUser, signOut } = useAuth();
     const navigate = useNavigate();
 
-    // Fonction gérant la déconnexion et la redirection vers la page de connexion
+    /** Fonction gérant la déconnexion et la redirection vers la page de connexion */
     const handleLogout = async (e: React.MouseEvent) => {
         e.preventDefault();
         await signOut();

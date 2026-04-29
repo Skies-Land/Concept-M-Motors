@@ -4,7 +4,9 @@ import { collection, getDocs } from "firebase/firestore";
 // CONFIGURATION
 import { db } from "../config/firebase-config";
 
-// Fonction servant à récupérer les marques uniques de véhicules depuis la base de données
+/** Fonction servant à récupérer les marques de véhicules depuis la base de données
+ * @returns {Promise<string[]>} - Un tableau contenant les marques uniques de véhicules.
+ * @throws {Error} - Lance une erreur si la récupération des marques échoue.*/
 export const getBrandsCatalog = async (): Promise<string[]> => {
     try {
         const querySnapshot = await getDocs(collection(db, "vehicles"));

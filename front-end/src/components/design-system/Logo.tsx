@@ -6,7 +6,9 @@ interface LogoProps {
     className?: string;
 }
 
-// Composant servant à gérer l'apparence du logo du site
+/** Composant servant à gérer l'apparence du logo du site
+ * @param {LogoProps} props - Les propriétés du logo.
+ * @returns {React.ReactNode} - Le logo.*/
 export default function Logo({ className = "" }: LogoProps) {
     return (
         <Link 

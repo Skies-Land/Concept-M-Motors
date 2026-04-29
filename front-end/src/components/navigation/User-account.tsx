@@ -13,7 +13,7 @@ interface UserAccountProps {
     onLogout: () => Promise<void>;
 }
 
-// Composant servant à afficher, à la place du bouton de connexion, le nom utilisateur dans le Header avec un bouton de déconnexion pour fermer sa session
+/** Composant servant à afficher, à la place du bouton de connexion, le nom utilisateur dans le `Header` avec un bouton de déconnexion pour fermer sa session */
 export default function UserAccount({ user, onLogout }: UserAccountProps) {
     const navigate = useNavigate();
 

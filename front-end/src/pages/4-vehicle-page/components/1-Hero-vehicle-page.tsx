@@ -6,10 +6,9 @@ import Container from "../../../components/design-system/Container"
 import { type Vehicle } from '../../../types/Vehicle';
 export interface VehicleHeroProps {
     vehicle: Vehicle;
-
 }
 
-// Composant servant à afficher la section Hero correspondant à la page de description d'un véhicule
+/** Composant servant à afficher la section Hero correspondant à la page de description d'un véhicule */
 export default function HeroVehiclePage({ vehicle }: VehicleHeroProps) {
     return (
         <>

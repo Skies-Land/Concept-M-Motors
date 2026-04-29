@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 // API
 import { createUser } from "../../../../api/Create-user";
 
-// Fonction servant à gérer la logique du formulaire d'inscription
+/** Fonction servant à gérer la logique du formulaire d'inscription */
 export const useRegister = () => {
     const navigate = useNavigate();
 
@@ -23,7 +23,7 @@ export const useRegister = () => {
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
 
-    // Fonction gérant la soumission du formulaire
+    /** Fonction gérant la soumission du formulaire */
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setError(null);

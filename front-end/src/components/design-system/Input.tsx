@@ -8,7 +8,9 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     error?: string;
 }
 
-// Composant servant à créer des champs de saisie type balise <input>.
+/** Composant servant à créer des champs de saisie type balise `<input>`
+ * @param {InputProps} props - Les propriétés du champ de saisie.
+ * @returns {React.ReactNode} - Le champ de saisie.*/
 export function Input({ label, id, error, className = '', ...props }: InputProps) {
     const inputId = id || label.toLowerCase().replace(/\s+/g, '-');
     

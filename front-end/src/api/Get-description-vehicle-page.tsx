@@ -7,7 +7,10 @@ import { db } from "../config/firebase-config";
 // TYPES
 import { type Vehicle } from '../types/Vehicle';
 
-// Fonction servant à récupérer les détails d'un véhicule spécifique depuis la base de données
+/** Fonction servant à récupérer les détails descriptifs d'un véhicule spécifique depuis la base de données
+ * @param id - L'ID unique du véhicule.
+ * @returns {Promise<Vehicle | null>} - L'objet véhicule si trouvé, sinon null.
+ * @throws {Error} - Lance une erreur si la récupération du véhicule échoue.*/
 export const getVehicleDescription = async (id: string): Promise<Vehicle | null> => {
     try {
         const docRef = doc(db, "vehicles", id);

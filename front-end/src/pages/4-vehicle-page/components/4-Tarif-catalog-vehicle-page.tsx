@@ -8,8 +8,8 @@ export interface VehicleRentalPriceProps {
     vehicle: Vehicle;
 }
 
-// Composant servant à afficher une grille tarifaire pour la méthode d'acquisition par location
-export default function TarifCatalogDescription({ vehicle }: VehicleRentalPriceProps) {
+/** Composant servant à afficher une grille tarifaire pour la méthode d'acquisition par location */
+export default function TarifCatalogDescriptionPage({ vehicle }: VehicleRentalPriceProps) {
     return (
         <>
             <Container as="section" className="py-24 rounded-lg" data-pg-name="Section : Grille tarifaire pour la location">

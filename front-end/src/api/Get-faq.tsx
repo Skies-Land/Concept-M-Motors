@@ -7,7 +7,9 @@ import { db } from "../config/firebase-config";
 // TYPES
 import type { FAQItem } from "../types/FAQItem";
 
-// Fonction servant à récupérer les questions et réponses de la section FAQ de la page à propos depuis la base de données
+/** Fonction servant à récupérer les questions et réponses de la section FAQ de la page à propos depuis la base de données
+ * @returns {Promise<FAQItem[]>} - Un tableau contenant les questions et réponses.
+ * @throws {Error} - Lance une erreur si la récupération des questions et réponses échoue.*/
 export const getFAQAboutPage = async (): Promise<FAQItem[]> => {
     try {
         const querySnapshot = await getDocs(collection(db, "faq"));

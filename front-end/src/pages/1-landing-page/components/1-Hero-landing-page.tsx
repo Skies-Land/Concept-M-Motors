@@ -6,8 +6,8 @@ import { Button } from "../../../components/design-system/Button";
 // IMPORT
 import imageHeroLandingPage from "../../../assets/IMG_Hero_landing-page.png"
 
-// Composant servant à afficher la section Hero correspondant à la landing page
-export default function Hero() {
+/** Composant servant à afficher la section Hero correspondant à la landing page */
+export default function HeroLandingPage() {
   return (
     <section className="relative min-h-screen flex items-center pt-24 overflow-hidden bg-surface-container-lowest" data-pg-name="Section hero de la landing page">
 

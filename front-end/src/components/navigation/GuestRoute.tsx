@@ -14,9 +14,8 @@ interface GuestRouteProps {
     children: ReactNode;
 }
 
-/** Composant servant à rediriger les utilisateurs déjà connectés.
- * S'ils tentent d'accéder à une page réservée aux invités (ex: connexion), 
- * ils sont redirigés vers l'espace client.
+/** Composant servant à sécuriser les routes `/login` et `/register`.
+ * Si l'utilisateur est déjà authentifié, il sera redirigé vers son espace client `/account`.
  */
 export default function GuestRoute({ children }: GuestRouteProps) {
     const { sessionStatus, loading } = useAuth();

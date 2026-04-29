@@ -9,7 +9,7 @@ export interface VehicleAcquisitionProps {
     vehicle: Vehicle;
 }
 
-// Composant servant à afficher deux options d'acquisition d'un véhicule - Achat / Location
+/** Composant servant à afficher deux options d'acquisition d'un véhicule - Achat / Location */
 export default function AcquisitionMethodVehiclePage({ vehicle }: VehicleAcquisitionProps) {
     return (
         <>

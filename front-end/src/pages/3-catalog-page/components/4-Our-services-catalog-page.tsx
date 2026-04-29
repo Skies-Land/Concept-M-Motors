@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 import Container from "../../../components/design-system/Container";
 import { Typography } from "../../../components/design-system/Typography";
 
-// Composant servant à afficher les services qu'offre l'entreprise correspondant à la page catalogue
-export default function OurServicesCatalog() {
+/** Composant servant à afficher les services qu'offre l'entreprise correspondant à la page catalogue */
+export default function OurServicesCatalogPage() {
     return (
         <section className="mt-32" data-pg-name="Section services de la page catalogue">
 

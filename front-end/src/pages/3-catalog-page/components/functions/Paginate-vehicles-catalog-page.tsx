@@ -1,7 +1,7 @@
 // TYPES
 import { type Vehicle } from '../../../../types/Vehicle';
 
-// Fonction servant à calculer la pagination de la liste des véhicules
+/** Fonction servant à calculer la pagination de la liste des véhicules */
 export const paginateVehiclesCatalog = (filteredVehicles: Vehicle[], currentPage: number, itemsPerPage: number) => {
     // Calcul du nombre total de pages sur la liste filtrée
     const totalPages = Math.ceil(filteredVehicles.length / itemsPerPage);

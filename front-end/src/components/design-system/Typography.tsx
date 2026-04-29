@@ -21,7 +21,7 @@ interface TypographyProps {
     children: React.ReactNode;
 }
 
-// Composant servant à gérer le style du texte : type de balise, taille, couleur, etc.
+/** Composant servant à gérer le style du texte : type de balise, taille, couleur, etc. */
 export const Typography = ({ 
     variant = "body-md", 
     component: Component = "p", 

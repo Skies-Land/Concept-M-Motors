@@ -1,12 +1,12 @@
 // COMPOSANTS
-import Hero from "./components/1-Hero-landing-page";
-import Process from "./components/2-Process-landing-page";
-import Services from "./components/3-Services-landing-page";
-import ShortAbout from "./components/4-Short-about-landing-page";
-import CTA from "./components/5-CTA-landing-page";
+import HeroLandingPage from "./components/1-Hero-landing-page";
+import ProcessLandingPage from "./components/2-Process-landing-page";
+import ServicesLandingPage from "./components/3-Services-landing-page";
+import ShortAboutLandingPage from "./components/4-Short-about-landing-page";
+import CTALandingPage from "./components/5-CTA-landing-page";
 import Seo from "../../components/seo/Seo"
 
-// Composant principal de la page d'accueil
+/** Composant principal de la page d'accueil */
 export default function LandingPageView() {
     return (
         <>
@@ -17,11 +17,11 @@ export default function LandingPageView() {
             />
 
             {/* Composants de la page d'accueil */}
-            <Hero />
-            <Process />
-            <Services />
-            <ShortAbout />
-            <CTA />
+            <HeroLandingPage />
+            <ProcessLandingPage />
+            <ServicesLandingPage />
+            <ShortAboutLandingPage />
+            <CTALandingPage />
         </>
     );
 };
