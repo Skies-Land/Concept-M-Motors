@@ -54,7 +54,7 @@ export default function EditProfilAccount() {
                                 label="Nom d'utilisateur" 
                                 type="text"
                                 className="md:col-span-2"
-                                placeholder="Votre nom d'utilisateur" 
+                                placeholder="Pseudo ou nom d'utilisateur qui sera affiché sur votre l'interface" 
                                 required />
                             {/* Prénom */}
                             <Input 

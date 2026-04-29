@@ -1,6 +1,10 @@
-// COMPOSANTS
+// FONCTION
+import { useForgetPassword } from "./functions/Forget-password-function";
+
+// DESIGN SYSTEM
 import { Button } from "../../../components/design-system/Button";
 import { Typography } from "../../../components/design-system/Typography"
+import Input from "../../../components/design-system/Input";
 
 // PROPS
 interface ForgetPasswordFormProps {
@@ -9,11 +13,14 @@ interface ForgetPasswordFormProps {
 
 // Composant servant à afficher un formulaire d'oubli de mot de passe
 export default function ForgetPasswordForm({ onBackToLogin }: ForgetPasswordFormProps) {
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        // Logique de réinitialisation de mot de passe à implémenter plus tard avec Firebase
-        console.log("Demande de réinitialisation de mot de passe");
-    };
+    const {
+        email,
+        setEmail,
+        error,
+        success,
+        loading,
+        handleSubmit
+    } = useForgetPassword();
 
     return (
         <div className="space-y-6">
@@ -22,48 +29,71 @@ export default function ForgetPasswordForm({ onBackToLogin }: ForgetPasswordForm
                     Mot de passe oublié ?
                 </Typography>
                 <Typography variant="body-sm" color="on-surface-variant">
-                    Entrez votre adresse e-mail et nous vous enverrons un lien pour réinitialiser votre mot de passe.
+                    {success 
+                        ? "Un e-mail de réinitialisation a été envoyé à votre adresse. Veuillez vérifier votre boîte de réception et les Spams."
+                        : "Entrez votre adresse e-mail et nous vous enverrons un lien pour réinitialiser votre mot de passe."
+                    }
                 </Typography>
             </div>
 
-            {/* Formulaire de réinitialisation de mot de passe */}
-            <form className="space-y-6" onSubmit={handleSubmit}>
-                <div>
-                    <label className="block font-label text-xs uppercase tracking-wider text-on-surface-variant mb-2" htmlFor="reset-email">
-                        E-mail
-                    </label>
-                    <input 
-                        autoComplete="email"
-                        className="w-full bg-surface-container-high border border-outline-variant/15 rounded text-on-surface font-body px-4 py-3 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all placeholder:text-on-surface-variant/50"
-                        id="reset-email" 
-                        name="email" 
-                        placeholder="votre-adresse-mail@example.com"
-                        required 
-                        type="email" 
-                    />
+            {/* Affichage des erreurs */}
+            {error && (
+                <div className="bg-error/10 border border-error/20 rounded p-4 mb-4">
+                    <Typography variant="body-sm" color="error">
+                        {error}
+                    </Typography>
                 </div>
+            )}
 
-                <div className="flex flex-col gap-4 pt-2">
-                    {/* Bouton d'envoi */}
-                    <Button 
-                        type="submit"
-                        variant="primary"
-                        fullWidth
-                    >
-                        Envoyer le lien
-                    </Button>
-
-                    {/* Bouton retour */}
+            {/* Affichage du message de succès */}
+            {success ? (
+                <div className="pt-4">
                     <Button 
                         type="button"
-                        variant="tertiary"
+                        variant="primary"
                         fullWidth
                         onClick={onBackToLogin}
                     >
-                        Annuler et retourner à la connexion
+                        Retourner à la connexion
                     </Button>
                 </div>
-            </form>
+            ) : (
+                <form className="space-y-6" onSubmit={handleSubmit}>
+                    <Input 
+                        label="E-mail"
+                        id="reset-email" 
+                        name="email" 
+                        type="email"
+                        placeholder="votre-adresse-mail@example.com"
+                        autoComplete="email"
+                        required 
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+
+                    <div className="flex flex-col gap-4 pt-2">
+                        {/* Bouton d'envoi */}
+                        <Button 
+                            type="submit"
+                            variant="primary"
+                            fullWidth
+                            isLoading={loading}
+                        >
+                            Envoyer le lien
+                        </Button>
+
+                        {/* Bouton retour */}
+                        <Button 
+                            type="button"
+                            variant="tertiary"
+                            fullWidth
+                            onClick={onBackToLogin}
+                        >
+                            Annuler
+                        </Button>
+                    </div>
+                </form>
+            )}
         </div>
     );
 }
