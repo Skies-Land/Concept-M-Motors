@@ -28,7 +28,11 @@ Ce document résume la configuration technique du projet Concept M-Motors.
     - Centralisation du style du design du logo avec le composant `Logo`.
     - Centralisation du style de la balise `<input>` avec le composant `Input`.
 - **Gestion d'état :** Utilisation de la **React Context API** (`AuthUserContext`) pour centraliser l'état de l'utilisateur et la persistance de la session en temps réel.
-- **Sécurisation :** Centralisation des statuts de session via des constantes (`Session-status`) et des types TypeScript dédiés pour une sécurité maximale du code.
+- **Sécurisation :** 
+    - Centralisation des statuts de session via des constantes (`Session-status`) et des types TypeScript dédiés pour une sécurité maximale du code.
+    - **Route Guards :** Utilisation des composants `ProtectedRoute` et `GuestRoute` pour filtrer l'accès aux pages selon l'état d'authentification.
+- **Logique de Navigation :**
+    - **Tabs dynamiques :** Navigation interne de l'espace client (dashboard) basée sur les ancres URL (hash), permettant un affichage conditionnel des sections sans rechargement.
 - **API & Logique métier :** Centralisation des appels réseau dans `/src/api/` (ex: `Get-user.tsx`) et isolation de la logique métier (Hooks et utilitaires) dans des dossiers `functions/` au sein des modules de pages.
 - **Pages :** Découpage par fonctionnalités dans `/src/pages/`.
 - **Navigation :** Composants `Header` et `Footer` adaptatifs (le Header change d'état selon la connexion de l'utilisateur).

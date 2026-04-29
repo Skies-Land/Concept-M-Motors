@@ -1,11 +1,13 @@
 // DÉPENDANCE
 import { RouterProvider } from 'react-router-dom';
 
-// COMPOSANTS
-import { router } from './routes/router';
+// CONTEXTE
 import { AuthUserProvider } from './context/AuthUserContext';
 
-// Composant principal de l'application
+// COMPOSANT
+import { router } from './routes/router';
+
+/** Composant principal de l'application */
 export default function App() {
   return (
     <div className="selection:bg-primary-container selection:text-on-primary-container">

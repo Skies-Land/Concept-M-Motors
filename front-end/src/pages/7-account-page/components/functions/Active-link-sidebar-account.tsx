@@ -2,11 +2,10 @@
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-// Fonction gérant l'apparence et le défilement vers les différentes sections de la barre latérale de navigation de l'espace client
+// Fonction gérant l'apparence vers les différentes sections de la barre latérale de navigation de l'espace client
 export default function useActiveLinkSidebar() {
     const location = useLocation();
     const [activeHash, setActiveHash] = useState(window.location.hash || "#edit-profil");
-
     // Hook servant à récupérer les liens actifs de la barre latérale
     useEffect(() => {
         if (location.hash) {
@@ -24,13 +23,5 @@ export default function useActiveLinkSidebar() {
         return `${baseClasses} ${isActive ? activeClasses : inactiveClasses}`;
     };
 
-    // Fonction servant à faire défiler la page vers la section correspondante au lien
-    const handleScroll = (id: string) => {
-        const element = document.getElementById(id.replace("#", ""));
-        if (element) {
-            element.scrollIntoView({ behavior: "smooth" });
-        }
-    };
-
-    return { getLinkClasses, handleScroll };
+    return { getLinkClasses, activeHash, setActiveHash };
 }

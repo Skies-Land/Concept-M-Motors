@@ -80,7 +80,7 @@ npm run dev
 > 💡*Cette structure de navigation me sert à avoir une cohérence des éléments React à charger entre chaque page. Plus d'information sur cette structure dans le fichier **[README.md](./front-end/README.md)**.*
 
 #### **🏗️ STRUCTURE DU PROJET :** 
-Chaque partie du site est découpée par dossier qui représente une page. Chaque page est **regroupée** dans ce dossier **[pages](./front-end/src/pages)**. Dans chaque dossier de page, un ou deux sous-dossiers.
+Chaque partie du site est découpée par dossier qui représente une page. Chaque page est regroupée dans le dossier **[pages](./front-end/src/pages)**. Dans chaque dossier de page, un ou deux sous-dossiers.
 * `src/pages/nom-de-la-page/` : dossier représentant la page et les sous-dossiers associés.
 * `src/pages/nom-de-la-page/components/` : dossier regroupant les différentes éléments graphiques qui composent la page.
 * `src/pages/nom-de-la-page/features/` : dossier regroupant des petites fonctionnalités clés de la page.
@@ -166,8 +166,8 @@ interface Vehicle {
     * **[Description-vehicle-page](./front-end/src/pages/4-vehicle-page/components/2-Description-vehicle-page.tsx)** : sert à afficher un texte explicatif sur le véhicule et ses informations techniques.
     * **[Acquisition-method-vehicle-page](./front-end/src/pages/4-vehicle-page/components/3-Acquisition-method-vehicle-page.tsx)** : sert à afficher deux options d'acquisition (achat ou location) avec les prix correspondants à l' `ID` du véhicule.
     * **[Tarif-catalog-page](./front-end/src/pages/4-vehicle-page/components/4-Tarif-catalog-vehicle-page.tsx)** : sert à afficher une grille tarifaire pour la méthode d'acquisition par location en fonction du prix d'achat du véhicule correspondant à son `ID`. Une formule est utilisée pour calculer le tarif de location en fonction du nombre de mois (36, 48, 72) choisie pour la location.
-    * **[Get-description-vehicle](./front-end/src/api/Get-description-vehicle-page.tsx)** : est la fonction de logique permettant de récupérer les détails d'un véhicule spécifique depuis la base de données. Cette fonction est **implémentée** dans le composant **[Vehicle-page-view](./front-end/src/pages/4-vehicle-page/Vehicle-page-view.tsx)**.
-> 💡*Les informations textuelles et les images de chaque véhicule ont été générées par IA afin de disposer de contenu à développer pour être affiché sur le site.*
+    * **[Get-description-vehicle](./front-end/src/api/Get-description-vehicle-page.tsx)** : est la fonction de logique permettant de récupérer les détails d'un véhicule spécifique depuis la base de données. Cette fonction est implémentée dans le composant **[Vehicle-page-view](./front-end/src/pages/4-vehicle-page/Vehicle-page-view.tsx)**.
+    > 💡*Les informations textuelles et les images de chaque véhicule ont été générées par IA afin de disposer de contenu à développer pour être affiché sur le site.*
 
 #### **👤 ESPACE CLIENT**
 * **Formulaire de connexion / inscription / mot de passe oublié :**
@@ -184,24 +184,35 @@ interface Vehicle {
     * Activation de l'authentification par e-mail/mot de passe avec **[Firebase Authentication](./https://firebase.google.com/docs/auth)**.
     * **[AuthUserProvider](./front-end/src/context/AuthUserContext.tsx)** : chef d'orchestre de la session utilisateur. Il surveille l'état de connexion en temps réel via Firebase et centralise les données pour l'ensemble de l'application via la Context API de React.
     * **[Get-user](./front-end/src/api/Get-user.tsx)** : logique permettant de récupérer le profil complet de l'utilisateur dans Firestore (collection `users`) en synchronisation avec son identifiant d'authentification (UID).
-    * **Hook `useAuth()`** : interface simplifiée permettant aux composants (comme le **Header**) de réagir dynamiquement au statut de connexion.
+    * **Hook `useAuth()`** : interface simplifiée permettant aux composants (comme le `Header`) de réagir dynamiquement au statut de connexion.
 
 * **Sécurisation et Typage :**
     * **[Session-status.tsx](./front-end/src/constants/Session-status.tsx)** : définit les constantes de valeurs (`GUEST`, `REGISTERED`) utilisées pour la logique de navigation et d'affichage.
     * **[Session-status-type.tsx](./front-end/src/types/Session-status-type.tsx)** : définit le contrat de type TypeScript pour garantir qu'aucune valeur de statut invalide ne soit utilisée dans le code.
-> 💡 *La session est persistante : grâce à l'initialisation de `getAuth()` dans **[firebase-config](./front-end/src/config/firebase-config.ts)** et à l'écouteur `onAuthStateChanged` du composant **[AuthUserProvider](./front-end/src/context/AuthUserContext.tsx)**, Firebase récupère automatiquement le jeton de connexion stocké dans le navigateur. L'utilisateur reste ainsi connecté même après avoir actualisé la page ou fermé son navigateur.*
+    > 💡 *La session est persistante : grâce à l'initialisation de `getAuth()` dans **[firebase-config](./front-end/src/config/firebase-config.ts)** et à l'écouteur `onAuthStateChanged` du composant **[AuthUserProvider](./front-end/src/context/AuthUserContext.tsx)**, Firebase récupère automatiquement le jeton de connexion stocké dans le navigateur. L'utilisateur reste ainsi connecté même après avoir actualisé la page ou fermé son navigateur.*
 
 * **Dashboard client :**
    * **[Account-page-view](./front-end/src/pages/7-account-page/Account-page-view.tsx)** : sert à afficher l'espace client de l'utilisateur lui  permettant une visibilité immédiate sur l'ensemble des actions qu'il peux faire. Le composant gère l'affichage conditionnel des sous-composants :
-        * **[Sidebar-account](./front-end/src/pages/7-account-page/components/features/Sidebar-account.tsx)** : sert à afficher la barre latérale gauche de l'espace client avec les liens vers les différentes sections de l'espace client. Implémentation de la fonction **[Active-link-sidebar-account](./front-end/src/pages/7-account-page/components/functions/Active-link-sidebar-account.tsx)** pour rendre dynamique l'apparence des liens actifs.
+        * **[Sidebar-account](./front-end/src/pages/7-account-page/components/features/Sidebar-account.tsx)** : servant à afficher la barre latérale gauche de l'espace client avec les liens vers les différentes sections de l'espace client. Implémentation de la fonction **[Active-link-sidebar-account](./front-end/src/pages/7-account-page/components/functions/Active-link-sidebar-account.tsx)** pour rendre dynamique l'apparence des liens actifs.
         * **[Edit-profil](./front-end/src/pages/7-account-page/components/1-Edit-profil-account.tsx)** : servant à afficher un formulaire pour l'édition du profil de l'utilisateur en renseignant ou modifiant son prénom, nom, adresse e-mail, adresse postale et numéro de téléphone.
         * **[Docs-account](./front-end/src/pages/7-account-page/components/2-Docs-acount.tsx)** : *(En cours de développement)*
         * **[Services-account](./front-end/src/pages/7-account-page/components/3-Services-acount.tsx)** : *(En cours de développement)*
         * **[Booking-account](./front-end/src/pages/7-account-page/components/4-Booking-account.tsx)** : *(En cours de développement)*
 
+* **Sécurisation des routes :**
+    * La navigation est contrôlée dans le fichier **[router.tsx](./front-end/src/routes/router.tsx)** à l'aide de composants "Wrappers" qui filtrent l'accès selon le statut de l'utilisateur fourni par **[AuthUserContext](./front-end/src/context/AuthUserContext.tsx)**.
+
+    | Composant | Cible | Condition | Action si non respectée |
+    | :--- | :--- | :--- | :--- |
+    | **ProtectedRoute** | `/account` | Utilisateur connecté | Redirection vers `/login` |
+    | **GuestRoute** | `/login` | Utilisateur invité | Redirection vers `/account` |
+
+    *   **[ProtectedRoute](./front-end/src/components/navigation/ProtectedRoute.tsx)** : garantit que **seules les personnes authentifiées** accèdent aux sections sensibles.
+    *   **[GuestRoute](./front-end/src/components/navigation/GuestRoute.tsx)** : évite **qu'un utilisateur déjà connecté** ne retourne sur les formulaires d'authentification.
+    > 💡 *Ces composants gèrent un état de chargement `loading`. Tant que Firebase n'a pas confirmé le statut de la session, un spinner est affiché, empêchant ainsi tout affichage non désiré de contenu protégé ou de redirection prématurée.*
 
 #### **📄 AUTRES PAGES**
-* **[About-page-view](./front-end/src/pages/2-about-page/About-page-view.tsx)** : servant à afficher une brève description de l'entreprise, les services qu'elle propose et une section FAQ. **[Get-faq](./front-end/src/api/Get-faq.tsx)** : est la fonction de logique permettant de récupérer les questions et réponses de la section FAQ depuis la base de données. Cette fonction est **implémentée** dans le composant **[FAQAboutPage](./front-end/src/pages/2-about-page/components/4-FAQ-about-page.tsx)**.<br>
+* **[About-page-view](./front-end/src/pages/2-about-page/About-page-view.tsx)** : servant à afficher une brève description de l'entreprise, les services qu'elle propose et une section FAQ. **[Get-faq](./front-end/src/api/Get-faq.tsx)** : est la fonction de logique permettant de récupérer les questions et réponses de la section FAQ depuis la base de données. Cette fonction est implémentée dans le composant **[FAQ-about-page](./front-end/src/pages/2-about-page/components/4-FAQ-about-page.tsx)**.<br>
 J'ai configuré cette collection de données nommée `faq` avec la structure suivante :
 
 | Champ | Type | Description |
@@ -219,7 +230,7 @@ interface FAQItem {
   answer: string;
 }
 ```
-> 💡*J'ai choisi d'externaliser les données de la section FAQ vers Firebase, afin de faciliter la gestion des questions/réponses (ajout, modification, suppression) pour l'équipe back-office de M-Motors.*
+> 💡 *J'ai choisi d'externaliser les données de la section FAQ vers Firebase, afin de faciliter la gestion des questions/réponses (ajout, modification, suppression) pour l'équipe back-office de M-Motors.*
 
 * **[Contact-page-view](./front-end/src/pages/5-contact-page/Contact-page-view.tsx)** : servant à afficher un formulaire de contact pour permettre aux utilisateurs de contacter l'entreprise en choisisant parmis un menu déroulant le sujet de leur demande. <br> **⚠️ Ce formulaire n'est pas relié à une base de données et n'est donc pas fonctionnel. Il est présent à titre de présentation.⚠️**
 * **[Error-page-view](./front-end/src/pages/8-error-page/Error-page-view.tsx)** : servant à afficher une page pour informer l'utilisateur que le contenu demandé n'existe pas *(ou n'est plus référencé)* et lui propose deux solutions pour retrouver ce qu'il cherche *(Retour à l'accueil et Revenir à la page précédente)*.

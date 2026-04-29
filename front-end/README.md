@@ -22,7 +22,7 @@ src/
 ├── components/                 # Composants réutilisables
 │   ├── design-system/          # Composants de base d'interface (Container, Typography, Button, Logo, Input)
 │   ├── layout/                 # Composants de structure (RootLayout)
-│   ├── navigation/             # Composants de navigation (Header, Footer)
+│   ├── navigation/             # Composants de navigation (Header, Footer, ProtectedRoute, GuestRoute, User-account)
 │   └── seo/                    # Composants liés au référencement (Seo)
 │
 ├── config/                     # Configuration des services tiers

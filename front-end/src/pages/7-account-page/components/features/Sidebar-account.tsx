@@ -12,8 +12,8 @@ import useActiveLinkSidebar from "../functions/Active-link-sidebar-account";
 
 // Composant servant à afficher la barre latérale de gauche pour la navigation dans l'espace client
 export default function SidebarAccount() {
-    // Utilisation des fonctions personnalisées pour l'affichage des liens actifs et du défilement
-    const { getLinkClasses, handleScroll } = useActiveLinkSidebar();
+    // Utilisation des fonctions personnalisées pour l'affichage des liens actifs
+    const { getLinkClasses } = useActiveLinkSidebar();
     const { authUser, signOut } = useAuth();
     const navigate = useNavigate();
 
@@ -44,7 +44,6 @@ export default function SidebarAccount() {
                 <Link
                     to="#edit-profil"
                     className={getLinkClasses("#edit-profil")}
-                    onClick={() => handleScroll("#edit-profil")}
                 >
                     <span className="material-symbols-outlined" data-alt="Icône de profil">person</span>
                     Mon profil
@@ -52,7 +51,6 @@ export default function SidebarAccount() {
                 <Link
                     to="#docs"
                     className={getLinkClasses("#docs")}
-                    onClick={() => handleScroll("#docs")}
                 >
                     <span className="material-symbols-outlined" data-alt="Icône de document">upload_file</span>
                     Mes documents
@@ -60,7 +58,6 @@ export default function SidebarAccount() {
                 <Link
                     to="#services"
                     className={getLinkClasses("#services")}
-                    onClick={() => handleScroll("#services")}
                 >
                     <span className="material-symbols-outlined" data-alt="Icône de service">settings_input_component</span>
                     Gestion de mes services
@@ -68,7 +65,6 @@ export default function SidebarAccount() {
                 <Link
                     to="#booking"
                     className={getLinkClasses("#booking")}
-                    onClick={() => handleScroll("#booking")}
                 >
                     <span className="material-symbols-outlined" data-alt="Icône de réservation">event_available</span>
                     Réservations

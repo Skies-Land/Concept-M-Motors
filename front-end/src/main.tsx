@@ -9,6 +9,7 @@ import './index.css'
 // COMPOSANT
 import App from './App.tsx'
 
+/** Point d'entrée principal de l'application */
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <HelmetProvider>

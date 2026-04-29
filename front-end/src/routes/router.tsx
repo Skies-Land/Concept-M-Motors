@@ -11,13 +11,14 @@ import CatalogPageView from '../pages/3-catalog-page/Catalog-page-view';
 import VehiclePageView from '../pages/4-vehicle-page/Vehicle-page-view';
 import ContactPageView from '../pages/5-contact-page/Contact-page-view';
 import LoginPageView from '../pages/6-login-page/Login-page-view';
-import ErrorPageView from '../pages/8-error-page/Error-page-view';
 import AccountPageView from '../pages/7-account-page/account-page-view';
+import ErrorPageView from '../pages/8-error-page/Error-page-view';
 
-// RAPPEL : For better performance on large apps, use lazy loading: 
-// EXAMPLE : const CatalogPage = lazy(() => import('../pages/3-catalog-page/CatalogPageView'));
+// COMPOSANTS
+import ProtectedRoute from '../components/navigation/ProtectedRoute';
+import GuestRoute from '../components/navigation/GuestRoute';
 
-// Composant servant à la redirection des pages de l'application
+/** Composant servant à la redirection des pages de l'application */
 export const router = createBrowserRouter([
   {
     path: '/',
@@ -45,13 +46,19 @@ export const router = createBrowserRouter([
       },
       {
         path: 'login',
-        element: <LoginPageView />,
+        element: (
+          <GuestRoute>
+            <LoginPageView />
+          </GuestRoute>
+        ),
       },
-
-      // TODO : Sécuriser l'accès à la page compte
       {
         path: 'account',
-        element: <AccountPageView />,
+        element: (
+          <ProtectedRoute>
+            <AccountPageView />
+          </ProtectedRoute>
+        ),
       },
       {
         path: '*',

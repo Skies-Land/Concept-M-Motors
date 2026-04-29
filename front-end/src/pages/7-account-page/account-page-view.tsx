@@ -6,8 +6,13 @@ import ServicesAccount from "./components/3-Services-acount";
 import BookingAccount from "./components/4-Booking-account";
 import SidebarAccount from "./components/features/Sidebar-account";
 
+// FONCTIONS
+import useActiveLinkSidebar from "./components/functions/Active-link-sidebar-account";
+
 // Composant servant à afficher le tableau de bord de l'espace client
 export default function AccountPageView() {
+    const { activeHash } = useActiveLinkSidebar();
+
     return (
         <>
             {/* Composant SEO pour définir les métadonnées de la page */}
@@ -24,10 +29,10 @@ export default function AccountPageView() {
 
                 {/* Les onglets de l'espace client */}
                 <main className="flex-1 flex flex-col w-full min-h-screen pt-24">
-                    <section id="edit-profil" className="w-full"><EditProfilAccount /></section>
-                    <section id="docs" className="w-full"><DocsAccount /></section>
-                    <section id="services" className="w-full"><ServicesAccount /></section>
-                    <section id="booking" className="w-full"><BookingAccount /></section>
+                    {activeHash === "#edit-profil" && <section id="edit-profil" className="w-full"><EditProfilAccount /></section>}
+                    {activeHash === "#docs" && <section id="docs" className="w-full"><DocsAccount /></section>}
+                    {activeHash === "#services" && <section id="services" className="w-full"><ServicesAccount /></section>}
+                    {activeHash === "#booking" && <section id="booking" className="w-full"><BookingAccount /></section>}
                 </main>
             </div>
         </>
