@@ -51,8 +51,8 @@ src/
 │   │       └── functions/      # Hooks de logique fonctionnelle (Connexion, Inscription)
 │   ├── 7-account-page/         # Composants et vue pour la page de "l'Espace client"
 │   │   └── components/         # Sous-composants propres à la page
-│   │       └── features/       # Composants de fonctionnalité (Barre latérale)
-│   │       └── functions/      # Hooks de logique fonctionnelle
+│   │       ├── features/       # Composants de fonctionnalité (Sidebar, Preview-document)
+│   │       └── functions/      # Hooks et logique (Send-document, Validation-document, Check-document-upload)
 │   └── 8-error-page/           # Composants et vue pour la page "d'erreur 404"
 │
 ├── routes/                     # Fichiers de configuration du routage

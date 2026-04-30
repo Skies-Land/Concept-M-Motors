@@ -25,7 +25,7 @@ export default function EditProfilAccount() {
                 {/* Entête de la section */}
                 <div className="flex flex-col gap-2">
                     <Typography component="h2" color="primary" variant="headline-md" >
-                        Profil
+                        Mes informations
                     </Typography>
                     <Typography component="p" variant="body-lg">
                         Complétez vos informations personnelles et préférences de contact pour une bonne expérience avec M-Motors.

@@ -1,8 +1,8 @@
 // COMPOSANTS
 import Seo from "../../components/seo/Seo"
 import EditProfilAccount from "./components/1-Edit-profil-account";
-import DocsAccount from "./components/2-Docs-acount";
-import ServicesAccount from "./components/3-Services-acount";
+import DocsAccount from "./components/2-Docs-account";
+import ServicesAccount from "./components/3-Services-account";
 import BookingAccount from "./components/4-Booking-account";
 import SidebarAccount from "./components/features/Sidebar-account";
 
