@@ -4,6 +4,9 @@ import { Link, useNavigate } from "react-router-dom";
 // DESIGN SYSTEM
 import { Typography } from "../../../../components/design-system/Typography"
 
+// ICÔNES
+import { MdPerson, MdUploadFile, MdSettingsInputComponent, MdEventAvailable, MdLogout } from "react-icons/md";
+
 // CONTEXTE
 import { useAuth } from "../../../../context/AuthUserContext";
 
@@ -25,9 +28,9 @@ export default function SidebarAccount() {
     };
 
     return (
-        <aside className="w-72 flex-shrink-0 flex flex-col sticky top-0 h-screen bg-stone-950/60 border-r border-white/5 hidden md:flex pt-24">
-            {/* Nom de l'utilisateur connecté */}
-            <div className="p-6">
+        <aside className="fixed bottom-0 left-0 right-0 w-full h-16 md:h-screen md:w-72 md:sticky md:top-0 flex flex-row md:flex-col bg-stone-950/95 md:bg-stone-950/60 border-t md:border-t-0 md:border-r border-white/10 md:border-white/5 z-50 md:pt-24 transition-all duration-300">
+            {/* Nom de l'utilisateur connecté - Masqué sur mobile */}
+            <div className="p-6 hidden md:block">
                 <div className="flex flex-col items-center gap-4 mb-6">
                     <Typography component="h1" className="font-bold text-orange-600 text-lg leading-tight tracking-tight">
                         {authUser?.displayName || "Chargement..."}
@@ -40,49 +43,52 @@ export default function SidebarAccount() {
             </div>
 
             {/* Menu de navigation principal */}
-            <div className="flex-1 py-6 flex flex-col gap-2 px-3 overflow-y-auto">
+            <div className="flex-1 flex flex-row md:flex-col justify-around md:justify-start items-center md:items-stretch md:py-6 gap-1 md:gap-2 px-2 md:px-3">
                 <Link
                     to="#edit-profil"
-                    className={getLinkClasses("#edit-profil")}
+                    className={`${getLinkClasses("#edit-profil")} flex-col md:flex-row !gap-1 md:!gap-3 p-2 md:p-3`}
                 >
-                    <span className="material-symbols-outlined" data-alt="Icône de profil">person</span>
-                    Mon profil
+                    <MdPerson className="text-2xl md:text-xl" />
+                    <span className="hidden md:block text-[10px] md:text-sm">Mon profil</span>
                 </Link>
                 <Link
                     to="#docs"
-                    className={getLinkClasses("#docs")}
+                    className={`${getLinkClasses("#docs")} flex-col md:flex-row !gap-1 md:!gap-3 p-2 md:p-3`}
                 >
-                    <span className="material-symbols-outlined" data-alt="Icône de document">upload_file</span>
-                    Mes documents
+                    <MdUploadFile className="text-2xl md:text-xl" />
+                    <span className="hidden md:block text-[10px] md:text-sm">Documents</span>
                 </Link>
                 <Link
                     to="#services"
-                    className={getLinkClasses("#services")}
+                    className={`${getLinkClasses("#services")} flex-col md:flex-row !gap-1 md:!gap-3 p-2 md:p-3`}
                 >
-                    <span className="material-symbols-outlined" data-alt="Icône de service">settings_input_component</span>
-                    Gestion de mes services
+                    <MdSettingsInputComponent className="text-2xl md:text-xl" />
+                    <span className="hidden md:block text-[10px] md:text-sm">Services</span>
                 </Link>
                 <Link
                     to="#booking"
-                    className={getLinkClasses("#booking")}
+                    className={`${getLinkClasses("#booking")} flex-col md:flex-row !gap-1 md:!gap-3 p-2 md:p-3`}
                 >
-                    <span className="material-symbols-outlined" data-alt="Icône de réservation">event_available</span>
-                    Réservations
+                    <MdEventAvailable className="text-2xl md:text-xl" />
+                    <span className="hidden md:block text-[10px] md:text-sm">Réservations</span>
                 </Link>
+
+                {/* Bouton de déconnexion pour le mobile (intégré à la barre) */}
+                <button 
+                    onClick={handleLogout}
+                    className="md:hidden flex flex-col items-center justify-center gap-1 p-2 text-zinc-500 hover:text-zinc-200 transition-colors"
+                >
+                    <MdLogout className="text-2xl" />
+                </button>
             </div>
 
-            {/* Menu de pied de page */}
-            <div className="p-6 bg-zinc-900 mt-auto flex flex-col gap-2">
-                {/* <Link className="flex items-center gap-3 px-4 py-3 rounded-DEFAULT text-zinc-500 hover:bg-zinc-900/50 hover:text-zinc-200 font-['Inter'] text-sm font-medium transition-all duration-200"
-                    to="#">
-                    <span className="material-symbols-outlined" data-alt="Icône d'aide">help</span>
-                    Aide
-                </Link> */}
+            {/* Menu de pied de page - Uniquement sur Desktop */}
+            <div className="p-6 bg-zinc-900 mt-auto hidden md:flex flex-col gap-2">
                 <button 
                     onClick={handleLogout}
                     className="flex items-center gap-3 px-4 py-3 rounded-DEFAULT text-zinc-500 hover:bg-zinc-900/50 cursor-pointer hover:text-zinc-200 font-['Inter'] text-sm font-medium transition-all duration-200 w-full text-left"
                 >
-                    <span className="material-symbols-outlined" data-alt="Icône de déconnexion">logout</span>
+                    <MdLogout />
                     Déconnexion
                 </button>
             </div>

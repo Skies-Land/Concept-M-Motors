@@ -2,6 +2,9 @@
 import { Typography } from "../../../components/design-system/Typography"
 import Container from "../../../components/design-system/Container"
 
+// ICÔNES
+import { MdTimer, MdSpeed, MdBolt, MdSettings } from "react-icons/md";
+
 // TYPES
 import { type Vehicle } from '../../../types/Vehicle';
 export interface VehicleDescriptionProps {
@@ -29,7 +32,7 @@ export default function DescriptionVehiclePage({ vehicle }: VehicleDescriptionPr
                     {/* Information sur l'accélération du véhicule */}
                     <div className="bg-surface-container-highest p-4 lg:p-6 rounded-xl flex flex-col justify-between aspect-square">
                         <div className="flex flex-col gap-2">
-                            <span className="material-symbols-outlined text-primary text-2xl">timer</span> 
+                            <MdTimer className="text-primary text-2xl" /> 
                             <Typography variant="label-sm" color="on-surface-variant" className="leading-tight">
                                 Accélération 0-100
                             </Typography>
@@ -46,7 +49,7 @@ export default function DescriptionVehiclePage({ vehicle }: VehicleDescriptionPr
                     {/* Information sur la vitesse maximale du véhicule */}
                     <div className="bg-surface-container-highest p-4 lg:p-6 rounded-xl flex flex-col justify-between aspect-square">
                         <div className="flex flex-col gap-2">
-                            <span className="material-symbols-outlined text-primary text-2xl">speed</span> 
+                            <MdSpeed className="text-primary text-2xl" /> 
                             <Typography variant="label-sm" color="on-surface-variant" className="leading-tight">
                                 Vitesse max
                             </Typography>
@@ -63,7 +66,7 @@ export default function DescriptionVehiclePage({ vehicle }: VehicleDescriptionPr
                     {/* Information sur la puissance du véhicule */}
                     <div className="bg-surface-container-highest p-4 lg:p-6 rounded-xl flex flex-col justify-between aspect-square">
                         <div className="flex flex-col gap-2">
-                            <span className="material-symbols-outlined text-primary text-2xl">bolt</span> 
+                            <MdBolt className="text-primary text-2xl" /> 
                             <Typography variant="label-sm" color="on-surface-variant" className="leading-tight">
                                 Puissance
                             </Typography>
@@ -80,7 +83,7 @@ export default function DescriptionVehiclePage({ vehicle }: VehicleDescriptionPr
                     {/* Information sur le moteur du véhicule */}
                     <div className="bg-surface-container-highest p-4 lg:p-6 rounded-xl flex flex-col justify-between aspect-square">
                         <div className="flex flex-col gap-2">
-                            <span className="material-symbols-outlined text-primary text-2xl">settings</span> 
+                            <MdSettings className="text-primary text-2xl" /> 
                             <Typography variant="label-sm" color="on-surface-variant" className="leading-tight">
                                 Moteur
                             </Typography>

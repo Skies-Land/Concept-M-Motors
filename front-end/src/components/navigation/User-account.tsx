@@ -5,6 +5,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { Button } from "../design-system/Button";
 import { Typography } from "../design-system/Typography";
 
+// ICÔNES
+import { MdAccountCircle, MdLogout } from "react-icons/md";
+
 // TYPES
 import type { User } from "../../types/UserType";
 
@@ -26,13 +29,13 @@ export default function UserAccount({ user, onLogout }: UserAccountProps) {
     return (
         <div className="flex items-center gap-6">
             <Link to="/account" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-                <span className="material-symbols-outlined text-primary text-3xl">account_circle</span>
+                <MdAccountCircle className="text-primary text-3xl" />
                 <Typography variant="label-md" color="on-surface" className="hidden sm:block">
                     {user.displayName}
                 </Typography>
             </Link>
             <Button variant="tertiary" size="small" onClick={handleLogout} className="px-0">
-                <span className="material-symbols-outlined text-lg" aria-label="logout">logout</span>
+                <MdLogout className="text-lg" />
             </Button>
         </div>
     );

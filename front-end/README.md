@@ -24,6 +24,8 @@ src/
 │   ├── design-system/          # Composants de base d'interface (Container, Typography, Button, Logo, Input)
 │   ├── layout/                 # Composants de structure (RootLayout)
 │   ├── navigation/             # Composants de navigation (Header, Footer, ProtectedRoute, GuestRoute, User-account)
+│   |   └── features/           # Composants de fonctionnalité (Active-link-header)
+│   |   └── functions/          # Fonctions de logique (Menu-mobile-function)
 │   └── seo/                    # Composants liés au référencement (Seo)
 │
 ├── config/                     # Configuration des services tiers
@@ -41,18 +43,18 @@ src/
 │   ├── 3-catalog-page/         # Composants et vue pour la page du "Catalogue"
 │   │   └── components/         # Sous-composants propres à la page
 │   │       └── features/       # Composants de fonctionnalités (Filtres, Pagination)
-│   │       └── functions/      # Hooks de logique fonctionnelle
+│   │       └── functions/      # Fonctions de logique
 │   ├── 4-vehicle-page/         # Composants et vue pour la page de description d'un "Véhicule"
 │   ├── 5-contact-page/         # Composants et vue pour la page de "Contact"
 │   │   └── components/         # Sous-composants propres à la page
 │   │       └── module-form/    # Module pour le formulaire de contact
 │   ├── 6-login-page/           # Composants et vue pour la page de "Connexion / Inscription"
 │   │   └── components/         # Sous-composants propres à la page
-│   │       └── functions/      # Hooks de logique fonctionnelle (Connexion, Inscription)
+│   │       └── functions/      # Fonctions de logique (Connexion, Inscription)
 │   ├── 7-account-page/         # Composants et vue pour la page de "l'Espace client"
 │   │   └── components/         # Sous-composants propres à la page
 │   │       ├── features/       # Composants de fonctionnalité (Sidebar, Preview-document)
-│   │       └── functions/      # Hooks et logique (Send-document, Validation-document, Check-document-upload)
+│   │       └── functions/      # Fonctions de logique (Send-document, Validation-document, Check-document-upload)
 │   └── 8-error-page/           # Composants et vue pour la page "d'erreur 404"
 │
 ├── routes/                     # Fichiers de configuration du routage

@@ -3,8 +3,12 @@ import Container from "../../../components/design-system/Container";
 import { Typography } from "../../../components/design-system/Typography";
 import { Button } from "../../../components/design-system/Button";
 
-// IMPORT
+// IMAGE
 import imageServicesLandingPage from "../../../assets/IMG_Services-landing-page.png"
+
+// ICÔNES
+import { IoMdInfinite } from "react-icons/io";
+import { MdSupportAgent, MdArrowForward, MdPrecisionManufacturing, MdVerified } from "react-icons/md";
 
 /** Composant servant à afficher les services proposés par l'entreprise correspondant à la landing page */
 export default function ServicesLandingPage() {
@@ -32,11 +36,11 @@ export default function ServicesLandingPage() {
             <img 
               className="absolute inset-0 w-full h-full object-cover brightness-[0.4] group-hover:scale-110 transition-transform duration-1000" 
               src={imageServicesLandingPage}
-              alt="Intérieur d'une voiture de luxe" />
+              alt="Intérieur d'un atelier de mécanique" />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent"></div>
             <div className="absolute bottom-10 left-10 right-10">
               <div className="flex items-center gap-3 mb-4">
-                <span className="material-symbols-outlined text-2xl text-orange-500" data-icon="all_inclusive">all_inclusive</span>
+                <IoMdInfinite className="text-2xl text-orange-500" />
                 <Typography variant="label-sm" color="primary">Offre Signature</Typography>
               </div>
               <Typography variant="headline-md" component="h3" color="on-surface" className="uppercase mb-4">Tout Inclus</Typography>
@@ -54,7 +58,7 @@ export default function ServicesLandingPage() {
             <div className="bg-surface-container-low p-10 rounded-2xl border border-white/5 flex flex-col justify-between group hover:bg-surface-container transition-colors">
               <div className="space-y-6">
                 <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center">
-                  <span className="material-symbols-outlined text-3xl text-orange-500" data-icon="Icône d'agent de support">support_agent</span>
+                  <MdSupportAgent className="text-3xl text-orange-500" />
                 </div>
                 <div>
                   <Typography variant="headline-sm" component="h4" color="on-surface" className="uppercase mb-2">Conciergerie 24/7</Typography>
@@ -66,7 +70,7 @@ export default function ServicesLandingPage() {
                 variant="tertiary" 
                 size="small" 
                 className="mt-6 p-0 w-max" 
-                icon={<span className="material-symbols-outlined text-sm">arrow_forward</span>} 
+                icon={<MdArrowForward className="text-sm" />} 
                 iconPosition="right"
                 baseUrl="/contact"
               >
@@ -76,7 +80,7 @@ export default function ServicesLandingPage() {
             <div className="bg-surface-container-low p-10 rounded-2xl border border-white/5 flex flex-col justify-between group hover:bg-surface-container transition-colors">
               <div className="space-y-6">
                 <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center">
-                  <span className="material-symbols-outlined text-3xl text-orange-500" data-icon="Icône de fabrication de précision">precision_manufacturing</span>
+                  <MdPrecisionManufacturing className="text-3xl text-orange-500" />
                 </div>
                 <div>
                   <Typography variant="headline-sm" component="h4" color="on-surface" className="uppercase mb-2">Entretien Prédictif</Typography>
@@ -88,7 +92,7 @@ export default function ServicesLandingPage() {
                 variant="tertiary" 
                 size="small" 
                 className="mt-6 p-0 w-max" 
-                icon={<span className="material-symbols-outlined text-sm">arrow_forward</span>} 
+                icon={<MdArrowForward className="text-sm" />} 
                 iconPosition="right"
                 baseUrl="/contact"
               >
@@ -100,22 +104,22 @@ export default function ServicesLandingPage() {
           <div className="bg-surface-container-low p-10 rounded-2xl border border-white/10 flex flex-col justify-between relative overflow-hidden group hover:bg-surface-container transition-colors">
             <div className="space-y-8 relative z-10">
               <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center">
-                <span className="material-symbols-outlined text-3xl text-orange-500" data-icon="Icône de coche de vérification">verified</span>
+                <MdVerified className="text-3xl text-orange-500" />
               </div>
               <div>
                 <Typography variant="headline-md" component="h4" color="on-surface" className="uppercase mb-4">Garantie Premium Étendue</Typography>
                 <Typography variant="label-md" color="on-surface-variant" className="mb-6">Sérénité totale sur 48 mois ou 100,000 km. Nous couvrons l'essentiel pour que vous ne pensiez qu'au plaisir de conduire.</Typography>
                 <ul className="space-y-3">
                   <li className="flex items-center gap-3">
-                    <span className="material-symbols-outlined text-orange-500 text-sm" data-icon="Icône de coche de vérification">verified</span>
+                    <MdVerified className="text-orange-500 text-sm" />
                     <Typography variant="label-sm" component="span" color="on-surface">Assistance Europe</Typography>
                   </li>
                   <li className="flex items-center gap-3">
-                    <span className="material-symbols-outlined text-orange-500 text-sm" data-icon="Icône de coche de vérification">verified</span>
+                    <MdVerified className="text-orange-500 text-sm" />
                     <Typography variant="label-sm" component="span" color="on-surface">Remplacement véhicule</Typography>
                   </li>
                   <li className="flex items-center gap-3">
-                    <span className="material-symbols-outlined text-orange-500 text-sm" data-icon="Icône de coche de vérification">verified</span>
+                    <MdVerified className="text-orange-500 text-sm" />
                     <Typography variant="label-sm" component="span" color="on-surface">Expertise certifiée</Typography>
                   </li>
                 </ul>

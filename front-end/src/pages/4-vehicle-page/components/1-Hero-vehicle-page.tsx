@@ -2,6 +2,9 @@
 import { Typography } from "../../../components/design-system/Typography"
 import Container from "../../../components/design-system/Container"
 
+// ICÔNES
+import { MdSpeed, MdDirectionsCar, MdCalendarMonth } from "react-icons/md";
+
 // TYPES
 import { type Vehicle } from '../../../types/Vehicle';
 export interface VehicleHeroProps {
@@ -32,28 +35,28 @@ export default function HeroVehiclePage({ vehicle }: VehicleHeroProps) {
                         {vehicle.slogan}
                     </Typography>
                     {/* Nom de la voiture */}
-                    <Typography variant="headline-lg" component="h1" color="inverse" className="mb-6 tracking-tighter">
+                    <Typography variant="headline-lg" component="h1" className="mb-6 tracking-tighter">
                         {vehicle.brand} {vehicle.model} {vehicle.year}
                     </Typography>
                     {/* Informations sur la voiture */}
                     <div className="flex flex-wrap items-center gap-4">
                         {/* Kilométrage */}
                         <Typography variant="body-md" color="on-surface-variant" component="span" className="flex items-center gap-2">
-                            <span className="material-symbols-outlined text-primary text-lg">speed</span> 
+                            <MdSpeed className="text-primary text-lg" /> 
                             {vehicle.mileage} km
                         </Typography>
                         {/* Séparateur */}
                         <span className="w-1 h-1 rounded-full bg-outline-variant/50"></span>
                         {/* Type de voiture */}
                         <Typography variant="body-md" color="on-surface-variant" component="span" className="flex items-center gap-2">
-                            <span className="material-symbols-outlined text-primary text-lg">directions_car</span> 
+                            <MdDirectionsCar className="text-primary text-lg" /> 
                             {vehicle.category}
                         </Typography>
                         {/* Séparateur */}
                         <span className="w-1 h-1 rounded-full bg-outline-variant/50"></span>
                         {/* Année de la voiture */}
                         <Typography variant="body-md" color="on-surface-variant" component="span" className="flex items-center gap-2">
-                            <span className="material-symbols-outlined text-primary text-lg">calendar_month</span> 
+                            <MdCalendarMonth className="text-primary text-lg" /> 
                             {vehicle.year}
                         </Typography>
                     </div>

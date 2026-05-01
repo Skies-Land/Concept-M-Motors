@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 import Container from "../../../components/design-system/Container";
 import { Typography } from "../../../components/design-system/Typography";
 
+// ICÔNES
+import { MdSupportAgent, MdPrecisionManufacturing, MdVerified } from "react-icons/md";
+
 /** Composant servant à afficher les services qu'offre l'entreprise correspondant à la page catalogue */
 export default function OurServicesCatalogPage() {
     return (
@@ -28,9 +31,7 @@ export default function OurServicesCatalogPage() {
                     {/* Service 1 - Assistance 24/7 */}
                     <div className="p-10 bg-surface-container-high border border-white/5 rounded-xl hover:bg-surface-container-highest transition-all group">
                         <div className="mb-8">
-                            <span className="material-symbols-outlined text-4xl text-orange-500 transition-transform group-hover:scale-110" data-pg-name="Icône d'agent de support">
-                                support_agent
-                            </span>
+                            <MdSupportAgent className="text-4xl text-orange-500 transition-transform group-hover:scale-110" />
                         </div>
                         <Typography variant="headline-sm" component="h4" color="on-surface" className="uppercase mb-4">
                             Assistance 24/7
@@ -49,9 +50,7 @@ export default function OurServicesCatalogPage() {
                     {/* Service 2 - Maintenance Expert */}
                     <div className="p-10 bg-surface-container-high border border-white/5 rounded-xl hover:bg-surface-container-highest transition-all group">
                         <div className="mb-8">
-                            <span className="material-symbols-outlined text-4xl text-orange-500 transition-transform group-hover:scale-110" data-pg-name="Icône de fabrication de précision">
-                                precision_manufacturing
-                            </span>
+                            <MdPrecisionManufacturing className="text-4xl text-orange-500 transition-transform group-hover:scale-110" />
                         </div>
                         <Typography variant="headline-sm" component="h4" color="on-surface" className="uppercase mb-4">
                             Maintenance Expert
@@ -70,9 +69,7 @@ export default function OurServicesCatalogPage() {
                     {/* Service 3 - Garantie Premium */}
                     <div className="p-10 bg-surface-container-high border border-white/5 rounded-xl hover:bg-surface-container-highest transition-all group">
                         <div className="mb-8">
-                            <span className="material-symbols-outlined text-4xl text-orange-500 transition-transform group-hover:scale-110" data-pg-name="Icône de coche de vérification">
-                                verified
-                            </span>
+                            <MdVerified className="text-4xl text-orange-500 transition-transform group-hover:scale-110" />
                         </div>
                         <Typography variant="headline-sm" component="h4" color="on-surface" className="uppercase mb-4">
                             Garantie Premium

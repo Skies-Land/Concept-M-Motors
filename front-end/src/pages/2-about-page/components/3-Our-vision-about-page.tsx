@@ -2,6 +2,9 @@
 import { Typography } from "../../../components/design-system/Typography";
 import Container from "../../../components/design-system/Container";
 
+// ICÔNES
+import { MdVerified, MdHandshake, MdSpeed, MdPayments, MdAutorenew } from "react-icons/md";
+
 /** Composant servant à afficher les services de l'entreprise correspondant à la page à propos */
 export default function OurVisionAboutPage() {
     return (
@@ -29,9 +32,7 @@ export default function OurVisionAboutPage() {
                     {/* Vente et Qualité */}
                     <div className="bg-surface-container-low duration-500 flex flex-col gap-6 group p-8 rounded-lg transition-all hover:bg-surface-container-high">
                         <div className="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-lg transition-colors duration-500">
-                            <span className="material-symbols-outlined text-primary" data-icon="Icône de coche de vérification">
-                                verified
-                            </span>
+                            <MdVerified className="text-primary text-2xl" />
                         </div>
                         <Typography variant="headline-sm" component="h3" color="on-surface">
                             Vente et Qualité
@@ -44,9 +45,7 @@ export default function OurVisionAboutPage() {
                     {/* Accompagnement Client */}
                     <div className="bg-surface-container-low duration-500 flex flex-col gap-6 group p-8 rounded-lg transition-all hover:bg-surface-container-high">
                         <div className="bg-primary/10 duration-500 flex h-12 items-center justify-center rounded-lg transition-colors w-12">
-                            <span className="material-symbols-outlined text-primary" data-icon="Icône de poignée de main">
-                                handshake
-                            </span>
+                            <MdHandshake className="text-primary text-2xl" />
                         </div>
                         <Typography variant="headline-sm" component="h3" color="on-surface">
                             Accompagnement
@@ -59,9 +58,7 @@ export default function OurVisionAboutPage() {
                     {/* Essai Routier */}
                     <div className="bg-surface-container-low duration-500 flex flex-col gap-6 group p-8 rounded-lg transition-all hover:bg-surface-container-high">
                         <div className="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-lg transition-colors duration-500">
-                            <span className="material-symbols-outlined text-primary" data-icon="Icône de vitesse">
-                                speed
-                            </span>
+                            <MdSpeed className="text-primary text-2xl" />
                         </div>
                         <Typography variant="headline-sm" component="h3" color="on-surface">
                             Essai Routier
@@ -74,9 +71,7 @@ export default function OurVisionAboutPage() {
                     {/* Financement */}
                     <div className="bg-surface-container-low duration-500 flex flex-col gap-6 group p-8 rounded-lg transition-all hover:bg-surface-container-high">
                         <div className="w-12 h-12 flex items-center justify-center bg-primary/10 rounded-lg transition-colors duration-500">
-                            <span className="material-symbols-outlined text-primary" data-icon="Icône de paiement">
-                                payments
-                            </span>
+                            <MdPayments className="text-primary text-2xl" />
                         </div>
                         <Typography variant="headline-sm" component="h3" color="on-surface">
                             Financement
@@ -90,9 +85,7 @@ export default function OurVisionAboutPage() {
                     <div className="bg-surface-container-low duration-500 flex flex-col gap-6 group p-8 rounded-lg transition-all hover:bg-surface-container-high md:col-span-2">
                         <div className="flex flex-col md:flex-row gap-8 items-start">
                             <div className="w-12 h-12 shrink-0 flex items-center justify-center bg-primary/10 rounded-lg transition-colors duration-500">
-                                <span className="material-symbols-outlined text-primary" data-icon="Icône de flèches circulaire">
-                                    autorenew
-                                </span>
+                                <MdAutorenew className="text-primary text-2xl" />
                             </div>
                             <div>
                                 <Typography variant="headline-sm" component="h3" color="on-surface" className="mb-2">

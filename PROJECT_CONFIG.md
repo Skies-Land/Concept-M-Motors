@@ -27,13 +27,14 @@ Ce document résume la configuration technique du projet Concept M-Motors.
     - Centralisation du style des boutons avec le composant `Button`. 
     - Centralisation du style des conteneurs avec le composant `Container`.
     - Centralisation du style du design du logo avec le composant `Logo`.
-    - Centralisation du style de la balise `<input>` avec le composant `Input`.
+    - Centralisation du style de la balise `<input>` avec le composant `Input` (styles appliqués également aux `select` et `textarea` pour une cohérence visuelle totale).
 - **Gestion d'état :** Utilisation de la **React Context API** (`AuthUserContext`) pour centraliser l'état de l'utilisateur et la persistance de la session en temps réel.
 - **Sécurisation :** 
     - Centralisation des statuts de session via des constantes (`Session-status`) et des types TypeScript dédiés pour une sécurité maximale du code.
     - **Route Guards :** Utilisation des composants `ProtectedRoute` et `GuestRoute` pour filtrer l'accès aux pages selon l'état d'authentification.
 - **Logique de Navigation :**
     - **Tabs dynamiques :** Navigation interne de l'espace client (dashboard) basée sur les ancres URL (hash), permettant un affichage conditionnel des sections sans rechargement.
+    - **Navigation Responsive :** Barre latérale (Sidebar) de l'espace client adaptative, se transformant en barre de navigation horizontale (Bottom Tab Bar) sur mobile pour une ergonomie optimisée.
     - **Gestion de l'Upload :** Utilisation d'un "Hidden Input Render Prop" injecté par un hook personnalisé (`SendDocsAccount`) pour centraliser la gestion des fichiers sans encombrer le DOM.
 - **API & Logique métier :** Centralisation des appels réseau dans `/src/api/` (ex: `Get-user.tsx`) et isolation de la logique métier (Hooks et utilitaires) dans des dossiers `functions/` au sein des modules de pages. Utilisation d'un système de contrôle de fichiers (`CheckDocumentUpload`) avant traitement.
 - **Pages :** Découpage par fonctionnalités dans `/src/pages/`.

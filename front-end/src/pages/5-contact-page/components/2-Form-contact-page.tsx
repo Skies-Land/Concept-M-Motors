@@ -5,34 +5,27 @@ import { Link } from "react-router-dom"
 import { Typography } from "../../../components/design-system/Typography"
 
 // MODULES
-import FormsModuleContactPage from "./module-form/module-form-contact-page"
+import ModuleFormContactPage from "./module-form/Module-form-contact-page"
+
+// ICÔNES
+import { MdOutlineLocationCity, MdOutlineOpenInNew , MdSupportAgent, MdOutlineSchedule  } from "react-icons/md";
 
 /** Composant servant à afficher le formulaire de contact */
 export default function FormContactPage() {
     return (
         <>
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-24 xl:items-stretch">
+
                 {/* Formulaire de contact */}
-                <FormsModuleContactPage />
+                <ModuleFormContactPage />
 
                 {/* Informations sur l'entreprise */}
                 <div className="lg:col-span-12 xl:col-span-5 flex flex-col gap-6 lg:gap-8 h-full">
                     {/* Block : Adresse */}
-                    <div className="bg-surface-container-highest p-6 sm:p-8 rounded-lg flex flex-col justify-between group relative overflow-hidden flex-1">
-                        <div className="absolute -right-12 -top-12 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
-                            <span className="material-symbols-outlined text-[8rem] sm:text-[12rem]"
-                                data-icon="location_on"
-                                data-pg-name="Icône de localisation">
-                                location_on
-                            </span>
-                        </div>
+                    <div className="bg-surface-container p-6 sm:p-8 rounded-lg flex flex-col justify-between group relative overflow-hidden flex-1">
                         <div className="mb-6 sm:mb-8">
                             <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4 text-primary">
-                                <span className="material-symbols-outlined text-xl sm:text-2xl"
-                                    data-icon="business"
-                                    data-pg-name="Icône du siège social">
-                                    business
-                                </span>
+                                <MdOutlineLocationCity className="text-xl sm:text-2xl" />
                                 <Typography
                                     variant="headline-sm"
                                     color="on-surface"
@@ -56,11 +49,7 @@ export default function FormContactPage() {
                                 to="#"
                                 className="inline-flex items-center gap-2 font-label text-xs sm:text-sm text-primary uppercase tracking-wider hover:text-primary-dim transition-colors">
                                 Ouvrir dans Maps
-                                <span className="material-symbols-outlined text-xs sm:text-sm"
-                                    data-icon="open_in_new"
-                                    data-pg-name="Icône ouvrir dans Maps">
-                                    open_in_new
-                                </span>
+                                <MdOutlineOpenInNew className="text-xl sm:text-2xl" />
                             </Link>
                         </div>
                     </div>
@@ -70,11 +59,7 @@ export default function FormContactPage() {
                         {/* Block 1 - Support technique */}
                         <div className="bg-surface-container p-5 sm:p-6 rounded-lg flex-1 flex flex-col justify-center">
                             <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4 text-primary">
-                                <span className="material-symbols-outlined text-xl sm:text-2xl"
-                                    data-icon="support_agent"
-                                    data-pg-name="Icône support technique">
-                                    support_agent
-                                </span>
+                                <MdSupportAgent className="text-xl sm:text-2xl"/>
                                 <Typography
                                     variant="headline-sm"
                                     color="on-surface"
@@ -92,19 +77,15 @@ export default function FormContactPage() {
                                 Ligne direct vers notre support client
                             </Typography>
                             <Link
-                                to="tel:+33100000000"
-                                className="font-headline font-bold text-xl sm:text-2xl text-on-surface text-primary transition-colors block break-words"
-                                data-icon="phone"
-                                data-pg-name="Icône téléphone">
+                                to="#"
+                                className="font-headline font-bold text-xl sm:text-2xl text-on-surface text-primary transition-colors block break-words">
                                 01 00 00 00 00
                             </Link>
                         </div>
                         {/* Block 2 - Horaires */}
                         <div className="bg-surface-container p-5 sm:p-6 rounded-lg flex-1">
                             <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4 text-primary">
-                                <span className="material-symbols-outlined text-xl sm:text-2xl" data-icon="schedule" data-pg-name="Icône horaires">
-                                    schedule
-                                </span>
+                                <MdOutlineSchedule className="text-xl sm:text-2xl"/>
                                 <Typography
                                     variant="headline-sm"
                                     color="on-surface"

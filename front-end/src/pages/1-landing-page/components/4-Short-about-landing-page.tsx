@@ -2,6 +2,9 @@
 import Container from "../../../components/design-system/Container";
 import { Typography } from "../../../components/design-system/Typography";
 
+// ICÔNES
+import { MdShoppingCart, MdSupportAgent, MdSpeed, MdAccountBalance, MdAutorenew } from "react-icons/md";
+
 /** Composant servant à afficher une courte description de l'entreprise correspondant à la landing page */
 export default function ShortAboutLandingPage() {
   return (
@@ -73,30 +76,29 @@ export default function ShortAboutLandingPage() {
             <ul className="space-y-4">
               <li className="bg-surface-container-lowest/50 flex group items-center justify-between p-4 rounded-lg transition-colors hover:bg-primary-container">
                 <Typography variant="label-lg" component="span" color="on-surface" className="group-hover:text-on-primary-fixed">Vente</Typography>
-                <span className="material-symbols-outlined text-primary group-hover:text-on-primary-fixed" data-icon="Icône de panier d'achat">shopping_cart</span>
+                <MdShoppingCart className="text-xl text-primary group-hover:text-on-primary-fixed" />
               </li>
               <li className="bg-surface flex group items-center justify-between p-4 rounded-lg transition-colors hover:bg-primary-container">
                 <Typography variant="label-lg" component="span" color="on-surface" className="group-hover:text-on-primary-fixed">Accompagnement</Typography>
-                <span className="material-symbols-outlined text-primary group-hover:text-on-primary-fixed" data-icon="Icône d'agent de support">support_agent</span>
+                <MdSupportAgent className="text-xl text-primary group-hover:text-on-primary-fixed" />
               </li>
               <li className="bg-surface-container-lowest/50 flex group items-center justify-between p-4 rounded-lg transition-colors hover:bg-primary-container">
                 <Typography variant="label-lg" component="span" color="on-surface" className="group-hover:text-on-primary-fixed">Essai</Typography>
-                <span className="material-symbols-outlined text-primary group-hover:text-on-primary-fixed" data-icon="Icône de vitesse">speed</span>
+                <MdSpeed className="text-xl text-primary group-hover:text-on-primary-fixed" />
               </li>
               <li className="bg-surface flex group items-center justify-between p-4 rounded-lg transition-colors hover:bg-primary-container">
                 <Typography variant="label-lg" component="span" color="on-surface" className="group-hover:text-on-primary-fixed">Financement</Typography>
-                <span className="material-symbols-outlined text-primary group-hover:text-on-primary-fixed" data-icon="Icône d'une banque">account_balance</span>
+                <MdAccountBalance className="text-xl text-primary group-hover:text-on-primary-fixed" />
               </li>
               <li className="bg-surface-container-lowest/50 flex group items-center justify-between p-4 rounded-lg transition-colors hover:bg-primary-container">
                 <Typography variant="label-lg" component="span" color="on-surface" className="group-hover:text-on-primary-fixed">Reprise</Typography>
-                <span className="material-symbols-outlined text-primary group-hover:text-on-primary-fixed" data-icon="Icône de flèche circulaire">autorenew</span>
+                <MdAutorenew className="text-xl text-primary group-hover:text-on-primary-fixed" />
               </li>
             </ul>
           </div>
         </div>
 
       </Container>
-
     </section>
   );
 }

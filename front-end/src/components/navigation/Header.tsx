@@ -1,5 +1,6 @@
 // DÉPENDANCE
 import { Link } from 'react-router-dom';
+import { FiMenu, FiX } from 'react-icons/fi';
 
 // DESIGN SYSTEM
 import Container from '../design-system/Container';
@@ -13,9 +14,15 @@ import UserAccount from './User-account';
 // CONTEXTE
 import { useAuth } from '../../context/AuthUserContext';
 
+// FONCTIONNALITÉS
+import useMenuMobile from './functions/Menu-mobile-function';
+import useActiveLinkHeader from './features/Active-link-header';
+
 /** Composant servant à afficher l'en-tête du site */
 export default function Header() {
   const { authUser, signOut } = useAuth();
+  const { isMenuOpen, toggleMenu } = useMenuMobile();
+  const { getLinkStyles } = useActiveLinkHeader();
 
   return (
     <header>
@@ -28,13 +35,12 @@ export default function Header() {
           <Logo />
 
           {/* Liens de navigation */}
-          {/* TODO: Ajouter un effet de lien actif */}
           <div className="hidden items-end space-x-12 md:flex" data-pg-name="Liens">
             <Link to="/catalog">
               <Typography 
                 variant="label-md" 
-                color="on-surface-variant" 
-                className="pb-1 transition-colors hover:text-on-surface"
+                color={getLinkStyles('/catalog').color} 
+                className={getLinkStyles('/catalog').className}
                 component="span"
               >
                 Catalogue
@@ -43,11 +49,21 @@ export default function Header() {
             <Link to="/about">
               <Typography 
                 variant="label-md" 
-                color="on-surface-variant" 
-                className="pb-1 transition-colors hover:text-on-surface"
+                color={getLinkStyles('/about').color} 
+                className={getLinkStyles('/about').className}
                 component="span"
               >
                 À propos
+              </Typography>
+            </Link>
+            <Link to="/contact">
+              <Typography 
+                variant="label-md" 
+                color={getLinkStyles('/contact').color} 
+                className={getLinkStyles('/contact').className}
+                component="span"
+              >
+                Contact
               </Typography>
             </Link>
           </div>
@@ -70,11 +86,67 @@ export default function Header() {
                 </Button>
               )}
             </div>
+
+            {/* Bouton Menu Mobile */}
+            <button 
+              className="md:hidden text-on-surface"
+              onClick={toggleMenu}
+              aria-label="Menu principal"
+            >
+              {isMenuOpen ? <FiX size={28} /> : <FiMenu size={28} />}
+            </button>
           </div>
         </Container>
+
+        {/* Menu Mobile */}
+        {isMenuOpen && (
+          <div className="absolute top-[100%] left-0 w-full h-screen bg-stone-950/95 backdrop-blur-xl p-6 flex flex-col gap-6 md:hidden">
+            <Link to="/catalog" onClick={toggleMenu}>
+              <Typography 
+                variant="headline-md" 
+                color={getLinkStyles('/catalog').color} 
+                className={getLinkStyles('/catalog').className}
+              >
+                Catalogue
+              </Typography>
+            </Link>
+            <Link to="/about" onClick={toggleMenu}>
+              <Typography 
+                variant="headline-md" 
+                color={getLinkStyles('/about').color} 
+                className={getLinkStyles('/about').className}
+              >
+                À propos
+              </Typography>
+            </Link>
+            <Link to="/contact" onClick={toggleMenu}>
+              <Typography 
+                variant="headline-md" 
+                color={getLinkStyles('/contact').color} 
+                className={getLinkStyles('/contact').className}
+              >
+                Contact
+              </Typography>
+            </Link>
+            
+            <div className="mt-8 pt-8 border-t border-stone-800">
+              {authUser ? (
+                <UserAccount user={authUser} onLogout={signOut} />
+              ) : (
+                <Button 
+                  variant="primary" 
+                  size="medium" 
+                  baseUrl="/login"
+                  className="w-full justify-center"
+                >
+                  Connexion
+                </Button>
+              )}
+            </div>
+          </div>
+        )}
 
       </nav>
     </header>
   );
 }
-
