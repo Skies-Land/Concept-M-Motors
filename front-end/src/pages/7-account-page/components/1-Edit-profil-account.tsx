@@ -8,7 +8,7 @@ import Input from "../../../components/design-system/Input";
 import { useAuth } from "../../../context/AuthUserContext";
 
 // IMAGE
-import IMGUser from "../../../assets/IMGUser.png";
+import IMG_User from "../../../assets/png/IMGUser.png";
 
 // LOGIQUE
 import { useEditProfilAccount } from "./functions/Edit-profil-account-function";
@@ -40,7 +40,7 @@ export default function EditProfilAccount() {
                             <div className="w-48 h-48 rounded-full bg-[#202225] overflow-hidden relative z-10 flex items-center justify-center">
                                 <img alt="User profile avatar"
                                     className="w-full h-full object-cover"
-                                    src={IMGUser} />
+                                    src={IMG_User} />
                             </div>
                             <Typography
                                 component="p"

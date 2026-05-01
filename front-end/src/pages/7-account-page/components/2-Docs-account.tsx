@@ -9,10 +9,10 @@ import PreviewDocument from "./features/Preview-document-account";
 import ValidationDocument from "./functions/Validation-document-function";
 
 // IMAGES
-import IMGDoc1 from "../../../assets/IMGDoc-1.png"; // Piece d'identité
-import IMGDoc2 from "../../../assets/IMGDoc-2.png"; // Justificatif de domicile
-import IMGDoc3 from "../../../assets/IMGDoc-3.png"; // Bulletins de salaire
-import IMGDoc4 from "../../../assets/IMGDoc-4.png"; // Permis de conduire
+import IMGDoc1 from "../../../assets/png/IMGDoc-1.png"; // Piece d'identité
+import IMGDoc2 from "../../../assets/png/IMGDoc-2.png"; // Justificatif de domicile
+import IMGDoc3 from "../../../assets/png/IMGDoc-3.png"; // Bulletins de salaire
+import IMGDoc4 from "../../../assets/png/IMGDoc-4.png"; // Permis de conduire
 
 /** Composant servant à uploader les documents de l'utilisateur */
 export default function DocsAccount() {

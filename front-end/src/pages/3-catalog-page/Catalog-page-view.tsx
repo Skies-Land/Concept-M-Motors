@@ -13,7 +13,7 @@ export default function CatalogPageView() {
     // États des filtres de recherche de la page catalogue
     const [filters, setFilters] = useState({
         brand: "Toutes les Manufactures",
-        maxPrice: 2000000
+        maxPrice: 100000000 // Valeur initiale élevée pour afficher tous les véhicules par défaut
     });
 
     // Fonction pour mettre à jour les filtres de recherche 

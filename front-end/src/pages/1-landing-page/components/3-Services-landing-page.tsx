@@ -4,7 +4,7 @@ import { Typography } from "../../../components/design-system/Typography";
 import { Button } from "../../../components/design-system/Button";
 
 // IMAGE
-import imageServicesLandingPage from "../../../assets/IMG_Services-landing-page.png"
+import IMG_ServicesLandingPage from "../../../assets/img/IMG_Services-landing-page.jpg"
 
 // ICÔNES
 import { IoMdInfinite } from "react-icons/io";
@@ -35,7 +35,7 @@ export default function ServicesLandingPage() {
           <div className="relative rounded-2xl overflow-hidden group border border-white/5">
             <img 
               className="absolute inset-0 w-full h-full object-cover brightness-[0.4] group-hover:scale-110 transition-transform duration-1000" 
-              src={imageServicesLandingPage}
+              src={IMG_ServicesLandingPage}
               alt="Intérieur d'un atelier de mécanique" />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent"></div>
             <div className="absolute bottom-10 left-10 right-10">

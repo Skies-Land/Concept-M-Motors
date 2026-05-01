@@ -15,6 +15,7 @@ src/
 │   ├── Create-user.tsx         # Fonction de création d'utilisateur dans la collection Firebase `users`
 │   ├── Get-vehicles.tsx        # Fonction de récupération des véhicules depuis la collection Firebase `vehicles`
 │   ├── Get-brands-catalog.tsx  # Fonction de récupération des données par "marque" de véhicule depuis la collection Firebase `vehicles`
+│   ├── Get-max-price-catalog.tsx  # Fonction de récupération du prix maximum des véhicules depuis la collection Firebase `vehicles`
 │   ├── Get-description-vehicle-page.tsx  # Fonction de récupération des données par "véhicule" depuis la collection Firebase `vehicles`
 │   ├── Get-user.tsx            # Fonction de récupération du profil utilisateur depuis la collection Firebase `users`
 │   ├── Get-faq.tsx             # Fonction de récupération des questions et réponses de la section FAQ depuis la collection Firebase `faq`

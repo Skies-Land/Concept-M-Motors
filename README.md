@@ -1,6 +1,10 @@
 # 🚗 CONCEPT M-MOTORS
 **M-Motors** *(entreprise fictive)*, leader dans le secteur des véhicules d'occasion depuis 1987, opère une transformation digitale majeure. Avec un réseau de 800 collaborateurs et un parc servant plus d'un million de clients, l'entreprise modernise son infrastructure pour répondre aux nouveaux usages.
 
+<div align="center">
+  <img src="./maquette/preview.png" alt="Aperçu du Concept M-Motors" width="100%">
+</div>
+
 ### **OBJECTIF DU MVP (Minimum Viable Product)**
 Le projet consiste à développer une plateforme web modernisée visant à digitaliser l'intégralité du tunnel de vente et à introduire un service de LLD (Location longue durée).
 
@@ -55,7 +59,7 @@ npm run dev
 ### 🎨 **PHASE 1 : CONCEPTION ET PRÉPARATION | MAQUETTAGE**
 - **Étape 1 :** J'ai utilisé **[Google Stitch](https://stitch.withgoogle.com/)** pour générer les maquettes du site.
 - **Étape 2 :** J'ai affiné les maquettes en éditant certains éléments avec le logiciel de conception **[Pinegrow](https://www.pinegrow.com/)**.
-- **Étape 3 :** À partir des fichiers du dossier **[Maquette](./maquette/)**, j'ai procédé au découpage en identifiant les éléments et sections, avec l'ajout de commentaires, dans le but d'identifier et prévoir les composants React nécessaires dans l'architecture du dossier **[front-end](./front-end)**.
+- **Étape 3 :** À partir des fichiers du dossier **[Maquette](./maquette/prototype)**, j'ai procédé au découpage en identifiant les éléments et sections, avec l'ajout de commentaires, dans le but d'identifier et prévoir les composants React nécessaires dans l'architecture du dossier **[front-end](./front-end)**.
 > 💡*L'utilisation de **[Google Stitch](https://stitch.withgoogle.com/)** m'a permis d'avoir une base de départ que j'ai pu peaufiner avec le logiciel **[Pinegrow](https://www.pinegrow.com/)** pour démarrer mon développement.*
 
 
@@ -87,7 +91,7 @@ Chaque partie du site est découpée par dossier qui représente une page. Chaqu
 * `src/pages/nom-de-la-page/functions/` : dossier regroupant les fonctions de logique de la page.
 >💡*Cette structure de dossier principale par page et de sous-dossier, me sert à séparer la logique fonctionnelle du contenu graphique de la page. Le but étant que le code soit plus facilement maintenable et plus facile à comprendre. Plus d'information sur cette structure dans le fichier **[README.md](./front-end/README.md)**.*
 
-#### **🗄️ PRÉPARATION ET CONFIGURATION DE LA BASE DE DONNÉES DES VÉHICULES** :
+#### **🗄️ PRÉPARATION ET CONFIGURATION DE LA BASE DE DONNÉES DES VÉHICULES :**
 * Pour la page de catalogue de véhicules, j'ai choisi d'opter pour **[Firebase](https://firebase.google.com/)** pour stocker les données des véhicules. Configuré avec **[Firestore](https://firebase.google.com/docs/firestore?hl=fr)** comme base de données NoSQL. 
 * J'ai configuré une collection de données nommée `vehicles` avec la structure suivante :
 

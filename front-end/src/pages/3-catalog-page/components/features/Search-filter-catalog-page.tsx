@@ -1,6 +1,7 @@
 // DÉPENDANCES
 import { useState, useEffect } from "react";
 import { getBrandsCatalog } from "../../../../api/Get-brands-catalog";
+import { getMaxPriceCatalog } from "../../../../api/Get-max-price-catalog";
 
 // DESIGN SYSTEM
 import { Typography } from "../../../../components/design-system/Typography";
@@ -17,23 +18,30 @@ export default function SearchFilterCatalog({ onFilterChange }: SearchFilterCata
     const [selectedBrand, setSelectedBrand] = useState("Toutes les Manufactures");
     // État pour stocker le prix maximum
     const [maxPrice, setMaxPrice] = useState(2000000);
+    // État pour stocker le prix maximum absolu trouvé en base
+    const [absoluteMaxPrice, setAbsoluteMaxPrice] = useState(2000000);
     // État pour stocker les marques
     const [brands, setBrands] = useState<string[]>([]);
     // État pour gérer le filtre actif
     const [activeFilter, setActiveFilter] = useState<"none" | "brand" | "price">("none");
 
-    // Récupération dynamique des marques présentes dans la base de données
+    // Récupération dynamique des marques et du prix maximum présents dans la base de données
     useEffect(() => {
-        const fetchBrands = async () => {
+        const fetchFilterData = async () => {
             try {
-                const uniqueBrands = await getBrandsCatalog();
+                const [uniqueBrands, maxPriceDb] = await Promise.all([
+                    getBrandsCatalog(),
+                    getMaxPriceCatalog()
+                ]);
                 setBrands(uniqueBrands);
+                setAbsoluteMaxPrice(maxPriceDb);
+                setMaxPrice(maxPriceDb); // Initialise le filtre au prix max par défaut
             } catch (error) {
-                console.error("Erreur lors de la récupération des marques:", error);
+                console.error("Erreur lors de la récupération des données de filtre:", error);
             }
         };
 
-        fetchBrands();
+        fetchFilterData();
     }, []);
 
     /** Fonction pour mettre à jour les filtres de recherche par "marque" */
@@ -41,7 +49,7 @@ export default function SearchFilterCatalog({ onFilterChange }: SearchFilterCata
         setActiveFilter("brand");
         onFilterChange({
             brand: selectedBrand,
-            maxPrice: 5000000
+            maxPrice: absoluteMaxPrice
         });
     };
 
@@ -95,15 +103,15 @@ export default function SearchFilterCatalog({ onFilterChange }: SearchFilterCata
                         <span className="text-on-surface-variant min-w-[60px]">0 €</span>
                         <input 
                             className="accent-primary flex-grow mx-4 cursor-pointer" 
-                            max="5000000" 
+                            max={absoluteMaxPrice} 
                             min="0" 
-                            step="50000" 
+                            step="10000" 
                             type="range"
                             value={maxPrice}
                             onChange={(e) => setMaxPrice(parseInt(e.target.value))}
                         />
                         <span className="text-primary font-bold">
-                            {maxPrice >= 5000000 ? "5M €+" : `${(maxPrice / 1000).toLocaleString()}k €`}
+                            {maxPrice >= absoluteMaxPrice ? `${(absoluteMaxPrice / 1000000).toFixed(1)}M €+` : `${(maxPrice / 1000).toLocaleString()}k €`}
                         </span>
                     </div>
                 </div>

@@ -1,8 +1,8 @@
 // DESIGN SYSTEM
 import { Typography } from "../../../components/design-system/Typography";
 
-// IMPORT
-import imageHeroAboutPage from "../../../assets/IMG-Hero-about-page.png"
+// IMAGE
+import IMG_HeroAboutPage from "../../../assets/img/IMG_Hero-about-page.jpg"
 
 /** Composant servant à afficher la section Hero correspondant à la page à propos */
 export default function HeroAboutPage() {
@@ -14,7 +14,7 @@ export default function HeroAboutPage() {
                     alt="Une voiture de sport noire de luxe dans un garage à l'architecture minimaliste" 
                     className="w-full h-full object-cover opacity-40" 
                     data-alt="Plan cinématographique sur une supercar au design épuré, noir mat, dans un décor industriel sombre et minimaliste" 
-                    src={imageHeroAboutPage}
+                    src={IMG_HeroAboutPage}
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/60 to-background"></div>
             </div>

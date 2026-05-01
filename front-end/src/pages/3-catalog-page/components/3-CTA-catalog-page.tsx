@@ -3,8 +3,8 @@ import Container from "../../../components/design-system/Container";
 import { Typography } from "../../../components/design-system/Typography";
 import { Button } from "../../../components/design-system/Button";
 
-// IMPORT
-import imageCTACatalogPage from "../../../assets/IMG_CTA_catalog.png"
+// IMAGE
+import IMG_CTACatalogPage from "../../../assets/img/IMG_CTA_catalog-page.jpg"
 
 /** Composant servant à afficher la section d'appel à l'action correspondant de la page catalogue */
 export default function CTACatalogPage() {
@@ -20,7 +20,7 @@ export default function CTACatalogPage() {
                     <img 
                         alt="Photographie de course à grande vitesse" 
                         className="w-full h-full object-cover brightness-50" 
-                        src= {imageCTACatalogPage}
+                        src= {IMG_CTACatalogPage}
                     />
                     {/* Conteneur textuel */}
                     <div className="absolute inset-0 flex flex-col justify-center items-center text-center p-8">

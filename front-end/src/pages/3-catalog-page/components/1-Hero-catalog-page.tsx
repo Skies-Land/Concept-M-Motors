@@ -1,11 +1,11 @@
 // DESIGN SYSTEM
 import { Typography } from "../../../components/design-system/Typography";
 
-// FEATURES
+// FEATURE
 import SearchFilterCatalog from "./features/Search-filter-catalog-page";
 
 // IMAGE
-import imageHeroPageCatalog from "../../../assets/IMG_hero-catalog.jpg"
+import IMG_HeroPageCatalog from "../../../assets/img/IMG_Hero-catalog-page.jpg"
 
 // INTERFACE
 interface HeroCatalogPageProps {
@@ -17,7 +17,7 @@ export default function HeroCatalogPage({ onFilterChange }: HeroCatalogPageProps
     return (
         <section 
             className="bg-center bg-cover border-b border-white/5 flex flex-col min-h-[614px] items-center justify-center px-4 md:px-8 relative rounded-lg text-center pt-32 pb-16 md:py-0" 
-            style={{ backgroundImage: `url(${imageHeroPageCatalog})` }}
+            style={{ backgroundImage: `url(${IMG_HeroPageCatalog})` }}
             data-pg-name="Section Hero de la page catalogue">
 
             {/* Overlay */}

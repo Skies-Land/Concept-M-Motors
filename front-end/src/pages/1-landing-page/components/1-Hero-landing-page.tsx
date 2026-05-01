@@ -3,8 +3,8 @@ import Container from "../../../components/design-system/Container";
 import { Typography } from "../../../components/design-system/Typography";
 import { Button } from "../../../components/design-system/Button";
 
-// IMPORT
-import imageHeroLandingPage from "../../../assets/IMG_Hero_landing-page.png"
+// IMAGE
+import IMG_HeroLandingPage from "../../../assets/img/IMG_Hero-landing-page.jpg"
 
 /** Composant servant à afficher la section Hero correspondant à la landing page */
 export default function HeroLandingPage() {
@@ -17,7 +17,7 @@ export default function HeroLandingPage() {
         <img 
           className="w-full h-full object-cover grayscale opacity-50" 
           data-alt="Profil latéral d'une supercar moderne et élégante dans un garage sombre et cinématique" 
-          src = {imageHeroLandingPage}
+          src = {IMG_HeroLandingPage}
           alt="Image de fond de la section hero" />
       </div>
 
