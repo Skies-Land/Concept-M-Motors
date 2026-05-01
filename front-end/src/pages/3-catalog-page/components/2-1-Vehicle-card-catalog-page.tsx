@@ -1,4 +1,4 @@
-// DEPENDANCES
+// DÉPENDANCE
 import { Link } from 'react-router-dom';
 
 // DESIGN SYSTEM

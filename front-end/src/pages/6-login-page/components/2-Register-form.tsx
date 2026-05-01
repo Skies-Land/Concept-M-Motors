@@ -1,10 +1,10 @@
-// FONCTION
-import { useRegister } from "./functions/Register-function";
-
 // DESIGN SYSTEM
 import { Button } from "../../../components/design-system/Button";
 import { Typography } from "../../../components/design-system/Typography";
 import Input from "../../../components/design-system/Input";
+
+// LOGIQUE
+import { useRegister } from "./functions/Register-function";
 
 /** Composant servant à afficher un formulaire d'inscription */
 export default function RegisterForm() {

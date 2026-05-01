@@ -12,7 +12,7 @@ import { Typography } from "../../../components/design-system/Typography";
 import VehicleCardPage from "./2-1-Vehicle-card-catalog-page";
 import PaginationCatalog from "./features/Pagination-catalog-page";
 
-// FONCTIONS DE LOGIQUE
+// LOGIQUE
 import { filterVehiclesCatalog, type FilterState } from "./functions/Filter-vehicles-catalog-page";
 import { paginateVehiclesCatalog } from "./functions/Paginate-vehicles-catalog-page";
 

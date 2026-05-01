@@ -1,10 +1,10 @@
-// FONCTION
-import { useLogin } from "./functions/Login-function";
-
 // DESIGN SYSTEM
 import { Button } from "../../../components/design-system/Button";
 import { Typography } from "../../../components/design-system/Typography";
 import Input from "../../../components/design-system/Input";
+
+// LOGIQUE
+import { useLogin } from "./functions/Login-function";
 
 // PROPS
 interface LoginFormProps {

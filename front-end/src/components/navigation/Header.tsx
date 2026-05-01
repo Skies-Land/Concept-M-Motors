@@ -1,4 +1,4 @@
-// DÉPENDANCE
+// DÉPENDANCES
 import { Link } from 'react-router-dom';
 import { FiMenu, FiX } from 'react-icons/fi';
 
@@ -8,15 +8,15 @@ import { Button } from '../design-system/Button';
 import Logo from '../design-system/Logo';
 import { Typography } from '../design-system/Typography';
 
-// COMPOSANT
+// COMPOSANTS
 import UserAccount from './User-account';
+import useActiveLinkHeader from './features/Active-link-header';
 
 // CONTEXTE
 import { useAuth } from '../../context/AuthUserContext';
 
-// FONCTIONNALITÉS
+// LOGIQUE
 import useMenuMobile from './functions/Menu-mobile-function';
-import useActiveLinkHeader from './features/Active-link-header';
 
 /** Composant servant à afficher l'en-tête du site */
 export default function Header() {

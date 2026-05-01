@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 // DESIGN SYSTEM
 import { Typography } from "../../../components/design-system/Typography"
 
-// MODULES
+// MODULE
 import ModuleFormContactPage from "./module-form/Module-form-contact-page"
 
 // ICÔNES

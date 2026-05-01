@@ -1,4 +1,4 @@
-// REACT ICONS
+// ICÔNE
 import { FaRegFilePdf } from "react-icons/fa6";
 
 /** Interface pour définir le document à afficher */

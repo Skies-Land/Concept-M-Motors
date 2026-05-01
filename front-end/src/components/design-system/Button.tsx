@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-// INTERFACES
+/** Types de propriétés pour personnalisé le composant `Button` */
 export interface ButtonProps {
     /** Taille proportionnelle du bouton */
     size?: "small" | "medium" | "large";
@@ -86,11 +86,15 @@ export const Button = ({
     }
 
     // Styles de base de tout bouton
-    // "Industrial / precision styling": font-label, uppercase, tracking-widest, moderate radius
     const baseStyles = "font-label uppercase tracking-widest transition-all duration-300 ease-in-out font-bold flex flex-row items-center justify-center gap-3";
-    
-    const radiusStyles = variant === "icon" ? "rounded-full" : "rounded-md"; // moderate = rounded-md
+
+    // Radius modéré pour tous les boutons sauf icônes qui sont entièrement arrondies
+    const radiusStyles = variant === "icon" ? "rounded-full" : "rounded-md";
+
+    // Gestion de l'état désactivé et du chargement
     const disabledStyles = disabled || isLoading ? "opacity-50 cursor-not-allowed" : "cursor-pointer";
+
+    // Gestion de la largeur
     const widthStyles = fullWidth ? "w-full" : "w-auto";
 
     // Compilation des classes

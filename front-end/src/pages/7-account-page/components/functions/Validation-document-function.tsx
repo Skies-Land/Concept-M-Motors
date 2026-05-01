@@ -1,4 +1,4 @@
-// REACT ICONS
+// ICÔNES
 import { MdCheck, MdOutlineSchedule, MdErrorOutline, MdHelpOutline } from "react-icons/md";
 
 /** Interface pour définir le statut d'un document */

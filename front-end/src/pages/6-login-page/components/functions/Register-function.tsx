@@ -1,10 +1,10 @@
-// FIREBASE
-import { auth } from "../../../../config/firebase-config";
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-
 // DÉPENDANCES
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
+// FIREBASE
+import { auth } from "../../../../config/firebase-config";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 
 // API
 import { createUser } from "../../../../api/Create-user";

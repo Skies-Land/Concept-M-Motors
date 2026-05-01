@@ -1,17 +1,20 @@
 // DÉPENDANCE
 import React from 'react';
 
-// INTERFACES
+/** Types de propriétés pour personnalisé la **taille** du texte du composant `Typography` */
 export type TypographyVariant = 
     | "display-lg" | "headline-lg" | "headline-md" | "headline-sm" 
     | "body-lg" | "body-md" | "body-sm" 
     | "label-lg" | "label-md" | "label-sm";
 
+/** Types de propriétés pour personnalisé la **couleur** du texte du composant `Typography` */
 export type TypographyColor = 
     | "primary" | "on-surface" | "on-surface-variant" | "error" | "inverse" | "inherit";
 
+/** Types de propriétés pour personnalisé le **gras** du texte du composant `Typography` */
 export type TypographyWeight = "regular" | "medium" | "bold";
 
+/** Interface pour les propriétés du composant `Typography` */
 interface TypographyProps {
     variant?: TypographyVariant;
     component?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "div" | "p" | "span" | "label";

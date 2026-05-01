@@ -58,7 +58,6 @@ export default function HeroLandingPage() {
             <Button 
               variant="primary" 
               size="large" 
-              // TODO: Ajouter un icône de flèche pointant vers la droite
               iconPosition="right"
               baseUrl="/catalog"
             >

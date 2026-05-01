@@ -1,9 +1,9 @@
+// DÉPENDANCE
+import { useState } from "react";
+
 // FIREBASE
 import { auth } from "../../../../config/firebase-config";
 import { sendPasswordResetEmail } from "firebase/auth";
-
-// DÉPENDANCE
-import { useState } from "react";
 
 /** Fonction servant à gérer la logique du formulaire d'oubli de mot de passe */
 export const useForgetPassword = () => {

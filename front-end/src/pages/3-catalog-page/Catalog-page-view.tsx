@@ -1,4 +1,4 @@
-// DÉPENDANCES
+// DÉPENDANCE
 import { useState } from "react";
 
 // COMPOSANTS

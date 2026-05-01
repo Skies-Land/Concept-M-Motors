@@ -14,7 +14,7 @@ import LoginPageView from '../pages/6-login-page/Login-page-view';
 import AccountPageView from '../pages/7-account-page/account-page-view';
 import ErrorPageView from '../pages/8-error-page/Error-page-view';
 
-// COMPOSANTS
+// COMPOSANTS (pour la protection des routes)
 import ProtectedRoute from '../components/navigation/ProtectedRoute';
 import GuestRoute from '../components/navigation/GuestRoute';
 

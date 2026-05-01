@@ -11,7 +11,7 @@ import LoginForm from "./components/1-Login-form";
 import RegisterForm from "./components/2-Register-form";
 import ForgetPasswordForm from "./components/3-Forget-password-form";
 
-// Différents "types" de vues de la page de connexion/inscription
+/** Différents "types" de vues de la page de connexion/inscription */
 type FormView = "login" | "subscribe" | "forget-password";
 
 /** Composant principal de la page de connexion/inscription */

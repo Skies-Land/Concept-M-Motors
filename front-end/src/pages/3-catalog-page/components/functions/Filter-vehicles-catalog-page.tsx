@@ -12,7 +12,7 @@ export const filterVehiclesCatalog = (vehicles: Vehicle[], filters: FilterState)
     return vehicles.filter(vehicle => {
         const matchesBrand = filters.brand === "Toutes les Manufactures" || vehicle.brand === filters.brand;
         
-        // On vérifie le prix d'achat en priorité pour l'investissement
+        // Vérification du prix d'achat en priorité pour l'investissement
         // Si pas de prix d'achat, on regarde si c'est une location (facultatif selon règle métier)
         const price = vehicle.acquisition?.purchasePrice || 0;
         const matchesPrice = price <= filters.maxPrice;

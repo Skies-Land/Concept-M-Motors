@@ -1,10 +1,10 @@
-// FONCTION
-import { useForgetPassword } from "./functions/Forget-password-function";
-
 // DESIGN SYSTEM
 import { Button } from "../../../components/design-system/Button";
 import { Typography } from "../../../components/design-system/Typography"
 import Input from "../../../components/design-system/Input";
+
+// LOGIQUE
+import { useForgetPassword } from "./functions/Forget-password-function";
 
 // PROPS
 interface ForgetPasswordFormProps {

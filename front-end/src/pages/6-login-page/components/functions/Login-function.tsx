@@ -1,10 +1,10 @@
-// FIREBASE
-import { auth } from "../../../../config/firebase-config";
-import { signInWithEmailAndPassword } from "firebase/auth";
-
 // DÉPENDANCES
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
+// FIREBASE
+import { auth } from "../../../../config/firebase-config";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 /** Fonction servant à gérer la logique du formulaire de connexion */
 export const useLogin = () => {

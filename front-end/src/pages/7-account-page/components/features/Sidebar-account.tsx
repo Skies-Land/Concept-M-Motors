@@ -10,7 +10,7 @@ import { MdPerson, MdUploadFile, MdSettingsInputComponent, MdEventAvailable, MdL
 // CONTEXTE
 import { useAuth } from "../../../../context/AuthUserContext";
 
-// FONCTIONS
+// LOGIQUE
 import useActiveLinkSidebar from "../functions/Active-link-sidebar-account";
 
 /** Composant servant à afficher la barre latérale de gauche pour la navigation dans l'espace client */
