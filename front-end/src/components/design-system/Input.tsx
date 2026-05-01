@@ -1,5 +1,5 @@
 // DÉPENDANCE
-import React, { type InputHTMLAttributes } from 'react';
+import { type InputHTMLAttributes } from 'react';
 
 // PROPS
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {

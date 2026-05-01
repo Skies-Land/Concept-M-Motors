@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 import { Typography } from "../../../components/design-system/Typography"
 
 // MODULE
-import ModuleFormContactPage from "./module-form/Module-form-contact-page"
+import ModuleFormContactPage from "./contact-form-module/Module-form-contact-page"
 
 // ICÔNES
 import { MdOutlineLocationCity, MdOutlineOpenInNew , MdSupportAgent, MdOutlineSchedule  } from "react-icons/md";
