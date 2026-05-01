@@ -48,7 +48,7 @@ src/
 │   ├── 4-vehicle-page/         # Composants et vue pour la page de description d'un "Véhicule"
 │   ├── 5-contact-page/         # Composants et vue pour la page de "Contact"
 │   │   └── components/         # Sous-composants propres à la page
-│   │       └── module-form/    # Module pour le formulaire de contact
+│   │       └── contact-form-module/ # Module pour le formulaire de contact
 │   ├── 6-login-page/           # Composants et vue pour la page de "Connexion / Inscription"
 │   │   └── components/         # Sous-composants propres à la page
 │   │       └── functions/      # Fonctions de logique (Connexion, Inscription)

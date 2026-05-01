@@ -3,6 +3,8 @@
 
 <div align="center">
   <img src="./maquette/preview.png" alt="Aperçu du Concept M-Motors" width="100%">
+  <br>
+  <a href="https://m-motors-skiesland.netlify.app/" target="_blank">🌐 Voir le site en direct</a>
 </div>
 
 ### **OBJECTIF DU MVP (Minimum Viable Product)**
@@ -245,7 +247,11 @@ interface FAQItem {
 *A venir...*
 
 ### 🚀 **PHASE 4 : DÉPLOIEMENT**
-*A venir...*
+Le projet est déployé sur **[Netlify](https://www.netlify.com/)** avec une intégration continue (CI/CD) liée au dépôt GitHub.
+* **Hébergement** : Netlify (Base directory: `front-end`).
+* **Build** : Automatisation via `npm run build` et `dist`.
+* **Routage** : Support du Single Page Application (SPA) via un fichier `_redirects` dans le dossier `public` pour rediriger toutes les requêtes vers `index.html`.
+> 💡 *`_redirects` est un fichier qui permet de configurer les redirections du site. Il permet d'indiquer à Netlify de rediriger toutes les requêtes vers `index.html` pour que React Router puisse prendre le relais.*
 
 
 ## 👨‍💻 Skies-Land - Jonathan Araldi

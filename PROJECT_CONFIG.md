@@ -4,6 +4,7 @@ Ce document résume la configuration technique du projet Concept M-Motors.
 
 ## Architecture Fullstack
 - **Front-end :** `/front-end` (React, React Router, Vite, TypeScript, Tailwind v4)
+- **Déploiement :** Netlify (CI/CD via GitHub)
 - **Back-end :** Services BaaS (Firebase Firestore, Firebase Auth, Cloudinary)
 
 ## Stack Front-end
@@ -14,6 +15,7 @@ Ce document résume la configuration technique du projet Concept M-Motors.
 - **Backend SDK :** Firebase (Module API Client)
 - **Langage :** TypeScript
 - **Styling :** Tailwind CSS v4 (PostCSS bridge)
+- **Hébergement :** Netlify (Support SPA via `_redirects`)
 - **Icons :** React Icons
 
 ## Stack Back-end (Services)
@@ -36,7 +38,9 @@ Ce document résume la configuration technique du projet Concept M-Motors.
     - **Tabs dynamiques :** Navigation interne de l'espace client (dashboard) basée sur les ancres URL (hash), permettant un affichage conditionnel des sections sans rechargement.
     - **Navigation Responsive :** Barre latérale (Sidebar) de l'espace client adaptative, se transformant en barre de navigation horizontale (Bottom Tab Bar) sur mobile pour une ergonomie optimisée.
     - **Gestion de l'Upload :** Utilisation d'un "Hidden Input Render Prop" injecté par un hook personnalisé (`SendDocsAccount`) pour centraliser la gestion des fichiers sans encombrer le DOM.
-- **API & Logique métier :** Centralisation des appels réseau dans `/src/api/` (ex: `Get-user.tsx`) et isolation de la logique métier (Hooks et utilitaires) dans des dossiers `functions/` au sein des modules de pages. Utilisation d'un système de contrôle de fichiers (`CheckDocumentUpload`) avant traitement.
+- **API & Logique métier :** Centralisation des appels réseau dans `/src/api/` (ex: `Get-user.tsx`).
+    - **Filtrage Dynamique :** Implémentation d'un calcul automatique du prix maximum du catalogue via une requête Firestore dédiée (`Get-max-price-catalog.tsx`), permettant au curseur de budget de s'adapter en temps réel au véhicule le plus cher en stock.
+    - **Isolation :** Séparation de la logique métier (Hooks et utilitaires) dans des dossiers `functions/` au sein des modules de pages. Utilisation d'un système de contrôle de fichiers (`CheckDocumentUpload`) avant traitement.
 - **Pages :** Découpage par fonctionnalités dans `/src/pages/`.
 - **Navigation :** Composants `Header` et `Footer` adaptatifs (le Header change d'état selon la connexion de l'utilisateur).
 - **Référencement :** Composant `Seo` réutilisable par page.
@@ -54,6 +58,9 @@ cd front-end
 
 # Lancer le développement
 npm run dev
+
+# Lancer le build de production
+npm run build
 ```
 
 ## 👨‍💻 Skies-Land - Jonathan Araldi
