@@ -61,6 +61,12 @@ npm run dev
 
 # Lancer le build de production
 npm run build
+
+# Lancer tous les tests unitaires
+npm test
+
+# Lancer les tests en mode interactif (Watch mode)
+npm run test:watch
 ```
 
 ## 👨‍💻 Skies-Land - Jonathan Araldi
