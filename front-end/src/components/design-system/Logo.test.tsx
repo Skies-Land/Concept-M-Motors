@@ -1,6 +1,10 @@
-// FONCTION DE TESTS
+// TESTING LIBRARY - utils de rendu et sélection DOM
 import { render, screen } from '@testing-library/react';
+
+// VITEST - framework de test
 import { describe, it, expect } from 'vitest';
+
+// REACT ROUTER - composants de navigation pour tests
 import { MemoryRouter } from 'react-router-dom';
 
 // Pattern de tests AAA (Arrange, Act, Assert)
@@ -8,7 +12,7 @@ import { MemoryRouter } from 'react-router-dom';
 // 2. ACT (agir : action effectuer)
 // 3. ASSERT (vérification : résultat obtenu correspondant au résultat attendu)
 
-// COMPOSANT A TESTER
+// COMPOSANT À TESTER
 import Logo from './Logo';
 
 describe("Logo - Design System", () => {
