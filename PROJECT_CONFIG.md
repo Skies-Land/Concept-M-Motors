@@ -11,7 +11,7 @@ Ce document résume la configuration technique du projet **Concept M-Motors**.
 - **Framework :** **[Vite.js](https://vite.dev/)**
 - **UI :** **[React](https://react.dev/)**
 - **Navigation :** **[React Router](https://reactrouter.com/)** *(Data Router via `createBrowserRouter`)*
-- **SEO :** **[React Helmet Async](https://github.com/TheMavenOrg/react-helmet-async)** *(Gestion dynamique des balises meta)*
+- **SEO :** **[React Helmet Async](https://www.npmjs.com/package/react-helmet-async)** *(Gestion dynamique des balises meta)*
 - **Backend SDK :** **[Firebase](https://firebase.google.com/docs)** *(Module API Client)*
 - **Langage :** **[TypeScript](https://www.typescriptlang.org/)**
 - **Styling :** **[Tailwind CSS](https://tailwindcss.com/)** *(PostCSS bridge)*
