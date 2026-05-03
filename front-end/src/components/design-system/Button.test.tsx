@@ -7,11 +7,6 @@ import { describe, it, expect, vi } from 'vitest';
 // REACT ROUTER - composants de navigation pour tests
 import { MemoryRouter } from 'react-router-dom';
 
-// Pattern de tests AAA (Arrange, Act, Assert)
-// 1. ARRANGE (préparation : initialisation du composant)
-// 2. ACT (agir : action effectuer)
-// 3. ASSERT (vérification : résultat obtenu correspondant au résultat attendu)
-
 // COMPOSANT À TESTER
 import { Button } from './Button';
 

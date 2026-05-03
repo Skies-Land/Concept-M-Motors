@@ -7,11 +7,6 @@ import { describe, it, expect } from 'vitest';
 // REACT HELMET ASYNC - gestion des balises HTML head de manière asynchrone
 import { HelmetProvider } from 'react-helmet-async';
 
-// Pattern de tests AAA (Arrange, Act, Assert)
-// 1. ARRANGE (préparation : initialisation du composant)
-// 2. ACT (agir : action effectuer)
-// 3. ASSERT (vérification : résultat obtenu correspondant au résultat attendu)
-
 // COMPOSANT À TESTER
 import Seo from './Seo';
 

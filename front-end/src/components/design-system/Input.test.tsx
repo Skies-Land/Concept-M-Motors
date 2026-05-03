@@ -4,11 +4,6 @@ import { render, screen, fireEvent } from '@testing-library/react';
 // VITEST - framework de test
 import { describe, it, expect, vi } from 'vitest';
 
-// Pattern de tests AAA (Arrange, Act, Assert)
-// 1. ARRANGE (préparation : initialisation du composant)
-// 2. ACT (agir : action effectuer)
-// 3. ASSERT (vérification : résultat obtenu correspondant au résultat attendu)
-
 // COMPOSANT À TESTER
 import Input from './Input';
 
