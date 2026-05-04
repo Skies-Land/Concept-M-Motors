@@ -243,8 +243,9 @@ interface FAQItem {
 * **[Error-page-view](./front-end/src/pages/8-error-page/Error-page-view.tsx)** : servant à afficher une page pour informer l'utilisateur que le contenu demandé n'existe pas *(ou n'est plus référencé)* et lui propose deux solutions pour retrouver ce qu'il cherche *(Retour à l'accueil et Revenir à la page précédente)*.
 
 
-### 🧪 **PHASE 3 : OPTIMISATION ET TESTING**
-*A venir...*
+### 🧪 **PHASE 3 : TESTING**
+
+⚠️En cours de tests⚠️
 
 ### 🚀 **PHASE 4 : DÉPLOIEMENT**
 Le projet est déployé sur **[Netlify](https://www.netlify.com/)** avec une intégration continue (CI/CD) liée au dépôt GitHub.
