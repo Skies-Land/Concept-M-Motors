@@ -243,8 +243,47 @@ interface FAQItem {
 * **[Error-page-view](./front-end/src/pages/8-error-page/Error-page-view.tsx)** : servant à afficher une page pour informer l'utilisateur que le contenu demandé n'existe pas *(ou n'est plus référencé)* et lui propose deux solutions pour retrouver ce qu'il cherche *(Retour à l'accueil et Revenir à la page précédente)*.
 
 
-### 🧪 **PHASE 3 : OPTIMISATION ET TESTING**
-*A venir...*
+### 🧪 **PHASE 3 : TESTING**
+Projet en cours de tests dans la branch : **[feature-tests](https://github.com/Skies-Land/Concept-M-Motors/tree/feature-tests)**
+
+* **Outils et technologies :**
+    - **Type de test :** Unitaire - Le but est d'isolé chaque composant et de tester son comportement indépendamment du reste de l'application.
+    - **Framework :** **[Vitest](https://vitest.dev/)** *(Framework de test JavaScript rapide et léger)*
+    - **Librairie :** **[React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)** (RTL) *(Librairie de tests pour React)*
+    - **Environnement de rendu :** **[JSDOM](https://github.com/jsdom/jsdom)** *(Environnement virtuel léger qui simule un navigateur)*
+    - **Méthode :** **[Pattern AAA](https://medium.com/@pjbgf/title-testing-code-ocd-and-the-aaa-pattern-df453975ab80)** *(Arrange, Act, Assert)* - Structure standard pour les tests unitaires, voici un exemple de mon implémentation :
+
+``` typescript
+// TESTING LIBRARY - utils de rendu et sélection DOM
+import { render, screen } from '@testing-library/react';
+
+// VITEST - framework de test
+import { describe, it, expect, vi } from 'vitest';
+
+// REACT ROUTER - composants de navigation pour tests
+import { MemoryRouter, Routes, Route } from 'react-router-dom';
+
+// Pattern de tests AAA (Arrange, Act, Assert)
+// 1. ARRANGE (préparation : initialisation du composant)
+// 2. ACT (agir : action effectuer)
+// 3. ASSERT (vérification : résultat obtenu correspondant au résultat attendu)
+
+// COMPOSANT À TESTER
+import leComposantATester from '.';
+
+describe("Nom du composant à tester :", () => {
+    it("ici une bref description de la recherche du test" , () => {
+        // 1. ARRANGE (préparation - initialisation du composant, simulation du contexte, installation des Mocks, etc.)
+
+        // 2. ACT (agir/action - exécution du composant, simulation du clic, de la saisie, etc.)
+
+        // 3. ASSERT (vérification - test du résultat obtenu suite à l'action ou du rendu du composant)
+        
+    });
+});
+
+```
+
 
 ### 🚀 **PHASE 4 : DÉPLOIEMENT**
 Le projet est déployé sur **[Netlify](https://www.netlify.com/)** avec une intégration continue (CI/CD) liée au dépôt GitHub.
