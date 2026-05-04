@@ -17,7 +17,7 @@ export interface Vehicle {
     };
     acquisition: {
         purchasePrice: number | null; // Prix d'achat du véhicule
-        rentalPrice: number | null; // Prix de location du véhicule
+        rentalPrice: number | null; // Prix de location du véhicule (de base calculé sur 24 mois)
         isAvailableForSale: boolean; // Indique si le véhicule est disponible à la vente
         isAvailableForRent: boolean; // Indique si le véhicule est disponible à la location
     };
