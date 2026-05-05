@@ -21,7 +21,7 @@ export default function FormContactPage() {
 
                 {/* Informations sur l'entreprise */}
                 <div className="lg:col-span-12 xl:col-span-5 flex flex-col gap-6 lg:gap-8 h-full">
-                    {/* Block : Adresse */}
+                    {/* Bloc 1 : Adresse */}
                     <div className="bg-surface-container p-6 sm:p-8 rounded-lg flex flex-col justify-between group relative overflow-hidden flex-1">
                         <div className="mb-6 sm:mb-8">
                             <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4 text-primary">
@@ -56,7 +56,7 @@ export default function FormContactPage() {
 
                     {/* Deux Blocks : Support Technique & Horaires */}
                     <div className="flex flex-col gap-6 lg:gap-8 flex-1">
-                        {/* Block 1 - Support technique */}
+                        {/* Block 2 - Support technique */}
                         <div className="bg-surface-container p-5 sm:p-6 rounded-lg flex-1 flex flex-col justify-center">
                             <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4 text-primary">
                                 <MdSupportAgent className="text-xl sm:text-2xl"/>
@@ -82,7 +82,7 @@ export default function FormContactPage() {
                                 01 00 00 00 00
                             </Link>
                         </div>
-                        {/* Block 2 - Horaires */}
+                        {/* Block 3 - Horaires */}
                         <div className="bg-surface-container p-5 sm:p-6 rounded-lg flex-1">
                             <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4 text-primary">
                                 <MdOutlineSchedule className="text-xl sm:text-2xl"/>
