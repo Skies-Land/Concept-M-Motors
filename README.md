@@ -40,7 +40,7 @@ Le projet consiste à développer une plateforme web modernisée visant à digit
 - `front-end` : Application développée avec **[Vite](https://vitejs.dev/) + [React](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/) + [Tailwind CSS](https://tailwindcss.com/)**. Cette partie contient également l'intégration au service de base de données avec **[Firebase](https://firebase.google.com/)**.
     > 💡*Consulter le fichier **[README.md](./front-end/README.md)** pour les détails de l'architecture du projet côté front-end.*
 - `back-end` : Architecture "Serverless" utilisant **[Firebase](https://firebase.google.com/)** comme base de données NoSQL (Firestore) et pour la gestion de l'authentification. **[Cloudinary](https://cloudinary.com/)** pour le stockage des images.
-    > 💡*Consulter le fichier **[PROJECT_CONFIG.md](./PROJECT_CONFIG.md)** pour les détails techniques de configuration.*
+    > 💡*Consulter le fichier **[PROJECT_CONFIG.md](./documentation/PROJECT_CONFIG.md)** pour les détails techniques de configuration.*
 
 ## ⚙️ **INSTALLATION ET LANCEMENT**
 ```bash
@@ -244,16 +244,23 @@ interface FAQItem {
 
 
 ### 🧪 **PHASE 3 : TESTING**
-Projet en cours de tests dans la branch : **[feature-tests](https://github.com/Skies-Land/Concept-M-Motors/tree/feature-tests)**
+#### 👉 Tests unitaires effectués sur la branch : **[feature-tests](https://github.com/Skies-Land/Concept-M-Motors/tree/feature-tests)** 👈
+> 💡 *J'ai séparé les tests unitaires dans une branche dédiée `feature-tests` pour ne pas impacter la branche principale `main` où **[Netlify](https://www.netlify.com/)** effectue les déploiements automatiques. Ainsi le projet reste stable et fonctionnel pour les utilisateurs.*
 
-* **Outils et technologies :**
-    - **Type de test :** Unitaire - Le but est d'isolé chaque composant et de tester son comportement indépendamment du reste de l'application.
-    - **Framework :** **[Vitest](https://vitest.dev/)** *(Framework de test JavaScript rapide et léger)*
-    - **Librairie :** **[React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)** (RTL) *(Librairie de tests pour React)*
-    - **Environnement de rendu :** **[JSDOM](https://github.com/jsdom/jsdom)** *(Environnement virtuel léger qui simule un navigateur)*
-    - **Méthode :** **[Pattern AAA](https://medium.com/@pjbgf/title-testing-code-ocd-and-the-aaa-pattern-df453975ab80)** *(Arrange, Act, Assert)* - Structure standard pour les tests unitaires, voici un exemple de mon implémentation :
+L'application bénéficie d'une suite de tests unitaires pour garantir la fiabilité des composants et de la logique fonctionnelle. Toutes les parties du site ont été testées, de l'interface utilisateur aux fonctionnalités principales. Les tests utilisent les bibliothèques suivantes :
+* **[Vitest](https://vitest.dev/)** pour l'exécution des tests,
+* **[React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)** pour le rendu des composants,
+* **[jsdom](https://github.com/jsdom/jsdom)** pour la simulation de l'environnement du navigateur (DOM).
 
-``` typescript
+| Composants & Fonctionnalités testés | Libraries / Méthodes utilisées |
+| :--- | :--- |
+| **[Components](./front-end/src/components)** (Navigation, Design System, UI éléments) | `render()`, `screen.getBy...()`, `fireEvent.click()`, Mocks |
+| **[Pages](./front-end/src/pages)** (Landing, About, Catalog, Contact, Login, Account, Error) | `MemoryRouter`, `Routes`, `Route`, Mocks |
+| **[Functions](./front-end/src/pages/*/functions/)** (Logique métier) | Mocks complexes, `async/await`, `vi.fn()`, `vi.clearAllMocks()` |
+
+J'ai structuré mes tests en suivant le **[Pattern AAA](https://learn.microsoft.com/fr-fr/visualstudio/test/unit-test-basics?view=visualstudio)**, voici ma base de code utilisé pour l'ensemble de mes tests unitaires :
+
+```typescript
 // TESTING LIBRARY - utils de rendu et sélection DOM
 import { render, screen } from '@testing-library/react';
 
@@ -269,21 +276,28 @@ import { MemoryRouter, Routes, Route } from 'react-router-dom';
 // 3. ASSERT (vérification : résultat obtenu correspondant au résultat attendu)
 
 // COMPOSANT À TESTER
-import leComposantATester from '.';
+import nomDuComposantATester from './';
 
-describe("Nom du composant à tester :", () => {
-    it("ici une bref description de la recherche du test" , () => {
-        // 1. ARRANGE (préparation - initialisation du composant, simulation du contexte, installation des Mocks, etc.)
+describe("nomDuComposantATester", () => {
+    it("Description de l'objectif du test", () => {
+        // 1. ARRANGE (préparation)
 
-        // 2. ACT (agir/action - exécution du composant, simulation du clic, de la saisie, etc.)
+        // 2. ACT (agir/action)
 
-        // 3. ASSERT (vérification - test du résultat obtenu suite à l'action ou du rendu du composant)
-        
+        // 3. ASSERT (vérification)
     });
 });
-
 ```
 
+#### **Résultats des tests unitaires :**
+
+![Résultats des tests unitaires](./documentation/Unit-test-results.png)
+
+*Détails de l'exécution :*
+- **57 fichiers de tests** validés.
+- **196 tests unitaires** passés avec succès (100% de réussite).
+
+#### 👉 Tests unitaires effectués sur la branch : **[feature-tests](https://github.com/Skies-Land/Concept-M-Motors/tree/feature-tests)** 👈
 
 ### 🚀 **PHASE 4 : DÉPLOIEMENT**
 Le projet est déployé sur **[Netlify](https://www.netlify.com/)** avec une intégration continue (CI/CD) liée au dépôt GitHub.

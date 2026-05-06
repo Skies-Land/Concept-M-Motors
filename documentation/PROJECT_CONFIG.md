@@ -28,7 +28,7 @@ Ce document résume la configuration technique du projet **Concept M-Motors**.
 - **Framework :** **[Vitest](https://vitest.dev/)** *(Framework de test JavaScript rapide et léger)*
 - **Librairie :** **[React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)** (RTL) *(Librairie de tests pour React)*
 - **Environnement de rendu :** **[JSDOM](https://github.com/jsdom/jsdom)** *(Environnement virtuel léger qui simule un navigateur)*
-- **Méthodologie :** **[Pattern AAA](https://medium.com/@pjbgf/title-testing-code-ocd-and-the-aaa-pattern-df453975ab80)** - ***Arrange** - préparation | **Act** - agir/action | **Assert** - vérification*
+- **Méthodologie :** **[Pattern AAA](https://learn.microsoft.com/fr-fr/visualstudio/test/unit-test-basics?view=visualstudio)** - ***Arrange** - préparation | **Act** - agir/action | **Assert** - vérification*
 - **Organisation :** La phase de test est en cours de développement, dans la branche : **[feature-tests](https://github.com/Skies-Land/Concept-M-Motors/tree/feature-tests)**.
 
 ## 🧩 Organisation du Code (Front-end)
