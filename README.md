@@ -246,7 +246,7 @@ interface FAQItem {
 ### 🧪 **PHASE 3 : TESTING**
 L'application bénéficie d'une suite de tests unitaires pour garantir la fiabilité des composants et de la logique fonctionnelle. Toutes les parties du site ont été testées, de l'interface utilisateur aux fonctionnalités principales. Les tests utilisent les bibliothèques suivantes :
 * **[Vitest](https://vitest.dev/)** pour l'exécution des tests,
-* **[React Testing Library](https://testing-library.com/)** pour le rendu des composants,
+* **[React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)** pour le rendu des composants,
 * **[Testing Library](https://testing-library.com/)** pour la sélection des éléments DOM,
 * **[jsdom](https://github.com/jsdom/jsdom)** pour la simulation de l'environnement du navigateur (DOM).
 
@@ -256,7 +256,7 @@ L'application bénéficie d'une suite de tests unitaires pour garantir la fiabil
 | **[Pages](./front-end/src/pages)** (Landing, About, Catalog, Contact, Login, Account, Error) | `MemoryRouter`, `Routes`, `Route`, Mocks |
 | **[Functions](./front-end/src/pages/*/functions/)** (Logique métier) | Mocks complexes, `async/await`, `vi.fn()`, `vi.clearAllMocks()` |
 
-J'ai structuré mes tests en suivant le **[Pattern AAA](https://learn.microsoft.com/fr-fr/visualstudio/test/unit-test-basics?view=visualstudio)**, voici ma base de utilisé pour l'ensemble de mes tests unitaires :
+J'ai structuré mes tests en suivant le **[Pattern AAA](https://learn.microsoft.com/fr-fr/visualstudio/test/unit-test-basics?view=visualstudio)**, voici ma base de code utilisé pour l'ensemble de mes tests unitaires :
 
 ```typescript
 // TESTING LIBRARY - utils de rendu et sélection DOM
