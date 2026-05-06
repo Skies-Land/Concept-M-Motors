@@ -51,12 +51,14 @@ src/
 │   │       └── contact-form-module/ # Module pour le formulaire de contact
 │   ├── 6-login-page/           # Composants et vue pour la page de "Connexion / Inscription"
 │   │   └── components/         # Sous-composants propres à la page
-│   │       └── functions/      # Fonctions de logique (Connexion, Inscription)
+│   │       └── functions/      # Fonctions de logique (Connexion, Inscription, Mot de passe oublié)
 │   ├── 7-account-page/         # Composants et vue pour la page de "l'Espace client"
 │   │   └── components/         # Sous-composants propres à la page
 │   │       ├── features/       # Composants de fonctionnalité (Sidebar, Preview-document)
-│   │       └── functions/      # Fonctions de logique (Send-document, Validation-document, Check-document-upload)
+│   │       └── functions/      # Fonctions de logique (Edit-profil, Send-document, Validation-document, Check-document-upload)
 │   └── 8-error-page/           # Composants et vue pour la page "d'erreur 404"
+│
+├── tests/                      # Les fichiers de tests `*.test.tsx` sont situés directement dans les dossiers `components/`, `features/` ou `functions/` des modules concernés.
 │
 ├── routes/                     # Fichiers de configuration du routage
 │   └── router.tsx              # Définition des routes avec React Router

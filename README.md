@@ -40,7 +40,7 @@ Le projet consiste à développer une plateforme web modernisée visant à digit
 - `front-end` : Application développée avec **[Vite](https://vitejs.dev/) + [React](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/) + [Tailwind CSS](https://tailwindcss.com/)**. Cette partie contient également l'intégration au service de base de données avec **[Firebase](https://firebase.google.com/)**.
     > 💡*Consulter le fichier **[README.md](./front-end/README.md)** pour les détails de l'architecture du projet côté front-end.*
 - `back-end` : Architecture "Serverless" utilisant **[Firebase](https://firebase.google.com/)** comme base de données NoSQL (Firestore) et pour la gestion de l'authentification. **[Cloudinary](https://cloudinary.com/)** pour le stockage des images.
-    > 💡*Consulter le fichier **[PROJECT_CONFIG.md](./PROJECT_CONFIG.md)** pour les détails techniques de configuration.*
+    > 💡*Consulter le fichier **[PROJECT_CONFIG.md](./documentation/PROJECT_CONFIG.md)** pour les détails techniques de configuration.*
 
 ## ⚙️ **INSTALLATION ET LANCEMENT**
 ```bash
@@ -244,8 +244,56 @@ interface FAQItem {
 
 
 ### 🧪 **PHASE 3 : TESTING**
+L'application bénéficie d'une suite de tests unitaires pour garantir la fiabilité des composants et de la logique fonctionnelle. Toutes les parties du site ont été testées, de l'interface utilisateur aux fonctionnalités principales. Les tests utilisent les bibliothèques suivantes :
+* **[Vitest](https://vitest.dev/)** pour l'exécution des tests,
+* **[React Testing Library](https://testing-library.com/)** pour le rendu des composants,
+* **[Testing Library](https://testing-library.com/)** pour la sélection des éléments DOM,
+* **[jsdom](https://github.com/jsdom/jsdom)** pour la simulation de l'environnement du navigateur (DOM).
 
-⚠️En cours de tests⚠️
+| Composants & Fonctionnalités testés | Libraries / Méthodes utilisées |
+| :--- | :--- |
+| **[Components](./front-end/src/components)** (Navigation, Design System, UI éléments) | `render()`, `screen.getBy...()`, `fireEvent.click()`, Mocks |
+| **[Pages](./front-end/src/pages)** (Landing, About, Catalog, Contact, Login, Account, Error) | `MemoryRouter`, `Routes`, `Route`, Mocks |
+| **[Functions](./front-end/src/pages/*/functions/)** (Logique métier) | Mocks complexes, `async/await`, `vi.fn()`, `vi.clearAllMocks()` |
+
+J'ai structuré mes tests en suivant le **[Pattern AAA](https://learn.microsoft.com/fr-fr/visualstudio/test/unit-test-basics?view=visualstudio)**, voici ma base de utilisé pour l'ensemble de mes tests unitaires :
+
+```typescript
+// TESTING LIBRARY - utils de rendu et sélection DOM
+import { render, screen } from '@testing-library/react';
+
+// VITEST - framework de test
+import { describe, it, expect, vi } from 'vitest';
+
+// REACT ROUTER - composants de navigation pour tests
+import { MemoryRouter, Routes, Route } from 'react-router-dom';
+
+// Pattern de tests AAA (Arrange, Act, Assert)
+// 1. ARRANGE (préparation : initialisation du composant)
+// 2. ACT (agir : action effectuer)
+// 3. ASSERT (vérification : résultat obtenu correspondant au résultat attendu)
+
+// COMPOSANT À TESTER
+import nomDuComposantATester from './';
+
+describe("nomDuComposantATester", () => {
+    it("Description de l'objectif du test", () => {
+        // 1. ARRANGE (préparation)
+
+        // 2. ACT (agir/action)
+
+        // 3. ASSERT (vérification)
+    });
+});
+```
+
+#### **Résultats des tests unitaires :**
+
+![Résultats des tests unitaires](./documentation/Unit-test-results.png)
+
+*Détails de l'exécution :*
+- **57 fichiers de tests** validés.
+- **196 tests unitaires** passés avec succès (100% de réussite).
 
 ### 🚀 **PHASE 4 : DÉPLOIEMENT**
 Le projet est déployé sur **[Netlify](https://www.netlify.com/)** avec une intégration continue (CI/CD) liée au dépôt GitHub.
