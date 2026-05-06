@@ -10,7 +10,7 @@ import { MemoryRouter, useNavigate } from 'react-router-dom';
 // COMPOSANT À TESTER
 import UserAccount from './User-account';
 
-// Mocking `useNavigate` from `react-router-dom`
+// MOCKS ----------------------------------------------------
 vi.mock('react-router-dom', async () => {
     const actual = await vi.importActual('react-router-dom');
     return {
@@ -18,6 +18,7 @@ vi.mock('react-router-dom', async () => {
         useNavigate: vi.fn(),
     };
 });
+// ---------------------------------------------------------
 
 describe("UserAccount - Lien dynamique dans le `Header` menant au compte utilisateur et bouton de déconnexion", () => {
     // Simulation de l'objet Firebase User pour les tests

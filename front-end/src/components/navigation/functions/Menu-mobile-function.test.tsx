@@ -7,13 +7,14 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 // REACT ROUTER - composants de navigation pour tests
 import { useLocation } from 'react-router-dom';
 
-// COMPOSANT À TESTER
+// FONCTION À TESTER
 import useMenuMobile from './Menu-mobile-function';
 
-// Mocking `useLocation` from `react-router-dom`
+// MOCKS ----------------------------------------------------
 vi.mock('react-router-dom', () => ({
     useLocation: vi.fn(),
 }));
+// ---------------------------------------------------------
 
 describe("useMenuMobile - Gère l'ouverture et la fermeture du menu Header en mode mobile", () => {
     beforeEach(() => {

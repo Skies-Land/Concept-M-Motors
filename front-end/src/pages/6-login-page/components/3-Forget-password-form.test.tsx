@@ -10,10 +10,11 @@ import { useForgetPassword } from './functions/Forget-password-function';
 // COMPOSANT À TESTER
 import ForgetPasswordForm from './3-Forget-password-form';
 
-// Mock du hook useForgetPassword
+// MOCKS ----------------------------------------------------
 vi.mock('./functions/Forget-password-function', () => ({
     useForgetPassword: vi.fn()
 }));
+// ---------------------------------------------------------
 
 describe("ForgetPasswordForm - Composant du formulaire d'oubli de mot de passe", () => {
     // Props factices pour les callbacks

@@ -13,10 +13,11 @@ import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 // API - mock de la création de document Firestore
 import { createUser } from "../../../../api/Create-user";
 
-// COMPOSANT À TESTER
+// FONCTION À TESTER
 import { useRegister } from './Register-function';
 
-// MOCKS (utilisé pour simuler des dépendances externes)
+// MOCKS ----------------------------------------------------
+// utilisé pour simuler des dépendances externes
 vi.mock('react-router-dom', () => ({
     useNavigate: vi.fn()
 }));
@@ -34,6 +35,7 @@ vi.mock('../../../../api/Create-user', () => ({
 vi.mock('../../../../config/firebase-config', () => ({
     auth: {}
 }));
+// ---------------------------------------------------------
 
 describe("useRegister - Fonction gérant la logique du formulaire d'inscription", () => {
     const mockNavigate = vi.fn();

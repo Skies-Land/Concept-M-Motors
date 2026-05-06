@@ -1,11 +1,11 @@
 // VITEST - framework de test
 import { describe, it, expect } from 'vitest';
 
-// COMPOSANT À TESTER
-import { paginateVehiclesCatalog } from './Paginate-vehicles-catalog-page';
-
 // TYPES
 import { type Vehicle } from '../../../../types/Vehicle';
+
+// FONCTION À TESTER
+import { paginateVehiclesCatalog } from './Paginate-vehicles-catalog-page';
 
 describe("paginateVehiclesCatalog - fonction de calcul de la pagination des véhicules", () => {
     // Liste de véhicules factices pour les tests

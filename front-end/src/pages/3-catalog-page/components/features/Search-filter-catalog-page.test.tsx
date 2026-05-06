@@ -4,10 +4,10 @@ import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 // VITEST - framework de test
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 
-// COMPOSANT À TESTER
+// FEATURE À TESTER
 import SearchFilterCatalog from './Search-filter-catalog-page';
 
-// MOCK API (pour simuler les données des filtres)
+// MOCKS ----------------------------------------------------
 vi.mock('../../../../api/Get-brands-catalog', () => ({
     getBrandsCatalog: vi.fn().mockResolvedValue(["Ferrari", "Lamborghini", "Porsche"])
 }));
@@ -15,6 +15,7 @@ vi.mock('../../../../api/Get-brands-catalog', () => ({
 vi.mock('../../../../api/Get-max-price-catalog', () => ({
     getMaxPriceCatalog: vi.fn().mockResolvedValue(500000)
 }));
+// ---------------------------------------------------------
 
 describe("SearchFilterCatalog - gestion des filtres de recherche des véhicules de la page catalogue", () => {
     beforeEach(() => {

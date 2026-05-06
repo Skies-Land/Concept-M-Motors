@@ -14,12 +14,10 @@ import { REGISTERED, GUEST } from '../../constants/Session-status';
 // COMPOSANT À TESTER
 import ProtectedRoute from './ProtectedRoute';
 
-// Mocking `useAuth` hook
+// MOCKS ----------------------------------------------------
 vi.mock('../../context/AuthUserContext', () => ({
     useAuth: vi.fn(),
 }));
-
-// Mocking `Navigate` component from `react-router-dom`
 vi.mock('react-router-dom', async () => {
     const actual = await vi.importActual('react-router-dom');
     return {
@@ -27,6 +25,7 @@ vi.mock('react-router-dom', async () => {
         Navigate: vi.fn(() => <div data-testid="navigate" />),
     };
 });
+// ---------------------------------------------------------
 
 describe("ProtectedRoute - Route protégée nécessitant une authentification", () => {
     beforeEach(() => {

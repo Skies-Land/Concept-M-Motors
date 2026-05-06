@@ -4,7 +4,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 // VITEST - framework de test
 import { describe, it, expect, vi } from 'vitest';
 
-// COMPOSANT À TESTER
+// FEATURE À TESTER
 import PaginationCatalog from './Pagination-catalog-page';
 
 describe("PaginationCatalog - affichage de la pagination de la page catalogue", () => {

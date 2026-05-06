@@ -7,10 +7,11 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 // FIREBASE
 import { sendPasswordResetEmail } from "firebase/auth";
 
-// COMPOSANT À TESTER
+// FONCTION À TESTER
 import { useForgetPassword } from './Forget-password-function';
 
-// MOCKS (pour simuler des dépendances externes)
+// MOCKS ----------------------------------------------------
+// pour simuler des dépendances externes
 vi.mock('firebase/auth', () => ({
     getAuth: vi.fn(),
     sendPasswordResetEmail: vi.fn(),
@@ -19,6 +20,7 @@ vi.mock('firebase/auth', () => ({
 vi.mock('../../../../config/firebase-config', () => ({
     auth: {}
 }));
+// ---------------------------------------------------------
 
 describe("useForgetPassword - Fonction gérant la logique du formulaire d'oubli de mot de passe", () => {
     

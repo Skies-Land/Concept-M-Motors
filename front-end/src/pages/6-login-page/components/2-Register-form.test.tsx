@@ -10,10 +10,11 @@ import { useRegister } from './functions/Register-function';
 // COMPOSANT À TESTER
 import RegisterForm from './2-Register-form';
 
-// Mock du hook useRegister
+// MOCKS ----------------------------------------------------
 vi.mock('./functions/Register-function', () => ({
     useRegister: vi.fn()
 }));
+// ---------------------------------------------------------
 
 describe("RegisterForm - Composant du formulaire d'inscription", () => {
     

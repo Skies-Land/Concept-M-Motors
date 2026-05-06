@@ -10,7 +10,7 @@ import { MemoryRouter } from "react-router-dom";
 // COMPOSANT À TESTER
 import HeroCatalogPage from "./1-Hero-catalog-page";
 
-// MOCK API
+// MOCKS ----------------------------------------------------
 vi.mock("../../../api/Get-brands-catalog", () => ({
     getBrandsCatalog: vi.fn().mockResolvedValue(["Ferrari", "Lamborghini"]),
 }));
@@ -18,6 +18,7 @@ vi.mock("../../../api/Get-brands-catalog", () => ({
 vi.mock("../../../api/Get-max-price-catalog", () => ({
     getMaxPriceCatalog: vi.fn().mockResolvedValue(2000000),
 }));
+// ---------------------------------------------------------
 
 describe("HeroCatalogPage - affichage de la section Hero de la page catalogue", () => {
     it("doit afficher les titres principaux et le sous-titre de la section Hero", async () => {

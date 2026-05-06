@@ -10,8 +10,10 @@ import { MemoryRouter } from 'react-router-dom';
 // COMPOSANT À TESTER
 import Header from './Header';
 
-// Mocks et composant pour le contexte
+// MOCKS ----------------------------------------------------
 import { useAuth } from '../../context/AuthUserContext';
+
+// Mock du contexte d'authentification
 vi.mock('../../context/AuthUserContext', () => ({
     useAuth: vi.fn(),
 }));
@@ -30,6 +32,7 @@ vi.mock('./functions/Menu-mobile-function', () => ({
         toggleMenu: vi.fn(),
     }),
 }));
+// ---------------------------------------------------------
 
 describe("Header - En-tête", () => {
     beforeEach(() => {

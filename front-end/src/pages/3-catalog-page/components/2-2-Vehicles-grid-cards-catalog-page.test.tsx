@@ -10,7 +10,8 @@ import { MemoryRouter } from 'react-router-dom';
 // COMPOSANT À TESTER
 import VehiclesGridCardsCatalogPage from './2-2-Vehicles-grid-cards-catalog-page';
 
-// MOCK API (pour simuler les données des véhicules)
+// MOCKS ----------------------------------------------------
+// pour simuler les données des véhicules
 vi.mock('../../../api/Get-vehicles', () => ({
     getVehicles: vi.fn().mockResolvedValue([
         {
@@ -31,6 +32,7 @@ vi.mock('../../../api/Get-vehicles', () => ({
         }
     ])
 }));
+// ---------------------------------------------------------
 
 describe("VehiclesGridCardsCatalogPage - affichage de la grille de présentation des véhicules de la page catalogue", () => {
     const defaultFilters = { brand: "Toutes les Manufactures", maxPrice: 2000000 };

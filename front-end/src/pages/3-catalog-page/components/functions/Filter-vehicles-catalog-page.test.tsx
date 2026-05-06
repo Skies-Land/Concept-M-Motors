@@ -4,7 +4,7 @@ import { describe, it, expect } from 'vitest';
 // TYPES
 import { type Vehicle } from '../../../../types/Vehicle';
 
-// COMPOSANT À TESTER
+// FONCTION À TESTER
 import { filterVehiclesCatalog } from './Filter-vehicles-catalog-page';
 
 describe("filterVehiclesCatalog - fonction gérant le système de filtres de recherche des véhicules de la page catalogue", () => {

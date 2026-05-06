@@ -13,10 +13,11 @@ import { getFAQAboutPage } from "../../../api/Get-faq";
 // COMPOSANT À TESTER
 import FAQAboutPage from './4-FAQ-about-page';
 
-// Mock de l'API
+// MOCKS ----------------------------------------------------
 vi.mock("../../../api/Get-faq", () => ({
     getFAQAboutPage: vi.fn(),
 }));
+// ---------------------------------------------------------
 
 const mockFaqData = [
     {

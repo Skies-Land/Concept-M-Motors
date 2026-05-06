@@ -10,10 +10,11 @@ import { useNavigate } from 'react-router-dom';
 // FIREBASE
 import { signInWithEmailAndPassword } from "firebase/auth";
 
-// COMPOSANT À TESTER
+// FONCTION À TESTER
 import { useLogin } from './Login-function';
 
-// MOCKS (pour simuler des dépendances externes)
+// MOCKS ----------------------------------------------------
+// pour simuler des dépendances externes
 vi.mock('react-router-dom', () => ({
     useNavigate: vi.fn()
 }));
@@ -26,6 +27,7 @@ vi.mock('firebase/auth', () => ({
 vi.mock('../../../../config/firebase-config', () => ({
     auth: {}
 }));
+// ---------------------------------------------------------
 
 describe("useLogin - Fonction gérant la logique du formulaire de connexion", () => {
     const mockNavigate = vi.fn();

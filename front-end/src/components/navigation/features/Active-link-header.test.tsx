@@ -7,13 +7,14 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 // REACT ROUTER - composants de navigation pour tests
 import { useLocation } from 'react-router-dom';
 
-// COMPOSANT À TESTER
+// FEATURE À TESTER
 import useActiveLinkHeader from './Active-link-header';
 
-// Mocking useLocation from react-router-dom
+// MOCKS ----------------------------------------------------
 vi.mock('react-router-dom', () => ({
     useLocation: vi.fn(),
 }));
+// ---------------------------------------------------------
 
 describe("useActiveLinkHeader - Détermine si le lien est actif dans le Header", () => {
     beforeEach(() => {

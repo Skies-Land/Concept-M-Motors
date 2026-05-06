@@ -10,10 +10,11 @@ import { useLogin } from './functions/Login-function';
 // COMPOSANT À TESTER
 import LoginForm from './1-Login-form';
 
-// Mock du hook useLogin
+// MOCKS ----------------------------------------------------
 vi.mock('./functions/Login-function', () => ({
     useLogin: vi.fn()
 }));
+// ---------------------------------------------------------
 
 describe("LoginForm - Composant du formulaire de connexion", () => {
     // Props factices pour les callbacks

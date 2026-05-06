@@ -13,7 +13,8 @@ import { type Vehicle } from '../../../types/Vehicle';
 // COMPOSANT À TESTER
 import VehicleCardCatalogPage from './2-1-Vehicle-card-catalog-page';
 
-// MOCK DATA (pour simuler les données d'un véhicule)
+// MOCKS ----------------------------------------------------
+// pour simuler les données d'un véhicule
 const mockVehicle = {
     id: "1",
     brand: "Ferrari",
@@ -27,6 +28,7 @@ const mockVehicle = {
         rentalPrice: 5000
     }
 } as Vehicle;
+// ---------------------------------------------------------
 
 describe("VehicleCardCatalogPage - affichage d'une carte de véhicule en fonction de plusieurs props sur la page catalogue", () => {
     it("doit afficher les informations de base du véhicule (marque, modèle, kilométrage)", () => {
