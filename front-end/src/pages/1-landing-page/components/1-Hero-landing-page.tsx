@@ -55,7 +55,7 @@ export default function HeroLandingPage() {
           </Typography>
 
           {/* Boutons de navigation */}
-          <div className="flex flex-col sm:flex-row gap-6">
+          <div className="flex flex-col sm:flex-row gap-8">
             <Button 
               variant="primary" 
               size="large" 

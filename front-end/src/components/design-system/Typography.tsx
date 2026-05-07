@@ -9,7 +9,7 @@ export type TypographyVariant =
 
 /** Types de propriétés pour personnalisé la **couleur** du texte du composant `Typography` */
 export type TypographyColor = 
-    | "primary" | "on-surface" | "on-surface-variant" | "error" | "inverse" | "inherit";
+    | "primary" | "primary-container" | "on-surface" | "on-surface-variant" | "error" | "inverse" | "inherit";
 
 /** Types de propriétés pour personnalisé le **gras** du texte du composant `Typography` */
 export type TypographyWeight = "regular" | "medium" | "bold";
@@ -77,6 +77,9 @@ export const Typography = ({
     switch (color) {
         case "primary":
             colorStyle = "text-primary";
+            break;
+        case "primary-container":
+            colorStyle = "text-primary-container";
             break;
         case "on-surface": // Texte principal sur fond noir (ex: #e5e2e1)
             colorStyle = "text-on-surface";

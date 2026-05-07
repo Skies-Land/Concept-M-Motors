@@ -70,7 +70,7 @@ export default function SearchFilterCatalog({ onFilterChange }: SearchFilterCata
                 <div>
                     <Typography 
                         variant="label-sm" 
-                        color="primary" 
+                        color="primary-container" 
                         className="mb-2 block" 
                         component="label" 
                         htmlFor="brand-select"

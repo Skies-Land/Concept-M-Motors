@@ -25,8 +25,8 @@ export default function CatalogPageView() {
         <>
             {/* Composant SEO pour définir les métadonnées de la page catalogue */}
             <Seo
-                title="Concept M-Motors - Catalogue"
-                description="Découvrez notre catalogue de véhicules disponibles en achat ou location."
+                title="Catalogue de Véhicules de Prestige | M-Motors"
+                description="Explorez notre catalogue exclusif de voitures de luxe disponibles à l'achat et à la location. Filtrez par marque et budget pour trouver votre modèle d'exception."
             />
             {/* Composants de la page catalogue */}
             <HeroCatalogPage onFilterChange={handleFilterChange} />

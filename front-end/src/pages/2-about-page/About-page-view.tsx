@@ -11,8 +11,8 @@ export default function AboutPageView() {
         <>
             {/* Composant SEO pour définir les métadonnées de la page à propos */}
             <Seo
-                title="Concept M-Motors - À propos"
-                description="Découvrez l'histoire de Concept M-Motors, votre concessionnaire automobile de confiance depuis plus de 30 ans."
+                title="À Propos | M-Motors - Excellence Automobile"
+                description="L'histoire de M-Motors : une vision redéfinie de l'automobile d'exception. Découvrez notre expertise, nos valeurs et notre engagement envers la qualité."
             />
 
             {/* Composants de la page à propos */}

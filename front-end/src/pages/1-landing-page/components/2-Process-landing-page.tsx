@@ -28,7 +28,7 @@ export default function ProcessLandingPage() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-px bg-outline-variant/10">
           {/* Étape 1 */}
           <div className="bg-surface-container group p-10 rounded-lg transition-colors hover:bg-surface-container-high">
-            <Typography variant="display-lg" component="span" className="text-outline-variant/30 group-hover:text-primary-container/20 transition-colors">
+            <Typography variant="display-lg" component="span" className="text-on-surface/20 group-hover:text-primary-container/60 transition-colors">
               01
             </Typography>
             <Typography variant="headline-sm" component="h3" color="on-surface" className="mt-8 mb-4 uppercase">
@@ -41,7 +41,7 @@ export default function ProcessLandingPage() {
           </div>
           {/* Étape 2 */}
           <div className="bg-surface-container group p-10 rounded-lg transition-colors hover:bg-surface-container-high">
-            <Typography variant="display-lg" component="span" className="text-outline-variant/30 group-hover:text-primary-container/20 transition-colors">
+            <Typography variant="display-lg" component="span" className="text-on-surface/20 group-hover:text-primary-container/60 transition-colors">
               02
             </Typography>
             <Typography variant="headline-sm" component="h3" color="on-surface" className="mt-8 mb-4 uppercase">
@@ -54,7 +54,7 @@ export default function ProcessLandingPage() {
           </div>
           {/* Étape 3 */}
           <div className="bg-surface-container group p-10 rounded-lg transition-colors hover:bg-surface-container-high">
-            <Typography variant="display-lg" component="span" className="text-outline-variant/30 group-hover:text-primary-container/20 transition-colors">
+            <Typography variant="display-lg" component="span" className="text-on-surface/20 group-hover:text-primary-container/60 transition-colors">
               03
             </Typography>
             <Typography variant="headline-sm" component="h3" color="on-surface" className="mt-8 mb-4 uppercase">
@@ -67,7 +67,7 @@ export default function ProcessLandingPage() {
           </div>
           {/* Étape 4 */}
           <div className="bg-surface-container group p-10 rounded-lg transition-colors hover:bg-surface-container-high">
-            <Typography variant="display-lg" component="span" className="text-outline-variant/30 group-hover:text-primary-container/20 transition-colors">
+            <Typography variant="display-lg" component="span" className="text-on-surface/20 group-hover:text-primary-container/60 transition-colors">
               04
             </Typography>
             <Typography variant="headline-sm" component="h3" color="on-surface" className="mt-8 mb-4 uppercase">

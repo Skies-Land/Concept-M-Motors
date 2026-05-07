@@ -27,42 +27,42 @@ export default function Footer() {
 
         {/* COLONNE ENTREPRISE */}
         <div>
-          <Typography variant="label-lg" weight="bold" className="mb-6" component="h5">
+          <Typography variant="label-lg" weight="bold" className="mb-6" component="h3">
             Entreprise
           </Typography>
-          <ul className="space-y-4">
-            <li><Link to="/about"><Typography variant="label-sm" color="on-surface-variant" className="hover:text-primary transition-colors" component="span">À propos</Typography></Link></li>
-            <li><Link to="/catalog"><Typography variant="label-sm" color="on-surface-variant" className="hover:text-primary transition-colors" component="span">Nos services</Typography></Link></li>
-            <li><Link to="/"><Typography variant="label-sm" color="on-surface-variant" className="hover:text-primary transition-colors" component="span">Carrière</Typography></Link></li>
+          <ul className="flex flex-col gap-3">
+            <li><Link to="/about" className="py-1 inline-block"><Typography variant="label-sm" color="on-surface-variant" className="hover:text-primary transition-colors" component="span">À propos</Typography></Link></li>
+            <li><Link to="/catalog" className="py-1 inline-block"><Typography variant="label-sm" color="on-surface-variant" className="hover:text-primary transition-colors" component="span">Nos services</Typography></Link></li>
+            <li><Link to="/" className="py-1 inline-block"><Typography variant="label-sm" color="on-surface-variant" className="hover:text-primary transition-colors" component="span">Carrière</Typography></Link></li>
           </ul>
         </div>
 
         {/* COLONNE LÉGAL */}
         <div>
-          <Typography variant="label-lg" weight="bold" className="mb-6" component="h5">
+          <Typography variant="label-lg" weight="bold" className="mb-6" component="h3">
             Légal
           </Typography>
-          <ul className="space-y-4">
-            <li><Link to="/contact"><Typography variant="label-sm" color="on-surface-variant" className="hover:text-primary transition-colors" component="span">Contact</Typography></Link></li>
-            <li><Link to="/"><Typography variant="label-sm" color="on-surface-variant" className="hover:text-primary transition-colors" component="span">Mentions Légales</Typography></Link></li>
-            <li><Link to="/"><Typography variant="label-sm" color="on-surface-variant" className="hover:text-primary transition-colors" component="span">Confidentialité</Typography></Link></li>
+          <ul className="flex flex-col gap-3">
+            <li><Link to="/contact" className="py-1 inline-block"><Typography variant="label-sm" color="on-surface-variant" className="hover:text-primary transition-colors" component="span">Contact</Typography></Link></li>
+            <li><Link to="/" className="py-1 inline-block"><Typography variant="label-sm" color="on-surface-variant" className="hover:text-primary transition-colors" component="span">Mentions Légales</Typography></Link></li>
+            <li><Link to="/" className="py-1 inline-block"><Typography variant="label-sm" color="on-surface-variant" className="hover:text-primary transition-colors" component="span">Confidentialité</Typography></Link></li>
           </ul>
         </div>
 
         {/* COLONNE RÉSEAUX */}
         <div>
-          <Typography variant="label-lg" weight="bold" className="mb-6" component="h5">
+          <Typography variant="label-lg" weight="bold" className="mb-6" component="h3">
             Réseaux
           </Typography>
-          <ul className="space-y-4">
+          <ul className="flex flex-col gap-3">
             <li>
-              <Link to="https://facebook.com" target="_blank" rel="noopener noreferrer"><Typography variant="label-sm" color="on-surface-variant" className="hover:text-primary transition-colors" component="span">Facebook</Typography></Link>
+              <Link to="https://facebook.com" target="_blank" rel="noopener noreferrer" className="py-1 inline-block"><Typography variant="label-sm" color="on-surface-variant" className="hover:text-primary transition-colors" component="span">Facebook</Typography></Link>
             </li>
             <li>
-              <Link to="https://instagram.com" target="_blank" rel="noopener noreferrer"><Typography variant="label-sm" color="on-surface-variant" className="hover:text-primary transition-colors" component="span">Instagram</Typography></Link>
+              <Link to="https://instagram.com" target="_blank" rel="noopener noreferrer" className="py-1 inline-block"><Typography variant="label-sm" color="on-surface-variant" className="hover:text-primary transition-colors" component="span">Instagram</Typography></Link>
             </li>
             <li>
-              <Link to="https://youtube.com" target="_blank" rel="noopener noreferrer"><Typography variant="label-sm" color="on-surface-variant" className="hover:text-primary transition-colors" component="span">YouTube</Typography></Link>
+              <Link to="https://youtube.com" target="_blank" rel="noopener noreferrer" className="py-1 inline-block"><Typography variant="label-sm" color="on-surface-variant" className="hover:text-primary transition-colors" component="span">YouTube</Typography></Link>
             </li>
           </ul>
         </div>
@@ -74,7 +74,7 @@ export default function Footer() {
           <Typography variant="label-sm" color="on-surface-variant" component="div">
             © 2026 Concept M-Motors. Propulsé par  
             <Link 
-              className="text-primary hover:text-primary-container transition-colors ml-1" 
+              className="text-primary hover:text-primary-container transition-colors ml-1 underline underline-offset-4" 
               to="https://github.com/Skies-Land" 
               target="_blank" 
               rel="noopener noreferrer">
