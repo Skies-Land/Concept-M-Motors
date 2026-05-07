@@ -74,6 +74,7 @@ npm run dev
 * **[Container](./front-end/src/components/design-system/Container.tsx)** : gérant la cohérence dans chaque page. Ce composant utilise des marges automatiques *(mx-auto)*, une largeur maximale stricte *(max-w-7xl)*, et des paddings qui s'adaptent progressivement selon les écrans *(px-4 sm:px-6 lg:px-8 xl:px-12)*. Cela évite que les textes ou le contenu ne touchent les bords sur téléphones ou tablettes, tout en limitant la largeur sur très grand écran pour préserver la lisibilité. Il utilise la propriété `as` pour s'adapter sémantiquement si besoin (bien que défini par défaut sur un simple `div`).
 * Intégration de ces composants dans les différentes pages du site. Fonctionnement par `props`, `children` et `switch case` notamment pour les composants `Button` et `Typography`.
 * **[Input](./front-end/src/components/design-system/Input.tsx)** : gérant l'apparence et les fonctionnalités des différents champs de formulaire *(texte, email, mot de passe, etc)*.
+* **[Spinner](./front-end/src/components/design-system/Spinner.tsx)** : gérant l'affichage d'un état de chargement pour indiquer que le site est en cours de chargement.
 > 💡*Le développement d'un **[Design System](./front-end/src/components/design-system)** m'a servi à adopter un design cohérent qui se réplique sur toutes les pages du site et facilement modifiable depuis ces composants.*
 
 #### **🔍 NAVIGATION & RÉFÉRENCEMENT :**
@@ -86,11 +87,13 @@ npm run dev
 > 💡*Cette structure de navigation me sert à avoir une cohérence des éléments React à charger entre chaque page. Plus d'information sur cette structure dans le fichier **[README.md](./front-end/README.md)**.*
 
 #### **🏗️ STRUCTURE DU PROJET :** 
-Chaque partie du site est découpée par dossier qui représente une page. Chaque page est regroupée dans le dossier **[pages](./front-end/src/pages)**. Dans chaque dossier de page, un ou deux sous-dossiers.
+Chaque partie du site est découpée par dossier, chaque dossier représente une **[page](./front-end/src/pages)**. Suivie de sous-dossiers :
 * `src/pages/nom-de-la-page/` : dossier représentant la page et les sous-dossiers associés.
 * `src/pages/nom-de-la-page/components/` : dossier regroupant les différentes éléments graphiques qui composent la page.
 * `src/pages/nom-de-la-page/features/` : dossier regroupant des petites fonctionnalités clés de la page.
 * `src/pages/nom-de-la-page/functions/` : dossier regroupant les fonctions de logique de la page.
+* **[router.tsx](./front-end/src/routes/router.tsx)** : ce composant gère l'ensemble des routes et les différents chemins de navigation entre les pages du site.
+    * Le routeur utilise le **[Code Splitting](https://legacy.reactjs.org/docs/code-splitting.html)** (ou chargement paresseux) via `React.lazy()` et le composant **[Suspense](https://react.dev/reference/react/Suspense)**. Cela permet de découper l'application en modules (chunks) et de ne charger que le code JavaScript strictement nécessaire à la page affichée. Cette technique réduit le temps de chargement initial et accélère l'affichage LCP *(Largest Contentful Paint)*. Un composant `Spinner` gère l'interface de transition pendant le chargement des pages.
 >💡*Cette structure de dossier principale par page et de sous-dossier, me sert à séparer la logique fonctionnelle du contenu graphique de la page. Le but étant que le code soit plus facilement maintenable et plus facile à comprendre. Plus d'information sur cette structure dans le fichier **[README.md](./front-end/README.md)**.*
 
 #### **🗄️ PRÉPARATION ET CONFIGURATION DE LA BASE DE DONNÉES DES VÉHICULES :**

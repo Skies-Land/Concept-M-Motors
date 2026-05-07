@@ -4,6 +4,9 @@ import { Navigate } from "react-router-dom";
 // CONTEXTE (afin de récupérer les informations de l'utilisateur connecté)
 import { useAuth } from "../../context/AuthUserContext";
 
+// COMPOSANT
+import Spinner from "../design-system/Spinner";
+
 // CONSTANTES (afin de vérifier le statut de la session)
 import { REGISTERED } from "../../constants/Session-status";
 
@@ -22,11 +25,7 @@ export default function ProtectedRoute({ children }: ProtectedRouteProps) {
 
     // Affichage d'un état de chargement pendant la vérification de la session
     if (loading) {
-        return (
-            <div className="min-h-screen bg-stone-950 flex items-center justify-center">
-                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-orange-500"></div>
-            </div>
-        );
+        return <Spinner />;
     }
 
     // Si l'utilisateur n'est pas enregistré, redirection vers la page de connexion
