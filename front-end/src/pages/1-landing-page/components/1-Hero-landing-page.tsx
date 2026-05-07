@@ -16,9 +16,10 @@ export default function HeroLandingPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-surface-container-lowest via-surface-container-lowest/80 to-transparent z-10" data-pg-name="Ombre devant l'image"></div>
         <img 
           className="w-full h-full object-cover grayscale opacity-50" 
-          data-alt="Profil latéral d'une supercar moderne et élégante dans un garage sombre et cinématique" 
-          src = {IMG_HeroLandingPage}
-          alt="Image de fond de la section hero" />
+          src={IMG_HeroLandingPage}
+          alt="Profil latéral d'une supercar moderne et élégante dans un garage sombre et cinématique"
+          fetchPriority="high"
+        />
       </div>
 
       {/* Conteneur principal */}

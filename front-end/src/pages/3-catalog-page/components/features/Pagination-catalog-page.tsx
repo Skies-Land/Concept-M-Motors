@@ -14,17 +14,20 @@ export default function PaginationCatalog({ currentPage, totalPages, onPageChang
         const pages = [];
         for (let i = 1; i <= totalPages; i++) {
             pages.push(
-                <span 
+                <button 
                     key={i}
+                    type="button"
                     onClick={() => onPageChange(i)}
-                    className={`cursor-pointer transition-colors ${
+                    aria-label={`Aller à la page ${i}`}
+                    aria-current={currentPage === i ? "page" : undefined}
+                    className={`bg-transparent border-none p-0 cursor-pointer transition-colors ${
                         currentPage === i 
                             ? "text-primary underline underline-offset-8" 
                             : "hover:text-white"
                     }`}
                 >
                     {i < 10 ? `0${i}` : i}
-                </span>
+                </button>
             );
         }
         return pages;
@@ -35,13 +38,15 @@ export default function PaginationCatalog({ currentPage, totalPages, onPageChang
         <div className="mt-24 flex justify-between items-center border-t border-white/10 pt-12">
             {/* Bouton précédent */}
             <button 
+                type="button"
                 onClick={() => onPageChange(currentPage - 1)}
                 disabled={currentPage === 1}
+                aria-label="Page précédente"
                 className={`text-[10px] font-bold tracking-widest uppercase transition-colors flex items-center gap-2 cursor-pointer ${
                     currentPage === 1 ? 'text-gray-500 cursor-not-allowed' : 'hover:text-primary'
                 }`}
             >
-                <span className="material-symbols-outlined text-sm" data-pg-name="Bouton précédent">west</span> Précédent
+                <span className="material-symbols-outlined text-sm" aria-hidden="true">west</span> Précédent
             </button>
             
             {/* Affichage des numéros de page */}
@@ -51,13 +56,15 @@ export default function PaginationCatalog({ currentPage, totalPages, onPageChang
             
             {/* Bouton suivant */}
             <button 
+                type="button"
                 onClick={() => onPageChange(currentPage + 1)}
                 disabled={currentPage === totalPages}
+                aria-label="Page suivante"
                 className={`text-[10px] font-bold tracking-widest uppercase transition-colors flex items-center gap-2 cursor-pointer ${
                     currentPage === totalPages ? 'text-gray-500 cursor-not-allowed' : 'hover:text-primary'
                 }`}
             >
-                Suivant <span className="material-symbols-outlined text-sm" data-pg-name="Bouton suivant">east</span>
+                Suivant <span className="material-symbols-outlined text-sm" aria-hidden="true">east</span>
             </button>
         </div>
     );

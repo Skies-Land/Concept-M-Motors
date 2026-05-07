@@ -21,6 +21,7 @@ interface TypographyProps {
     color?: TypographyColor;
     weight?: TypographyWeight;
     className?: string;
+    htmlFor?: string;
     children: React.ReactNode;
 }
 
@@ -31,6 +32,7 @@ export const Typography = ({
     color = "on-surface", 
     weight,
     className = "",
+    htmlFor,
     children 
 }: TypographyProps) => {
     
@@ -116,7 +118,7 @@ export const Typography = ({
     const finalClasses = `${variantStyle} ${colorStyle} ${weightStyle} ${className}`.trim().replace(/\s+/g, ' ');
 
     return (
-        <Component className={finalClasses}>
+        <Component className={finalClasses} htmlFor={Component === "label" ? htmlFor : undefined}>
             {children}
         </Component>
     );
