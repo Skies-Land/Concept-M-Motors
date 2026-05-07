@@ -12,8 +12,8 @@ export default function LandingPageView() {
         <>
             {/* Composant SEO pour définir les métadonnées de la page d'accueil */}
             <Seo
-                title="Concept M-Motors - Page d'accueil"
-                description="Vente de véhicules, achat et location avec services associés"
+                title="M-Motors | Vente et Location de Véhicules d'Exception"
+                description="Découvrez M-Motors, votre expert en automobile de prestige. Achat, vente et location longue durée de véhicules de luxe avec services de conciergerie."
             />
 
             {/* Composants de la page d'accueil */}

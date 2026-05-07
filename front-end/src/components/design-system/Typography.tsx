@@ -9,7 +9,7 @@ export type TypographyVariant =
 
 /** Types de propriétés pour personnalisé la **couleur** du texte du composant `Typography` */
 export type TypographyColor = 
-    | "primary" | "on-surface" | "on-surface-variant" | "error" | "inverse" | "inherit";
+    | "primary" | "primary-container" | "on-surface" | "on-surface-variant" | "error" | "inverse" | "inherit";
 
 /** Types de propriétés pour personnalisé le **gras** du texte du composant `Typography` */
 export type TypographyWeight = "regular" | "medium" | "bold";
@@ -21,6 +21,7 @@ interface TypographyProps {
     color?: TypographyColor;
     weight?: TypographyWeight;
     className?: string;
+    htmlFor?: string;
     children: React.ReactNode;
 }
 
@@ -31,6 +32,7 @@ export const Typography = ({
     color = "on-surface", 
     weight,
     className = "",
+    htmlFor,
     children 
 }: TypographyProps) => {
     
@@ -76,6 +78,9 @@ export const Typography = ({
         case "primary":
             colorStyle = "text-primary";
             break;
+        case "primary-container":
+            colorStyle = "text-primary-container";
+            break;
         case "on-surface": // Texte principal sur fond noir (ex: #e5e2e1)
             colorStyle = "text-on-surface";
             break;
@@ -116,7 +121,7 @@ export const Typography = ({
     const finalClasses = `${variantStyle} ${colorStyle} ${weightStyle} ${className}`.trim().replace(/\s+/g, ' ');
 
     return (
-        <Component className={finalClasses}>
+        <Component className={finalClasses} htmlFor={Component === "label" ? htmlFor : undefined}>
             {children}
         </Component>
     );

@@ -77,6 +77,7 @@ export default function SidebarAccount() {
                 <button 
                     onClick={handleLogout}
                     className="md:hidden flex flex-col items-center justify-center gap-1 p-2 text-zinc-500 hover:text-zinc-200 transition-colors"
+                    aria-label="Déconnexion"
                 >
                     <MdLogout className="text-2xl" />
                 </button>

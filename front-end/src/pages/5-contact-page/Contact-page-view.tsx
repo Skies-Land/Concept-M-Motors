@@ -10,8 +10,8 @@ export default function ContactPageView() {
         <>
             {/* Composant SEO pour définir les métadonnées de la page de contact */}
             <Seo
-                title="Contact - Concept M-Motors"
-                description="Contactez-nous pour toute demande d'information, de devis ou de rendez-vous"
+                title="Contactez M-Motors | Expertise et Accompagnement"
+                description="Une question ou un projet automobile ? Contactez l'équipe de M-Motors pour un accompagnement personnalisé et une expertise de haut niveau."
             />
 
             <Container>

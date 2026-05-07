@@ -4,7 +4,7 @@ import { Typography } from "../../../components/design-system/Typography";
 import { Button } from "../../../components/design-system/Button";
 
 // IMAGE
-import IMG_ServicesLandingPage from "../../../assets/img/IMG_Services-landing-page.jpg"
+import IMG_ServicesLandingPage from "../../../assets/img/IMG_Services-landing-page.webp"
 
 // ICÔNES
 import { IoMdInfinite } from "react-icons/io";

@@ -17,8 +17,8 @@ export default function AccountPageView() {
         <>
             {/* Composant SEO pour définir les métadonnées de la page */}
             <Seo
-                title="Espace client - Concept M-Motors"
-                description="Tableau de bord de votre compte client."
+                title="Mon Espace Client | M-Motors"
+                description="Gérez vos documents, vos services et vos réservations de véhicules d'exception en toute sécurité sur votre espace personnel M-Motors."
             />
 
             {/* Contenu principal de la page */}

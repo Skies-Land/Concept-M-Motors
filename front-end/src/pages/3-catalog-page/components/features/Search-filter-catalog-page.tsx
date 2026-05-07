@@ -68,9 +68,18 @@ export default function SearchFilterCatalog({ onFilterChange }: SearchFilterCata
             {/* Filtre de recherche par marque */}
             <div className="flex-1 min-w-[200px] flex flex-col gap-4 w-full">
                 <div>
-                    <Typography variant="label-sm" color="primary" className="mb-2 block">Marque</Typography>
+                    <Typography 
+                        variant="label-sm" 
+                        color="primary-container" 
+                        className="mb-2 block" 
+                        component="label" 
+                        htmlFor="brand-select"
+                    >
+                        Marque
+                    </Typography>
                     {/* Menu déroulant */}
                     <select 
+                        id="brand-select"
                         value={selectedBrand}
                         onChange={(e) => setSelectedBrand(e.target.value)}
                         className="w-full bg-transparent border-none p-0 text-sm focus:ring-0 font-headline uppercase tracking-tight text-on-surface [&>option]:bg-surface-container-high cursor-pointer"
@@ -98,10 +107,19 @@ export default function SearchFilterCatalog({ onFilterChange }: SearchFilterCata
             {/* Filtre de recherche par prix */}
             <div className="flex-1 min-w-[200px] flex flex-col gap-4 w-full">
                 <div>
-                    <Typography variant="label-sm" color="primary" className="mb-2 block">Budget</Typography>
+                    <Typography 
+                        variant="label-sm" 
+                        color="primary" 
+                        className="mb-2 block" 
+                        component="label" 
+                        htmlFor="price-range"
+                    >
+                        Budget
+                    </Typography>
                     <div className="flex justify-between items-center text-sm font-headline">
                         <span className="text-on-surface-variant min-w-[60px]">0 €</span>
                         <input 
+                            id="price-range"
                             className="accent-primary flex-grow mx-4 cursor-pointer" 
                             max={absoluteMaxPrice} 
                             min="0" 

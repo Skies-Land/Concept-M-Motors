@@ -8,8 +8,8 @@ export default function ErrorPageView() {
         <>
             {/* Composant SEO pour définir les métadonnées de la page d'erreur 404 */}
             <Seo
-                title="Concept M-Motors - Page d'erreur 404"
-                description="Page d'erreur 404"
+                title="Page Introuvable (404) | M-Motors"
+                description="Désolé, la page que vous recherchez est introuvable. Retournez à l'accueil pour découvrir notre catalogue de véhicules d'exception."
             />
 
             {/* Composant de contenu de la page d'erreur 404 */}

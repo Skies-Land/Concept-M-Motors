@@ -30,6 +30,8 @@ export interface ButtonProps {
     onClick?: () => void;
     /** Classes CSS supplémentaires pour forcer un style contextuel */
     className?: string;
+    /** Texte alternatif pour les lecteurs d'écran (crucial pour les boutons icônes) */
+    ariaLabel?: string;
 }
 
 /** Composant servant à gérer l'apparence et les actions des boutons */
@@ -46,7 +48,8 @@ export const Button = ({
     type = "button",
     fullWidth = false,
     onClick,
-    className = ""
+    className = "",
+    ariaLabel
 }: ButtonProps) => {
 
     let variantStyles = "";
@@ -128,6 +131,7 @@ export const Button = ({
             className={finalClasses}
             onClick={onClick}
             disabled={disabled || isLoading}
+            aria-label={ariaLabel}
         >
             {buttonContent}
         </button>

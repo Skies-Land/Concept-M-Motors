@@ -23,6 +23,7 @@ export default function VehicleCardCatalogPage({ vehicle }: VehicleCardCatalogPa
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
                     alt={`${vehicle.brand} ${vehicle.model}`} 
                     src={vehicle.imageUrl}
+                    loading="lazy"
                 />
             </div>
             {/* Carte du conteneur d'informations du véhicule */}
