@@ -1,22 +1,26 @@
 // DEPENDANCE
+import { lazy, Suspense } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 
 // LAYOUT (Header & Footer)
 import RootLayout from '../components/layout/RootLayout';
 
-// PAGES
-import LandingPageView from '../pages/1-landing-page/Landing-page-view';
-import AboutPageView from '../pages/2-about-page/About-page-view';
-import CatalogPageView from '../pages/3-catalog-page/Catalog-page-view';
-import VehiclePageView from '../pages/4-vehicle-page/Vehicle-page-view';
-import ContactPageView from '../pages/5-contact-page/Contact-page-view';
-import LoginPageView from '../pages/6-login-page/Login-page-view';
-import AccountPageView from '../pages/7-account-page/account-page-view';
-import ErrorPageView from '../pages/8-error-page/Error-page-view';
-
 // COMPOSANTS (pour la protection des routes)
 import ProtectedRoute from '../components/navigation/ProtectedRoute';
 import GuestRoute from '../components/navigation/GuestRoute';
+
+// COMPOSANT (pour le chargement)
+import Spinner from '../components/design-system/Spinner';
+
+// PAGES (Chargement paresseux / Code Splitting)
+const LandingPageView = lazy(() => import('../pages/1-landing-page/Landing-page-view'));
+const AboutPageView = lazy(() => import('../pages/2-about-page/About-page-view'));
+const CatalogPageView = lazy(() => import('../pages/3-catalog-page/Catalog-page-view'));
+const VehiclePageView = lazy(() => import('../pages/4-vehicle-page/Vehicle-page-view'));
+const ContactPageView = lazy(() => import('../pages/5-contact-page/Contact-page-view'));
+const LoginPageView = lazy(() => import('../pages/6-login-page/Login-page-view'));
+const AccountPageView = lazy(() => import('../pages/7-account-page/account-page-view'));
+const ErrorPageView = lazy(() => import('../pages/8-error-page/Error-page-view'));
 
 /** Composant servant à la redirection des pages de l'application */
 export const router = createBrowserRouter([
@@ -26,29 +30,29 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <LandingPageView />,
+        element: <Suspense fallback={<Spinner />}><LandingPageView /></Suspense>,
       },
       {
         path: 'catalog',
-        element: <CatalogPageView />,
+        element: <Suspense fallback={<Spinner />}><CatalogPageView /></Suspense>,
       },
       {
         path: 'catalog/:id',
-        element: <VehiclePageView />,
+        element: <Suspense fallback={<Spinner />}><VehiclePageView /></Suspense>,
       },
       {
         path: 'about',
-        element: <AboutPageView />,
+        element: <Suspense fallback={<Spinner />}><AboutPageView /></Suspense>,
       },
       {
         path: 'contact',
-        element: <ContactPageView />,
+        element: <Suspense fallback={<Spinner />}><ContactPageView /></Suspense>,
       },
       {
         path: 'login',
         element: (
           <GuestRoute>
-            <LoginPageView />
+            <Suspense fallback={<Spinner />}><LoginPageView /></Suspense>
           </GuestRoute>
         ),
       },
@@ -56,13 +60,13 @@ export const router = createBrowserRouter([
         path: 'account',
         element: (
           <ProtectedRoute>
-            <AccountPageView />
+            <Suspense fallback={<Spinner />}><AccountPageView /></Suspense>
           </ProtectedRoute>
         ),
       },
       {
         path: '*',
-        element: <ErrorPageView />,
+        element: <Suspense fallback={<Spinner />}><ErrorPageView /></Suspense>,
       },
     ],
   },
