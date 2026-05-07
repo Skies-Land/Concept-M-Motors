@@ -70,8 +70,8 @@ export default function VehiclePageView() {
         <>
             {/* Composant SEO pour définir les métadonnées de la page de description du véhicule */}
             <Seo
-                title={`Concept M-Motors - ${vehicle.brand} ${vehicle.model}`}
-                description={`Découvrez le véhicule ${vehicle.brand} ${vehicle.model} sur Concept M-Motors.`}
+                title={`M-Motors - ${vehicle.brand} ${vehicle.model}`}
+                description={`Découvrez le véhicule ${vehicle.brand} ${vehicle.model} sur M-Motors.`}
             />
 
             {/* Composants de contenu de la page de description du véhicule */}

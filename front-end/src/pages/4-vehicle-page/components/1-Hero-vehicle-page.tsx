@@ -23,6 +23,8 @@ export default function HeroVehiclePage({ vehicle }: VehicleHeroProps) {
                         className="w-full h-full object-cover object-center opacity-80" 
                         alt={`${vehicle.brand} ${vehicle.model}`} 
                         src= {vehicle.imageUrl} 
+                        fetchPriority="high"
+                        decoding="async"
                     />
                     {/* Dégradé pour assombrir l'image */}
                     <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent"></div>
