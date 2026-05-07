@@ -22,7 +22,7 @@ src/
 │   └── Update-user.tsx         # Fonction de mise à jour du profil utilisateur dans la collection Firebase `users`
 │
 ├── components/                 # Composants réutilisables
-│   ├── design-system/          # Composants de base d'interface (Container, Typography, Button, Logo, Input)
+│   ├── design-system/          # Composants de base d'interface (Container, Typography, Button, Logo, Input, Spinner)
 │   ├── layout/                 # Composants de structure (RootLayout)
 │   ├── navigation/             # Composants de navigation (Header, Footer, ProtectedRoute, GuestRoute, User-account)
 │   |   └── features/           # Composants de fonctionnalité (Active-link-header)

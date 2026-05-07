@@ -74,6 +74,7 @@ npm run dev
 * **[Container](./front-end/src/components/design-system/Container.tsx)** : gérant la cohérence dans chaque page. Ce composant utilise des marges automatiques *(mx-auto)*, une largeur maximale stricte *(max-w-7xl)*, et des paddings qui s'adaptent progressivement selon les écrans *(px-4 sm:px-6 lg:px-8 xl:px-12)*. Cela évite que les textes ou le contenu ne touchent les bords sur téléphones ou tablettes, tout en limitant la largeur sur très grand écran pour préserver la lisibilité. Il utilise la propriété `as` pour s'adapter sémantiquement si besoin (bien que défini par défaut sur un simple `div`).
 * Intégration de ces composants dans les différentes pages du site. Fonctionnement par `props`, `children` et `switch case` notamment pour les composants `Button` et `Typography`.
 * **[Input](./front-end/src/components/design-system/Input.tsx)** : gérant l'apparence et les fonctionnalités des différents champs de formulaire *(texte, email, mot de passe, etc)*.
+* **[Spinner](./front-end/src/components/design-system/Spinner.tsx)** : gérant l'affichage d'un état de chargement pour indiquer que le site est en cours de chargement.
 > 💡*Le développement d'un **[Design System](./front-end/src/components/design-system)** m'a servi à adopter un design cohérent qui se réplique sur toutes les pages du site et facilement modifiable depuis ces composants.*
 
 #### **🔍 NAVIGATION & RÉFÉRENCEMENT :**
