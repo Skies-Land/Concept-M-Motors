@@ -30,7 +30,8 @@ Le projet consiste à développer une plateforme web modernisée visant à digit
         - **[🚗 Description d'un véhicule](#affichage-dynamique-de-la-page-description-dun-vehicule-)**
         - **[👤 Espace client](#espace-client)**
         - **[📄 Autres pages](#autres-pages)**
-    - **[🧪 PHASE 3 : OPTIMISATION ET TESTING](#phase-3--optimisation-et-testing)**
+    - **[📝 CONCEPTION & FONCTIONNALITÉS](#conception-et-fonctionnalites)**
+    - **[🧪 PHASE 3 : TESTING & OPTIMISATION](#phase-3--testing-et-optimisation)**
     - **[🚀 PHASE 4 : DÉPLOIEMENT](#phase-4--deploiement)**
 - **[👨‍💻 Skies-Land - Jonathan Araldi](#skies-land---jonathan-araldi)**
 
@@ -246,8 +247,15 @@ interface FAQItem {
 * **[Error-page-view](./front-end/src/pages/8-error-page/Error-page-view.tsx)** : servant à afficher une page pour informer l'utilisateur que le contenu demandé n'existe pas *(ou n'est plus référencé)* et lui propose deux solutions pour retrouver ce qu'il cherche *(Retour à l'accueil et Revenir à la page précédente)*.
 
 
-### 🧪 **PHASE 3 : TESTING**
-#### 👉 Tests unitaires effectués sur la branch : **[feature-tests](https://github.com/Skies-Land/Concept-M-Motors/tree/feature-tests)** 👈
+### 📝 **CONCEPTION & FONCTIONNALITÉS**
+L'ensemble des fonctionnalités de l'application a été cartographié sous forme de User Stories pour garantir une expérience utilisateur cohérente et répondre aux besoins métiers.
+* **[Cartographie des User Stories](./documentation/USER_STORIES.md)**
+
+
+### 🧪 **PHASE 3 : TESTING & OPTIMISATION**
+#### **Tests unitaires :**
+👉 Tests unitaires effectués sur la branch : **[feature-tests](https://github.com/Skies-Land/Concept-M-Motors/tree/feature-tests)**
+
 > 💡 *J'ai séparé les tests unitaires dans une branche dédiée `feature-tests` pour ne pas impacter la branche principale `main` où **[Netlify](https://www.netlify.com/)** effectue les déploiements automatiques. Ainsi le projet reste stable et fonctionnel pour les utilisateurs.*
 
 L'application bénéficie d'une suite de tests unitaires pour garantir la fiabilité des composants et de la logique fonctionnelle. Toutes les parties du site ont été testées, de l'interface utilisateur aux fonctionnalités principales. Les tests utilisent les bibliothèques suivantes :
@@ -292,15 +300,14 @@ describe("nomDuComposantATester", () => {
 });
 ```
 
-#### **Résultats des tests unitaires :**
-
+**Résultats des tests unitaires :**
 ![Résultats des tests unitaires](./documentation/Unit-test-results.png)
 
-*Détails de l'exécution :*
-- **57 fichiers de tests** validés.
-- **196 tests unitaires** passés avec succès (100% de réussite).
 
-#### 👉 Tests unitaires effectués sur la branch : **[feature-tests](https://github.com/Skies-Land/Concept-M-Motors/tree/feature-tests)** 👈
+#### **Audite d'optimisation :**
+Après les tests unitaires, j'ai effectué des optimisations des performances du site avec l'outil **[PageSpeed Insights](https://pagespeed.web.dev/)**. Les performances, l'accessibilité et le référencement ont été optimisés sur la branche : `feature-lighthouse-optimization` avant d'être fusionnée avec la branche `main`. 
+* **[Documentation des optimisations effectuées](./documentation/LIGHTHOUSE_REPORT.md)**.
+
 
 ### 🚀 **PHASE 4 : DÉPLOIEMENT**
 Le projet est déployé sur **[Netlify](https://www.netlify.com/)** avec une intégration continue (CI/CD) liée au dépôt GitHub.

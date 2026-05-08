@@ -17,6 +17,7 @@ Ce document résume la configuration technique du projet **Concept M-Motors**.
 - **Styling :** **[Tailwind CSS](https://tailwindcss.com/)** *(PostCSS bridge)*
 - **Hébergement :** **[Netlify](https://www.netlify.com/)** *(Support SPA via `_redirects`)*
 - **Icons :** **[React Icons](https://react-icons.github.io/react-icons/)**
+- **Outils d'audit :** **[Lighthouse / PageSpeed Insights](https://pagespeed.web.dev/)** *(Performance, SEO, Accessibilité)*
 
 ## 🗄️ Stack Back-end (Services)
 - **Base de données :** **[Firebase Firestore](https://firebase.google.com/docs/firestore)** *(NoSQL)*
@@ -26,10 +27,10 @@ Ce document résume la configuration technique du projet **Concept M-Motors**.
 ## 🧪 Stack Testing
 - **Type de test :** Unitaire - *Chaque composant est testé individuellement.*
 - **Framework :** **[Vitest](https://vitest.dev/)** *(Framework de test JavaScript rapide et léger)*
-- **Librairie :** **[React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)** (RTL) *(Librairie de tests pour React)*
+- **Librairie :** **[React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)** *(Librairie de tests pour React)*
 - **Environnement de rendu :** **[JSDOM](https://github.com/jsdom/jsdom)** *(Environnement virtuel léger qui simule un navigateur)*
 - **Méthodologie :** **[Pattern AAA](https://learn.microsoft.com/fr-fr/visualstudio/test/unit-test-basics?view=visualstudio)** - ***Arrange** - préparation | **Act** - agir/action | **Assert** - vérification*
-- **Organisation :** La phase de test est en cours de développement, dans la branche : **[feature-tests](https://github.com/Skies-Land/Concept-M-Motors/tree/feature-tests)**.
+- **Organisation :** Phase de tests effectués à partir de la branche : **[feature-tests](https://github.com/Skies-Land/Concept-M-Motors/tree/feature-tests)**
 
 ## 🧩 Organisation du Code (Front-end)
 - **Design System :** 
@@ -46,6 +47,7 @@ Ce document résume la configuration technique du projet **Concept M-Motors**.
     - **Tabs dynamiques :** Navigation interne de l'espace client *(dashboard)* basée sur les ancres URL *(hash)*, permettant un affichage conditionnel des sections sans rechargement.
     - **Navigation Responsive :** Barre latérale *(Sidebar)* de l'espace client adaptative, se transformant en barre de navigation horizontale *(Bottom Tab Bar)* sur mobile pour une ergonomie optimisée.
     - **Gestion de l'Upload :** Utilisation d'un "Hidden Input Render Prop" injecté par un hook personnalisé `SendDocsAccount` pour centraliser la gestion des fichiers sans encombrer le DOM.
+    - **Performance :** Utilisation du Lazy Loading (*Code Splitting* via `React.lazy`) dans le routeur pour un chargement optimisé des pages.
 - **API & Logique métier :** Centralisation des appels réseau dans `/src/api/` *(ex: `Get-user.tsx`)*.
     - **Filtrage Dynamique :** Implémentation d'un calcul automatique du prix maximum du catalogue via une requête Firestore dédiée `Get-max-price-catalog.tsx`, permettant au curseur de budget de s'adapter en temps réel au véhicule le plus cher en stock.
     - **Isolation :** Séparation de la logique métier *(Hooks et utilitaires)* dans des dossiers `functions/` au sein des modules de pages. Utilisation d'un système de contrôle de fichiers `CheckDocumentUpload` avant traitement.
