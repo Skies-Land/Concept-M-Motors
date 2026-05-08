@@ -4,6 +4,10 @@
 ├── .env                        # Variables d'environnement (Secrètes)
 ├── .env.example                # Modèle de variables d'environnement à remplir
 │
+├── public/                     # Fichiers statiques publics
+│   ├── _redirects              # Configuration de redirection pour Netlify
+│   └── robots.txt              # Règles d'indexation pour le SEO
+│
 src/
 │   App.tsx                     # Composant principal (Provider de navigation)
 │   main.tsx                    # Point d'entrée React
