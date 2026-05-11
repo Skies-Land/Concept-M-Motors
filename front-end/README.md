@@ -1,4 +1,4 @@
-## 📂 ARCHITECTURE DU PROJET (CÔTÉ FRONT-END)
+# ARCHITECTURE DU PROJET (CÔTÉ FRONT-END)
 
 ```text
 ├── .env                        # Variables d'environnement (Secrètes)

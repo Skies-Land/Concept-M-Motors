@@ -7,14 +7,12 @@
   <a href="https://m-motors-skiesland.netlify.app/" target="_blank">🌐 Voir le site en direct</a>
 </div>
 
-### **OBJECTIF DU MVP (Minimum Viable Product)**
-Le projet consiste à développer une plateforme web modernisée visant à digitaliser l'intégralité du tunnel de vente et à introduire un service de LLD (Location longue durée).
-
-#### **FONCTIONNALITÉS CLÉS :**
-* **Catalogue** : consultation des véhicules disponibles avec affichage des prix d'achat comptant et de location comprenant une grille de tarification pour les mensualités.
-* **Espace client** : permettant de suivre l'état d'avancement des dossiers de souscription. Module de dépôt dématérialisé et sécurisé des pièces justificatives.
-
----
+### **OBJECTIF**
+Le projet consistait à développer une plateforme web de type MVP *(Minimum Viable Product)* pour une concession automobile, avec l'introduction d'un service de LLD *(location longue durée)* et d'un espace client pour la dématérialisation des documents clients.
+* **Fonctionnalités clés :**
+    * **Catalogue** : consultation des véhicules disponibles avec affichage des prix d'achat comptant et de location.
+    * **Page description d'un véhicule** : affichage des détails d'un véhicule sélectionné dans le catalogue, incluant description, caractéristiques techniques et grille tarifaire.
+    * **Espace client** : permettant de déposer les documents nécessaires à la souscription d'un véhicule et de suivre l'état d'avancement du dossier.
 
 # 📜 Table des matières
 - **[🧰 STACKS UTILISÉS](#stacks-utilises)**
@@ -62,7 +60,7 @@ npm run dev
 ### 🎨 **PHASE 1 : CONCEPTION ET PRÉPARATION | MAQUETTAGE**
 - **Étape 1 :** J'ai utilisé **[Google Stitch](https://stitch.withgoogle.com/)** pour générer les maquettes du site.
 - **Étape 2 :** J'ai affiné les maquettes en éditant certains éléments avec le logiciel de conception **[Pinegrow](https://www.pinegrow.com/)**.
-- **Étape 3 :** À partir des fichiers du dossier **[Maquette](./maquette/prototype)**, j'ai procédé au découpage en identifiant les éléments et sections, avec l'ajout de commentaires, dans le but d'identifier et prévoir les composants React nécessaires dans l'architecture du dossier **[front-end](./front-end)**.
+- **Étape 3 :** À partir des fichiers du dossier **[Maquette](./maquette/prototype)**, j'ai procédé au découpage en identifiant les éléments et sections, avec l'ajout de commentaires, dans le but d'identifier et prévoir les composants React nécessaires pour l'architecture du dossier **[front-end](./front-end)**.
 > 💡*L'utilisation de **[Google Stitch](https://stitch.withgoogle.com/)** m'a permis d'avoir une base de départ que j'ai pu peaufiner avec le logiciel **[Pinegrow](https://www.pinegrow.com/)** pour démarrer mon développement.*
 
 
@@ -73,9 +71,9 @@ npm run dev
 * **[Button](./front-end/src/components/design-system/Button.tsx)** : gérant l'apparence et les actions des boutons du site.
 * **[Logo](./front-end/src/components/design-system/Logo.tsx)** : gérant l'apparence du logo du site.
 * **[Container](./front-end/src/components/design-system/Container.tsx)** : gérant la cohérence dans chaque page. Ce composant utilise des marges automatiques *(mx-auto)*, une largeur maximale stricte *(max-w-7xl)*, et des paddings qui s'adaptent progressivement selon les écrans *(px-4 sm:px-6 lg:px-8 xl:px-12)*. Cela évite que les textes ou le contenu ne touchent les bords sur téléphones ou tablettes, tout en limitant la largeur sur très grand écran pour préserver la lisibilité. Il utilise la propriété `as` pour s'adapter sémantiquement si besoin (bien que défini par défaut sur un simple `div`).
-* Intégration de ces composants dans les différentes pages du site. Fonctionnement par `props`, `children` et `switch case` notamment pour les composants `Button` et `Typography`.
 * **[Input](./front-end/src/components/design-system/Input.tsx)** : gérant l'apparence et les fonctionnalités des différents champs de formulaire *(texte, email, mot de passe, etc)*.
 * **[Spinner](./front-end/src/components/design-system/Spinner.tsx)** : gérant l'affichage d'un état de chargement pour indiquer que le site est en cours de chargement.
+* Intégration de ces composants dans les différentes pages du site. Fonctionnement par `props`, `children` et `switch case` notamment pour les composants `Button` et `Typography`.
 > 💡*Le développement d'un **[Design System](./front-end/src/components/design-system)** m'a servi à adopter un design cohérent qui se réplique sur toutes les pages du site et facilement modifiable depuis ces composants.*
 
 #### **🔍 NAVIGATION & RÉFÉRENCEMENT :**
@@ -93,9 +91,9 @@ Chaque partie du site est découpée par dossier, chaque dossier représente une
 * `src/pages/nom-de-la-page/components/` : dossier regroupant les différentes éléments graphiques qui composent la page.
 * `src/pages/nom-de-la-page/features/` : dossier regroupant des petites fonctionnalités clés de la page.
 * `src/pages/nom-de-la-page/functions/` : dossier regroupant les fonctions de logique de la page.
-* **[router.tsx](./front-end/src/routes/router.tsx)** : ce composant gère l'ensemble des routes et les différents chemins de navigation entre les pages du site.
-    * Le routeur utilise le **[Lazy Loading](https://react.dev/reference/react/lazy)** (ou chargement paresseux) via `React.lazy()` et le composant **[Suspense](https://react.dev/reference/react/Suspense)**. Cela permet de découper l'application en modules (chunks) et de ne charger que le code JavaScript strictement nécessaire à la page affichée. Cette technique réduit le temps de chargement initial et accélère l'affichage LCP *(Largest Contentful Paint)*. Un composant `Spinner` gère l'interface de transition pendant le chargement des pages.
->💡*Cette structure de dossier principale par page et de sous-dossier, me sert à séparer la logique fonctionnelle du contenu graphique de la page. Le but étant que le code soit plus facilement maintenable et plus facile à comprendre. Plus d'information sur cette structure dans le fichier **[README.md](./front-end/README.md)**.*
+* **[router.tsx](./front-end/src/routes/router.tsx)** : ce composant gère les redirections et les différents chemins de navigation entre les pages du site.
+    * Le routeur utilise le **[Lazy Loading](https://react.dev/reference/react/lazy)** (ou chargement paresseux) via `React.lazy()` et le composant **[Suspense](https://react.dev/reference/react/Suspense)**. Cela permet de découper l'application en modules (chunks) et de ne charger que le code JavaScript strictement nécessaire à la page affichée. Cette technique réduit le temps de chargement initial et accélère l'affichage LCP *(Largest Contentful Paint)*. Le composant `Spinner` gère l'interface de transition pendant le chargement des pages.
+>💡*Cette structure de dossier principale par page et de sous-dossier, me sert à séparer la logique fonctionnelle du contenu graphique de la page. Le but étant que le code soit plus facilement maintenable et plus facile à comprendre. Plus d'informations sur cette structure dans le fichier **[README.md](./front-end/README.md)**.*
 
 #### **🗄️ PRÉPARATION ET CONFIGURATION DE LA BASE DE DONNÉES DES VÉHICULES :**
 * Pour la page de catalogue de véhicules, j'ai choisi d'opter pour **[Firebase](https://firebase.google.com/)** pour stocker les données des véhicules. Configuré avec **[Firestore](https://firebase.google.com/docs/firestore?hl=fr)** comme base de données NoSQL. 
@@ -156,8 +154,8 @@ interface Vehicle {
 
 * Dans l'interface Firebase, j'ai configuré les règles Firestore pour la base de données pour n'autoriser que la lecture publique et l'écriture authentifiée (pour l'admin)
 * Concernant les images de chaque véhicule, elles sont stockées avec le service de stockage cloud **[Cloudinary](https://cloudinary.com/)**.
-* J'ai initialisé la connexion Firebase dans le front-end avec le fichier de configuration **[firebase-config](./front-end/src/config/firebase-config.ts)**. Les informations de connexion sont sécurisées via des variables d'environnement `.env` *(mais ignoré par Git pour la sécurité)*.
-> 💡 *J'ai préféré utiliser **[Firebase](https://firebase.google.com/)** pour la gestion des données des véhicules, car connaissant déjà cette technologie, il était plus facile pour moi de l'implémenter dans le projet.*
+* J'ai initialisé la connexion Firebase dans le front-end avec le fichier de configuration **[firebase-config](./front-end/src/config/firebase-config.ts)**. Les informations de connexion entre Firebase et le front-end sont sécurisées via une variable d'environnement `.env` *(mais ignoré par Git pour la sécurité)*.
+> 💡 *J'ai préféré utiliser **[Firebase](https://firebase.google.com/)** pour la gestion des données des véhicules, car connaissant déjà le service, il était plus facile pour moi de l'implémenter dans le projet.*
 
 #### **🖥️ AFFICHAGE DYNAMIQUE DE LA PAGE CATALOGUE :**
 * Le composant **[Catalog-page-view](./front-end/src/pages/3-catalog-page/Catalog-page-view.tsx)** sert à afficher la page de catalogue du site. Il est composée de plusieurs éléments :
@@ -175,7 +173,7 @@ interface Vehicle {
     * **[Hero-vehicle-page](./front-end/src/pages/4-vehicle-page/components/1-Hero-vehicle-page.tsx)** : sert à afficher la bannière de la page de description d'un véhicule. L'image est récupérée par la propriété -> `vehicle.imageUrl` de la base de données.
     * **[Description-vehicle-page](./front-end/src/pages/4-vehicle-page/components/2-Description-vehicle-page.tsx)** : sert à afficher un texte explicatif sur le véhicule et ses informations techniques.
     * **[Acquisition-method-vehicle-page](./front-end/src/pages/4-vehicle-page/components/3-Acquisition-method-vehicle-page.tsx)** : sert à afficher deux options d'acquisition (achat ou location) avec les prix correspondants à l' `ID` du véhicule.
-    * **[Tarif-catalog-vehicle-page](./front-end/src/pages/4-vehicle-page/components/4-Tarif-catalog-vehicle-page.tsx)** : sert à afficher une grille tarifaire pour la méthode d'acquisition par location en fonction du prix d'achat du véhicule correspondant à son `ID`. Une formule est utilisée pour calculer le tarif de location en fonction du nombre de mois (36, 48, 72) choisie pour la location.
+    * **[Tarif-catalog-vehicle-page](./front-end/src/pages/4-vehicle-page/components/4-Tarif-catalog-vehicle-page.tsx)** : sert à afficher une grille tarifaire pour la méthode d'acquisition par location en fonction du prix d'achat du véhicule correspondant à son `ID`. Une formule est utilisée pour calculer le tarif de location en fonction du nombre de mois (24, 36, 48, 72) choisie pour la location.
     * **[Get-description-vehicle](./front-end/src/api/Get-description-vehicle-page.tsx)** : est la fonction de logique permettant de récupérer les détails d'un véhicule spécifique depuis la base de données. Cette fonction est implémentée dans le composant **[Vehicle-page-view](./front-end/src/pages/4-vehicle-page/Vehicle-page-view.tsx)**.
     > 💡*Les informations textuelles et les images de chaque véhicule ont été générées par IA afin de disposer de contenu à développer pour être affiché sur le site.*
 
@@ -206,7 +204,7 @@ interface Vehicle {
         * **[Sidebar-account](./front-end/src/pages/7-account-page/components/features/Sidebar-account.tsx)** : servant à afficher la barre latérale gauche de l'espace client avec les liens vers les différentes sections de l'espace client. Implémentation de la fonction **[Active-link-sidebar-account](./front-end/src/pages/7-account-page/components/functions/Active-link-sidebar-account.tsx)** pour rendre dynamique l'apparence des liens actifs.
         * **[Edit-profil](./front-end/src/pages/7-account-page/components/1-Edit-profil-account.tsx)** : servant à afficher un formulaire pour l'édition du profil de l'utilisateur en renseignant ou modifiant son *(nom d'utilisateur, prénom, nom, adresse e-mail, adresse postale et numéro de téléphone)*. Pour rendre le formulaire fonctionnel, le composant utilise le hook personnalisé **[Edit-profil-account-function](./front-end/src/pages/7-account-page/components/functions/Edit-profil-account-function.tsx)** qui utilise la fonction **[Update-user](./front-end/src/api/Update-user.tsx)** pour mettre à jour les informations de l'utilisateur dans la collection Firestore `users`.
         * **[Docs-account](./front-end/src/pages/7-account-page/components/2-Docs-acount.tsx)** : servant à uploader les documents justificatifs du client *(Pièce d'identité, Justificatif de domicile, Bulletins de salaire, Permis de conduire)*. L'interface gère l'aperçu dynamique via **[Preview-document-account](./front-end/src/pages/7-account-page/components/features/Preview-document-account.tsx)** et le statut de validation via **[Validation-document-function](./front-end/src/pages/7-account-page/components/functions/Validation-document-function.tsx)**. Ce composant pemettant d'ajouter une indication visuelle dans l'interface client, informant sur l'état de traitement du ou des documents envoyés. Le processus est orchestré par le hook **[Send-document-function](./front-end/src/pages/7-account-page/components/functions/Send-document-function.tsx)** qui utilise la logique de contrôle **[Check-document-upload-function](./front-end/src/pages/7-account-page/components/functions/Check-document-upload-function.tsx)**.
-            > 💡 *Pour le moment l'upload de document est simuler en local storage pour les besoins de présentation du projet.*
+            > 💡 *Pour le moment l'upload de document est simuler en local storage pour les besoins de la présentation du projet.*
         * **[Services-account](./front-end/src/pages/7-account-page/components/3-Services-account.tsx)** : servant à afficher les services que le client peux réserver. Actuellement en phase de développement, le composant affiche un message placeholder invitant à patienter pour la mise en place future de cette fonctionnalité.
         * **[Booking-account](./front-end/src/pages/7-account-page/components/4-Booking-account.tsx)** : servant à afficher l'historique des réservations du client. Actuellement en phase de développement, le composant affiche un message placeholder invitant à patienter pour la mise en place future de cette fonctionnalité.
 
@@ -223,7 +221,8 @@ interface Vehicle {
     > 💡 *Ces composants gèrent un état de chargement `loading`. Tant que Firebase n'a pas confirmé le statut de la session, un spinner est affiché, empêchant ainsi tout affichage non désiré de contenu protégé ou de redirection prématurée.*
 
 #### **📄 AUTRES PAGES**
-* **[About-page-view](./front-end/src/pages/2-about-page/About-page-view.tsx)** : servant à afficher une brève description de l'entreprise, les services qu'elle propose et une section FAQ. **[Get-faq](./front-end/src/api/Get-faq.tsx)** : est la fonction de logique permettant de récupérer les questions et réponses de la section FAQ depuis la base de données. Cette fonction est implémentée dans le composant **[FAQ-about-page](./front-end/src/pages/2-about-page/components/4-FAQ-about-page.tsx)**.<br>
+* **[About-page-view](./front-end/src/pages/2-about-page/About-page-view.tsx)** : servant à afficher une brève description de l'entreprise, les services qu'elle propose et une section FAQ.
+    * **[Get-faq](./front-end/src/api/Get-faq.tsx)** : est la fonction de logique permettant de récupérer les questions et réponses de la section FAQ depuis la base de données. Cette fonction est implémentée dans le composant **[FAQ-about-page](./front-end/src/pages/2-about-page/components/4-FAQ-about-page.tsx)**.<br>
 J'ai configuré cette collection de données nommée `faq` avec la structure suivante :
 
 | Champ | Type | Description |
@@ -247,14 +246,14 @@ interface FAQItem {
 * **[Error-page-view](./front-end/src/pages/8-error-page/Error-page-view.tsx)** : servant à afficher une page pour informer l'utilisateur que le contenu demandé n'existe pas *(ou n'est plus référencé)* et lui propose deux solutions pour retrouver ce qu'il cherche *(Retour à l'accueil et Revenir à la page précédente)*.
 
 
-### 📝 **CONCEPTION & FONCTIONNALITÉS**
+#### 📝 **CONCEPTION & FONCTIONNALITÉS**
 L'ensemble des fonctionnalités de l'application a été cartographié sous forme de User Stories pour garantir une expérience utilisateur cohérente et répondre aux besoins métiers.
 * **[Cartographie des User Stories](./documentation/USER_STORIES.md)**
 
 
 ### 🧪 **PHASE 3 : TESTING & OPTIMISATION**
 #### **Tests unitaires :**
-👉 Tests unitaires effectués sur la branch : **[feature-tests](https://github.com/Skies-Land/Concept-M-Motors/tree/feature-tests)**
+👉 Tests unitaires effectués sur la branche : **[feature-tests](https://github.com/Skies-Land/Concept-M-Motors/tree/feature-tests)**
 
 > 💡 *J'ai séparé les tests unitaires dans une branche dédiée `feature-tests` pour ne pas impacter la branche principale `main` où **[Netlify](https://www.netlify.com/)** effectue les déploiements automatiques. Ainsi le projet reste stable et fonctionnel pour les utilisateurs.*
 
@@ -304,13 +303,12 @@ describe("nomDuComposantATester", () => {
 ![Résultats des tests unitaires](./documentation/Unit-test-results.png)
 
 
-#### **Audite d'optimisation :**
-Après les tests unitaires, j'ai effectué des optimisations des performances du site avec l'outil **[PageSpeed Insights](https://pagespeed.web.dev/)**. Les performances, l'accessibilité et le référencement ont été optimisés sur la branche : `feature-lighthouse-optimization` avant d'être fusionnée avec la branche `main`. 
-* **[Documentation des optimisations effectuées](./documentation/LIGHTHOUSE_REPORT.md)**.
+#### **AUDIT D'OPTIMISATION :**
+Après les tests unitaires, j'ai effectué des optimisations des performances du site avec l'outil **[Lighthouse / PageSpeed Insights](https://pagespeed.web.dev/)**. Les performances, l'accessibilité et le référencement ont été optimisés sur la branche : `feature-lighthouse-optimization` avant d'être fusionnée avec la branche `main`. Voici la **[Documentation des optimisations effectuées](./documentation/LIGHTHOUSE_REPORT.md)**.
 
 
 ### 🚀 **PHASE 4 : DÉPLOIEMENT**
-Le projet est déployé sur **[Netlify](https://www.netlify.com/)** avec une intégration continue (CI/CD) liée au dépôt GitHub.
+Le projet est déployé sur **[Netlify](https://www.netlify.com/)** avec une intégration continue (CI/CD) liée au dépôt GitHub à partir de la branche `main`.
 * **Hébergement** : Netlify (Base directory: `front-end`).
 * **Build** : Automatisation via `npm run build` et `dist`.
 * **Routage** : Support du Single Page Application (SPA) via un fichier `_redirects` dans le dossier `public` pour rediriger toutes les requêtes vers `index.html`.
