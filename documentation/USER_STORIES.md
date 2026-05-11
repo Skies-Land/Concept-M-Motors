@@ -1,4 +1,4 @@
-# Cartographie des User Stories de l'Application
+# CARTOGRAPHIE DES USER STORIES
 
 Ce document répertorie les user stories de l'application, séparées par catégories :
 
