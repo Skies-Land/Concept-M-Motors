@@ -2,7 +2,6 @@
 
 ```text
 ├── .env                        # Variables d'environnement (Secrètes)
-├── .env.example                # Modèle de variables d'environnement à remplir
 │
 ├── public/                     # Fichiers statiques publics
 │   ├── _redirects              # Configuration de redirection pour Netlify

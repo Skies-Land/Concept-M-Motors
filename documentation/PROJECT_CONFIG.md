@@ -4,24 +4,26 @@ Ce document résume la configuration technique du projet **Concept M-Motors**.
 
 ## 🏗️ Architecture
 - **Front-end :** `/front-end` *(React, React Router, Vite, TypeScript, Tailwind v4)*
-- **Back-end :** **[Services BaaS](https://www.goweb.fr/esn/web-sur-mesure/firebase-pt1/)** *(Firebase Firestore, Firebase Auth, Cloudinary)*
-- **Déploiement :** **[Netlify](https://www.netlify.com/)** *(CI/CD via GitHub)*
+- **Back-end :** `/back-end` *(FastAPI, Python, MongoDB Atlas, Motor, Beanie)*
+- **Hébergement :** **[Netlify](https://www.netlify.com/)** (Front) & **[Render](https://render.com/)** (Back)
+- **Déploiement :** CI/CD via GitHub
 
 ## 🎨 Stack - front-end
 - **Framework :** **[Vite.js](https://vite.dev/)**
 - **UI :** **[React](https://react.dev/)**
 - **Navigation :** **[React Router](https://reactrouter.com/)** *(Data Router via `createBrowserRouter`)*
 - **SEO :** **[React Helmet Async](https://www.npmjs.com/package/react-helmet-async)** *(Gestion dynamique des balises meta)*
-- **Backend SDK :** **[Firebase](https://firebase.google.com/docs)** *(Module API Client)*
 - **Langage :** **[TypeScript](https://www.typescriptlang.org/)**
 - **Styling :** **[Tailwind CSS](https://tailwindcss.com/)** *(PostCSS bridge)*
-- **Hébergement :** **[Netlify](https://www.netlify.com/)** *(Support SPA via `_redirects`)*
 - **Icons :** **[React Icons](https://react-icons.github.io/react-icons/)**
 - **Outils d'audit :** **[Lighthouse / PageSpeed Insights](https://pagespeed.web.dev/)** *(Performance, SEO, Accessibilité)*
 
-## 🗄️ Stack - back-end (services)
-- **Base de données :** **[Firebase Firestore](https://firebase.google.com/docs/firestore)** *(NoSQL)*
-- **Authentification :** **[Firebase Auth](https://firebase.google.com/docs/auth)** *(Opérationnelle - Connexion, Inscription, Réinitialisation)*
+## 🗄️ Stack - back-end
+- **Framework :** **[FastAPI](https://fastapi.tiangolo.com/)** *(Python 3.10+)*
+- **Base de données :** **[MongoDB Atlas](https://www.mongodb.com/atlas)** *(NoSQL Cloud)*
+- **ODM (Object Document Mapper) :** **[Beanie](https://beanie-odm.dev/)** *(Basé sur Motor et Pydantic)*
+- **Authentification :** JWT (JSON Web Tokens) avec `python-jose` et `passlib`
+- **Hébergement :** **[Render](https://render.com/)**
 - **Stockage d'images :** **[Cloudinary](https://cloudinary.com/)**
 
 ## 🧪 Stack - testing
@@ -62,21 +64,39 @@ Ce document résume la configuration technique du projet **Concept M-Motors**.
 - **Esthétique :** Glassmorphisme, dégradés subtils.
 
 ## 🚀 Commandes utiles
+### Front-end
 ```bash
+
 # Accéder au dossier front-end
 cd front-end
 
+# Installation
+npm install
+
 # Lancer le développement
-npm run dev
+npm run dev 
 
-# Lancer le build de production
-npm run build
+# Build de production 
+npm run build 
 
-# Lancer tous les tests unitaires
-npm test
+# Lancer les tests unitaires
+npm test         
+```
 
-# Lancer les tests en mode interactif (Watch mode)
-npm run test:watch
+### Back-end
+```bash
+
+# Accéder au dossier back-end
+cd back-end
+
+# Installation des dépendances
+py -m pip install -r requirements.txt
+
+# Lancer le serveur de développement (auto-reload)
+py -m uvicorn app.main:app --reload
+
+# Tester la connexion à la base de données
+py scratch/test_db.py
 ```
 
 ## 👨‍💻 Skies-Land - Jonathan Araldi

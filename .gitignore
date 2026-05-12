@@ -1,1 +1,5 @@
 /.vite
+documentation/plan_migration_backend.md
+back-end/.env.example
+documentation/guide_mongodb_atlas.md
+back-end/.env
