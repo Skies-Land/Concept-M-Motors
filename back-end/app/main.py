@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.db.database import init_db
-from app.api.endpoints import vehicles
+from app.api.endpoints import vehicles, faq
 
 app = FastAPI(
     title="M-Motors API",
@@ -20,6 +20,7 @@ app.add_middleware(
 
 # Inclusion des routes
 app.include_router(vehicles.router, prefix="/api/vehicles", tags=["vehicles"])
+app.include_router(faq.router, prefix="/api/faqs", tags=["faq"])
 
 @app.on_event("startup")
 async def startup_event():

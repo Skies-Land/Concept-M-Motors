@@ -3,7 +3,7 @@ from typing import Optional
 from pydantic import BaseModel
 
 class TechnicalSpecs(BaseModel):
-    acceleration: str
+    acceleration: float
     topSpeed: int
     power: int
     engine: str
