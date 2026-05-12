@@ -10,7 +10,7 @@ export interface Vehicle {
     imageUrl: string; // URL de l'image du véhicule
     description: string; // Description du véhicule
     technicalSpecs: { 
-        acceleration: string; // Accélération du véhicule
+        acceleration: number; // Accélération du véhicule (en secondes)
         topSpeed: number; // Vitesse maximale du véhicule
         power: number; // Puissance du véhicule
         engine: string; // Moteur du véhicule

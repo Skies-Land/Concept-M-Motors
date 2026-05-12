@@ -14,7 +14,7 @@ export interface VehicleCardCatalogPageProps {
 export default function VehicleCardCatalogPage({ vehicle }: VehicleCardCatalogPageProps) {
     return (
         <Link 
-            to={`/catalog/${vehicle.id}`}
+            to={`/catalog/${vehicle.id || (vehicle as any)._id}`}
             className="group bg-surface-container-low hover:bg-surface-container transition-all duration-500 rounded-xl overflow-hidden flex flex-col cursor-pointer"
         >
             {/* Image du véhicule */}

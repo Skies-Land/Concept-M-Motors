@@ -5,4 +5,10 @@ class FAQ(Document):
     answer: str
 
     class Settings:
-        name = "faqs"  # Nom de la collection dans MongoDB
+        name = "faqs"
+
+    def model_dump(self, **kwargs):
+        """Assure que 'id' est présent et converti en string dans le JSON."""
+        d = super().model_dump(**kwargs)
+        d["id"] = str(self.id)
+        return d

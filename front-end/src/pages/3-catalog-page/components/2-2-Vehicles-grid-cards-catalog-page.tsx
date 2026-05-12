@@ -91,7 +91,7 @@ export default function VehiclesGridCardsCatalogPage({ filters }: VehiclesGridCa
                 <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                     {filteredVehicles.length > 0 ? (
                         currentVehicles.map(vehicle => (
-                            <VehicleCardPage key={vehicle.id} vehicle={vehicle} />
+                            <VehicleCardPage key={vehicle.id || (vehicle as any)._id} vehicle={vehicle} />
                         ))
                     ) : (
                         <div className="col-span-full py-20 text-center">

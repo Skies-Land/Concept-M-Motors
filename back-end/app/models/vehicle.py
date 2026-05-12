@@ -27,4 +27,10 @@ class Vehicle(Document):
     acquisition: Acquisition
 
     class Settings:
-        name = "vehicles"  # Nom de la collection dans MongoDB
+        name = "vehicles"
+
+    def model_dump(self, **kwargs):
+        """Assure que 'id' est présent et converti en string dans le JSON."""
+        d = super().model_dump(**kwargs)
+        d["id"] = str(self.id)
+        return d
