@@ -19,7 +19,7 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "https://m-motors-skies-land.netlify.app",
+        "https://m-motors-skiesland.netlify.app",
         "http://localhost:5173",
         "http://127.0.0.1:5173",
     ],
