@@ -11,7 +11,7 @@ import { useAuth } from "../../../../context/AuthUserContext";
 export const useEditProfilAccount = () => {
     const { authUser } = useAuth();
 
-    // État pour les champs du formulaire
+    /** État pour les champs du formulaire */
     const [formData, setFormData] = useState({
         displayName: "",
         firstName: "",
@@ -20,12 +20,12 @@ export const useEditProfilAccount = () => {
         phoneNumber: "",
     });
 
-    // États pour le retour utilisateur (succès, erreur, chargement)
+    /** États pour le retour utilisateur (succès, erreur, chargement) */
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const [success, setSuccess] = useState<string | null>(null);
 
-    // Initialisation du formulaire avec les données de l'utilisateur
+    /** Initialisation du formulaire avec les données de l'utilisateur */
     useEffect(() => {
         if (authUser) {
             setFormData({
@@ -38,16 +38,16 @@ export const useEditProfilAccount = () => {
         }
     }, [authUser]);
 
-    // Gestion du changement des champs
+    /** Gestion du changement des champs */
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
         setFormData(prev => ({ ...prev, [name]: value }));
-        // Réinitialiser les messages au début de la saisie
+        /** Réinitialiser les messages au début de la saisie */
         if (error) setError(null);
         if (success) setSuccess(null);
     };
 
-    // Gestion de la soumission du formulaire
+    /** Gestion de la soumission du formulaire */
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         
@@ -56,11 +56,13 @@ export const useEditProfilAccount = () => {
             return;
         }
 
+        /** Gestion du chargement */
         setLoading(true);
         setError(null);
         setSuccess(null);
 
         try {
+            /** Mise à jour des informations de l'utilisateur */
             await updateUser(authUser.id, formData);
             setSuccess("Vos informations ont été mises à jour avec succès.");
         } catch (err: any) {

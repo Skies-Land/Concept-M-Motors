@@ -13,13 +13,13 @@ export interface VehicleCardCatalogPageProps {
 /** Composant servant à afficher une carte de véhicule en suivant des propriétés */
 export default function VehicleCardCatalogPage({ vehicle }: VehicleCardCatalogPageProps) {
     return (
-        <Link 
-            to={`/catalog/${vehicle.id}`}
+        <Link
+            to={`/catalog/${vehicle.id || (vehicle as any)._id}`}
             className="group bg-surface-container-low hover:bg-surface-container transition-all duration-500 rounded-xl overflow-hidden flex flex-col cursor-pointer"
         >
             {/* Image du véhicule */}
             <div className="relative h-64 overflow-hidden">
-                <img 
+                <img
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
                     alt={`${vehicle.brand} ${vehicle.model}`} 
                     src={vehicle.imageUrl}

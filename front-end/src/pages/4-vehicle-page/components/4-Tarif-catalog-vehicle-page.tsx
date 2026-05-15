@@ -31,7 +31,9 @@ export default function TarifCatalogDescriptionPage({ vehicle }: VehicleRentalPr
 
     /** Affichage du tarif mensuel arrondie (prix du véhicule divisé par le nombre de mois) */
     const displayMonthlyPayment = (months: number) => {
+        /** Calcul du tarif mensuel */
         const payment = calculateMonthlyPayment(months);
+        /** Affichage du tarif mensuel */
         return payment ? `${payment.toLocaleString()} € / mois` : "Nous contacter";
     };
 
@@ -48,6 +50,7 @@ export default function TarifCatalogDescriptionPage({ vehicle }: VehicleRentalPr
                         <Typography variant="label-sm" color="primary" className="font-semibold">Durée</Typography>
                         <Typography variant="label-sm" color="primary" className="font-semibold">Mensualités</Typography>
                     </div>
+
                     {/* 24 mois */}
                     <div className="bg-surface-container grid grid-cols-2 group items-center p-4 transition-colors hover:bg-surface-container-low">
                         <Typography variant="headline-sm" component="div" color="on-surface">
@@ -57,6 +60,7 @@ export default function TarifCatalogDescriptionPage({ vehicle }: VehicleRentalPr
                             {displayMonthlyPayment(24)}
                         </Typography>
                     </div>
+
                     {/* 36 mois */}
                     <div className="bg-surface-container-highest grid grid-cols-2 group items-center p-4 transition-colors hover:bg-surface-container-low">
                         <Typography variant="headline-sm" component="div" color="on-surface">
@@ -66,6 +70,7 @@ export default function TarifCatalogDescriptionPage({ vehicle }: VehicleRentalPr
                             {displayMonthlyPayment(36)}
                         </Typography>
                     </div>
+
                     {/* 48 mois */}
                     <div className="bg-surface-container grid grid-cols-2 group items-center p-4 transition-colors hover:bg-surface-container-low">
                         <Typography variant="headline-sm" component="div" color="on-surface">
@@ -75,6 +80,7 @@ export default function TarifCatalogDescriptionPage({ vehicle }: VehicleRentalPr
                             {displayMonthlyPayment(48)}
                         </Typography>
                     </div>
+
                     {/* 72 mois */}
                     <div className="bg-surface-container-highest grid grid-cols-2 group items-center p-4 transition-colors hover:bg-surface-container-low">
                         <Typography variant="headline-sm" component="div" color="on-surface">
@@ -85,9 +91,11 @@ export default function TarifCatalogDescriptionPage({ vehicle }: VehicleRentalPr
                         </Typography>
                     </div>
                 </div>
+
                 <Typography variant="label-md" color="on-surface-variant" component="p" className="mt-4 text-right text-xs lowercase first-letter:capitalize italic">
                     * Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager.
                 </Typography>
+
             </Container>
         </>
     )

@@ -31,6 +31,7 @@ export default function HeroAboutPage() {
                     </span> 
                     <br />AUTOMOBILE 
                 </Typography>
+
                 {/* Description de la section Hero */}
                 <Typography variant="body-lg" component="p" color="on-surface-variant" className="max-w-2xl mx-auto md:text-xl">
                     Depuis trois décennies, M-MOTORS redéfinit les standards de l'automobile d'exception. 

@@ -1,25 +1,27 @@
-// DÉPENDANCES
-import { collection, getDocs } from "firebase/firestore";
-
 // CONFIGURATION
-import { db } from "../config/firebase-config";
+import { API_BASE_URL } from "../config/api-config";
 
 // TYPES
 import type { FAQItem } from "../types/FAQItem";
 
-/** Fonction servant à récupérer les questions et réponses de la section FAQ de la page à propos depuis la base de données
+/** Fonction servant à récupérer les questions et réponses de la section FAQ depuis l'API FastAPI
  * @returns {Promise<FAQItem[]>} - Un tableau contenant les questions et réponses.
  * @throws {Error} - Lance une erreur si la récupération des questions et réponses échoue.*/
 export const getFAQAboutPage = async (): Promise<FAQItem[]> => {
     try {
-        const querySnapshot = await getDocs(collection(db, "faq"));
-        const faqData = querySnapshot.docs.map(doc => ({
-            id: doc.id,
-            ...doc.data()
-        } as FAQItem));
-        return faqData;
+        /** Requête `GET` vers l'API FastAPI pour récupérer les données */
+        const response = await fetch(`${API_BASE_URL}/faqs/`);
+
+        // Vérification de la validité de la réponse réseau avant de continuer
+        if (!response.ok) {
+            throw new Error(`Erreur HTTP: ${response.status}`);
+        }
+
+        /** Conversion de la réponse en JSON */
+        const data = await response.json() as FAQItem[];
+        return data;
     } catch (error) {
-        console.error("Erreur lors de la récupération des questions et réponses:", error);
+        console.error("Erreur lors de la récupération des questions et réponses via l'API:", error);
         throw error;
     }
 };

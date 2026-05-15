@@ -10,11 +10,13 @@ export interface FilterState {
 /** Fonction servant à filtrer la liste des véhicules */
 export const filterVehiclesCatalog = (vehicles: Vehicle[], filters: FilterState): Vehicle[] => {
     return vehicles.filter(vehicle => {
+        /** Filtrage par marque - Vérification si la marque correspond au filtre ou si le filtre est sur "Toutes les Manufactures" */
         const matchesBrand = filters.brand === "Toutes les Manufactures" || vehicle.brand === filters.brand;
-        
-        // Vérification du prix d'achat en priorité pour l'investissement
-        // Si pas de prix d'achat, on regarde si c'est une location (facultatif selon règle métier)
+
+        /** Récupération du prix d'achat du véhicule */
         const price = vehicle.acquisition?.purchasePrice || 0;
+
+        /** Filtrage par prix d'achat - Vérification si le prix correspond au filtre */
         const matchesPrice = price <= filters.maxPrice;
 
         return matchesBrand && matchesPrice;

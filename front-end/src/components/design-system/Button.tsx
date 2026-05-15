@@ -110,11 +110,11 @@ export const Button = ({
                     progress_activity
                 </span>
             )}
-            
+
             {!isLoading && icon && iconPosition === "left" && (
                 <span className="flex-shrink-0">{icon}</span>
             )}
-            
+
             {!isLoading && children && (
                 <span>{children}</span>
             )}

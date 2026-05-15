@@ -47,6 +47,7 @@ export default function ValidationDocument({ status }: ValidationDocumentProps) 
         }
     };
 
+    /** Constantes permettant de définir le statut d'un document */
     const { text, color, bgColor, icon: Icon } = config[status];
 
     return (

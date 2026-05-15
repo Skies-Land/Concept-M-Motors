@@ -1,5 +1,7 @@
-// DÉPENDANCES
+// DÉPENDANCE
 import { Link } from 'react-router-dom';
+
+// ICÔNES
 import { FiMenu, FiX } from 'react-icons/fi';
 
 // DESIGN SYSTEM
@@ -29,8 +31,8 @@ export default function Header() {
       <nav className="fixed top-0 w-full z-50 bg-stone-950/60 backdrop-blur-xl">
 
         {/* Conteneur principal */}
-        <Container 
-          className="flex justify-between items-center py-6" 
+        <Container
+          className="flex justify-between items-center py-6"
           data-pg-name="Navbar">
           <Logo />
 

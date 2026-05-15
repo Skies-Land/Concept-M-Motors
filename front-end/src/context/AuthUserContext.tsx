@@ -1,9 +1,7 @@
 // DÉPENDANCES
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
-import { onAuthStateChanged, type User as FirebaseUser, signOut as firebaseSignOut } from "firebase/auth";
 
-// CONFIGURATIONS
-import { auth } from "../config/firebase-config";
+// CONFIGURATION
 import { getUser } from "../api/Get-user";
 
 // TYPES
@@ -19,6 +17,8 @@ interface AuthUserContextType {
     sessionStatus: SessionStatusTypes;
     loading: boolean;
     signOut: () => Promise<void>;
+    refreshUser: () => Promise<void>;
+    login: (token: string, user: User) => void; // Nouvelle méthode
 }
 
 // CRÉATION DU CONTEXTE
@@ -27,6 +27,8 @@ export const AuthUserContext = createContext<AuthUserContextType>({
     sessionStatus: GUEST,
     loading: true,
     signOut: async () => {},
+    refreshUser: async () => {},
+    login: () => {},
 });
 
 /** Provider permettant de partager les données de l'utilisateur authentifié et le statut de sa session entre les composants de l'application */
@@ -35,36 +37,65 @@ export const AuthUserProvider = ({ children }: { children: ReactNode }) => {
     const [sessionStatus, setSessionStatus] = useState<SessionStatusTypes>(GUEST);
     const [loading, setLoading] = useState(true);
 
-    // Fonction de déconnexion
-    const signOut = async () => {
-        try {
-            await firebaseSignOut(auth);
-        } catch (error) {
-            console.error("Erreur lors de la déconnexion :", error);
-        }
+    /** Fonction pour initialiser la session (login) */
+    const login = (token: string, user: any) => {
+        /** Normalisation de l'ID */
+        const userId = user.id || user._id;
+        const normalizedUser = { ...user, id: userId };
+
+        localStorage.setItem("token", token);
+        localStorage.setItem("user", JSON.stringify(normalizedUser));
+        setAuthUser(normalizedUser);
+        setSessionStatus(REGISTERED);
     };
 
-    useEffect(() => {
-        // Écoute les changements d'état de l'authentification Firebase
-        const unsubscribe = onAuthStateChanged(auth, async (firebaseUser: FirebaseUser | null) => {
-            setLoading(true);
-            if (firebaseUser) {
-                // Récupération des données Firestore
-                const userDetails = await getUser(firebaseUser.uid);
-                setAuthUser(userDetails);
-                setSessionStatus(REGISTERED);
-            } else {
-                setAuthUser(null);
-                setSessionStatus(GUEST);
-            }
-            setLoading(false);
-        });
+    /** Fonction pour rafraîchir les données de l'utilisateur au chargement */
+    const refreshUser = async () => {
+        const storedUser = localStorage.getItem("user");
+        const token = localStorage.getItem("token");
 
-        return () => unsubscribe();
+        if (storedUser && token) {
+            try {
+                const userObj = JSON.parse(storedUser);
+                
+                /** Normalisation de l'ID (MongoDB utilise _id, le front attend id) */
+                const userId = userObj.id || userObj._id;
+                userObj.id = userId; 
+
+                setAuthUser(userObj);
+                setSessionStatus(REGISTERED);
+                
+                /** Mise à jour en arrière-plan depuis l'API */
+                const updatedUser = await getUser(userId);
+                if (updatedUser) {
+                    setAuthUser(updatedUser);
+                }
+            } catch (error) {
+                console.error("Erreur de récupération utilisateur :", error);
+                signOut();
+            }
+        } else {
+            setAuthUser(null);
+            setSessionStatus(GUEST);
+        }
+        setLoading(false);
+    };
+
+    /** Fonction de déconnexion */
+    const signOut = async () => {
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+        setAuthUser(null);
+        setSessionStatus(GUEST);
+    };
+
+    /** Utilisation de useEffect pour initialiser la session utilisateur au chargement du composant */
+    useEffect(() => {
+        refreshUser();
     }, []);
 
     return (
-        <AuthUserContext.Provider value={{ authUser, sessionStatus, loading, signOut }}>
+        <AuthUserContext.Provider value={{ authUser, sessionStatus, loading, signOut, refreshUser, login }}>
             {children}
         </AuthUserContext.Provider>
     );

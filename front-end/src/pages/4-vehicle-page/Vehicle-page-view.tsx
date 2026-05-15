@@ -9,7 +9,7 @@ import DescriptionVehiclePage from "./components/2-Description-vehicle-page"
 import AcquisitionMethodVehiclePage from "./components/3-Acquisition-method-vehicle-page";
 import TarifCatalogDescriptionPage from "./components/4-Tarif-catalog-vehicle-page";
 
-// FONCTIONS DE LOGIQUE
+// API
 import { getVehicleDescription } from "../../api/Get-description-vehicle-page";
 
 // TYPES

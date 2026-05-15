@@ -4,24 +4,26 @@ Ce document résume la configuration technique du projet **Concept M-Motors**.
 
 ## 🏗️ Architecture
 - **Front-end :** `/front-end` *(React, React Router, Vite, TypeScript, Tailwind v4)*
-- **Back-end :** **[Services BaaS](https://www.goweb.fr/esn/web-sur-mesure/firebase-pt1/)** *(Firebase Firestore, Firebase Auth, Cloudinary)*
-- **Déploiement :** **[Netlify](https://www.netlify.com/)** *(CI/CD via GitHub)*
+- **Back-end :** `/back-end` *(FastAPI, Python, MongoDB Atlas, Motor, Beanie)*
+- **Hébergement :** **[Netlify](https://www.netlify.com/)** (Front) & **[Render](https://render.com/)** (Back)
+- **Déploiement :** CI/CD via GitHub
 
 ## 🎨 Stack - front-end
 - **Framework :** **[Vite.js](https://vite.dev/)**
 - **UI :** **[React](https://react.dev/)**
 - **Navigation :** **[React Router](https://reactrouter.com/)** *(Data Router via `createBrowserRouter`)*
 - **SEO :** **[React Helmet Async](https://www.npmjs.com/package/react-helmet-async)** *(Gestion dynamique des balises meta)*
-- **Backend SDK :** **[Firebase](https://firebase.google.com/docs)** *(Module API Client)*
 - **Langage :** **[TypeScript](https://www.typescriptlang.org/)**
 - **Styling :** **[Tailwind CSS](https://tailwindcss.com/)** *(PostCSS bridge)*
-- **Hébergement :** **[Netlify](https://www.netlify.com/)** *(Support SPA via `_redirects`)*
 - **Icons :** **[React Icons](https://react-icons.github.io/react-icons/)**
 - **Outils d'audit :** **[Lighthouse / PageSpeed Insights](https://pagespeed.web.dev/)** *(Performance, SEO, Accessibilité)*
 
-## 🗄️ Stack - back-end (services)
-- **Base de données :** **[Firebase Firestore](https://firebase.google.com/docs/firestore)** *(NoSQL)*
-- **Authentification :** **[Firebase Auth](https://firebase.google.com/docs/auth)** *(Opérationnelle - Connexion, Inscription, Réinitialisation)*
+## 🗄️ Stack - back-end
+- **Framework :** **[FastAPI](https://fastapi.tiangolo.com/)** *(Python 3.10+)*
+- **Base de données :** **[MongoDB Atlas](https://www.mongodb.com/atlas)** *(NoSQL Cloud)*
+- **ODM (Object Document Mapper) :** **[Beanie](https://beanie-odm.dev/)** *(Basé sur Motor et Pydantic)*
+- **Authentification :** JWT (JSON Web Tokens) avec `python-jose` et `passlib`
+- **Hébergement :** **[Render](https://render.com/)**
 - **Stockage d'images :** **[Cloudinary](https://cloudinary.com/)**
 
 ## 🧪 Stack - testing
@@ -31,6 +33,7 @@ Ce document résume la configuration technique du projet **Concept M-Motors**.
 - **Environnement de rendu :** **[JSDOM](https://github.com/jsdom/jsdom)** *(Environnement virtuel léger qui simule un navigateur)*
 - **Méthodologie :** **[Pattern AAA](https://learn.microsoft.com/fr-fr/visualstudio/test/unit-test-basics?view=visualstudio)** - ***Arrange** - préparation | **Act** - agir/action | **Assert** - vérification*
 - **Organisation :** Phase de tests effectués à partir de la branche : **[feature-tests](https://github.com/Skies-Land/Concept-M-Motors/tree/feature-tests)**
+- **Configuration API :** Centralisation de l'URL de base dans `front-end/src/config/api-config.ts`.
 
 ## 🧩 Organisation du code (front-end)
 - **Design system :** 
@@ -49,7 +52,7 @@ Ce document résume la configuration technique du projet **Concept M-Motors**.
     - **Gestion de l'upload :** Utilisation d'un "Hidden Input Render Prop" injecté par un hook personnalisé `SendDocsAccount` pour centraliser la gestion des fichiers sans encombrer le DOM.
     - **Performance :** Utilisation du Lazy Loading (*Code Splitting* via `React.lazy`) dans le routeur pour un chargement optimisé des pages.
 - **API & logique métier :** Centralisation des appels réseau dans `/src/api/` *(ex: `Get-user.tsx`)*.
-    - **Filtrage dynamique :** Implémentation d'un calcul automatique du prix maximum du catalogue via une requête Firestore dédiée `Get-max-price-catalog.tsx`, permettant au curseur de budget de s'adapter en temps réel au véhicule le plus cher en stock.
+    - **Filtrage dynamique :** Implémentation d'un calcul automatique du prix maximum du catalogue via une requête MongoDB dédiée `Get-max-price-catalog.tsx`, permettant au curseur de budget de s'adapter en temps réel au véhicule le plus cher en stock.
     - **Isolation :** Séparation de la logique métier *(Hooks et utilitaires)* dans des dossiers `functions/` au sein des modules de pages. Utilisation d'un système de contrôle de fichiers `CheckDocumentUpload` avant traitement.
 - **Pages :** Découpage par fonctionnalités dans `/src/pages/`.
 - **Navigation :** Composants `Header` et `Footer` adaptatifs *(le Header change d'état selon la connexion de l'utilisateur)*.
@@ -62,21 +65,39 @@ Ce document résume la configuration technique du projet **Concept M-Motors**.
 - **Esthétique :** Glassmorphisme, dégradés subtils.
 
 ## 🚀 Commandes utiles
+### Front-end
 ```bash
+
 # Accéder au dossier front-end
 cd front-end
 
+# Installation
+npm install
+
 # Lancer le développement
-npm run dev
+npm run dev 
 
-# Lancer le build de production
-npm run build
+# Build de production 
+npm run build 
 
-# Lancer tous les tests unitaires
-npm test
+# Lancer les tests unitaires
+npm test         
+```
 
-# Lancer les tests en mode interactif (Watch mode)
-npm run test:watch
+### Back-end
+```bash
+
+# Accéder au dossier back-end
+cd back-end
+
+# Installation des dépendances
+py -m pip install -r requirements.txt
+
+# Lancer le serveur de développement (auto-reload)
+py -m uvicorn app.main:app --reload
+
+# Tester la connexion à la base de données
+py scratch/test_db.py
 ```
 
 ## 👨‍💻 Skies-Land - Jonathan Araldi

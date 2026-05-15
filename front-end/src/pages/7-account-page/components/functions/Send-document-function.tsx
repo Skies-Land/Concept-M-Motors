@@ -9,7 +9,7 @@ export const SendDocsAccount = () => {
     const fileInputRef = useRef<HTMLInputElement>(null);
     const [currentCategory, setCurrentCategory] = useState<string | null>(null);
     
-    // État pour gérer les documents de chaque catégorie
+    /** État pour gérer les documents de chaque catégorie */
     const [docs, setDocs] = useState<{ [key: string]: { status: 'accepted' | 'pending' | 'rejected' | 'missing', fileData?: string } }>({
         identity: { status: 'missing' }, 
         address: { status: 'missing' },  
