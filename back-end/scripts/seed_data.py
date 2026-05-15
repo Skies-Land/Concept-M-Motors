@@ -1,3 +1,4 @@
+# DÉPENDANCES
 import asyncio
 import json
 import os
@@ -6,6 +7,7 @@ from app.db.database import init_db
 from app.models.vehicle import Vehicle
 from app.models.faq import FAQ
 
+# FONCTIONS UTILITAIRES
 def clean_json_from_tsx(filepath):
     """Lit un fichier .tsx et extrait le contenu JSON en supprimant les commentaires."""
     with open(filepath, 'r', encoding='utf-8') as f:

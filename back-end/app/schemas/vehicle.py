@@ -1,19 +1,25 @@
+# DÉPENDANCES
 from pydantic import BaseModel, Field
 from typing import Optional
 
+# SOUS-SCHÉMAS
 class TechnicalSpecs(BaseModel):
+    """Schéma de validation pour les spécifications techniques."""
     acceleration: str
     topSpeed: int
     power: int
     engine: str
 
 class Acquisition(BaseModel):
+    """Schéma de validation pour les modalités d'acquisition."""
     purchasePrice: Optional[float] = None
     rentalPrice: Optional[float] = None
     isAvailableForSale: bool
     isAvailableForRent: bool
 
+# SCHÉMAS DE BASE ET OPÉRATIONS
 class VehicleBase(BaseModel):
+    """Attributs communs d'un véhicule."""
     brand: str
     model: str
     category: str
@@ -26,10 +32,14 @@ class VehicleBase(BaseModel):
     acquisition: Acquisition
 
 class VehicleCreate(VehicleBase):
+    """Schéma utilisé lors de la création d'un véhicule (POST)."""
     pass
 
 class VehicleUpdate(VehicleBase):
-    # Rendre tous les champs optionnels pour les mises à jour partielles
+    """
+    Schéma utilisé pour les mises à jour (PATCH).
+    Tous les champs sont rendus optionnels.
+    """
     brand: Optional[str] = None
     model: Optional[str] = None
     category: Optional[str] = None
@@ -42,6 +52,10 @@ class VehicleUpdate(VehicleBase):
     acquisition: Optional[Acquisition] = None
 
 class Vehicle(VehicleBase):
+    """
+    Schéma de réponse complet incluant l'identifiant.
+    Utilisé pour le retour des données vers le Front-End.
+    """
     id: str = Field(..., alias="_id")
 
     class Config:
