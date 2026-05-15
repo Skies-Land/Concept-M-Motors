@@ -2,16 +2,16 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-// FIREBASE
-import { auth } from "../../../../config/firebase-config";
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-
 // API
-import { createUser } from "../../../../api/Create-user";
+import { API_BASE_URL } from "../../../../config/api-config";
+
+// CONTEXTE
+import { useAuth } from "../../../../context/AuthUserContext";
 
 /** Fonction servant à gérer la logique du formulaire d'inscription */
 export const useRegister = () => {
     const navigate = useNavigate();
+    const { login } = useAuth();
 
     // État pour les données du formulaire
     const [username, setUsername] = useState("");
@@ -42,37 +42,33 @@ export const useRegister = () => {
         setLoading(true);
 
         try {
-            // 1. Création de l'utilisateur dans Firebase Auth
-            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-            const user = userCredential.user;
-
-            // 2. Mise à jour du profil Firebase Auth avec le nom d'utilisateur
-            await updateProfile(user, {
-                displayName: username
+            /** Requête `POST` vers l'API FastAPI pour l'inscription */
+            const response = await fetch(`${API_BASE_URL}/auth/register`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    email,
+                    password,
+                    displayName: username,
+                    firstName: "", 
+                    lastName: "",
+                }),
             });
 
-            // 3. Création du document utilisateur dans Firestore
-            await createUser(user.uid, {
-                displayName: username,
-                email: email,
-            });
+            /** Conversion de la réponse en JSON */
+            const data = await response.json();
 
-            // 4. Redirection vers l'espace client
-            navigate("/account");
-            
+            /** Stockage du token et des infos utilisateur via le contexte */
+            login(data.access_token, data.user);
+
+            /** Redirection vers le catalogue */
+            navigate("/catalog");
+
         } catch (err: any) {
-            console.error("Erreur lors de l'inscription :", err);
-            
-            // Gestion des erreurs Firebase communes
-            if (err.code === "auth/email-already-in-use") {
-                setError("Cette adresse e-mail est déjà utilisée.");
-            } else if (err.code === "auth/invalid-email") {
-                setError("L'adresse e-mail n'est pas valide.");
-            } else if (err.code === "auth/weak-password") {
-                setError("Le mot de passe est trop faible.");
-            } else {
-                setError("Une erreur est survenue lors de l'inscription. Veuillez réessayer.");
-            }
+            console.error("Erreur d'inscription :", err);
+            setError(err.message || "Impossible de contacter le serveur.");
         } finally {
             setLoading(false);
         }
@@ -89,6 +85,6 @@ export const useRegister = () => {
         setConfirmPassword,
         error,
         loading,
-        handleSubmit
+        handleSubmit,
     };
 };

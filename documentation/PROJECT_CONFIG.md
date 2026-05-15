@@ -33,6 +33,7 @@ Ce document résume la configuration technique du projet **Concept M-Motors**.
 - **Environnement de rendu :** **[JSDOM](https://github.com/jsdom/jsdom)** *(Environnement virtuel léger qui simule un navigateur)*
 - **Méthodologie :** **[Pattern AAA](https://learn.microsoft.com/fr-fr/visualstudio/test/unit-test-basics?view=visualstudio)** - ***Arrange** - préparation | **Act** - agir/action | **Assert** - vérification*
 - **Organisation :** Phase de tests effectués à partir de la branche : **[feature-tests](https://github.com/Skies-Land/Concept-M-Motors/tree/feature-tests)**
+- **Configuration API :** Centralisation de l'URL de base dans `front-end/src/config/api-config.ts`.
 
 ## 🧩 Organisation du code (front-end)
 - **Design system :** 
@@ -51,7 +52,7 @@ Ce document résume la configuration technique du projet **Concept M-Motors**.
     - **Gestion de l'upload :** Utilisation d'un "Hidden Input Render Prop" injecté par un hook personnalisé `SendDocsAccount` pour centraliser la gestion des fichiers sans encombrer le DOM.
     - **Performance :** Utilisation du Lazy Loading (*Code Splitting* via `React.lazy`) dans le routeur pour un chargement optimisé des pages.
 - **API & logique métier :** Centralisation des appels réseau dans `/src/api/` *(ex: `Get-user.tsx`)*.
-    - **Filtrage dynamique :** Implémentation d'un calcul automatique du prix maximum du catalogue via une requête Firestore dédiée `Get-max-price-catalog.tsx`, permettant au curseur de budget de s'adapter en temps réel au véhicule le plus cher en stock.
+    - **Filtrage dynamique :** Implémentation d'un calcul automatique du prix maximum du catalogue via une requête MongoDB dédiée `Get-max-price-catalog.tsx`, permettant au curseur de budget de s'adapter en temps réel au véhicule le plus cher en stock.
     - **Isolation :** Séparation de la logique métier *(Hooks et utilitaires)* dans des dossiers `functions/` au sein des modules de pages. Utilisation d'un système de contrôle de fichiers `CheckDocumentUpload` avant traitement.
 - **Pages :** Découpage par fonctionnalités dans `/src/pages/`.
 - **Navigation :** Composants `Header` et `Footer` adaptatifs *(le Header change d'état selon la connexion de l'utilisateur)*.

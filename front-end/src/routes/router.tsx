@@ -1,4 +1,4 @@
-// DEPENDANCE
+// DEPENDANCES
 import { lazy, Suspense } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 
@@ -49,6 +49,7 @@ export const router = createBrowserRouter([
         element: <Suspense fallback={<Spinner />}><ContactPageView /></Suspense>,
       },
       {
+        // Route protégée : accessible uniquement aux utilisateurs "non connectés"
         path: 'login',
         element: (
           <GuestRoute>
@@ -57,6 +58,7 @@ export const router = createBrowserRouter([
         ),
       },
       {
+        // Route protégée : accessible uniquement aux utilisateurs "connectés"
         path: 'account',
         element: (
           <ProtectedRoute>

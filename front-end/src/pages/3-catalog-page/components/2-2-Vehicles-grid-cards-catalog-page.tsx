@@ -12,7 +12,7 @@ import { Typography } from "../../../components/design-system/Typography";
 import VehicleCardPage from "./2-1-Vehicle-card-catalog-page";
 import PaginationCatalog from "./features/Pagination-catalog-page";
 
-// LOGIQUE
+// LOGIQUES
 import { filterVehiclesCatalog, type FilterState } from "./functions/Filter-vehicles-catalog-page";
 import { paginateVehiclesCatalog } from "./functions/Paginate-vehicles-catalog-page";
 
@@ -24,14 +24,14 @@ interface VehiclesGridCardsCatalogPageProps {
 
 /** Composant servant à présenter les véhicules disponibles sous forme de grille avec pagination */
 export default function VehiclesGridCardsCatalogPage({ filters }: VehiclesGridCardsCatalogPageProps) {
-    // État pour stocker les véhicules
+    /** État pour stocker les véhicules */
     const [vehicles, setVehicles] = useState<Vehicle[]>([]);
-    // État pour stocker la page actuelle
+    /** État pour stocker la page actuelle */
     const [currentPage, setCurrentPage] = useState(1);
-    // Nombre de véhicules à afficher par page
+    /** Nombre de véhicules à afficher par page */
     const itemsPerPage = 6;
 
-    // Récupération des données de la collection vehicles à partir de Firebase
+    /** Récupération des données de la collection vehicles à partir de l'API backend */
     useEffect(() => {
         const fetchVehiclesData = async () => {
             try {
@@ -45,15 +45,15 @@ export default function VehiclesGridCardsCatalogPage({ filters }: VehiclesGridCa
         fetchVehiclesData();
     }, []);
 
-    // On réinitialise la page à 1 quand les filtres changent
+    /** On réinitialise la page à 1 quand les filtres changent */
     useEffect(() => {
         setCurrentPage(1);
     }, [filters]);
 
-    // Application des filtres
+    /** Application des filtres */
     const filteredVehicles = filterVehiclesCatalog(vehicles, filters);
 
-    // Calcul de la pagination
+    /** Calcul de la pagination */
     const { totalPages, currentVehicles } = paginateVehiclesCatalog(filteredVehicles, currentPage, itemsPerPage);
 
     return (
@@ -67,7 +67,7 @@ export default function VehiclesGridCardsCatalogPage({ filters }: VehiclesGridCa
                     {/* Titre et description de la section */}
                     <div>
                         <Typography variant="headline-lg" component="h1" color="on-surface" className="uppercase mb-2">
-                            Nos Modèles disponible
+                            Nos Modèles disponibles
                         </Typography>
                         <Typography variant="body-md" color="on-surface-variant" className="max-w-md">
                             Explorez notre inventaire d'exception. Chaque véhicule a été expertisé selon des 

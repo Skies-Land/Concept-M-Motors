@@ -1,5 +1,3 @@
-// DÉPENDANCES
-
 // CONFIGURATION
 import { API_BASE_URL } from "../config/api-config";
 
@@ -11,12 +9,15 @@ import type { FAQItem } from "../types/FAQItem";
  * @throws {Error} - Lance une erreur si la récupération des questions et réponses échoue.*/
 export const getFAQAboutPage = async (): Promise<FAQItem[]> => {
     try {
+        /** Requête `GET` vers l'API FastAPI pour récupérer les données */
         const response = await fetch(`${API_BASE_URL}/faqs/`);
-        
+
+        // Vérification de la validité de la réponse réseau avant de continuer
         if (!response.ok) {
             throw new Error(`Erreur HTTP: ${response.status}`);
         }
-        
+
+        /** Conversion de la réponse en JSON */
         const data = await response.json() as FAQItem[];
         return data;
     } catch (error) {

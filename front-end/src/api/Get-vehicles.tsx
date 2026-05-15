@@ -1,5 +1,3 @@
-// DÉPENDANCES
-
 // CONFIGURATION
 import { API_BASE_URL } from '../config/api-config';
 
@@ -11,14 +9,18 @@ import { type Vehicle } from '../types/Vehicle';
  * @throws {Error} - Lance une erreur si la récupération des véhicules échoue.*/
 export const getVehicles = async (): Promise<Vehicle[]> => {
     try {
+        /** Requête `GET` vers l'API FastAPI pour récupérer les données */
         const response = await fetch(`${API_BASE_URL}/vehicles/`);
-        
+
+        // Vérification de la validité de la réponse réseau avant de continuer
         if (!response.ok) {
             throw new Error(`Erreur HTTP: ${response.status}`);
         }
-        
+
+        /** Conversion de la réponse en JSON */
         const data = await response.json() as Vehicle[];
         return data;
+
     } catch (error) {
         console.error("Erreur détaillée lors de la récupération des véhicules via l'API:", error);
         throw error;

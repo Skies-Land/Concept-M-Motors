@@ -1,10 +1,6 @@
 // DÉPENDANCE
 import { useState } from "react";
 
-// FIREBASE
-import { auth } from "../../../../config/firebase-config";
-import { sendPasswordResetEmail } from "firebase/auth";
-
 /** Fonction servant à gérer la logique du formulaire d'oubli de mot de passe */
 export const useForgetPassword = () => {
     // State pour les données du formulaire
@@ -26,21 +22,13 @@ export const useForgetPassword = () => {
         setSuccess(false);
         setLoading(true);
 
-        // Tentative de réinitialisation de mot de passe
+        // Simulation de réinitialisation (en attente du service Backend pour la gestion d'envoie du lien de réinitialisation de mot de passe par email)
         try {
-            await sendPasswordResetEmail(auth, email);
-            setSuccess(true);
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            setError("La réinitialisation par email est temporairement indisponible (migration en cours). Veuillez contacter l'administrateur.");
         } catch (err: any) {
-            console.error("Erreur de réinitialisation de mot de passe :", err);
-            
-            // Gestion des erreurs spécifiques Firebase
-            if (err.code === "auth/user-not-found") {
-                setError("Aucun utilisateur ne correspond à cette adresse e-mail.");
-            } else if (err.code === "auth/invalid-email") {
-                setError("L'adresse e-mail n'est pas valide.");
-            } else {
-                setError("Une erreur est survenue lors de l'envoi de l'e-mail. Veuillez réessayer.");
-            }
+            console.error("Erreur de réinitialisation :", err);
+            setError("Une erreur est survenue.");
         } finally {
             setLoading(false);
         }

@@ -6,11 +6,12 @@ import ServicesAccount from "./components/3-Services-account";
 import BookingAccount from "./components/4-Booking-account";
 import SidebarAccount from "./components/features/Sidebar-account";
 
-// FONCTIONS
+// FONCTION
 import useActiveLinkSidebar from "./components/functions/Active-link-sidebar-account";
 
 /** Composant principal de la page espace client */
 export default function AccountPageView() {
+    /** Hook permettant de gérer le lien actif du menu latéral */
     const { activeHash } = useActiveLinkSidebar();
 
     return (

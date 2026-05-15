@@ -15,7 +15,10 @@ import { useEditProfilAccount } from "./functions/Edit-profil-account-function";
 
 /** Composant servant à éditer le profil de l'utilisateur (Nom / Prénom / E-mail / Téléphone / Adresse postale) */
 export default function EditProfilAccount() {
+    /** Contextes de la session utilisateur*/
     const { authUser } = useAuth();
+
+    /** Logique permettant la gestion des informations de l'utilisateur */
     const { formData, loading, error, success, handleChange, handleSubmit } = useEditProfilAccount();
 
     return (

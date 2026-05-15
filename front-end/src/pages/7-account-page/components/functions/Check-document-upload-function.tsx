@@ -13,25 +13,29 @@ export interface DocumentUploadResponse {
  * - Convertit le fichier en Base64 pour stockage local
 */
 export const CheckDocumentUpload = (file: File): Promise<DocumentUploadResponse> => {
-    // Vérification de la taille du fichier (Max 5MB)
+    /** Vérification de la taille du fichier (Max 5MB) */
     const maxSize = 5 * 1024 * 1024;
     if (file.size > maxSize) {
         return Promise.resolve({ success: false, error: "Le fichier dépasse la taille maximale autorisée (5MB)." });
     }
 
-    // Vérification du type de fichier
+    /** Vérification du type de fichier */
     const acceptedTypes = ["application/pdf", "image/jpeg", "image/png"];
     if (!acceptedTypes.includes(file.type)) {
         return Promise.resolve({ success: false, error: "Type de fichier non accepté. Veuillez uploader un PDF, JPG ou PNG." });
     }
 
-    // Conversion du fichier en Base64 pour stockage local
+    /** Conversion du fichier en Base64 pour stockage local */
     return new Promise((resolve) => {
+        /** Initialisation du lecteur de fichier */
         const reader = new FileReader();
 
+        /** Gestionnaire d'événement lors de la fin du chargement */
         reader.onloadend = () => {
+            /** Conversion du fichier en Base64 */
             const base64String = reader.result as string;
 
+            /** Nettoyage du nom de fichier et création d'un identifiant unique */
             const safeName = file.name.replace(/[^a-zA-Z0-9.-]/g, '_');
             const docId = `doc_${Date.now()}_${safeName}`;
 
@@ -43,7 +47,6 @@ export const CheckDocumentUpload = (file: File): Promise<DocumentUploadResponse>
                     fileName: file.name 
                 });
             } catch (e) {
-                // Erreur lors de la sauvegarde locale (quota dépassé ou erreur inattendue)
                 resolve({ success: false, error: "Erreur lors de la sauvegarde locale (quota dépassé ou erreur inattendue)." });
             }
         };

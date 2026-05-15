@@ -36,10 +36,10 @@ Le projet consistait à développer une plateforme web de type MVP *(Minimum Via
 ---
 
 ## 🧰 **STACKS UTILISÉS**
-- `front-end` : Application développée avec **[Vite](https://vitejs.dev/) + [React](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/) + [Tailwind CSS](https://tailwindcss.com/)**. Cette partie contient également l'intégration au service de base de données avec **[Firebase](https://firebase.google.com/)**.
+- `front-end` : Application développée avec **[Vite](https://vitejs.dev/) + [React](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/) + [Tailwind CSS](https://tailwindcss.com/)**. 
     > 💡*Consulter le fichier **[README.md](./front-end/README.md)** pour les détails de l'architecture du projet côté front-end.*
-- `back-end` : Architecture "Serverless" utilisant **[Firebase](https://firebase.google.com/)** comme base de données NoSQL (Firestore) et pour la gestion de l'authentification. **[Cloudinary](https://cloudinary.com/)** pour le stockage des images.
-    > 💡*Consulter le fichier **[PROJECT_CONFIG.md](./documentation/PROJECT_CONFIG.md)** pour les détails techniques de configuration.*
+- `back-end` : API RESTful développée avec **[FastAPI](https://fastapi.tiangolo.com/) + [Python](https://www.python.org/)**, utilisant **[MongoDB Atlas](https://www.mongodb.com/atlas)** comme base de données NoSQL. L'authentification est gérée de manière sécurisée via **JWT (JSON Web Tokens)**. **[Cloudinary](https://cloudinary.com/)** est utilisé pour le stockage des images.
+    > 💡*Consulter le fichier **[README.md](./back-end/README.md)** pour les détails de l'architecture du projet côté back-end, ainsi que **[PROJECT_CONFIG.md](./documentation/PROJECT_CONFIG.md)** pour les détails techniques de configuration.*
 
 ## ⚙️ **INSTALLATION ET LANCEMENT**
 ```bash
@@ -96,12 +96,13 @@ Chaque partie du site est découpée par dossier, chaque dossier représente une
 >💡*Cette structure de dossier principale par page et de sous-dossier, me sert à séparer la logique fonctionnelle du contenu graphique de la page. Le but étant que le code soit plus facilement maintenable et plus facile à comprendre. Plus d'informations sur cette structure dans le fichier **[README.md](./front-end/README.md)**.*
 
 #### **🗄️ PRÉPARATION ET CONFIGURATION DE LA BASE DE DONNÉES DES VÉHICULES :**
-* Pour la page de catalogue de véhicules, j'ai choisi d'opter pour **[Firebase](https://firebase.google.com/)** pour stocker les données des véhicules. Configuré avec **[Firestore](https://firebase.google.com/docs/firestore?hl=fr)** comme base de données NoSQL. 
-* J'ai configuré une collection de données nommée `vehicles` avec la structure suivante :
+* Pour la gestion des données du catalogue de véhicules, j'ai choisi d'opter pour **[MongoDB Atlas](https://www.mongodb.com/atlas)** comme base de données NoSQL cloud, couplée à une API **[FastAPI](https://fastapi.tiangolo.com/)**. 
+* L'accès et la validation des données côté back-end sont gérés via l'ODM *(Object-Document Mapper)* **[Beanie](https://beanie-odm.dev/)**.
+* J'ai configuré une collection nommée `vehicles` avec la structure suivante :
 
 | Champ | Type | Description |
 | :--- | :--- | :--- |
-| `id` | `string` | ID auto-généré par Firestore |
+| `id` | `string` | Identifiant unique du véhicule |
 | `brand` | `string` | Marque du véhicule |
 | `model` | `string` | Modèle du véhicule |
 | `category` | `string` | Catégorie (ex: Berline, SUV, Sport) |
@@ -110,12 +111,12 @@ Chaque partie du site est découpée par dossier, chaque dossier représente une
 | `slogan` | `string` | Accroche commerciale |
 | `imageUrl` | `string` | URL Cloudinary de l'image principale |
 | `description` | `string` | Description détaillée |
-| `technicalSpecs` | `map` | Objet contenant les performances (voir ci-dessous) |
-| `acquisition` | `map` | Détails financiers et disponibilité (voir ci-dessous) |
+| `technicalSpecs` | `dict` | Objet contenant les performances (voir ci-dessous) |
+| `acquisition` | `dict` | Détails financiers et disponibilité (voir ci-dessous) |
 
-**Détails des objets (Maps) :**
+**Détails des objets :**
 * **`technicalSpecs`** :
-    * `acceleration` (string) : Accélération du véhicule
+    * `acceleration` (number) : Accélération du véhicule (0 à 100 km/h en secondes)
     * `topSpeed` (number) : Vitesse max en km/h
     * `power` (number) : Puissance en chevaux
     * `engine` (string) : Type de motorisation
@@ -125,7 +126,7 @@ Chaque partie du site est découpée par dossier, chaque dossier représente une
     * `isAvailableForSale` (boolean) : Disponibilité à la vente
     * `isAvailableForRent` (boolean) : Disponibilité à la location
 
-**Interface TypeScript correspondante :**
+**Interface TypeScript correspondante côté Front-End :**
 ```typescript
 interface Vehicle {
   id: string;
@@ -138,7 +139,7 @@ interface Vehicle {
   imageUrl: string;
   description: string;
   technicalSpecs: {
-    acceleration: string;
+    acceleration: number;
     topSpeed: number;
     power: number;
     engine: string;
@@ -152,21 +153,21 @@ interface Vehicle {
 }
 ```
 
-* Dans l'interface Firebase, j'ai configuré les règles Firestore pour la base de données pour n'autoriser que la lecture publique et l'écriture authentifiée (pour l'admin)
+* Les endpoints de l'API (ex: composant **[vehicles.py](./back-end/app/api/endpoints/vehicles.py)**) permettent de lire les données publiques, tandis que les modifications nécessitent une authentification via un jeton JWT *(JSON Web Token)*.
 * Concernant les images de chaque véhicule, elles sont stockées avec le service de stockage cloud **[Cloudinary](https://cloudinary.com/)**.
-* J'ai initialisé la connexion Firebase dans le front-end avec le fichier de configuration **[firebase-config](./front-end/src/config/firebase-config.ts)**. Les informations de connexion entre Firebase et le front-end sont sécurisées via une variable d'environnement `.env` *(mais ignoré par Git pour la sécurité)*.
-> 💡 *J'ai préféré utiliser **[Firebase](https://firebase.google.com/)** pour la gestion des données des véhicules, car connaissant déjà le service, il était plus facile pour moi de l'implémenter dans le projet.*
+* Les communications entre le front-end et l'API back-end sont centralisées avec le fichier de configuration **[api-config.ts](./front-end/src/config/api-config.ts)**. Les identifiants de la base de données et les clés secrètes du back-end sont sécurisés via une variable d'environnement `.env` *(ignorée par Git pour la sécurité)*.
+> 💡 *Initialement construit avec **[Firebase](https://firebase.google.com/en)** comme première version d'essaie, le projet a été migré vers une architecture **[FastAPI](https://fastapi.tiangolo.com/)** et **[MongoDB](https://www.mongodb.com/)** pour offrir plus de contrôle, de flexibilité et de meilleures performances.*
 
 #### **🖥️ AFFICHAGE DYNAMIQUE DE LA PAGE CATALOGUE :**
 * Le composant **[Catalog-page-view](./front-end/src/pages/3-catalog-page/Catalog-page-view.tsx)** sert à afficher la page de catalogue du site. Il est composée de plusieurs éléments :
     * **[Vehicle-card-catalog-page](./front-end/src/pages/3-catalog-page/components/2-1-Vehicle-card-catalog-page.tsx)** : servant à identifer et présenter les données de véhicule sous forme d'une carte. Les informations sont identifiées via des `props` et intégrer au composant suivant.
-    * **[Vehicles-grid-cards-catalog-page](./front-end/src/pages/3-catalog-page/components/2-2-Vehicles-grid-cards-catalog-page.tsx)** : servant à gérer la disposition des véhicules du catalogue, sous forme d'une grille. Ce composant utilise la fonction **[GetVehicles](./front-end/src/api/Get-vehicles.tsx)** qui sert à récupérer les données de la collection `vehicles` de la base de données Firestore. `useEffect` est utilisé pour récupérer les données une seule fois au montage du composant.
+    * **[Vehicles-grid-cards-catalog-page](./front-end/src/pages/3-catalog-page/components/2-2-Vehicles-grid-cards-catalog-page.tsx)** : servant à gérer la disposition des véhicules du catalogue, sous forme d'une grille. Ce composant utilise la fonction **[GetVehicles](./front-end/src/api/Get-vehicles.tsx)** qui sert à récupérer les données de la collection `vehicles` de la base de données **MongoDB**. `useEffect` est utilisé pour récupérer les données une seule fois au montage du composant.
 
 * **Fonctionnalités clés liées à cette page :**
-    * **[Pagination-catalog](./front-end/src/pages/3-catalog-page/components/features/Pagination-catalog-page.tsx)** : Gérant l'affichage de la pagination de la page de catalogue. La fonction de logique est **séparée** dans le composant **[Paginate-vehicles-catalog](./front-end/src/pages/3-catalog-page/components/functions/Paginate-vehicles-catalog-page.tsx)**.
-    * **[Search-filter-catalog](./front-end/src/pages/3-catalog-page/components/features/Search-filter-catalog-page.tsx)** : Gérant l'affichage de la recherche et du filtrage des véhicules du catalogue. Ce composant est associé à deux fonctions de logique :
-        * **[Get-brands-catalog](./front-end/src/api/Get-brands-catalog.tsx)** : sert à récupérer les données par marque de véhicule depuis la collection Firebase `vehicles`.
-        * **[Filter-vehicles-catalog-page](./front-end/src/pages/3-catalog-page/components/functions/Filter-vehicles-catalog-page.tsx)** : sert à filtrer les véhicules du catalogue en fonction de la marque et du budget.
+    * **[Pagination-catalog](./front-end/src/pages/3-catalog-page/components/features/Pagination-catalog-page.tsx)** : gérant l'affichage de la pagination de la page de catalogue. La fonction de logique est séparée dans le composant **[Paginate-vehicles-catalog](./front-end/src/pages/3-catalog-page/components/functions/Paginate-vehicles-catalog-page.tsx)**.
+    * **[Search-filter-catalog](./front-end/src/pages/3-catalog-page/components/features/Search-filter-catalog-page.tsx)** : gérant l'affichage de la recherche et du filtrage des véhicules du catalogue. Ce composant est associé à deux fonctions de logique :
+        * **[Get-brands-catalog](./front-end/src/api/Get-brands-catalog.tsx)** : servant à récupérer les données par marque de véhicule depuis la collection **MongoDB** `vehicles`.
+        * **[Filter-vehicles-catalog-page](./front-end/src/pages/3-catalog-page/components/functions/Filter-vehicles-catalog-page.tsx)** : servant à filtrer les véhicules du catalogue en fonction de la marque et du budget.
 
 #### **🚗 AFFICHAGE DYNAMIQUE DE LA PAGE DESCRIPTION D'UN VÉHICULE :**
 * Le composant **[Vehicle-page-view](./front-end/src/pages/4-vehicle-page/Vehicle-page-view.tsx)** sert à afficher la page de description d'un véhicule en fonction de son ID et des `props` sélectionnées dans chaque sous-composants.
@@ -183,30 +184,29 @@ interface Vehicle {
        * **[Login-form](./front-end/src/pages/6-login-page/components/1-Login-form.tsx)** : formulaire principal de connexion. Au clic sur *mot de passe oublié ?*, il bascule l'affichage vers le formulaire de réinitialisation.
        * **[Register-form](./front-end/src/pages/6-login-page/components/2-Register-form.tsx)** : formulaire de création de compte.
        * **[Forget-password-form](./front-end/src/pages/6-login-page/components/3-Forget-password-form.tsx)** : formulaire dédié à la récupération de compte.
-   * La logique fonctionnelle est séparée de la couche graphique via des hooks personnalisés :
-       * **[Login-function](./front-end/src/pages/6-login-page/components/functions/Login-function.tsx)** : gère l'authentification avec Firebase via `signInWithEmailAndPassword`.
-       * **[Register-function](./front-end/src/pages/6-login-page/components/functions/Register-function.tsx)** : gère l'inscription avec Firebase via `createUserWithEmailAndPassword`.
-       * **[Forget-password-function](./front-end/src/pages/6-login-page/components/functions/Forget-password-function.tsx)** : gère la réinitialisation du mot de passe avec Firebase via `sendPasswordResetEmail`.
+   * La logique fonctionnelle est séparée de la couche graphique via des fonctions personnalisés interrogeant l'API FastAPI. Côté back-end, ces requêtes sont traitées par les endpoints configurés dans **[auth.py](./back-end/app/api/endpoints/auth.py)** :
+       * **[Login-function](./front-end/src/pages/6-login-page/components/functions/Login-function.tsx)** : gérant l'authentification en envoyant les identifiants à l'API et en stockant le token JWT *(JSON Web Token)* retourné.
+       * **[Register-function](./front-end/src/pages/6-login-page/components/functions/Register-function.tsx)** : gérant la création de compte via l'API, avec hachage sécurisé du mot de passe côté serveur (`bcrypt`). Le composant **[security.py](./back-end/app/core/security.py)** permet de sécuriser et de hacher le mot de passe de l'utilisateur avant de l'enregistrer dans la base de données.
+       * **[Forget-password-function](./front-end/src/pages/6-login-page/components/functions/Forget-password-function.tsx)** : composant préparé pour la réinitialisation par email, mais non fonctionnel pour le moment, car nécéssitant une configuration de serveur.
 
 * **Gestion de la session utilisateur :**
-    * Activation de l'authentification par e-mail/mot de passe avec **[Firebase Authentication](./https://firebase.google.com/docs/auth)**.
-    * **[AuthUserProvider](./front-end/src/context/AuthUserContext.tsx)** : chef d'orchestre de la session utilisateur. Il surveille l'état de connexion en temps réel via Firebase et centralise les données pour l'ensemble de l'application via la Context API de React.
-    * **[Get-user](./front-end/src/api/Get-user.tsx)** : logique permettant de récupérer le profil complet de l'utilisateur dans Firestore (collection `users`) en synchronisation avec son identifiant d'authentification (UID).
+    * **[AuthUserProvider](./front-end/src/context/AuthUserContext.tsx)** : chef d'orchestre de la session utilisateur. Il gère l'état de connexion en stockant et validant le token JWT via la **[Context API de React](https://www.bureaudestalents.com/glossaire-tech/context-api)**.
+    * **[Get-user](./front-end/src/api/Get-user.tsx)** : logique permettant de récupérer le profil complet de l'utilisateur dans **MongoDB** (collection `users`) en utilisant l'identifiant (`id`) du token.
     * **Hook `useAuth()`** : interface simplifiée permettant aux composants (comme le `Header`) de réagir dynamiquement au statut de connexion.
 
 * **Sécurisation et Typage :**
     * **[Session-status.tsx](./front-end/src/constants/Session-status.tsx)** : définit les constantes de valeurs (`GUEST`, `REGISTERED`) utilisées pour la logique de navigation et d'affichage.
     * **[Session-status-type.tsx](./front-end/src/types/Session-status-type.tsx)** : définit le contrat de type TypeScript pour garantir qu'aucune valeur de statut invalide ne soit utilisée dans le code.
-    > 💡 *La session est persistante : grâce à l'initialisation de `getAuth()` dans **[firebase-config](./front-end/src/config/firebase-config.ts)** et à l'écouteur `onAuthStateChanged` du composant **[AuthUserProvider](./front-end/src/context/AuthUserContext.tsx)**, Firebase récupère automatiquement le jeton de connexion stocké dans le navigateur. L'utilisateur reste ainsi connecté même après avoir actualisé la page ou fermé son navigateur.*
+    > 💡 *La session est persistante : au montage de l'application, **[AuthUserProvider](./front-end/src/context/AuthUserContext.tsx)** récupère le `token` JWT *(JSON Web Token)* et les informations de l'utilisateur depuis le `localStorage` du navigateur. L'utilisateur reste ainsi connecté même après avoir actualisé la page ou fermé son navigateur.*
 
 * **Dashboard client :**
-   * **[Account-page-view](./front-end/src/pages/7-account-page/Account-page-view.tsx)** : sert à afficher l'espace client de l'utilisateur lui  permettant une visibilité immédiate sur l'ensemble des actions qu'il peux faire. Le composant gère l'affichage conditionnel des sous-composants :
+   * **[Account-page-view](./front-end/src/pages/7-account-page/Account-page-view.tsx)** : sert à afficher l'espace client de l'utilisateur lui permettant une visibilité immédiate sur l'ensemble des actions qu'il peut faire. Le composant gère l'affichage conditionnel des sous-composants :
         * **[Sidebar-account](./front-end/src/pages/7-account-page/components/features/Sidebar-account.tsx)** : servant à afficher la barre latérale gauche de l'espace client avec les liens vers les différentes sections de l'espace client. Implémentation de la fonction **[Active-link-sidebar-account](./front-end/src/pages/7-account-page/components/functions/Active-link-sidebar-account.tsx)** pour rendre dynamique l'apparence des liens actifs.
-        * **[Edit-profil](./front-end/src/pages/7-account-page/components/1-Edit-profil-account.tsx)** : servant à afficher un formulaire pour l'édition du profil de l'utilisateur en renseignant ou modifiant son *(nom d'utilisateur, prénom, nom, adresse e-mail, adresse postale et numéro de téléphone)*. Pour rendre le formulaire fonctionnel, le composant utilise le hook personnalisé **[Edit-profil-account-function](./front-end/src/pages/7-account-page/components/functions/Edit-profil-account-function.tsx)** qui utilise la fonction **[Update-user](./front-end/src/api/Update-user.tsx)** pour mettre à jour les informations de l'utilisateur dans la collection Firestore `users`.
+        * **[Edit-profil](./front-end/src/pages/7-account-page/components/1-Edit-profil-account.tsx)** : servant à afficher un formulaire pour l'édition du profil de l'utilisateur en renseignant ou modifiant son *(nom d'utilisateur, prénom, nom, adresse e-mail, adresse postale et numéro de téléphone)*. Le composant utilise le hook **[Edit-profil-account-function](./front-end/src/pages/7-account-page/components/functions/Edit-profil-account-function.tsx)** qui appelle l'API FastAPI **[Update-user](./front-end/src/api/Update-user.tsx)** (`PATCH`) pour transmettre les modifications. Côté back-end, c'est l'endpoint configuré dans **[users.py](./back-end/app/api/endpoints/users.py)** qui traite la requête et met à jour le profil dans la collection **MongoDB** `users`.
         * **[Docs-account](./front-end/src/pages/7-account-page/components/2-Docs-acount.tsx)** : servant à uploader les documents justificatifs du client *(Pièce d'identité, Justificatif de domicile, Bulletins de salaire, Permis de conduire)*. L'interface gère l'aperçu dynamique via **[Preview-document-account](./front-end/src/pages/7-account-page/components/features/Preview-document-account.tsx)** et le statut de validation via **[Validation-document-function](./front-end/src/pages/7-account-page/components/functions/Validation-document-function.tsx)**. Ce composant pemettant d'ajouter une indication visuelle dans l'interface client, informant sur l'état de traitement du ou des documents envoyés. Le processus est orchestré par le hook **[Send-document-function](./front-end/src/pages/7-account-page/components/functions/Send-document-function.tsx)** qui utilise la logique de contrôle **[Check-document-upload-function](./front-end/src/pages/7-account-page/components/functions/Check-document-upload-function.tsx)**.
             > 💡 *Pour le moment l'upload de document est simuler en local storage pour les besoins de la présentation du projet.*
-        * **[Services-account](./front-end/src/pages/7-account-page/components/3-Services-account.tsx)** : servant à afficher les services que le client peux réserver. Actuellement en phase de développement, le composant affiche un message placeholder invitant à patienter pour la mise en place future de cette fonctionnalité.
-        * **[Booking-account](./front-end/src/pages/7-account-page/components/4-Booking-account.tsx)** : servant à afficher l'historique des réservations du client. Actuellement en phase de développement, le composant affiche un message placeholder invitant à patienter pour la mise en place future de cette fonctionnalité.
+        * **[Services-account](./front-end/src/pages/7-account-page/components/3-Services-account.tsx)** : servant à afficher les services que le client peux réserver. Le composant affiche un message placeholder invitant l'utilisateur à patienter pour la mise en place future de cette fonctionnalité.
+        * **[Booking-account](./front-end/src/pages/7-account-page/components/4-Booking-account.tsx)** : servant à afficher l'historique des réservations du client. Le composant affiche un message placeholder invitant l'utilisateur à patienter pour la mise en place future de cette fonctionnalité.
 
 * **Sécurisation des routes :**
     * La navigation est contrôlée dans le fichier **[router.tsx](./front-end/src/routes/router.tsx)** à l'aide de composants "Wrappers" qui filtrent l'accès selon le statut de l'utilisateur fourni par **[AuthUserContext](./front-end/src/context/AuthUserContext.tsx)**.
@@ -222,12 +222,12 @@ interface Vehicle {
 
 #### **📄 AUTRES PAGES**
 * **[About-page-view](./front-end/src/pages/2-about-page/About-page-view.tsx)** : servant à afficher une brève description de l'entreprise, les services qu'elle propose et une section FAQ.
-    * **[Get-faq](./front-end/src/api/Get-faq.tsx)** : est la fonction de logique permettant de récupérer les questions et réponses de la section FAQ depuis la base de données. Cette fonction est implémentée dans le composant **[FAQ-about-page](./front-end/src/pages/2-about-page/components/4-FAQ-about-page.tsx)**.<br>
-J'ai configuré cette collection de données nommée `faq` avec la structure suivante :
+    * **[Get-faq](./front-end/src/api/Get-faq.tsx)** : est la fonction de logique permettant de récupérer les questions et réponses de la section FAQ depuis l'API FastAPI. Les requêtes sont gérées côté back-end par le composant **[faqs.py](./back-end/app/api/endpoints/faqs.py)**. Cette fonction est implémentée dans le composant **[FAQ-about-page](./front-end/src/pages/2-about-page/components/4-FAQ-about-page.tsx)**.<br>
+J'ai configuré cette collection de données nommée `faqs` sur **MongoDB** avec la structure suivante :
 
 | Champ | Type | Description |
 | :--- | :--- | :--- |
-| `id` | `string` | ID auto-généré par Firestore |
+| `id` | `string` | Identifiant unique de la question |
 | `question` | `string` | La question posée |
 | `answer` | `string` | La réponse à la question |
 
@@ -240,7 +240,7 @@ interface FAQItem {
   answer: string;
 }
 ```
-> 💡 *J'ai choisi d'externaliser les données de la section FAQ vers Firebase, afin de faciliter la gestion des questions/réponses (ajout, modification, suppression) pour l'équipe back-office de M-Motors.*
+> 💡 *L'externalisation des données de la section FAQ vers **MongoDB** facilite grandement la gestion des questions/réponses (ajout, modification, suppression) par l'équipe back-office de M-Motors via de simples requêtes d'API.*
 
 * **[Contact-page-view](./front-end/src/pages/5-contact-page/Contact-page-view.tsx)** : servant à afficher un formulaire de contact pour permettre aux utilisateurs de contacter l'entreprise en choisisant parmis un menu déroulant le sujet de leur demande. <br> **⚠️ Ce formulaire n'est pas relié à une base de données et n'est donc pas fonctionnel. Il est présent à titre de présentation.⚠️**
 * **[Error-page-view](./front-end/src/pages/8-error-page/Error-page-view.tsx)** : servant à afficher une page pour informer l'utilisateur que le contenu demandé n'existe pas *(ou n'est plus référencé)* et lui propose deux solutions pour retrouver ce qu'il cherche *(Retour à l'accueil et Revenir à la page précédente)*.

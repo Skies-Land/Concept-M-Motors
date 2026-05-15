@@ -2,15 +2,18 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-// FIREBASE
-import { auth } from "../../../../config/firebase-config";
-import { signInWithEmailAndPassword } from "firebase/auth";
+// API
+import { API_BASE_URL } from "../../../../config/api-config";
+
+// CONTEXTE
+import { useAuth } from "../../../../context/AuthUserContext";
 
 /** Fonction servant à gérer la logique du formulaire de connexion */
 export const useLogin = () => {
 
     // State pour la navigation
     const navigate = useNavigate();
+    const { login } = useAuth();
 
     // State pour les données du formulaire
     const [email, setEmail] = useState("");
@@ -28,14 +31,32 @@ export const useLogin = () => {
         setError(null);
         setLoading(true);
 
-        // Tentative de connexion
+        // Tentative de connexion via l'API locale
         try {
-            await signInWithEmailAndPassword(auth, email, password);
-            // Redirection vers l'espace client après connexion réussie
+            const formData = new URLSearchParams();
+            formData.append('username', email);
+            formData.append('password', password);
+
+            /** Requête `POST` vers l'API FastAPI pour récupérer les données */
+            const response = await fetch(`${API_BASE_URL}/auth/login`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
+                body: formData,
+            });
+
+            const data = await response.json();
+
+            // Stockage de la session via le contexte
+            login(data.access_token, data.user);
+
+            // Redirection vers l'espace client
             navigate("/account");
+            
         } catch (err: any) {
             console.error("Erreur de connexion :", err);
-            setError("Email ou mot de passe incorrect.");
+            setError(err.message);
         } finally {
             setLoading(false);
         }

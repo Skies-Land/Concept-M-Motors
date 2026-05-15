@@ -32,7 +32,7 @@ export default function LoginForm({ onForgotPassword }: LoginFormProps) {
                     </Typography>
                 </div>
             )}
-            
+
             <Input 
                 label="E-mail"
                 id="email" 

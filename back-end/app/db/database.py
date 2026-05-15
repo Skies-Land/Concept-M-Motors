@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 # Import des modèles
 from app.models.vehicle import Vehicle
 from app.models.faq import FAQ
+from app.models.user import User
 
 # Charger les variables d'environnement
 load_dotenv()
@@ -22,7 +23,8 @@ async def init_db():
         database=client[DATABASE_NAME], 
         document_models=[
             Vehicle,
-            FAQ
+            FAQ,
+            User
         ]
     )
     

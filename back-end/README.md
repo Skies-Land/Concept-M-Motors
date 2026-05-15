@@ -8,15 +8,18 @@ Ce dossier contient l'API personnalisée développée avec **FastAPI** et **Mong
 back-end/
 ├── app/
 │   ├── api/                    # Logique des routes et endpoints
-│   │   └── endpoints/
-│   │       └── vehicles.py     # Routes CRUD pour le catalogue
-│   ├── core/                   # Configuration et Sécurité (JWT)
+│   │   └── endpoints/          # Points d'accès de l'API
+│   │       ├── auth.py         # Inscription, Connexion et JWT
+│   │       ├── users.py        # Gestion des profils utilisateurs
+│   │       ├── vehicles.py     # Routes CRUD pour le catalogue
+│   │       └── faqs.py         # Récupération de la FAQ
+│   ├── core/                   # Configuration et Sécurité (Hachage, JWT)
 │   ├── db/                     # Initialisation de la connexion BDD (Beanie)
-│   ├── models/                 # Modèles de données (Documents MongoDB)
+│   ├── models/                 # Modèles de données (Documents Beanie / MongoDB)
 │   ├── schemas/                # Schémas de validation (Pydantic)
-│   └── main.py                 # Point d'entrée de l'application
-├── scratch/                    # Scripts utilitaires et de test
-├── .env                        # Variables d'environnement (Bases de données, Clés)
+│   └── main.py                 # Point d'entrée de l'application (FastAPI)
+├── scratch/                    # Scripts utilitaires (peuplement, tests)
+├── .env                        # Variables d'environnement (MongoDB URL, Secret Key)
 └── requirements.txt            # Dépendances Python
 ```
 

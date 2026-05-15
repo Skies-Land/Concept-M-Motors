@@ -8,7 +8,7 @@ import Container from "../../../components/design-system/Container"
 
 /** Composant servant à afficher le contenu de la page d'erreur 404 */
 export default function ErrorContent() {
-    // Hook pour la navigation
+    /** Hook pour la navigation */
     const navigate = useNavigate();
 
     return (
@@ -45,7 +45,7 @@ export default function ErrorContent() {
 
                 {/* Boutons de navigation */}
                 <div className="flex flex-col sm:flex-row gap-6 items-center justify-center w-full max-w-lg">
-                    {/* <!-- Bouton 1 - Retour à l'accueil --> */}
+                    {/* Bouton 1 - Retour à l'accueil */}
                     <Button 
                         variant="primary" 
                         size="medium"
@@ -54,7 +54,7 @@ export default function ErrorContent() {
                     >
                         Retourner à l'accueil
                     </Button>
-                    {/* <!-- Bouton 2 - Revenir à la page précédente --> */}
+                    {/* Bouton 2 - Revenir à la page précédente */}
                     <Button 
                         variant="secondary" 
                         size="medium"

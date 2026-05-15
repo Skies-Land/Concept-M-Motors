@@ -1,6 +1,6 @@
 /** Interface définissant les types de données pour identifier et décrire les véhicules */
 export interface Vehicle {
-    id: string; // ID unique du véhicule (auto-généré dans Firebase)
+    id: string; // ID unique du véhicule
     brand: string; // Marque du véhicule
     model: string; // Modèle du véhicule
     category: string; // Catégorie du véhicule
