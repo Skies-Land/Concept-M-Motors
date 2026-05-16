@@ -25,3 +25,6 @@ Suite aux analyses de Lighthouse, plusieurs actions correctives ont été menée
 * **Performance** : 
   * **Code splitting** : Mise en place du chargement paresseux (`React.lazy` et `<Suspense>`) dans le routeur pour réduire drastiquement le poids du JavaScript initial.
   * **Optimisation des images** : Utilisation de formats modernes (WebP), attributs `loading="lazy"` sur le catalogue, et `fetchPriority="high"` sur l'image LCP de la page détail.
+
+## 👨‍💻 Skies-Land - Jonathan Araldi
+- **[Portfolio](https://portfolio-jonathan-araldi.netlify.app/)** | **[LinkedIn](https://www.linkedin.com/in/jonathan-araldi/)** | **[GitHub](https://github.com/Skies-Land)**

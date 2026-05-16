@@ -16,6 +16,7 @@ Le projet consistait à développer une plateforme web de type MVP *(Minimum Via
 
 # 📜 Table des matières
 - **[🧰 STACKS UTILISÉS](#stacks-utilises)**
+- **[📐 ARCHITECTURE DU PROJET](#architecture-du-projet)**
 - **[⚙️ INSTALLATION ET LANCEMENT](#installation-et-lancement)**
 - **[🔄 DÉROULEMENT DU PROJET](#deroulement-du-projet)**
     - **[🎨 PHASE 1 : CONCEPTION ET PRÉPARATION | MAQUETTAGE](#phase-1--conception-et-preparation--maquettage)**
@@ -40,6 +41,14 @@ Le projet consistait à développer une plateforme web de type MVP *(Minimum Via
     > 💡*Consulter le fichier **[README.md](./front-end/README.md)** pour les détails de l'architecture du projet côté front-end.*
 - `back-end` : API RESTful développée avec **[FastAPI](https://fastapi.tiangolo.com/) + [Python](https://www.python.org/)**, utilisant **[MongoDB Atlas](https://www.mongodb.com/atlas)** comme base de données NoSQL. L'authentification est gérée de manière sécurisée via **JWT (JSON Web Tokens)**. **[Cloudinary](https://cloudinary.com/)** est utilisé pour le stockage des images.
     > 💡*Consulter le fichier **[README.md](./back-end/README.md)** pour les détails de l'architecture du projet côté back-end, ainsi que **[PROJECT_CONFIG.md](./documentation/PROJECT_CONFIG.md)** pour les détails techniques de configuration.*
+
+## 📐 **ARCHITECTURE DU PROJET**
+Vous pouvez retrouver une vue d'ensemble détaillée des flux, des barrières de sécurité et de la structure globale du projet dans la documentation dédiée à l'architecture.
+> 💡 *Consulter la **[Documentation d'architecture complète](./documentation/ARCHITECTURE.md)** pour visualiser tous les schémas détaillés (Sécurité, Flux, Modèle Orienté Document).*
+
+<div align="center">
+  <img src="./documentation/images/Architecture-info-global.png" alt="Schéma d'Architecture Globale M-Motors" width="100%">
+</div>
 
 ## ⚙️ **INSTALLATION ET LANCEMENT**
 ```bash
@@ -218,7 +227,7 @@ interface Vehicle {
 
     *   **[ProtectedRoute](./front-end/src/components/navigation/ProtectedRoute.tsx)** : garantit que **seules les personnes authentifiées** accèdent aux sections sensibles.
     *   **[GuestRoute](./front-end/src/components/navigation/GuestRoute.tsx)** : évite **qu'un utilisateur déjà connecté** ne retourne sur les formulaires d'authentification.
-    > 💡 *Ces composants gèrent un état de chargement `loading`. Tant que Firebase n'a pas confirmé le statut de la session, un spinner est affiché, empêchant ainsi tout affichage non désiré de contenu protégé ou de redirection prématurée.*
+    > 💡 *Ces composants gèrent un état de chargement `loading`. Tant que l'API n'a pas confirmé la validité de la session (via le token JWT), un spinner est affiché, empêchant ainsi tout affichage non désiré de contenu protégé ou de redirection prématurée.*
 
 #### **📄 AUTRES PAGES**
 * **[About-page-view](./front-end/src/pages/2-about-page/About-page-view.tsx)** : servant à afficher une brève description de l'entreprise, les services qu'elle propose et une section FAQ.
@@ -300,7 +309,7 @@ describe("nomDuComposantATester", () => {
 ```
 
 **Résultats des tests unitaires :**
-![Résultats des tests unitaires](./documentation/Unit-test-results.png)
+![Résultats des tests unitaires](./documentation/images/Unit-test-results.png)
 
 
 #### **AUDIT D'OPTIMISATION :**
@@ -308,11 +317,30 @@ Après les tests unitaires, j'ai effectué des optimisations des performances du
 
 
 ### 🚀 **PHASE 4 : DÉPLOIEMENT**
-Le projet est déployé sur **[Netlify](https://www.netlify.com/)** avec une intégration continue (CI/CD) liée au dépôt GitHub à partir de la branche `main`.
-* **Hébergement** : Netlify (Base directory: `front-end`).
-* **Build** : Automatisation via `npm run build` et `dist`.
-* **Routage** : Support du Single Page Application (SPA) via un fichier `_redirects` dans le dossier `public` pour rediriger toutes les requêtes vers `index.html`.
-> 💡 *`_redirects` est un fichier qui permet de configurer les redirections du site. Il permet d'indiquer à Netlify de rediriger toutes les requêtes vers `index.html` pour que React Router puisse prendre le relais.*
+
+Le déploiement de cette application Full-Stack repose sur une architecture découplée, utilisant des services spécialisés pour le Front-End et le Back-End.
+
+* **Déploiement côté front-end (Interface Client) :**
+Le projet Front-End (React/Vite) est déployé sur **[Netlify](https://www.netlify.com/)** avec une intégration continue (CI/CD) liée au dépôt GitHub à partir de la branche `main`.
+    * **Hébergement** : Netlify (Base directory: `front-end`).
+    * **Build** : Automatisation via `npm run build` et `dist`.
+    * **Routage** : Support du Single Page Application (SPA) via un fichier `_redirects` dans le dossier `public` pour rediriger toutes les requêtes vers `index.html`.
+    > 💡 *`_redirects` est un fichier qui permet de configurer les redirections du site. Il permet d'indiquer à Netlify de rediriger toutes les requêtes vers `index.html` pour que React Router puisse prendre le relais.*
+
+* **Déploiement côté back-end (Serveur API) :**
+L'API FastAPI est hébergée sur **[Render](https://render.com/)**, un service cloud optimisé pour les applications web dynamiques.
+    * **Hébergement** : Render Web Service (Root directory: `back-end`).
+    * **Build & Démarrage** : Installation automatique des dépendances (`requirements.txt`) et exécution via le serveur ASGI Uvicorn (`uvicorn app.main:app`).
+    * **Sécurité & Variables** : Configuration des variables d'environnement (URI MongoDB, Clé JWT) directement dans l'interface sécurisée de Render.
+
+* **Explication du fonctionnement technique du site :**
+Cette architecture découplée (Headless) permet à chaque partie du projet de vivre et d'évoluer indépendamment :
+    1. Lorsqu'un utilisateur visite le site, **Netlify** lui sert instantanément l'interface graphique générée par React.
+    2. Dès que l'utilisateur a besoin de données dynamiques (voir le catalogue, se connecter, modifier son profil), le Front-End envoie une requête HTTP (via `fetch`) vers l'URL de l'API hébergée sur **Render**.
+    3. L'API **FastAPI** sur Render reçoit la requête, interroge la base de données **MongoDB Atlas**, valide les informations, puis renvoie les données au format JSON.
+    4. Le Front-End met à jour l'interface en temps réel avec ces nouvelles données.
+
+L'utilisation de la variable d'environnement dynamique (`VITE_API_BASE_URL`) permet au Front-End sur Netlify de cibler automatiquement le serveur de production Render, assurant une communication fluide entre les deux environnements.
 
 
 ## 👨‍💻 Skies-Land - Jonathan Araldi

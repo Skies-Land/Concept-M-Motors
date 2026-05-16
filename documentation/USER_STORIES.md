@@ -40,3 +40,6 @@ Ce document répertorie les user stories de l'application, séparées par catég
 | En tant que **[Employé M-Motors]** Je veux **[modifier les données d'un client existant]** Afin de **[corriger ou mettre à jour ses informations en cas de besoin]** | L'employé recherche un client et modifie ses informations dans la base de données. | Les informations du client sont mises à jour dans la base et reflétées sur son espace personnel. |
 | En tant que **[Employé M-Motors]** Je veux **[supprimer le compte d'un utilisateur]** Afin de **[respecter le droit à l'oubli (RGPD) ou fermer un compte inactif]** | L'employé sélectionne un compte client et procède à sa suppression définitive. | Le compte et les données associées sont supprimés de la base. Le client n'a plus accès à l'application. |
 | En tant que **[Employé M-Motors]** Je veux **[gérer la section FAQ du site via la base de données]** Afin de **[mettre à jour dynamiquement l'aide sans intervention technique]** | L'employé ajoute, modifie ou supprime des questions/réponses dans Firebase. | La FAQ est mise à jour en temps réel sur la page "À propos" de l'application client. |
+
+## 👨‍💻 Skies-Land - Jonathan Araldi
+- **[Portfolio](https://portfolio-jonathan-araldi.netlify.app/)** | **[LinkedIn](https://www.linkedin.com/in/jonathan-araldi/)** | **[GitHub](https://github.com/Skies-Land)**
