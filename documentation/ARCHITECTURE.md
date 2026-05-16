@@ -10,7 +10,7 @@ Ce schéma se concentre spécifiquement sur les technologies, les plateformes d'
 
 *   **Front-end (Client) :** Application développée en **[React](https://react.dev/)** et hébergée sur **[Netlify](https://www.netlify.com/)**. Elle gère l'interface utilisateur et envoie des requêtes HTTP au serveur.
 *   **Back-end (API) :** API REST développée en **[Python](https://www.python.org/) avec [FastAPI](https://fastapi.tiangolo.com/)** et hébergée sur **[Render](https://render.com/)**. Elle expose les routes (Endpoints) pour manipuler les données.
-*   **Base de données :** Base de données NoSQL **[MongoDB](https://www.mongodb.com/)** (hébergée sur **[MongoDB Atlas](https://www.mongodb.com/atlas)**), manipulée via l'ODM **[Beanie](https://docs.crimsonhex.com/beanie/latest/)**.
+*   **Base de données :** Base de données NoSQL **[MongoDB](https://www.mongodb.com/)** (hébergée sur **[MongoDB Atlas](https://www.mongodb.com/atlas)**), manipulée via l'ODM **[Beanie](https://beanie-odm.dev/)**.
 
 
 ## 🛡️ Mécanismes de sécurité
