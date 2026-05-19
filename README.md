@@ -334,7 +334,7 @@ L'API FastAPI est hébergée sur **[Render](https://render.com/)**, un service c
     * **Sécurité & Variables** : Configuration des variables d'environnement (URI MongoDB, Clé JWT) directement dans l'interface sécurisée de Render.
 
 * **Explication du fonctionnement technique du site :**
-Cette architecture découplée (Headless) permet à chaque partie du projet de vivre et d'évoluer indépendamment :
+Cette architecture découplée permet à chaque partie du projet de vivre et d'évoluer indépendamment :
     1. Lorsqu'un utilisateur visite le site, **Netlify** lui sert instantanément l'interface graphique générée par React.
     2. Dès que l'utilisateur a besoin de données dynamiques (voir le catalogue, se connecter, modifier son profil), le Front-End envoie une requête HTTP (via `fetch`) vers l'URL de l'API hébergée sur **Render**.
     3. L'API **FastAPI** sur Render reçoit la requête, interroge la base de données **MongoDB Atlas**, valide les informations, puis renvoie les données au format JSON.
@@ -342,6 +342,7 @@ Cette architecture découplée (Headless) permet à chaque partie du projet de v
 
 L'utilisation de la variable d'environnement dynamique (`VITE_API_BASE_URL`) permet au Front-End sur Netlify de cibler automatiquement le serveur de production Render, assurant une communication fluide entre les deux environnements.
 
+![image du flux de fonctionnement](documentation/images/Flux.png)
 
 ## 👨‍💻 Skies-Land - Jonathan Araldi
 - **[Portfolio](https://portfolio-jonathan-araldi.netlify.app/)** | **[LinkedIn](https://www.linkedin.com/in/jonathan-araldi/)** | **[GitHub](https://github.com/Skies-Land)**
