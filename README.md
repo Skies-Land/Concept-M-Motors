@@ -28,9 +28,9 @@ Le projet consistait à développer une plateforme web de type MVP *(Minimum Via
         - **[🚗 Description d'un véhicule](#affichage-dynamique-de-la-page-description-dun-vehicule-)**
         - **[👤 Espace client](#espace-client)**
         - **[📄 Autres pages](#autres-pages)**
-    - **[📝 CONCEPTION & FONCTIONNALITÉS](#conception-et-fonctionnalites)**
-    - **[🧪 PHASE 3 : TESTING & OPTIMISATION](#phase-3--testing-et-optimisation)**
-    - **[🚀 PHASE 4 : DÉPLOIEMENT](#phase-4--deploiement)**
+    - **[📝 PHASE 3 : CONCEPTION & FONCTIONNALITÉS](#conception-et-fonctionnalites)**
+    - **[🧪 PHASE 4 : TESTING & OPTIMISATION](#phase-3--testing-et-optimisation)**
+    - **[🚀 PHASE 5 : DÉPLOIEMENT](#phase-4--deploiement)**
 - **[👨‍💻 Skies-Land - Jonathan Araldi](#skies-land---jonathan-araldi)**
 
 ---
