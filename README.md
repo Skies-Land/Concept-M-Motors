@@ -218,7 +218,7 @@ interface Vehicle {
 
     *   **[ProtectedRoute](./front-end/src/components/navigation/ProtectedRoute.tsx)** : garantit que **seules les personnes authentifiées** accèdent aux sections sensibles.
     *   **[GuestRoute](./front-end/src/components/navigation/GuestRoute.tsx)** : évite **qu'un utilisateur déjà connecté** ne retourne sur les formulaires d'authentification.
-    > 💡 *Ces composants gèrent un état de chargement `loading`. Tant que Firebase n'a pas confirmé le statut de la session, un spinner est affiché, empêchant ainsi tout affichage non désiré de contenu protégé ou de redirection prématurée.*
+    > 💡 *Ces composants gèrent un état de chargement `loading`. Tant que l'API n'a pas confirmé la validité de la session (via le token JWT), un spinner est affiché, empêchant ainsi tout affichage non désiré de contenu protégé ou de redirection prématurée.*
 
 #### **📄 AUTRES PAGES**
 * **[About-page-view](./front-end/src/pages/2-about-page/About-page-view.tsx)** : servant à afficher une brève description de l'entreprise, les services qu'elle propose et une section FAQ.
@@ -246,12 +246,12 @@ interface FAQItem {
 * **[Error-page-view](./front-end/src/pages/8-error-page/Error-page-view.tsx)** : servant à afficher une page pour informer l'utilisateur que le contenu demandé n'existe pas *(ou n'est plus référencé)* et lui propose deux solutions pour retrouver ce qu'il cherche *(Retour à l'accueil et Revenir à la page précédente)*.
 
 
-#### 📝 **CONCEPTION & FONCTIONNALITÉS**
+#### 📝 **PHASE 3 : CONCEPTION & FONCTIONNALITÉS**
 L'ensemble des fonctionnalités de l'application a été cartographié sous forme de User Stories pour garantir une expérience utilisateur cohérente et répondre aux besoins métiers.
 * **[Cartographie des User Stories](./documentation/USER_STORIES.md)**
 
 
-### 🧪 **PHASE 3 : TESTING & OPTIMISATION**
+### 🧪 **PHASE 4 : TESTING & OPTIMISATION**
 #### **Tests unitaires :**
 👉 Tests unitaires effectués sur la branche : **[feature-tests](https://github.com/Skies-Land/Concept-M-Motors/tree/feature-tests)**
 
@@ -266,7 +266,7 @@ L'application bénéficie d'une suite de tests unitaires pour garantir la fiabil
 | :--- | :--- |
 | **[Components](./front-end/src/components)** (Navigation, Design System, UI éléments) | `render()`, `screen.getBy...()`, `fireEvent.click()`, Mocks |
 | **[Pages](./front-end/src/pages)** (Landing, About, Catalog, Contact, Login, Account, Error) | `MemoryRouter`, `Routes`, `Route`, Mocks |
-| **[Functions](./front-end/src/pages/*/functions/)** (Logique métier) | Mocks complexes, `async/await`, `vi.fn()`, `vi.clearAllMocks()` |
+| **`Functions`** (Logique métier) | Mocks complexes, `async/await`, `vi.fn()`, `vi.clearAllMocks()` |
 
 J'ai structuré mes tests en suivant le **[Pattern AAA](https://learn.microsoft.com/fr-fr/visualstudio/test/unit-test-basics?view=visualstudio)**, voici ma base de code utilisé pour l'ensemble de mes tests unitaires :
 
@@ -307,12 +307,31 @@ describe("nomDuComposantATester", () => {
 Après les tests unitaires, j'ai effectué des optimisations des performances du site avec l'outil **[Lighthouse / PageSpeed Insights](https://pagespeed.web.dev/)**. Les performances, l'accessibilité et le référencement ont été optimisés sur la branche : `feature-lighthouse-optimization` avant d'être fusionnée avec la branche `main`. Voici la **[Documentation des optimisations effectuées](./documentation/LIGHTHOUSE_REPORT.md)**.
 
 
-### 🚀 **PHASE 4 : DÉPLOIEMENT**
-Le projet est déployé sur **[Netlify](https://www.netlify.com/)** avec une intégration continue (CI/CD) liée au dépôt GitHub à partir de la branche `main`.
-* **Hébergement** : Netlify (Base directory: `front-end`).
-* **Build** : Automatisation via `npm run build` et `dist`.
-* **Routage** : Support du Single Page Application (SPA) via un fichier `_redirects` dans le dossier `public` pour rediriger toutes les requêtes vers `index.html`.
-> 💡 *`_redirects` est un fichier qui permet de configurer les redirections du site. Il permet d'indiquer à Netlify de rediriger toutes les requêtes vers `index.html` pour que React Router puisse prendre le relais.*
+### 🚀 **PHASE 5 : DÉPLOIEMENT**
+
+Le déploiement de cette application Full-Stack repose sur une architecture découplée, utilisant des services spécialisés pour le Front-End et le Back-End.
+
+* **Déploiement côté front-end (Interface Client) :**
+Le projet Front-End (React/Vite) est déployé sur **[Netlify](https://www.netlify.com/)** avec une intégration continue (CI/CD) liée au dépôt GitHub à partir de la branche `main`.
+    * **Hébergement** : Netlify (Base directory: `front-end`).
+    * **Build** : Automatisation via `npm run build` et `dist`.
+    * **Routage** : Support du Single Page Application (SPA) via un fichier `_redirects` dans le dossier `public` pour rediriger toutes les requêtes vers `index.html`.
+    > 💡 *`_redirects` est un fichier qui permet de configurer les redirections du site. Il permet d'indiquer à Netlify de rediriger toutes les requêtes vers `index.html` pour que React Router puisse prendre le relais.*
+
+* **Déploiement côté back-end (Serveur API) :**
+L'API FastAPI est hébergée sur **[Render](https://render.com/)**, un service cloud optimisé pour les applications web dynamiques.
+    * **Hébergement** : Render Web Service (Root directory: `back-end`).
+    * **Build & Démarrage** : Installation automatique des dépendances (`requirements.txt`) et exécution via le serveur ASGI Uvicorn (`uvicorn app.main:app`).
+    * **Sécurité & Variables** : Configuration des variables d'environnement (URI MongoDB, Clé JWT) directement dans l'interface sécurisée de Render.
+
+* **Explication du fonctionnement technique du site :**
+Cette architecture découplée (Headless) permet à chaque partie du projet de vivre et d'évoluer indépendamment :
+    1. Lorsqu'un utilisateur visite le site, **Netlify** lui sert instantanément l'interface graphique générée par React.
+    2. Dès que l'utilisateur a besoin de données dynamiques (voir le catalogue, se connecter, modifier son profil), le Front-End envoie une requête HTTP (via `fetch`) vers l'URL de l'API hébergée sur **Render**.
+    3. L'API **FastAPI** sur Render reçoit la requête, interroge la base de données **MongoDB Atlas**, valide les informations, puis renvoie les données au format JSON.
+    4. Le Front-End met à jour l'interface en temps réel avec ces nouvelles données.
+
+L'utilisation de la variable d'environnement dynamique (`VITE_API_BASE_URL`) permet au Front-End sur Netlify de cibler automatiquement le serveur de production Render, assurant une communication fluide entre les deux environnements.
 
 
 ## 👨‍💻 Skies-Land - Jonathan Araldi
