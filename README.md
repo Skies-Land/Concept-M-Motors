@@ -231,7 +231,7 @@ interface Vehicle {
 
 #### **📄 AUTRES PAGES**
 * **[About-page-view](./front-end/src/pages/2-about-page/About-page-view.tsx)** : servant à afficher une brève description de l'entreprise, les services qu'elle propose et une section FAQ.
-    * **[Get-faq](./front-end/src/api/Get-faq.tsx)** : est la fonction de logique permettant de récupérer les questions et réponses de la section FAQ depuis l'API FastAPI. Les requêtes sont gérées côté back-end par le composant **[faqs.py](./back-end/app/api/endpoints/faqs.py)**. Cette fonction est implémentée dans le composant **[FAQ-about-page](./front-end/src/pages/2-about-page/components/4-FAQ-about-page.tsx)**.<br>
+    * **[Get-faq](./front-end/src/api/Get-faq.tsx)** : est la fonction de logique permettant de récupérer les questions et réponses de la section FAQ depuis l'API FastAPI. Les requêtes sont gérées côté back-end par le composant **[faq.py](./back-end/app/api/endpoints/faq.py)**. Cette fonction est implémentée dans le composant **[FAQ-about-page](./front-end/src/pages/2-about-page/components/4-FAQ-about-page.tsx)**.<br>
 J'ai configuré cette collection de données nommée `faqs` sur **MongoDB** avec la structure suivante :
 
 | Champ | Type | Description |
